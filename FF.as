@@ -531,6 +531,8 @@ private var stat_hint:hint;
 private var current_team_id:int;
 private var current_budget:int;
 private var current_tax:int;
+private var current_tax_b:int;
+private var current_tax_t:int;
 private var current_transfers_mass:int;
 private var current_tournament:int;
 private var is_budget_bought:int;
@@ -7774,6 +7776,9 @@ private var VKAds:Ads;
 			
 			main2_txt20.setText("Призовой фонд:     " + woff_answer.tournament.jackpot.text() + " MP");
 			
+			current_tax_b = woff_answer.paid_budget_cost_in_votes.text()*10;
+			current_tax_t = woff_answer.paid_transfers_cost_in_votes.text()*10;
+			
 			woff_general_request.url = woff_api;
 			
 			getTeam("getTeam", current_tour);
@@ -7815,6 +7820,9 @@ private var VKAds:Ads;
 			team_stat_txt9.setText("Текущий тур: №" + current_tour);
 			
 			main2_txt20.setText("Призовой фонд:     " + woff_answer.tournament.jackpot.text() + " MP");
+			
+			current_tax_b = woff_answer.paid_budget_cost_in_votes.text()*10;
+			current_tax_t = woff_answer.paid_transfers_cost_in_votes.text()*10;
 			
 			woff_general_request.url = woff_api1;
 			
@@ -7858,6 +7866,9 @@ private var VKAds:Ads;
 			
 			main2_txt20.setText("Призовой фонд:     " + woff_answer.tournament.jackpot.text() + " MP");
 			
+			current_tax_b = woff_answer.paid_budget_cost_in_votes.text()*10;
+			current_tax_t = woff_answer.paid_transfers_cost_in_votes.text()*10;
+			
 			woff_general_request.url = woff_api3;
 			
 			getTeam("getTeam", current_tour);
@@ -7900,6 +7911,9 @@ private var VKAds:Ads;
 			
 			main2_txt20.setText("Призовой фонд:     " + woff_answer.tournament.jackpot.text() + " MP");
 			
+			current_tax_b = woff_answer.paid_budget_cost_in_votes.text()*10;
+			current_tax_t = woff_answer.paid_transfers_cost_in_votes.text()*10;
+			
 			woff_general_request.url = woff_api3;
 			
 			getTeam("getTeam", current_tour);
@@ -7941,6 +7955,9 @@ private var VKAds:Ads;
 			team_stat_txt9.setText("Текущий тур: №" + current_tour);
 			
 			main2_txt20.setText("Призовой фонд:     " + woff_answer.tournament.jackpot.text() + " MP");
+			
+			current_tax_b = woff_answer.paid_budget_cost_in_votes.text()*10;
+			current_tax_t = woff_answer.paid_transfers_cost_in_votes.text()*10;
 			
 			woff_general_request.url = woff_api3;
 			
@@ -9904,7 +9921,7 @@ private var VKAds:Ads;
 			
 		private function buyBudget(e:MouseEvent):void {
 			buyBudgetTable.setTournament(current_tournament);
-			buyBudgetTable.setTax(current_tax);
+			buyBudgetTable.setTax(current_tax_b);
 			buyBudgetTable.woff_api_ = woff_general_request.url;
 			addChild(buyBudgetTable);
 					buyBudgetTable.buyBudgetOpen();
