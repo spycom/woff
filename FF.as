@@ -97,6 +97,7 @@ private var input:Loader;
 private var input2:Loader;
 private var select:Loader;
 private var select2:Loader;
+private var select_leaders:Loader;
 private var select_st:Loader;
 private var scroll:Loader;
 private var scroll2:Loader;
@@ -811,7 +812,8 @@ private var VKAds:Ads;
 		liders = new Loader();
 		liders.load(new URLRequest(serv + "img3/liders.png"));
 		liders.x = 10;
-		liders.y = 120;
+		liders.y = 140;
+		liders.scaleY = 0.95;
 		liders.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		
 		// кнопки
@@ -940,7 +942,7 @@ private var VKAds:Ads;
 		// список лидеров турнира
 		liders_list = new Sprite();
 		liders_list.x = 15;
-		liders_list.y = 125;
+		liders_list.y = 135;
 		//liders_list.addEventListener(MouseEvent.CLICK, footmanEvent);
 		liders_list.scrollRect = new Rectangle(0, 0, 200, 315);
 		
@@ -1013,6 +1015,15 @@ private var VKAds:Ads;
 		select2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		select2.addEventListener(MouseEvent.CLICK, dropdowm_menu2);
 		
+		
+		//выбор тура для списка лидеров
+		select_leaders = new Loader();
+		select_leaders.load(new URLRequest(serv + "img3/select.png"));
+		select_leaders.x = 10;
+		select_leaders.y = 115;
+		select_leaders.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		select_leaders.addEventListener(MouseEvent.CLICK, dropdowm_menu_leaders);
+		
 		select_st = new Loader();
 		select_st.load(new URLRequest(serv + "img3/select.png"));
 		select_st.x = 200;
@@ -1020,18 +1031,20 @@ private var VKAds:Ads;
 		select_st.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		select_st.addEventListener(MouseEvent.CLICK, dropdowm_menu3);
 		
+		
 		// направляющая полоска скролла
 		scroll = new Loader();
 		scroll.load(new URLRequest(serv + "img3/scroll.png"));
 		scroll.x = 200;
-		scroll.y = 123;
+		scroll.y = 143;
+		scroll.scaleY = 0.95;
 		scroll.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		
 		// сам скролл на списке лидеров
 		scroll2 = new Loader();
 		scroll2.load(new URLRequest(serv + "img3/scroll2.png"));
 		scroll2.x = 195;
-		scroll2.y = 127;
+		scroll2.y = 147;
 		scroll2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		scroll2.addEventListener(MouseEvent.MOUSE_DOWN, scrolldownEvent);
 		scroll2.addEventListener(MouseEvent.MOUSE_UP, scrollupEvent);
@@ -1542,7 +1555,7 @@ private var VKAds:Ads;
 		//rules_txt2.scrollRect = new Rectangle(0, 0, 615, 345);
 		test = new text(120, 100, "test", "2");
 		
-		main1_txt1 = new text(20, 105, "ЛИДЕРЫ ТУРНИРА", "1");
+		main1_txt1 = new text(20, 100, "ЛИДЕРЫ ТУРНИРА", "1");
 		main1_txt2 = new text(230, 105, "ТЕКУЩИЙ СОСТАВ ЗАЯВКИ", "1");
 		main1_txt3 = new text(430, 105, "ЛЮБИМЫЙ КЛУБ", "1");
 		main1_txt4 = new text(430, 210, "ВВЕДИТЕ НАЗВАНИЕ КОМАНДЫ", "1");
@@ -4898,7 +4911,7 @@ private var VKAds:Ads;
 			main3.addChild(button2);
 			
 			main3.addChild(button4);
-			
+			main3.addChild(select_leaders);
 			main3.addChild(liders);
 			main3.addChild(liders_list);
 			main3.addChild(profile);
@@ -4992,6 +5005,7 @@ private var VKAds:Ads;
 			main4.addChild(button2);
 			main4.addChild(button3);
 			main4.addChild(liders);
+			main4.addChild(select_leaders);
 			main4.addChild(main1_txt1);
 			main4.addChild(liders_list);
 			main4.addChild(profile);
@@ -5806,7 +5820,7 @@ private var VKAds:Ads;
 			//transfer.addChild(transfer_txt);
 			player_liga.addChild(main1_txt1);
 			
-			 
+			player_liga.addChild(select_leaders);
 			player_liga.addChild(liders_list);
 			player_liga.addChild(profile);
 			player_liga.addChild(liga2);
@@ -8327,9 +8341,15 @@ private var VKAds:Ads;
 				dropdown_menu_sprite2.x = 14;
 				dropdown_menu_sprite2.y = 100;
 				dropdown_menu_sprite2.addChild(main2_txt25);
+					addChild(dropdown_menu_sprite2);
 				
-				//dropdown_menu_sprite2.addChild(dropdowmmenu_png);
-				addChild(dropdown_menu_sprite2);
+			}
+			
+			public function dropdowm_menu_leaders(e:MouseEvent):void {
+				dropdown_menu_sprite2.x = 10;
+				dropdown_menu_sprite2.y = 115;
+				dropdown_menu_sprite2.addChild(main2_txt25);
+					addChild(dropdown_menu_sprite2);
 				
 			}
 			
