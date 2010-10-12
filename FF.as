@@ -543,6 +543,7 @@ private var buyBudgetTable:buyBudgetTableClass;
 private var welcomeMessage:WelcomeMsg;
 private var firstManual:firstManualHint;
 private var VKAds:Ads;
+private var page_button:Array;
 
 	public function FF() {
 		
@@ -1031,6 +1032,16 @@ private var VKAds:Ads;
 		select_st.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		select_st.addEventListener(MouseEvent.CLICK, dropdowm_menu3);
 		
+		// кнопки страниц списка лидеров
+		page_button = new Array();
+		for (var button=0; button < 5; button++) {
+			page_button[button] = new Loader();
+			page_button[button].load(new URLRequest(serv + "img5/page.png"));
+			page_button[button].x = 10+button*34;
+			page_button[button].y = 115;
+			page_button[button].contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		//page1.addEventListener(MouseEvent.CLICK, dropdowm_menu3);
+		}
 		
 		// направляющая полоска скролла
 		scroll = new Loader();
@@ -1455,6 +1466,8 @@ private var VKAds:Ads;
 		//textFormatBlack.bold = true;
 		textFormatBlack.size = 9;
 		textFormatBlack.color = 0x696969;
+		 
+		 
 		
 		 
 		 
@@ -3801,7 +3814,9 @@ private var VKAds:Ads;
 			main1.addChild(main1_txt6);
 			main1.addChild(main1_txt7);
 			main1.addChild(main1_txt8);
-			
+			for (var buttons = 0; buttons < 5 ; buttons++) {
+				main1.addChild(page_button[buttons]);
+				}
 			main1.addChild(select);
 			main1.addChild(liga);
 			main1.addChild(liders_list);
@@ -3937,6 +3952,7 @@ private var VKAds:Ads;
 			main2.addChild(button_blue_alpha);
 			
 			
+				
 			main2.addChild(footman_list);
 			main2.addChild(main2_txt6);
 			main2.addChild(main2_txt7);
