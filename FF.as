@@ -271,6 +271,7 @@ private var main3_txt7:text;
 private var main3_txt8:text;
 private var main3_txt8_:text;
 private var main3_txt_inv:text;
+private var select_leaders_tour_txt:text;
 
 private var main4_txt1:text;
 		
@@ -943,7 +944,7 @@ private var page_button:Array;
 		// список лидеров турнира
 		liders_list = new Sprite();
 		liders_list.x = 15;
-		liders_list.y = 135;
+		liders_list.y = 139;
 		//liders_list.addEventListener(MouseEvent.CLICK, footmanEvent);
 		liders_list.scrollRect = new Rectangle(0, 0, 200, 315);
 		
@@ -1034,7 +1035,7 @@ private var page_button:Array;
 		
 		// кнопки страниц списка лидеров
 		page_button = new Array();
-		for (var button=0; button < 5; button++) {
+		for (var button=0; button < 6; button++) {
 			page_button[button] = new Loader();
 			page_button[button].load(new URLRequest(serv + "img5/page.png"));
 			page_button[button].x = 10+button*34;
@@ -1566,7 +1567,7 @@ private var page_button:Array;
 		//rules_txt2.x = 25;
 		//rules_txt2.y = 120;
 		//rules_txt2.scrollRect = new Rectangle(0, 0, 615, 345);
-		test = new text(120, 100, "test", "2");
+		test = new text(120, 100, "", "2");
 		
 		main1_txt1 = new text(20, 100, "ЛИДЕРЫ ТУРНИРА", "1");
 		main1_txt2 = new text(230, 105, "ТЕКУЩИЙ СОСТАВ ЗАЯВКИ", "1");
@@ -1634,6 +1635,8 @@ private var page_button:Array;
 		main3_txt8 = new text( 320, 170, "Лига друзей это круто! В данной лиге учавствуют все Ваши друзья. сейчас в разработке, но следите за новостями... !", "6");
 		main3_txt8_ = new text( 320, 170, "Общий зачёт! сейчас в разработке, но следите за новостями... !", "6");
 		main3_txt_inv = new text( 470, 263, "Пригласить друзей", "4");
+		select_leaders_tour_txt = new text(20, 118, "Выберите тур", "2");
+		
 		main4_txt1 = new text( 320, 130, "Общий зачёт", "2");
 		
 		main2_txt7.addEventListener(MouseEvent.CLICK, team_statEvent);
@@ -1643,6 +1646,8 @@ private var page_button:Array;
 		main3_txt5.addEventListener(MouseEvent.CLICK, enterLeague);
 		main3_txt5_.addEventListener(MouseEvent.CLICK, leaveLeague);
 		main3_txt_inv.addEventListener(MouseEvent.CLICK, inviteFriends);
+		
+		select_leaders_tour_txt.addEventListener(MouseEvent.CLICK, dropdowm_menu_leaders);
 		
 		// кнопка турниров
 		
@@ -2819,6 +2824,7 @@ private var page_button:Array;
 			main1.addChild(main1_txt6);
 			main1.addChild(main1_txt7);
 			main1.addChild(main1_txt8);
+				addLeadersButtons();
 			main1.addChild(select);
 			main1.addChild(liga);
 			main1.addChild(liders_list);
@@ -2957,6 +2963,7 @@ private var page_button:Array;
 			main1.addChild(main1_txt6);
 			main1.addChild(main1_txt7);
 			main1.addChild(main1_txt8);
+				addLeadersButtons();
 			main1.addChild(select);
 			main1.addChild(liga);
 			main1.addChild(liders_list);
@@ -3094,6 +3101,7 @@ private var page_button:Array;
 			main1.addChild(main1_txt6);
 			main1.addChild(main1_txt7);
 			main1.addChild(main1_txt8);
+				addLeadersButtons();
 			main1.addChild(select);
 			main1.addChild(liga);
 			main1.addChild(liders_list);
@@ -3240,6 +3248,7 @@ private var page_button:Array;
 			main1.addChild(main1_txt6);
 			main1.addChild(main1_txt7);
 			main1.addChild(main1_txt8);
+				addLeadersButtons();
 			main1.addChild(select);
 			main1.addChild(liga);
 			main1.addChild(liders_list);
@@ -3387,6 +3396,7 @@ private var page_button:Array;
 			main1.addChild(main1_txt6);
 			main1.addChild(main1_txt7);
 			main1.addChild(main1_txt8);
+				addLeadersButtons();
 			main1.addChild(select);
 			main1.addChild(liga);
 			main1.addChild(liders_list);
@@ -3814,9 +3824,7 @@ private var page_button:Array;
 			main1.addChild(main1_txt6);
 			main1.addChild(main1_txt7);
 			main1.addChild(main1_txt8);
-			for (var buttons = 0; buttons < 5 ; buttons++) {
-				main1.addChild(page_button[buttons]);
-				}
+				addLeadersButtons();
 			main1.addChild(select);
 			main1.addChild(liga);
 			main1.addChild(liders_list);
@@ -4928,6 +4936,7 @@ private var page_button:Array;
 			
 			main3.addChild(button4);
 			main3.addChild(select_leaders);
+			main3.addChild(select_leaders_tour_txt);
 			main3.addChild(liders);
 			main3.addChild(liders_list);
 			main3.addChild(profile);
@@ -5022,6 +5031,7 @@ private var page_button:Array;
 			main4.addChild(button3);
 			main4.addChild(liders);
 			main4.addChild(select_leaders);
+			main4.addChild(select_leaders_tour_txt);
 			main4.addChild(main1_txt1);
 			main4.addChild(liders_list);
 			main4.addChild(profile);
@@ -7803,6 +7813,7 @@ private var page_button:Array;
 			
 			main2_txt24.setText("Текущий тур: №" + current_tour);
 			team_stat_txt9.setText("Текущий тур: №" + current_tour);
+			select_leaders_tour_txt.setText("Текущий тур: №" + current_tour);
 			
 			main2_txt20.setText("Призовой фонд:     " + woff_answer.tournament.jackpot.text() + " MP");
 			
@@ -7848,6 +7859,7 @@ private var page_button:Array;
 			}
 			main2_txt24.setText("Текущий тур: №" + current_tour);
 			team_stat_txt9.setText("Текущий тур: №" + current_tour);
+			select_leaders_tour_txt.setText("Текущий тур: №" + current_tour);
 			
 			main2_txt20.setText("Призовой фонд:     " + woff_answer.tournament.jackpot.text() + " MP");
 			
@@ -7893,11 +7905,13 @@ private var page_button:Array;
 			}
 			main2_txt24.setText("Текущий тур: №" + current_tour);
 			team_stat_txt9.setText("Текущий тур: №" + current_tour);
+			select_leaders_tour_txt.setText("Текущий тур: №" + current_tour);
 			
 			main2_txt20.setText("Призовой фонд:     " + woff_answer.tournament.jackpot.text() + " MP");
 			
 			current_tax_b = woff_answer.paid_budget_cost_in_votes.text()*10;
 			current_tax_t = woff_answer.paid_transfers_cost_in_votes.text()*10;
+			select_leaders_tour_txt.setText("Текущий тур: №" + current_tour);
 			
 			woff_general_request.url = woff_api3;
 			
@@ -7943,6 +7957,7 @@ private var page_button:Array;
 			
 			current_tax_b = woff_answer.paid_budget_cost_in_votes.text()*10;
 			current_tax_t = woff_answer.paid_transfers_cost_in_votes.text()*10;
+			select_leaders_tour_txt.setText("Текущий тур: №" + current_tour);
 			
 			woff_general_request.url = woff_api3;
 			
@@ -7983,6 +7998,7 @@ private var page_button:Array;
 			}
 			main2_txt24.setText("Текущий тур: №" + current_tour);
 			team_stat_txt9.setText("Текущий тур: №" + current_tour);
+			select_leaders_tour_txt.setText("Текущий тур: №" + current_tour);
 			
 			main2_txt20.setText("Призовой фонд:     " + woff_answer.tournament.jackpot.text() + " MP");
 			
@@ -8449,6 +8465,7 @@ private var page_button:Array;
 				//main2.removeChild(main2_txt24);
 				main2_txt24.setText(e.target.text);
 				team_stat_txt9.setText(e.target.text);
+				select_leaders_tour_txt.setText(e.target.text);
 				//main2.addChild(main2_txt24);
 				//main1_txt24 = new text (435, 123, e.target.text, "2");
 				removeChild(dropdown_menu_sprite2);
@@ -8517,44 +8534,32 @@ private var page_button:Array;
 				
 				// ебаная схема скролла!!!!
 				
-				//e.target.y += (mouseY - yy__);
 				scroll2.y += (mouseY - yy__);
 				
-				if (scroll2.y >= 127 && scroll2.y <= 387) {
+				if (scroll2.y >= 147 && scroll2.y <= 389) {
 					
 					var rect:Rectangle = liders_list.scrollRect;
-				
 					rect.y += ((mouseY - yy__)/260*4900);
-				
 					liders_list.scrollRect = rect;
-					
 					yy__ = mouseY;
 				}
 				
 				
-				if (scroll2.y < 127) {
-					
+				if (scroll2.y < 147) {
 					
 					var rect:Rectangle = liders_list.scrollRect;
-				
 					rect.y = 0;
-					
 					liders_list.scrollRect = rect;
-					
-					scroll2.y = 127;
+					scroll2.y = 147;
 					
 				}
 				
-				if (scroll2.y > 387) {
-					
+				if (scroll2.y > 389) {
 					
 					var rect:Rectangle = liders_list.scrollRect;
-				
-					rect.y += (((mouseY - yy__)-(scroll2.y - 387))/260*4900);
-				
+					rect.y += (((mouseY - yy__)-(scroll2.y - 389))/260*4900);
 					liders_list.scrollRect = rect;
-					
-					scroll2.y = 387;
+					scroll2.y = 389;
 				}
 				
 				////////////////////////////
@@ -10119,6 +10124,17 @@ private var page_button:Array;
 		}
 		public function setMP():void {
 			all_txt4.setText("ololo");
+		}
+		
+		public function addLeadersButtons():void {
+			for (var buttons = 0; buttons < 6 ; buttons++) {
+				main1.addChild(page_button[buttons]);
+				}
+			var page_button_text = new Array();
+			for (var button_txt=0; button_txt < 6; button_txt++) {
+				page_button_text[button_txt] = new text(20+button_txt*34, 118, String(button_txt+1), "2");
+					main1.addChild(page_button_text[button_txt]);
+			}
 		}
 }
 }
