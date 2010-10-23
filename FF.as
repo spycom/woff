@@ -545,6 +545,7 @@ private var welcomeMessage:WelcomeMsg;
 private var firstManual:firstManualHint;
 private var VKAds:Ads;
 private var page_button:Array;
+private var page_button_sprite:Array;
 
 	public function FF() {
 		
@@ -1034,6 +1035,7 @@ private var page_button:Array;
 		select_st.addEventListener(MouseEvent.CLICK, dropdowm_menu3);
 		
 		// кнопки страниц списка лидеров
+		page_button_sprite = new Array();
 		page_button = new Array();
 		for (var button=0; button < 6; button++) {
 			page_button[button] = new Loader();
@@ -1041,6 +1043,12 @@ private var page_button:Array;
 			page_button[button].x = 10+button*34;
 			page_button[button].y = 115;
 			page_button[button].contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+			
+			page_button_sprite[button] = new Sprite();
+			page_button_sprite[button].addEventListener(MouseEvent.MOUSE_OVER, page_buttonOvernEvent);
+			page_button_sprite[button].addEventListener(MouseEvent.MOUSE_OUT, page_buttonOutEvent);
+			
+			page_button_sprite[button].addChild(page_button[button]);
 		//page1.addEventListener(MouseEvent.CLICK, dropdowm_menu3);
 		}
 		
@@ -5775,6 +5783,8 @@ private var page_button:Array;
 			removeChild(transfer);
 		}
 		
+		window = "player_liga";
+		
 		main3_txt1.setText(e.currentTarget.txt());
 		var current_liga_id:int = e.currentTarget.id;
 		
@@ -5803,7 +5813,7 @@ private var page_button:Array;
 		var rect:Rectangle = liders_list.scrollRect;
 		rect.y = 0;
 		liders_list.scrollRect = rect;
-			scroll2.y = 125;			
+			scroll2.y = 147;			
 		
 		window = "player_liga";
 		addChild(player_liga);
@@ -7817,8 +7827,8 @@ private var page_button:Array;
 			
 			main2_txt20.setText("Призовой фонд:     " + woff_answer.tournament.jackpot.text() + " MP");
 			
-			current_tax_b = woff_answer.paid_budget_cost_in_votes.text()*10;
-			current_tax_t = woff_answer.paid_transfers_cost_in_votes.text()*10;
+			current_tax_b = woff_answer.tournament.paid_budget_cost_in_votes.text()*10;
+			current_tax_t = woff_answer.tournament.paid_transfers_cost_in_votes.text()*10;
 			
 			woff_general_request.url = woff_api;
 			
@@ -7845,6 +7855,8 @@ private var page_button:Array;
 			
 			// генерация выпадающего меню с турами
 			var tour_array:Array = new Array();
+				dropdown_menu_sprite2 = new Sprite();
+				dropdown_menu_sprite2.scrollRect = new Rectangle(0, 0, 210, 350);
 				dropdown_menu_sprite2.addChild(dropdowmmenu_png2);
 			for (var tour:int=0; tour<current_tour; tour++) {
 			
@@ -7863,8 +7875,8 @@ private var page_button:Array;
 			
 			main2_txt20.setText("Призовой фонд:     " + woff_answer.tournament.jackpot.text() + " MP");
 			
-			current_tax_b = woff_answer.paid_budget_cost_in_votes.text()*10;
-			current_tax_t = woff_answer.paid_transfers_cost_in_votes.text()*10;
+			current_tax_b = woff_answer.tournament.paid_budget_cost_in_votes.text()*10;
+			current_tax_t = woff_answer.tournament.paid_transfers_cost_in_votes.text()*10;
 			
 			woff_general_request.url = woff_api1;
 			
@@ -7891,6 +7903,8 @@ private var page_button:Array;
 			
 			// генерация выпадающего меню с турами
 			var tour_array:Array = new Array();
+				dropdown_menu_sprite2 = new Sprite();
+				dropdown_menu_sprite2.scrollRect = new Rectangle(0, 0, 210, 350);
 				dropdown_menu_sprite2.addChild(dropdowmmenu_png2);
 			for (var tour:int=0; tour<current_tour; tour++) {
 			
@@ -7909,9 +7923,9 @@ private var page_button:Array;
 			
 			main2_txt20.setText("Призовой фонд:     " + woff_answer.tournament.jackpot.text() + " MP");
 			
-			current_tax_b = woff_answer.paid_budget_cost_in_votes.text()*10;
-			current_tax_t = woff_answer.paid_transfers_cost_in_votes.text()*10;
-			select_leaders_tour_txt.setText("Текущий тур: №" + current_tour);
+			current_tax_b = woff_answer.tournament.paid_budget_cost_in_votes.text()*10;
+			current_tax_t = woff_answer.tournament.paid_transfers_cost_in_votes.text()*10;
+			//select_leaders_tour_txt.setText("Текущий тур: №" + current_tour);
 			
 			woff_general_request.url = woff_api3;
 			
@@ -7938,6 +7952,8 @@ private var page_button:Array;
 			
 			// генерация выпадающего меню с турами
 			var tour_array:Array = new Array();
+				dropdown_menu_sprite2 = new Sprite();
+				dropdown_menu_sprite2.scrollRect = new Rectangle(0, 0, 210, 350);
 				dropdown_menu_sprite2.addChild(dropdowmmenu_png2);
 			for (var tour:int=0; tour<current_tour; tour++) {
 			
@@ -7947,17 +7963,20 @@ private var page_button:Array;
 				tour_array[tour].addEventListener(MouseEvent.CLICK, setTourEvent);
 				if (current_tour > 5) {
 					dropdowmmenu_png2.scaleY = 1 + (current_tour-5)/7;
+				} else {
+					dropdowmmenu_png2.scaleY = 1.1;
 				}
 				dropdown_menu_sprite2.addChild(tour_array[tour]);
 			}
 			main2_txt24.setText("Текущий тур: №" + current_tour);
 			team_stat_txt9.setText("Текущий тур: №" + current_tour);
+			select_leaders_tour_txt.setText("Текущий тур: №" + current_tour);
 			
 			main2_txt20.setText("Призовой фонд:     " + woff_answer.tournament.jackpot.text() + " MP");
 			
-			current_tax_b = woff_answer.paid_budget_cost_in_votes.text()*10;
-			current_tax_t = woff_answer.paid_transfers_cost_in_votes.text()*10;
-			select_leaders_tour_txt.setText("Текущий тур: №" + current_tour);
+			current_tax_b = woff_answer.tournament.paid_budget_cost_in_votes.text()*10;
+			current_tax_t = woff_answer.tournament.paid_transfers_cost_in_votes.text()*10;
+			
 			
 			woff_general_request.url = woff_api3;
 			
@@ -7984,6 +8003,8 @@ private var page_button:Array;
 			
 			// генерация выпадающего меню с турами
 			var tour_array:Array = new Array();
+				dropdown_menu_sprite2 = new Sprite();
+				dropdown_menu_sprite2.scrollRect = new Rectangle(0, 0, 210, 350);
 				dropdown_menu_sprite2.addChild(dropdowmmenu_png2);
 			for (var tour:int=0; tour<current_tour; tour++) {
 			
@@ -8002,8 +8023,8 @@ private var page_button:Array;
 			
 			main2_txt20.setText("Призовой фонд:     " + woff_answer.tournament.jackpot.text() + " MP");
 			
-			current_tax_b = woff_answer.paid_budget_cost_in_votes.text()*10;
-			current_tax_t = woff_answer.paid_transfers_cost_in_votes.text()*10;
+			current_tax_b = woff_answer.tournament.paid_budget_cost_in_votes.text()*10;
+			current_tax_t = woff_answer.tournament.paid_transfers_cost_in_votes.text()*10;
 			
 			woff_general_request.url = woff_api3;
 			
@@ -9963,6 +9984,7 @@ private var page_button:Array;
 		private function buyBudget(e:MouseEvent):void {
 			buyBudgetTable.setTournament(current_tournament);
 			buyBudgetTable.setTax(current_tax_b);
+			//buyBudgetTable.setTax(666);
 			buyBudgetTable.woff_api_ = woff_general_request.url;
 			addChild(buyBudgetTable);
 					buyBudgetTable.buyBudgetOpen();
@@ -10128,13 +10150,27 @@ private var page_button:Array;
 		
 		public function addLeadersButtons():void {
 			for (var buttons = 0; buttons < 6 ; buttons++) {
-				main1.addChild(page_button[buttons]);
+				main1.addChild(page_button_sprite[buttons]);
 				}
 			var page_button_text = new Array();
 			for (var button_txt=0; button_txt < 6; button_txt++) {
 				page_button_text[button_txt] = new text(20+button_txt*34, 118, String(button_txt+1), "2");
-					main1.addChild(page_button_text[button_txt]);
+				page_button_text[button_txt].setId(button_txt);
+				page_button_text[button_txt].addEventListener(MouseEvent.MOUSE_OVER, page_button_textOverEvent);
+				//page_button_text[button_txt].
+					page_button_sprite[button_txt].addChild(page_button_text[button_txt]);
 			}
+		}
+		
+		public function page_buttonOvernEvent(e:MouseEvent):void {
+			e.target.filters = [myBevel];
+		}
+		public function page_buttonOutEvent(e:MouseEvent):void {
+			e.target.filters = [];
+		}
+		public function page_button_textOverEvent(e:MouseEvent):void {
+			page_button[e.currentTarget.id].filters = [myBevel];
+			
 		}
 }
 }
