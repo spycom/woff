@@ -20,6 +20,7 @@ package {
 	import data.WelcomeMsg;
 	import data.firstManualHint;
 	import data.Ads;
+	import data.SaveOffer;
 	import flash.display.*;
 	import flash.events.*;
 	import flash.filters.*;
@@ -932,7 +933,7 @@ private var page_button_sprite:Array;
 		field.y = 130;
 		field.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		field.contentLoaderInfo.addEventListener(Event.COMPLETE, backgroundComplete);
-		field.addEventListener(MouseEvent.CLICK, drawFieldEvent);
+		//field.addEventListener(MouseEvent.CLICK, drawFieldEvent);
 		
 		camera = new Loader();
 		camera.load(new URLRequest("http://dl.dropbox.com/u/6044249/camera.png"));
@@ -940,7 +941,9 @@ private var page_button_sprite:Array;
 		camera.y = 350;
 		camera.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		camera.addEventListener(MouseEvent.CLICK, drawFieldEvent);
-		//camera.addEventListener(MouseEvent.MOUSE_OVER, drawFieldOver);
+		camera.addEventListener(MouseEvent.MOUSE_OVER, drawFieldOver);
+		camera.addEventListener(MouseEvent.MOUSE_OUT, drawFieldOut);
+		
 		
 		// список лидеров турнира
 		liders_list = new Sprite();
@@ -10139,11 +10142,25 @@ private var page_button_sprite:Array;
 			croppedBD.dispose();
 			 * 
 			 */
-			var fil:FileReference = new FileReference();
+			//var fil:FileReference = new FileReference();
 			main2.removeChild(camera);
-			fil.save(brr, "FantasyTeam.png");
-			//
+			
+			var SaveOfferWindow = new SaveOffer(brr, woff_uid, 1876444, "wYwyVoIa72", wrapper, champ);
+				addChild(SaveOfferWindow);
+			
+			// !!!!!!!!!!!!!
+			//fil.save(brr, "FantasyTeam.png");
+			
 		}
+		
+		public function drawFieldOver(e:MouseEvent):void {
+			camera.filters = [myGlow];
+			//camera.x += 20;
+		}
+		public function drawFieldOut(e:MouseEvent):void {
+			camera.filters = [];
+		}
+		
 		public function setMP():void {
 			all_txt4.setText("ololo");
 		}
