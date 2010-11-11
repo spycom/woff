@@ -4996,10 +4996,12 @@ private var page_button_sprite:Array;
 			removeChild(transfer);
 		}
 		
-		setMethod("getLeaders");
-			var woff_Leaders_loader:URLLoader = new URLLoader();
-			woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
-			woff_Leaders_loader.load(woff_general_request);
+		//setMethod("getLeaders");
+		
+			//var woff_Leaders_loader:URLLoader = new URLLoader();
+			//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
+			//woff_Leaders_loader.load(woff_general_request);
+		getLeaders(1, current_new_tour);
 		
 		setMethod("getAllLeagues");
 			var woff_AllLeagues_loader:URLLoader = new URLLoader();
@@ -8891,6 +8893,46 @@ private var page_button_sprite:Array;
 				
 				////////////////////////////
 			}
+			///////////
+			public function newRequest(method:String):void {
+				var time:Date = new Date();
+				var params:Object = {method: method, time:time, id_tm: current_tournament};
+				
+			}
+			
+			// метод запроса списка лидеров
+			public function getLeaders(part:int, tour:int):void {
+				var time:Date = new Date();
+				var params:Object = {method: "getLeaders", time:time, id_tm: current_tournament, part:part, tour:tour};
+				
+				var keys:Array = new Array();
+				for (var k:String in params)
+					keys.push(k);
+				keys.sort();
+				woff_sig = String(woff_uid);			
+					for (var i:int = 0; i < keys.length; i++)
+						woff_sig = woff_sig + keys[i] + "=" + params[keys[i]];
+						
+				woff_sig = woff_sig + "DuIP8H5HnE";
+				
+				//params.test = woff_sig;
+				
+				woff_sig = MD5.encrypt(woff_sig); // используем метод hash класса md5 и получаем сигнатуру
+				
+				params.sig = String(woff_sig);
+				params.uid = String(woff_uid);
+					
+				
+				woff_general_request.data = new URLVariables();
+				
+  				for (var k:String in params)
+					woff_general_request.data[k] = params[k];
+					
+				var woff_Leaders_loader:URLLoader = new URLLoader();
+				woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
+				woff_Leaders_loader.load(woff_general_request);
+				
+			}
 			// сборка запроса с методом
 			public function setMethod(method:String):void {
 				var time:Date = new Date();
@@ -10174,6 +10216,8 @@ private var page_button_sprite:Array;
 				page_button_text[button_txt] = new text(20+button_txt*34, 118, String(button_txt+1), "2");
 				page_button_text[button_txt].setId(button_txt);
 				page_button_text[button_txt].addEventListener(MouseEvent.MOUSE_OVER, page_button_textOverEvent);
+				page_button_text[button_txt].addEventListener(MouseEvent.CLICK, page_button_textClickEvent);
+				
 				//page_button_text[button_txt].
 					page_button_sprite[button_txt].addChild(page_button_text[button_txt]);
 			}
@@ -10187,6 +10231,10 @@ private var page_button_sprite:Array;
 		}
 		public function page_button_textOverEvent(e:MouseEvent):void {
 			page_button[e.currentTarget.id].filters = [myBevel];
+			
+		}
+		public function page_button_textClickEvent(e:MouseEvent):void {
+			getLeaders(e.currentTarget.id+1, current_new_tour);
 			
 		}
 }
