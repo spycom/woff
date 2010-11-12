@@ -2758,12 +2758,13 @@ private var page_button_sprite:Array;
 		woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
 		woff_Team_loader.load(woff_general_request);
 		
-		setMethod("getLeaders");
+		//setMethod("getLeaders");
 		
-		var woff_Leaders_loader:URLLoader = new URLLoader();
-		woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
-		woff_Leaders_loader.load(woff_general_request);
-		
+		//var woff_Leaders_loader:URLLoader = new URLLoader();
+		//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
+		//woff_Leaders_loader.load(woff_general_request);
+			getLeaders(1, current_new_tour);
+			
 		setMethod("getSaveDate");
 		
 		var woff_time_loader:URLLoader = new URLLoader();
@@ -2898,12 +2899,13 @@ private var page_button_sprite:Array;
 		woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
 		woff_Team_loader.load(woff_general_request);
 		
-		setMethod("getLeaders");
+		//setMethod("getLeaders");
 		
-		var woff_Leaders_loader:URLLoader = new URLLoader();
-		woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
-		woff_Leaders_loader.load(woff_general_request);
-		
+		//var woff_Leaders_loader:URLLoader = new URLLoader();
+		//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
+		//woff_Leaders_loader.load(woff_general_request);
+			getLeaders(1, current_new_tour);
+			
 		setMethod("getSaveDate");
 		
 		var woff_time_loader:URLLoader = new URLLoader();
@@ -3035,12 +3037,13 @@ private var page_button_sprite:Array;
 		woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
 		woff_Team_loader.load(woff_general_request);
 		
-		setMethod("getLeaders");
+		//setMethod("getLeaders");
 		
-		var woff_Leaders_loader:URLLoader = new URLLoader();
-		woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
-		woff_Leaders_loader.load(woff_general_request);
-		
+		//var woff_Leaders_loader:URLLoader = new URLLoader();
+		//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
+		//woff_Leaders_loader.load(woff_general_request);
+			getLeaders(1, current_new_tour);
+			
 		setMethod("getSaveDate");
 		
 		var woff_time_loader:URLLoader = new URLLoader();
@@ -3182,12 +3185,13 @@ private var page_button_sprite:Array;
 		woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
 		woff_Team_loader.load(woff_general_request);
 		
-		setMethod("getLeaders");
+		//setMethod("getLeaders");
 		
-		var woff_Leaders_loader:URLLoader = new URLLoader();
-		woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
-		woff_Leaders_loader.load(woff_general_request);
-		
+		//var woff_Leaders_loader:URLLoader = new URLLoader();
+		//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
+		//woff_Leaders_loader.load(woff_general_request);
+			getLeaders(1, current_new_tour);
+			
 		setMethod("getSaveDate");
 		
 		var woff_time_loader:URLLoader = new URLLoader();
@@ -3330,12 +3334,13 @@ private var page_button_sprite:Array;
 		woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
 		woff_Team_loader.load(woff_general_request);
 		
-		setMethod("getLeaders");
+		//setMethod("getLeaders");
 		
-		var woff_Leaders_loader:URLLoader = new URLLoader();
-		woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
-		woff_Leaders_loader.load(woff_general_request);
-		
+		//var woff_Leaders_loader:URLLoader = new URLLoader();
+		//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
+		//woff_Leaders_loader.load(woff_general_request);
+			getLeaders(1, current_new_tour);
+			
 		setMethod("getSaveDate");
 		
 		var woff_time_loader:URLLoader = new URLLoader();
@@ -3763,11 +3768,12 @@ private var page_button_sprite:Array;
 		woff_checkteam_loader.load(woff_general_request);
 		
 		
-		setMethod("getLeaders");
+		//setMethod("getLeaders");
 		
-		var woff_Leaders_loader:URLLoader = new URLLoader();
-		woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
-		woff_Leaders_loader.load(woff_general_request);
+		//var woff_Leaders_loader:URLLoader = new URLLoader();
+		//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
+		//woff_Leaders_loader.load(woff_general_request);
+			getLeaders(1, current_new_tour);
 		
 		setMethod("getMyLeagues");
 		
@@ -8503,6 +8509,8 @@ private var page_button_sprite:Array;
 				var woff_Team_loader:URLLoader = new URLLoader();
 				woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
 				woff_Team_loader.load(woff_general_request);
+				
+				getLeaders(1, current_new_tour);
 				
 				getTeamStats(e.currentTarget.id);
 				
