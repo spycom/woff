@@ -228,7 +228,7 @@ public var wrapper: Object;
 		
 		}
 		private function loadUploadServerPhotoComplete(e:Event):void {
-			SaveCloseText.setText(e.target.data);
+			//SaveCloseText.setText(e.target.data);
 			
 			var answer= new XML(e.target.data);
 			
@@ -270,8 +270,8 @@ public var wrapper: Object;
 		
 		}
 		private function doIt(e:MouseEvent):void {
-			//loader.load(request);
-			loader2.load(request2);
+			loader.load(request);
+			//loader2.load(request2);
 		}
 		private function loadPhotoComplete(e:Event):void {
 			var json_data:Object=JSON.decode(e.target.data);
@@ -328,7 +328,7 @@ public var wrapper: Object;
 		private function loadAlbumPhotoComplete(e:Event):void {
 			var json_data:Object=JSON.decode(e.target.data);
 			
-			SaveCloseText.setText(e.target.data);
+			//SaveCloseText.setText(e.target.data);
 			
 			var test_mode:Number = 0;
 		

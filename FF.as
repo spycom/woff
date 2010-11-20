@@ -21,6 +21,7 @@ package {
 	import data.firstManualHint;
 	import data.Ads;
 	import data.SaveOffer;
+	import data.LeadersPartButton;
 	import flash.display.*;
 	import flash.events.*;
 	import flash.filters.*;
@@ -522,6 +523,7 @@ private var champ:String;
 private var zope1:int;
 private	var zope2:int;
 private	var zope3:int;
+private var footman_stat_tour:Array;
 private	var footman_stat_array:Array;
 private	var footman_stat_res:Array;
 private	var footman_stat_points:Array;
@@ -546,7 +548,7 @@ private var welcomeMessage:WelcomeMsg;
 private var firstManual:firstManualHint;
 private var VKAds:Ads;
 private var page_button:Array;
-private var page_button_sprite:Array;
+private var page_button_sprite:Sprite;
 
 	public function FF() {
 		
@@ -1038,20 +1040,20 @@ private var page_button_sprite:Array;
 		select_st.addEventListener(MouseEvent.CLICK, dropdowm_menu3);
 		
 		// кнопки страниц списка лидеров
-		page_button_sprite = new Array();
+		page_button_sprite = new Sprite();
 		page_button = new Array();
 		for (var button=0; button < 6; button++) {
-			page_button[button] = new Loader();
-			page_button[button].load(new URLRequest(serv + "img5/page.png"));
+			page_button[button] = new LeadersPartButton(button);
+			//page_button[button].load(new URLRequest(serv + "img5/page.png"));
 			page_button[button].x = 10+button*34;
 			page_button[button].y = 115;
-			page_button[button].contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+			//page_button[button].contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 			
-			page_button_sprite[button] = new Sprite();
-			page_button_sprite[button].addEventListener(MouseEvent.MOUSE_OVER, page_buttonOvernEvent);
-			page_button_sprite[button].addEventListener(MouseEvent.MOUSE_OUT, page_buttonOutEvent);
+			//page_button_sprite[button] = new LeadersPartButton(button);
+			//page_button_sprite[button].addEventListener(MouseEvent.MOUSE_OVER, page_buttonOvernEvent);
+			page_button[button].addEventListener(MouseEvent.CLICK, page_button_ClickEvent);
 			
-			page_button_sprite[button].addChild(page_button[button]);
+			page_button_sprite.addChild(page_button[button]);
 		//page1.addEventListener(MouseEvent.CLICK, dropdowm_menu3);
 		}
 		
@@ -2047,6 +2049,7 @@ private var page_button_sprite:Array;
 		footman_stat_array = new Array();
 		footman_stat_res = new Array();
 		footman_stat_points = new Array();
+		footman_stat_tour = new Array();
 		
 		for (n=1; n<39; n++) {
 				
@@ -2056,6 +2059,7 @@ private var page_button_sprite:Array;
 			
 				style = new text(22, tstat_freq, String(n), "2");
 				
+				footman_stat_tour[n] = new text(22, tstat_freq, String(n), "2");
 				footman_stat_array[n] = new text(235, tstat_freq, "--- - ---", "12");
 				footman_stat_res[n] = new text(505, tstat_freq, "--:--", "2");
 				footman_stat_points[n] = new text(585, tstat_freq, "00", "12");
@@ -2063,7 +2067,7 @@ private var page_button_sprite:Array;
 			footman_stat_list.addChild(footman_stat_points[n]);
 			footman_stat_list.addChild(footman_stat_array[n]);
 			footman_stat_list.addChild(footman_stat_res[n]);
-			footman_stat_list.addChild(style);
+			footman_stat_list.addChild(footman_stat_tour[n]);
 			
 			}
 			
@@ -8910,6 +8914,8 @@ private var page_button_sprite:Array;
 			
 			// метод запроса списка лидеров
 			public function getLeaders(part:int, tour:int):void {
+				if (tour == current_tour)
+					tour = 0;
 				var time:Date = new Date();
 				var params:Object = {method: "getLeaders", time:time, id_tm: current_tournament, part:part, tour:tour};
 				
@@ -9663,12 +9669,13 @@ private var page_button_sprite:Array;
 			  	footman_txt15.setText(woff_answer.footballer_info.rating.text() + " %");
 			 
 			 for (var i:int=1; i<=woff_answer.tour_stat.length(); i++) {
-			 	
+			 	footman_stat_tour[i].setText(woff_answer.tour_stat[i-1].tour_no.text());
 			 	footman_stat_array[i].setText(woff_answer.tour_stat[i-1].club_title_guest.text() + " - " + woff_answer.tour_stat[i-1].club_title_owner.text());
 				footman_stat_res[i].setText(woff_answer.tour_stat[i-1].guest_score.text() + " - " + woff_answer.tour_stat[i-1].owner_score.text());
 				footman_stat_points[i].setText(int(woff_answer.tour_stat[i-1].match_score.text())/10);
 			 }
-			 for (var ii:int=woff_answer.tour_stat.length()+1; i<=9; i++) {
+			 for (var ii:int=woff_answer.tour_stat.length()+1; i<=38; i++) {
+			 	footman_stat_tour[i].setText("--");
 			 	footman_stat_array[i].setText("--- - ---");
 				footman_stat_res[i].setText("--- - ---");
 				footman_stat_points[i].setText("--");
@@ -10195,7 +10202,7 @@ private var page_button_sprite:Array;
 			//var fil:FileReference = new FileReference();
 			main2.removeChild(camera);
 			
-			var SaveOfferWindow = new SaveOffer(brr, woff_uid, 1876444, "wYwyVoIa72", wrapper, champ);
+			var SaveOfferWindow = new SaveOffer(brr, woff_uid, 1848099, "DuIP8H5HnE", wrapper, champ);
 				addChild(SaveOfferWindow);
 			
 			// !!!!!!!!!!!!!
@@ -10216,9 +10223,10 @@ private var page_button_sprite:Array;
 		}
 		
 		public function addLeadersButtons():void {
-			for (var buttons = 0; buttons < 6 ; buttons++) {
-				main1.addChild(page_button_sprite[buttons]);
-				}
+			//for (var buttons = 0; buttons < 6 ; buttons++) {
+				main1.addChild(page_button_sprite);
+				//}
+				/*
 			var page_button_text = new Array();
 			for (var button_txt=0; button_txt < 6; button_txt++) {
 				page_button_text[button_txt] = new text(20+button_txt*34, 118, String(button_txt+1), "2");
@@ -10229,6 +10237,8 @@ private var page_button_sprite:Array;
 				//page_button_text[button_txt].
 					page_button_sprite[button_txt].addChild(page_button_text[button_txt]);
 			}
+			 * 
+			 */
 		}
 		
 		public function page_buttonOvernEvent(e:MouseEvent):void {
@@ -10241,7 +10251,7 @@ private var page_button_sprite:Array;
 			page_button[e.currentTarget.id].filters = [myBevel];
 			
 		}
-		public function page_button_textClickEvent(e:MouseEvent):void {
+		public function page_button_ClickEvent(e:MouseEvent):void {
 			getLeaders(e.currentTarget.id+1, current_new_tour);
 			
 		}
