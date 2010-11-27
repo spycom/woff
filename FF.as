@@ -2560,10 +2560,10 @@ private var page_button_sprite:Sprite;
 		
 		firstManual = new firstManualHint();
 		
-		VKAds = new Ads(woff_uid);
-		VKAds.x = 20;
-		VKAds.y = 490;
-		addChild(VKAds);
+		//VKAds = new Ads(woff_uid);
+		//VKAds.x = 20;
+		//VKAds.y = 490;
+		//addChild(VKAds);
 	}
 	
 //----------------------------------------------------------------------------------------------------------------

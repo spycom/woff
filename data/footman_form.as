@@ -76,47 +76,47 @@ public var champ:String;
 						// форма чемпионата Англии
 						if (club_id == 0)
 							footman_form_loader.load(new URLRequest(serv + "forms-world/forms.png"));
-						if (club_id == 1)
+						if (club_id == 690)
 							footman_form_loader.load(new URLRequest(serv + "forms-world/forms.png"));
-						if (club_id == 2) 
+						if (club_id == 691) 
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Arsenal.png"));
-						if (club_id == 3)
+						if (club_id == 692)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Aston-Villa.png"));
-						if (club_id == 4)
+						if (club_id == 693)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Birmingham.png"));
-						if (club_id == 5)
+						if (club_id == 694)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Blackburn.png"));
-						if (club_id == 6)
+						if (club_id == 695)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Blackpool.png"));
-						if (club_id == 7)
+						if (club_id == 696)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Bolton.png"));
-						if (club_id == 8)
+						if (club_id == 697)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Chelsea.png"));
-						if (club_id == 9)
+						if (club_id == 698)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Everton.png"));
-						if (club_id == 10)
+						if (club_id == 699)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Fulham.png"));
-						if (club_id == 11)
+						if (club_id == 700)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Liverpoll.png"));
-						if (club_id == 12)
+						if (club_id == 701)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Man-City.png"));
-						if (club_id == 13)
+						if (club_id == 702)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Man-Untd.png"));
-						if (club_id == 14)
+						if (club_id == 703)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/NewCastle.png"));
-						if (club_id == 15)
+						if (club_id == 704)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Stoke.png"));
-						if (club_id == 16)
+						if (club_id == 705)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Sunderland.png"));
-						if (club_id == 17)
+						if (club_id == 706)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Tottenham.png"));
-						if (club_id == 18)
+						if (club_id == 707)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/WestBrom.png"));
-						if (club_id == 19)
+						if (club_id == 708)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/WestHam.png"));
-						if (club_id == 20)
+						if (club_id == 709)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Wigan.png"));
-						if (club_id == 21)
+						if (club_id == 710)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Wolves.png"));
 						break;
 				
