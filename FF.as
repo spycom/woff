@@ -231,6 +231,8 @@ private var main1_txt6:text;
 private var main1_txt7:text;
 private var main1_txt8:text;
 
+private var main1_txt2_winners:text;
+
 private var main2_txt1:text;
 private var main2_txt2:text;
 private var main2_txt3:text;
@@ -381,6 +383,8 @@ private var button1:Sprite;
 private var button2:Sprite;
 private var button3:Sprite;
 private var button4:Sprite;
+private var button3_euro:Sprite;
+private var button4_euro:Sprite;
 //// ---------------- fix here is needable!!!
 private var button1txt:text;
 private var button2txt:text;
@@ -1594,6 +1598,8 @@ private var page_button_sprite:Sprite;
 		main1_txt24 = new text(435, 123, "Выберите клуб", "2");
 		main1_txt25 = new text(5, 5, "Выберите клуб", "2");
 		
+		main1_txt2_winners = new text(230, 105, "ПОБЕДИТЕЛИ", "1");
+		
 		main2_txt1 = new text(430, 105, "РЕЗУЛЬТАТЫ ТУРА", "1");
 		main2_txt2 = new text(430, 152, "ОБЩИЙ ЗАЧЁТ", "1");
 		main2_txt3 = new text(430, 200, "БЮДЖЕТ", "1");
@@ -1776,6 +1782,26 @@ private var page_button_sprite:Sprite;
 		button4.addEventListener(MouseEvent.MOUSE_DOWN, button4down);
 		button4.addEventListener(MouseEvent.MOUSE_OUT, button4out);
 		
+		button3_euro = new Sprite();
+		button3_euro.graphics.beginFill(0x000000,1);
+		button3_euro.graphics.lineStyle(1);
+		button3_euro.graphics.drawRoundRect(360, y, 129, 25, 8);
+		button3_euro.alpha = 0;
+		button3_euro.addEventListener(MouseEvent.CLICK, button3event_euro);
+		button3_euro.addEventListener(MouseEvent.MOUSE_OVER, button3over);
+		button3_euro.addEventListener(MouseEvent.MOUSE_DOWN, button3down);
+		button3_euro.addEventListener(MouseEvent.MOUSE_OUT, button3out);
+		
+		button4_euro = new Sprite();
+		button4_euro.graphics.beginFill(0x000000,1);
+		button4_euro.graphics.lineStyle(1);
+		button4_euro.graphics.drawRoundRect(500, y, 129, 25, 8);
+		button4_euro.alpha = 0;
+		button4_euro.addEventListener(MouseEvent.CLICK, button4event_euro);
+		button4_euro.addEventListener(MouseEvent.MOUSE_OVER, button4over);
+		button4_euro.addEventListener(MouseEvent.MOUSE_DOWN, button4down);
+		button4_euro.addEventListener(MouseEvent.MOUSE_OUT, button4out);
+		
 		load = new Sprite();
 		help = new Sprite();
 	
@@ -1845,7 +1871,7 @@ private var page_button_sprite:Sprite;
 		select6.graphics.lineStyle(1);
 		select6.graphics.drawRoundRect(327, 343, 300, 115, 10);
 		select6.alpha = 0;
-		//select6.addEventListener(MouseEvent.CLICK, select6listener);
+		select6.addEventListener(MouseEvent.CLICK, select6listener);
 		select6.addEventListener(MouseEvent.MOUSE_OVER, select6over);
 		select6.addEventListener(MouseEvent.MOUSE_OUT, select6out);
 		
@@ -2711,7 +2737,7 @@ private var page_button_sprite:Sprite;
 		
 	}
 	
-	// переход к чемпионату россеи
+	// переход к чемпионату россеи - точнее итоговым результатам
 	public function select1listener(e:MouseEvent):void {
 		removeChild(main);
 		window = "main1";
@@ -2809,46 +2835,45 @@ private var page_button_sprite:Sprite;
 			//main1.addChild(help_button);
 			main1.addChild(block);
 			main1.addChild(block2);
-			main1.addChild(liders);
+		//	main1.addChild(liders);
 			main1.addChild(help_buttontxt);
 			main1.addChild(help_button);
 			main1.addChild(active1);
-			main1.addChild(link2);
-			main1.addChild(link3);
-			main1.addChild(link4);
+		//	main1.addChild(link2);
+		//	main1.addChild(link3);
+		//	main1.addChild(link4);
 			main1.addChild(button1txt);
-			main1.addChild(button2txt);
-			main1.addChild(button3txt);
-			main1.addChild(button4txt);
+		//	main1.addChild(button2txt);
+		//	main1.addChild(button3txt);
+		//	main1.addChild(button4txt);
 				//button1txt.setTextFormat(textFormatBlack);
-				button1txt.setColor("0x696969");
-				button2txt.setColor("0xffffff");
-				button3txt.setColor("0xffffff");
-				button4txt.setColor("0xffffff");
-			main1.addChild(button2);
-			main1.addChild(button3);
-			main1.addChild(button4);
-			main1.addChild(input);
-			main1.addChild(input2);
-			main1.addChild(test);
-			main1.addChild(main1_txt1);
-			main1.addChild(main1_txt2);
-			main1.addChild(main1_txt3);
-			main1.addChild(main1_txt4);
-			main1.addChild(main1_txt4_1);
-			main1.addChild(main1_txt5);
-			main1.addChild(main1_txt6);
-			main1.addChild(main1_txt7);
-			main1.addChild(main1_txt8);
-				addLeadersButtons();
-			main1.addChild(select);
-			main1.addChild(liga);
-			main1.addChild(liders_list);
-			main1.addChild(team_list);
-			main1.addChild(liga_list);
-			main1.addChild(main1_txt24);
-			main1.addChild(scroll);
-			main1.addChild(scroll2);
+		//		button1txt.setColor("0x696969");
+		//		button2txt.setColor("0xffffff");
+		//		button3txt.setColor("0xffffff");
+		//		button4txt.setColor("0xffffff");
+		//	main1.addChild(button2);
+		//	main1.addChild(button3);
+		//	main1.addChild(input);
+		//	main1.addChild(input2);
+		//	main1.addChild(test);
+		//	main1.addChild(main1_txt1);
+			main1.addChild(main1_txt2_winners);
+		//	main1.addChild(main1_txt3);
+		//	main1.addChild(main1_txt4);
+		//	main1.addChild(main1_txt4_1);
+		//	main1.addChild(main1_txt5);
+		//	main1.addChild(main1_txt6);
+		//	main1.addChild(main1_txt7);
+		//	main1.addChild(main1_txt8);
+		//		addLeadersButtons();
+		//	main1.addChild(select);
+		//	main1.addChild(liga);
+		//	main1.addChild(liders_list);
+		//	main1.addChild(team_list);
+		//	main1.addChild(liga_list);
+		//	main1.addChild(main1_txt24);
+		//	main1.addChild(scroll);
+		//main1.addChild(scroll2);
 	}
 	
 	// выбор лиги чемпионов
@@ -2997,10 +3022,10 @@ private var page_button_sprite:Sprite;
 		window = "main1";
 		dropdown_menu_sprite.addChild(scroll_clubs);
 		champ = "eng";
-		woff_general_request.url = woff_api1;
+		woff_general_request.url = woff_api3;
 		current_tax = 250;
 		current_transfers_mass = 20;
-		current_tournament = 2;
+		current_tournament = 4;
 		
 		background = background3;
 		//обнуление команды
@@ -3436,6 +3461,122 @@ private var page_button_sprite:Sprite;
 					"   				 (клик чтобы закрыть)");
     		}
 	}
+	
+	// выбор евротурнира
+	public function select6listener(e:MouseEvent):void {
+		removeChild(main);
+		
+		dropdown_menu_sprite.addChild(scroll_clubs);
+		
+		champ = "euro";
+		woff_general_request.url = woff_api3;
+		current_tax = 150;
+		current_transfers_mass = 15;
+		current_tournament = 5;
+		
+		background = background2;
+		
+		window = "main3";
+		
+		//обнуление команды
+		for (var zope___:int=1; zope___< 16; zope___++) {
+					footman_array[zope___].setText("null");
+					footman_array[zope___].setId(0);
+					footman_club[zope___].setText("club null");
+					footman_name_txt[zope___].setText("ooo");
+					footman_pic[zope___].setRole("4");
+					if (footman_form_array[zope___].clubId != 0)
+						footman_form_array[zope___].setClub(0);
+					footman_form_array[zope___].champ = champ;
+					footman_replace[zope___].setId(0);
+					footman_replace[zope___].filters = [myGlow];
+					footman_scores[zope___].setText("0");
+					team_role[zope___].setText("--");
+					team_stat_array[zope___].setText("---");
+					team_eu_cost[zope___].setText("-");
+				}
+		
+		setMethod("getAllLeagues");
+		
+		var woff_AllLeagues_loader:URLLoader = new URLLoader();
+		woff_AllLeagues_loader.addEventListener(Event.COMPLETE, woffAllLeaguesLoadComplete);
+		woff_AllLeagues_loader.load(woff_general_request);
+		/*
+		setMethod("getLeaders");
+			var woff_Leaders_loader:URLLoader = new URLLoader();
+			woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
+			woff_Leaders_loader.load(woff_general_request);
+			 * 
+			 */
+		getFriends();
+		
+		main3_txt1.setText("Лига друзей");
+		
+		window = "main3";
+		addChild(main3);
+			main3.addChild(background);
+			main3.addChild(top1);
+			main3.addChild(top2);
+			main3.addChild(top3);
+			main3.addChild(top4);
+			main3.addChild(version);
+			main3.addChild(mp);
+			main3.addChild(eu);
+			main3.addChild(all_txt1);
+			main3.addChild(all_txt3);
+			main3.addChild(all_txt4);
+			main3.addChild(logo2);
+			main3.addChild(help_buttontxt);
+			main3.addChild(help_button);
+			main3.addChild(main_button);
+			main3.addChild(block);
+			//main3.addChild(link1);
+			//main3.addChild(link2);
+			main3.addChild(active3);
+			main3.addChild(link4);
+			//main3.addChild(button1txt);
+			//main3.addChild(button2txt);
+			main3.addChild(button3txt);
+			main3.addChild(button4txt);
+				//button1txt.setColor("0xffffff");
+				button3txt.setColor("0x696969");
+				//button2txt.setColor("0xffffff");
+				button4txt.setColor("0xffffff");
+			//main3.addChild(button1);
+			//main3.addChild(button2);
+			
+			main3.addChild(button4_euro);
+			main3.addChild(select_leaders);
+			main3.addChild(select_leaders_tour_txt);
+			main3.addChild(liders);
+			main3.addChild(liders_list);
+			main3.addChild(profile);
+			main3.addChild(liga2);
+			main3.addChild(ava_big);
+			main3.addChild(scroll);
+			main3.addChild(scroll2);
+			main3.addChild(main3_txt1);
+			main3.addChild(main3_txt2);
+			main3.addChild(main3_txt3);
+			main3.addChild(main3_txt4);
+			
+			main3.addChild(main3_txt6);
+			main3.addChild(main3_txt7);
+			main3.addChild(main3_txt8);
+			main3.addChild(all_lig_list);
+			main3.addChild(button_blue_invite);
+			main3.addChild(main3_txt_inv);
+			main3.addChild(scroll_lig);
+			
+			if (woff_isAppUser !== 1) {
+    		addChild(errorSprite);
+					errorText.setText("	Зря ты не добавил это приложение! " +
+					"\nТеперь у тебя отсутствует доступ к лиге друзей"+
+					"и ты не можешь получать уведомления\n =(" +
+					"   				 (клик чтобы закрыть)");
+    		}
+	}
+	
 	// возврат к окну с выбором турнира
 	public function mainButton(e:MouseEvent):void{
 		if (window == "main1") {
@@ -5073,6 +5214,199 @@ private var page_button_sprite:Sprite;
 			main4.addChild(scroll_lig);
 		}
 		
+		
+	public function button3event_euro(e:MouseEvent):void {
+		
+		//if (window == "main1") {
+		////	removeChild(main1);
+		//} 
+		//if (window == "main2") {
+		//	removeChild(main2);
+		//}
+		if (window == "main4") {
+			removeChild(main4);
+		} 
+		if (window == "help") {
+			removeChild(help);
+		}
+		if (window == "footman") {
+			removeChild(footman);
+		}
+		if (window == "team_sostav") {
+			removeChild(team_sostav);
+		}
+		if (window == "team_stat") {
+			removeChild(team_stat);
+		}
+		if (window == "transfer") {
+			removeChild(transfer);
+		}
+		
+		setMethod("getAllLeagues");
+		
+		var woff_AllLeagues_loader:URLLoader = new URLLoader();
+		woff_AllLeagues_loader.addEventListener(Event.COMPLETE, woffAllLeaguesLoadComplete);
+		woff_AllLeagues_loader.load(woff_general_request);
+		/*
+		setMethod("getLeaders");
+			var woff_Leaders_loader:URLLoader = new URLLoader();
+			woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
+			woff_Leaders_loader.load(woff_general_request);
+			 * 
+			 */
+		getFriends();
+		
+		main3_txt1.setText("Лига друзей");
+		
+		window = "main3";
+		addChild(main3);
+			main3.addChild(background);
+			main3.addChild(top1);
+			main3.addChild(top2);
+			main3.addChild(top3);
+			main3.addChild(top4);
+			main3.addChild(version);
+			main3.addChild(mp);
+			main3.addChild(eu);
+			main3.addChild(all_txt1);
+			main3.addChild(all_txt3);
+			main3.addChild(all_txt4);
+			main3.addChild(logo2);
+			main3.addChild(help_buttontxt);
+			main3.addChild(help_button);
+			main3.addChild(main_button);
+			main3.addChild(block);
+			//main3.addChild(link1);
+			//main3.addChild(link2);
+			main3.addChild(active3);
+			main3.addChild(link4);
+			//main3.addChild(button1txt);
+			//main3.addChild(button2txt);
+			main3.addChild(button3txt);
+			main3.addChild(button4txt);
+				//button1txt.setColor("0xffffff");
+				button3txt.setColor("0x696969");
+				//button2txt.setColor("0xffffff");
+				button4txt.setColor("0xffffff");
+			//main3.addChild(button1);
+			//main3.addChild(button2);
+			
+			main3.addChild(button4_euro);
+			main3.addChild(select_leaders);
+			main3.addChild(select_leaders_tour_txt);
+			main3.addChild(liders);
+			main3.addChild(liders_list);
+			main3.addChild(profile);
+			main3.addChild(liga2);
+			main3.addChild(ava_big);
+			main3.addChild(scroll);
+			main3.addChild(scroll2);
+			main3.addChild(main3_txt1);
+			main3.addChild(main3_txt2);
+			main3.addChild(main3_txt3);
+			main3.addChild(main3_txt4);
+			
+			main3.addChild(main3_txt6);
+			main3.addChild(main3_txt7);
+			main3.addChild(main3_txt8);
+			main3.addChild(all_lig_list);
+			main3.addChild(button_blue_invite);
+			main3.addChild(main3_txt_inv);
+			main3.addChild(scroll_lig);
+		}
+		
+		public function button4event_euro(e:MouseEvent):void {
+		//if (window == "main1") {
+		//	removeChild(main1);
+		//} 
+		if (window == "main3") {
+			removeChild(main3);
+		}
+		//if (window == "main2") {
+		//	removeChild(main2);
+		//} 
+		if (window == "help") {
+			removeChild(help);
+		}
+		if (window == "footman") {
+			removeChild(footman);
+		}
+		if (window == "team_sostav") {
+			removeChild(team_sostav);
+		} 
+		if (window == "team_stat") {
+			removeChild(team_stat);
+		}
+		if (window == "transfer") {
+			removeChild(transfer);
+		}
+		
+		//setMethod("getLeaders");
+		
+			//var woff_Leaders_loader:URLLoader = new URLLoader();
+			//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
+			//woff_Leaders_loader.load(woff_general_request);
+		getLeaders(1, current_new_tour);
+		
+		setMethod("getAllLeagues");
+			var woff_AllLeagues_loader:URLLoader = new URLLoader();
+			woff_AllLeagues_loader.addEventListener(Event.COMPLETE, woffAllLeaguesLoadComplete);
+			woff_AllLeagues_loader.load(woff_general_request);
+		
+		
+		window = "main4";
+		addChild(main4);
+			main4.addChild(background);
+			main4.addChild(top1);
+			main4.addChild(top2);
+			main4.addChild(top3);
+			main4.addChild(top4);
+			main4.addChild(version);
+			main4.addChild(mp);
+			main4.addChild(eu);
+			main4.addChild(all_txt1);
+			main4.addChild(all_txt3);
+			main4.addChild(all_txt4);
+			main4.addChild(logo2);
+			main4.addChild(help_buttontxt);
+			main4.addChild(help_button);
+			main4.addChild(main_button);
+			main4.addChild(block);
+			//main4.addChild(link1);
+			//main4.addChild(link2);
+			main4.addChild(link3);
+			main4.addChild(active4);
+			//main4.addChild(button1txt);
+			//main4.addChild(button2txt);
+			main4.addChild(button3txt);
+			main4.addChild(button4txt);
+				//button1txt.setColor("0xffffff");
+				button4txt.setColor("0x696969");
+				button3txt.setColor("0xffffff");
+				//button2txt.setColor("0xffffff");
+			//main4.addChild(button1);
+			//main4.addChild(button2);
+			main4.addChild(button3_euro);
+			main4.addChild(liders);
+			main4.addChild(select_leaders);
+			main4.addChild(select_leaders_tour_txt);
+			main4.addChild(main1_txt1);
+			main4.addChild(liders_list);
+			main4.addChild(profile);
+			main4.addChild(liga2);
+			main4.addChild(ava_big);
+			main4.addChild(scroll);
+			main4.addChild(scroll2);
+			main4.addChild(main4_txt1);
+			main4.addChild(main3_txt2);
+			main4.addChild(main3_txt3);
+			main4.addChild(main3_txt4);
+			main4.addChild(main3_txt6);
+			main4.addChild(main3_txt7);
+			main4.addChild(main3_txt8_);
+			main4.addChild(all_lig_list);
+			main4.addChild(scroll_lig);
+		}
 		// окно футболиста 
 		
 		public function footmanEvent(e:MouseEvent):void {
@@ -7829,7 +8163,7 @@ private var page_button_sprite:Sprite;
 				tour_array[tour].setId(tour+1);
 				tour_array[tour].addEventListener(MouseEvent.CLICK, setTourEvent);
 				if (current_tour > 5) {
-					dropdowmmenu_png2.scaleY = 1 + (current_tour-5)/7;
+					dropdowmmenu_png2.scaleY = 1.15 + (current_tour-5)/7;
 				}
 				dropdown_menu_sprite2.addChild(tour_array[tour]);
 				
@@ -8867,7 +9201,7 @@ private var page_button_sprite:Sprite;
 				//e.target.y += (mouseY - yy__);
 				scroll_tou.y += (mouseY - yy__)*3;
 				
-				if (scroll_tou.y >= 15 && scroll_tou.y <= 300) {
+				if (scroll_tou.y >= 15 && scroll_tou.y <= 450) {
 					
 					var rect:Rectangle = dropdown_menu_sprite2.scrollRect;
 				
@@ -8891,16 +9225,16 @@ private var page_button_sprite:Sprite;
 					
 				}
 				
-				if (scroll_tou.y > 300) {
+				if (scroll_tou.y > 450) {
 					
 					
 					var rect:Rectangle = dropdown_menu_sprite2.scrollRect;
 				
-					rect.y = 200;
+					rect.y = 300;
 				
 					dropdown_menu_sprite2.scrollRect = rect;
 					
-					scroll_tou.y = 300;
+					scroll_tou.y = 450;
 				}
 				
 				////////////////////////////
