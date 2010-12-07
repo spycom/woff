@@ -22,6 +22,7 @@ package {
 	import data.Ads;
 	import data.SaveOffer;
 	import data.LeadersPartButton;
+	import data.winners_list_sprite;
 	import flash.display.*;
 	import flash.events.*;
 	import flash.filters.*;
@@ -553,6 +554,7 @@ private var firstManual:firstManualHint;
 private var VKAds:Ads;
 private var page_button:Array;
 private var page_button_sprite:Sprite;
+private var winners_list:winners_list_sprite;
 
 	public function FF() {
 		
@@ -1983,6 +1985,10 @@ private var page_button_sprite:Sprite;
 		
 		transfer_txt2.addEventListener(MouseEvent.CLICK, transferSortCost);
 		transfer_txt3.addEventListener(MouseEvent.CLICK, transferSortName);
+		transfer_txt4.addEventListener(MouseEvent.CLICK, transferSortPoints);
+		transfer_txt5.addEventListener(MouseEvent.CLICK, transferSortRating);
+		transfer_txt6.addEventListener(MouseEvent.CLICK, transferSortEff);
+		
 		
 		search_field = new text(520, 151, "", "5");
 		search_field.addEventListener(KeyboardEvent.KEY_DOWN, searchEvent);
@@ -2590,6 +2596,9 @@ private var page_button_sprite:Sprite;
 		//VKAds.x = 20;
 		//VKAds.y = 490;
 		//addChild(VKAds);
+		
+		winners_list = new winners_list_sprite(woff_uid);
+		winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
 	}
 	
 //----------------------------------------------------------------------------------------------------------------
@@ -2737,7 +2746,7 @@ private var page_button_sprite:Sprite;
 		
 	}
 	
-	// переход к чемпионату россеи - точнее итоговым результатам
+	// переход к чемпионату россеи + итоговые результаты
 	public function select1listener(e:MouseEvent):void {
 		removeChild(main);
 		window = "main1";
@@ -2835,45 +2844,47 @@ private var page_button_sprite:Sprite;
 			//main1.addChild(help_button);
 			main1.addChild(block);
 			main1.addChild(block2);
-		//	main1.addChild(liders);
+			main1.addChild(liders);
 			main1.addChild(help_buttontxt);
 			main1.addChild(help_button);
 			main1.addChild(active1);
-		//	main1.addChild(link2);
-		//	main1.addChild(link3);
-		//	main1.addChild(link4);
+			main1.addChild(link2);
+			main1.addChild(link3);
+			main1.addChild(link4);
 			main1.addChild(button1txt);
-		//	main1.addChild(button2txt);
-		//	main1.addChild(button3txt);
-		//	main1.addChild(button4txt);
+			main1.addChild(button2txt);
+			main1.addChild(button3txt);
+			main1.addChild(button4txt);
 				//button1txt.setTextFormat(textFormatBlack);
-		//		button1txt.setColor("0x696969");
-		//		button2txt.setColor("0xffffff");
-		//		button3txt.setColor("0xffffff");
-		//		button4txt.setColor("0xffffff");
-		//	main1.addChild(button2);
-		//	main1.addChild(button3);
-		//	main1.addChild(input);
-		//	main1.addChild(input2);
+				button1txt.setColor("0x696969");
+				button2txt.setColor("0xffffff");
+				button3txt.setColor("0xffffff");
+				button4txt.setColor("0xffffff");
+			main1.addChild(button2);
+			main1.addChild(button3);
+			main1.addChild(input);
+			main1.addChild(input2);
 		//	main1.addChild(test);
-		//	main1.addChild(main1_txt1);
-			main1.addChild(main1_txt2_winners);
-		//	main1.addChild(main1_txt3);
-		//	main1.addChild(main1_txt4);
+			main1.addChild(main1_txt1);
+			main1.addChild(main1_txt2);
+			main1.addChild(main1_txt3);
+			main1.addChild(main1_txt4);
 		//	main1.addChild(main1_txt4_1);
-		//	main1.addChild(main1_txt5);
-		//	main1.addChild(main1_txt6);
-		//	main1.addChild(main1_txt7);
-		//	main1.addChild(main1_txt8);
-		//		addLeadersButtons();
-		//	main1.addChild(select);
-		//	main1.addChild(liga);
-		//	main1.addChild(liders_list);
-		//	main1.addChild(team_list);
-		//	main1.addChild(liga_list);
-		//	main1.addChild(main1_txt24);
-		//	main1.addChild(scroll);
-		//main1.addChild(scroll2);
+			main1.addChild(main1_txt5);
+			main1.addChild(main1_txt6);
+			main1.addChild(main1_txt7);
+			main1.addChild(main1_txt8);
+				addLeadersButtons();
+			main1.addChild(select);
+			main1.addChild(liga);
+			main1.addChild(liders_list);
+			main1.addChild(team_list);
+			main1.addChild(liga_list);
+			main1.addChild(main1_txt24);
+			main1.addChild(scroll);
+		main1.addChild(scroll2);
+		
+			main1.addChild(winners_list);
 	}
 	
 	// выбор лиги чемпионов
@@ -5974,9 +5985,7 @@ private var page_button_sprite:Sprite;
 			
 			transfer.addChild(transfers2);
 			transfer.addChild(match);
-			transfer.addChild(transfer_txt4);
-			transfer.addChild(transfer_txt5);
-			transfer.addChild(transfer_txt6);
+			
 			transfer.addChild(transfer_txt7);
 			//transfer.addChild(transfer_txt8);
 			//transfer.addChild(transfer_txt9);
@@ -5990,7 +5999,9 @@ private var page_button_sprite:Sprite;
 			transfer.addChild(scroll_tr);
 			transfer.addChild(transfer_txt2);
 			transfer.addChild(transfer_txt3);
-			
+			transfer.addChild(transfer_txt4);
+			transfer.addChild(transfer_txt5);
+			transfer.addChild(transfer_txt6);
 			//main1.addChild(hover);
 			
 		stage.addChild(loading_balls);
@@ -8148,7 +8159,8 @@ private var page_button_sprite:Sprite;
 				transfers_do = int(woff_answer.tournament.transfers_base.text()) + int(woff_answer.tournament.paid_transfers.text())*is_transfers_bought - transfers_left;
 			main2_txt16.setText("Проведённых трансферов:           	    " + transfers_do);
 			
-			current_tour = int(woff_answer.tournament.current_tour.text());
+			//current_tour = int(woff_answer.tournament.current_tour.text());
+			current_tour = 30;
 			current_new_tour = current_tour;
 			
 			current_budget = int(woff_answer.tournament.base_budget.text()); // + int(woff_answer.tournament.paid_budget.text());
@@ -8606,7 +8618,8 @@ private var page_button_sprite:Sprite;
 								club:woff_answer.footballer[n-1].club_title.text(),
 								id:woff_answer.footballer[n-1].id.text(),
 								rating:woff_answer.footballer[n-1].rating.text(),
-								tm_scores:woff_answer.footballer[n-1].tournament_score.text()});
+								tm_scores:woff_answer.footballer[n-1].tournament_score.text(),
+								efficiency:Math.round(int(woff_answer.footballer[n-1].tournament_score.text())*100/int(woff_answer.footballer[n-1].cost.text()))/10});
 					
 				cost[n].setText(int(woff_answer.footballer[n-1].cost.text())/10+"");
 				transfer_array[n].setText(woff_answer.footballer[n-1].name.text());
@@ -8615,7 +8628,7 @@ private var page_button_sprite:Sprite;
 				transfer_points_array[n].setText(woff_answer.footballer[n-1].tournament_score.text());
 				transfer_get_array[n].setId2(woff_answer.footballer[n-1].id.text());
 				transfer_rating[n].setText(woff_answer.footballer[n-1].rating.text());
-				transfer_efficiency[n].setText(int(woff_answer.footballer[n-1].tournament_score.text())/int(woff_answer.footballer[n-1].cost.text()));
+				transfer_efficiency[n].setText(Math.round(int(woff_answer.footballer[n-1].tournament_score.text())*100/int(woff_answer.footballer[n-1].cost.text()))/10);
 				}
 				
 			for (var nnnn:int = woff_answer.footballer.length()+1; nnnn<300; nnnn++) {
@@ -8646,6 +8659,7 @@ private var page_button_sprite:Sprite;
 				transfer_points_array[n].setText(woff_answer[n-1].tm_scores);
 				transfer_get_array[n].setId2(woff_answer[n-1].id);
 				transfer_rating[n].setText(woff_answer[n-1].rating);
+				transfer_efficiency[n].setText(woff_answer[n-1].efficiency);
 				}
 				
 			
@@ -9745,7 +9759,8 @@ private var page_button_sprite:Sprite;
 								club:search_xml_res[n-1].club_title.text(),
 								id:search_xml_res[n-1].id.text(),
 								rating:search_xml_res[n-1].rating.text(),
-								tm_scores:search_xml_res[n-1].tournament_score.text()});
+								tm_scores:search_xml_res[n-1].tournament_score.text(),
+								efficiency:Math.round(int(search_xml_res[n-1].tournament_score.text())*100/int(search_xml_res[n-1].cost.text()))/10});
 								
 				cost[n].setText(int(search_xml_res.cost[n-1].text())/10+"");
 				transfer_array[n].setText(search_xml_res.name[n-1].text());
@@ -9754,6 +9769,7 @@ private var page_button_sprite:Sprite;
 				transfer_points_array[n].setText(search_xml_res.tournament_score[n-1].text());
 				transfer_get_array[n].setId2(search_xml_res.id[n-1].text());
 				transfer_rating[n].setText(search_xml_res.rating[n-1].text());
+				transfer_efficiency[n].setText(Math.round(int(search_xml_res[n-1].tournament_score.text())*100/int(search_xml_res[n-1].cost.text()))/10);
 				}
 				
 			for (var nnnn:int = search_xml_res.length()+1; nnnn<300; nnnn++) {
@@ -9763,6 +9779,7 @@ private var page_button_sprite:Sprite;
 				cost[nnnn].setText("--");
 				transfer_points_array[nnnn].setText("--");
 				transfer_rating[nnnn].setText("--");
+				transfer_efficiency[nnnn].setText("-");
 				transfer_get_array[nnnn].setId2("--");
 				}
 					var rect:Rectangle = transfer_list.scrollRect;
@@ -10211,6 +10228,45 @@ private var page_button_sprite:Sprite;
 				
 			}
 			
+			private function transferSortRating(e:MouseEvent):void {
+				if(transfer_txt5.txt() == "ПОПУЛ. \u005C/") {
+					transfer_txt5.setText("ПОПУЛ. /\u005C");
+					//fff.sortOn("cost", Array.NUMERIC);
+					fff.reverse();
+				} else { 
+					transfer_txt5.setText("ПОПУЛ. \u005C/");
+					fff.sortOn("rating", Array.NUMERIC);
+				}
+				
+				parseTransfersSort(fff);				
+			}
+			
+			private function transferSortPoints(e:MouseEvent):void {
+				if(transfer_txt4.txt() == "ОЧКИ \u005C/") {
+					transfer_txt4.setText("ОЧКИ /\u005C");
+					//fff.sortOn("cost", Array.NUMERIC);
+					fff.reverse();
+				} else { 
+					transfer_txt4.setText("ОЧКИ \u005C/");
+					fff.sortOn("tm_scores", Array.NUMERIC);
+				}
+				
+				parseTransfersSort(fff);				
+			}
+			
+			private function transferSortEff(e:MouseEvent):void {
+				if(transfer_txt6.txt() == "ЭФФЕКТ. \u005C/") {
+					transfer_txt6.setText("ЭФФЕКТ. /\u005C");
+					//fff.sortOn("cost", Array.NUMERIC);
+					fff.reverse();
+				} else { 
+					transfer_txt6.setText("ЭФФЕКТ. \u005C/");
+					fff.sortOn("efficiency", Array.NUMERIC);
+				}
+				
+				parseTransfersSort(fff);				
+			}
+			
 			private function showSettingsBox(e:Object):void {
 				woff_isAppUser = 1;
 				wrapper.external.showSettingsBox(3);
@@ -10588,6 +10644,10 @@ private var page_button_sprite:Sprite;
 		public function page_button_ClickEvent(e:MouseEvent):void {
 			getLeaders(e.currentTarget.id+1, current_new_tour);
 			
+		}
+		
+		public function removeWinnerList(e:MouseEvent):void {
+			main1.removeChild(winners_list);
 		}
 }
 }
