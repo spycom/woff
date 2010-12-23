@@ -3039,6 +3039,9 @@ private var winners_list:winners_list_sprite;
 		current_tournament = 4;
 		
 		background = background3;
+		
+		dropdown_menu_sprite2.addChild(scroll_tou);
+		
 		//обнуление команды
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
@@ -8219,6 +8222,8 @@ private var winners_list:winners_list_sprite;
 				dropdown_menu_sprite2 = new Sprite();
 				dropdown_menu_sprite2.scrollRect = new Rectangle(0, 0, 210, 350);
 				dropdown_menu_sprite2.addChild(dropdowmmenu_png2);
+				dropdown_menu_sprite2.addChild(scroll_tou);
+				
 			for (var tour:int=0; tour<current_tour; tour++) {
 			
 				var freq_tour:int = tour * 19 + 24;
@@ -8267,6 +8272,8 @@ private var winners_list:winners_list_sprite;
 				dropdown_menu_sprite2 = new Sprite();
 				dropdown_menu_sprite2.scrollRect = new Rectangle(0, 0, 210, 350);
 				dropdown_menu_sprite2.addChild(dropdowmmenu_png2);
+				dropdown_menu_sprite2.addChild(scroll_tou);
+				
 			for (var tour:int=0; tour<current_tour; tour++) {
 			
 				var freq_tour:int = tour * 19 + 24;
@@ -8367,6 +8374,8 @@ private var winners_list:winners_list_sprite;
 				dropdown_menu_sprite2 = new Sprite();
 				dropdown_menu_sprite2.scrollRect = new Rectangle(0, 0, 210, 350);
 				dropdown_menu_sprite2.addChild(dropdowmmenu_png2);
+				dropdown_menu_sprite2.addChild(scroll_tou);
+				
 			for (var tour:int=0; tour<current_tour; tour++) {
 			
 				var freq_tour:int = tour * 19 + 24;
@@ -8736,7 +8745,7 @@ private var winners_list:winners_list_sprite;
 		
 			}}
 			 * 
-			 */
+			 
 	
 
 			
@@ -8745,6 +8754,10 @@ private var winners_list:winners_list_sprite;
 				navigateToURL(new URLRequest("http://vkontakte.ru/"));
 				
 			}
+			
+			 * 
+			 */
+			
 			public function dropdowm_menu(e:MouseEvent):void {
 				dropdown_menu_sprite.x = 425;
 				dropdown_menu_sprite.y = 120;
