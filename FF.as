@@ -33,6 +33,8 @@ package {
 	import flash.text.*;
 	import flash.ui.Mouse;
 	import flash.utils.*;
+	import com.bit.apps.banerrotator.AppgradeBannerRotator;
+	
 
 	public class FF extends Sprite{
 
@@ -2599,6 +2601,17 @@ private var winners_list:winners_list_sprite;
 		
 		winners_list = new winners_list_sprite(woff_uid);
 		winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
+		
+		var 
+			game_movie_clip : MovieClip = new MovieClip(), // MovieClip в который будет вставляться баннер
+     	 banner_pid : int = 176, // идентификатор приложения "World of Fantasy Football" в сети Appgrade
+    	  banner_x : int = 0, // координата X панели с баннерами
+    	  banner_y : int = 485, // координата Y панели с баннерами
+    	  banner_width : int = 640; // ширина панели
+
+   	 AppgradeBannerRotator.init_rotator(game_movie_clip, banner_pid, banner_x, banner_y, banner_width);
+		
+		addChild(game_movie_clip);
 	}
 	
 //----------------------------------------------------------------------------------------------------------------
