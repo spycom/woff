@@ -1,15 +1,18 @@
 package data {
-	import flash.display.*;	
-	import flash.filters.*;
 	import data.text;
-	import flash.net.*;
+	
+	import flash.display.*;
 	import flash.events.*;
+	import flash.filters.*;
+	import flash.net.*;
+	import flash.utils.Timer;
 	
 	public class buyBudgetTableClass extends Sprite {
 
 private var buyBudgetSprite:Sprite;
 private var buyBudgetErrorSprite:Sprite;
 private var buyBudgetFon:Sprite;
+private var scroll_line:Sprite;
 private var buyBudgetText:text;
 private var buyBudgetErrorText:text;
 private var buyBudgetText2:text;
@@ -17,11 +20,16 @@ private var buyBudgetText3:text;
 private var myShadow___:DropShadowFilter;
 public var new_current_tournament_:int;
 public var current_tax_:int;
+public var current_pay:int;
+public var current_amount:int;
 //private var serv:String = "http://woff73.valuehost.ru/woff_images/";
 public var woff_sig_:String; 
 public var woff_uid_:int;
 public var woff_general_request_:URLRequest;
 public var woff_api_:String;
+
+public var scroll:Loader;
+public var scrollTimer:Timer;
 
  public function buyBudgetTableClass(woff_uid2:int):void{
  		
@@ -53,7 +61,7 @@ public var woff_api_:String;
 			buyBudgetFon.graphics.lineStyle(2);
 			buyBudgetFon.graphics.drawRoundRect(0, 0, 265, 100, 35);
 			buyBudgetFon.addEventListener(MouseEvent.CLICK, buyBudgetClose);
-				
+			buyBudgetFon.addEventListener(MouseEvent.MOUSE_OUT, scrollUp);
 		
 		
 		buyBudgetText = new text(140, 6, "Купить бюджет", "12");
@@ -65,14 +73,34 @@ public var woff_api_:String;
 		buyBudgetText3 = new text(130, 40, "Купить 1 миллионов", "12");
 		buyBudgetText3.addEventListener(MouseEvent.CLICK, buyBudget_req_q);
 		
-		buyBudgetErrorText = new text(140, 67, "error?", "12");
+		buyBudgetErrorText = new text(140, 71, "error?", "12");
 		buyBudgetErrorText.addEventListener(MouseEvent.CLICK, buyBudgetClose);
+		
+		scroll_line = new Sprite();
+		scroll_line.graphics.beginFill(0xFFFFFF,0.1);
+		scroll_line.graphics.lineStyle(0.1);
+		scroll_line.graphics.drawRoundRect(25, 67, 220, 1, 0);
+		//buyBudgetscroll_line.addEventListener(MouseEvent.CLICK, buyBudgetClose);
+		
+		scroll = new Loader();
+		scroll.load(new URLRequest("http://woff73.valuehost.ru/woff_images/" + "img5/page.png"));
+		scroll.addEventListener(MouseEvent.MOUSE_DOWN, scrollDown);
+		scroll.addEventListener(MouseEvent.MOUSE_UP, scrollUp);
+			this.addEventListener(MouseEvent.MOUSE_UP, scrollUp);
+		
+		scroll.x = 215;
+		scroll.y = 56;
+		
+		scrollTimer = new Timer(5, 0);
+		scrollTimer.addEventListener(TimerEvent.TIMER, scrollTimerEvent);
 		
 		//addChild(buyBudgetSprite);
 			buyBudgetSprite.addChild(buyBudgetFon);
 			buyBudgetSprite.addChild(buyBudgetText);
 			buyBudgetSprite.addChild(buyBudgetText2);
 			buyBudgetSprite.addChild(buyBudgetText3);
+			buyBudgetSprite.addChild(scroll_line);
+			buyBudgetSprite.addChild(scroll);
 		
 	}
 	/*
@@ -109,7 +137,7 @@ public var woff_api_:String;
 				woff_general_request_.method = URLRequestMethod.GET;
 		
 				var time:Date = new Date();
-				var params:Object = {method: "buyBudget", time:time, id_tm: new_current_tournament_, q:"max"};
+				var params:Object = {method: "buyBudget", time:time, id_tm: new_current_tournament_, q:current_amount};
 				
 				var keys:Array = new Array();
 				for (var k:String in params)
@@ -197,6 +225,8 @@ public var woff_api_:String;
 					buyBudgetSprite.addChild(buyBudgetText);
 					buyBudgetSprite.addChild(buyBudgetText2);
 					buyBudgetSprite.addChild(buyBudgetText3);
+					buyBudgetSprite.addChild(scroll_line);
+					buyBudgetSprite.addChild(scroll);
 					buyBudgetSprite.addChild(buyBudgetErrorText);
 					
 						buyBudgetErrorText.setText( woff_answer.error.text());
@@ -204,6 +234,96 @@ public var woff_api_:String;
 				
 			
 			 }
+			private function scrollDown(e:MouseEvent):void {
+				scrollTimer.start(); 
+			}
+			
+			private function scrollUp(e:MouseEvent):void {
+				scrollTimer.stop();
+			}
+			
+			private function scrollTimerEvent(e:TimerEvent):void {
+				if (mouseX < 430 && mouseX > 220) {
+				scroll.x = mouseX -205;
+				} else {
+					
+				}
+				
+				if (scroll.x < 50) {
+					buyBudgetText2.setText("Купить 1 миллион за "+current_tax_/10+" МР");
+					current_pay = current_tax_/10;
+					current_amount = 1;
+				} else {
+					if (scroll.x <67) {
+						current_amount = 2;
+						current_pay = current_tax_/10 * current_amount;
+						buyBudgetText2.setText("Купить 2 миллиона за "+current_pay+" МР");
+						
+						
+					} else {
+						if (scroll.x <79) {
+							current_amount = 3;
+							current_pay = current_tax_/10 * current_amount;
+							buyBudgetText2.setText("Купить 3 миллиона за "+current_pay+" МР");
+							
+							
+						} else {
+							if (scroll.x <91) {
+								current_amount = 4;
+								current_pay = current_tax_/10 * current_amount;
+								buyBudgetText2.setText("Купить 4 миллиона за "+current_pay+" МР");
+								
+								
+							} else {
+								if (scroll.x <105) {
+									current_amount = 5;
+									current_pay = current_tax_/10 * current_amount;
+									buyBudgetText2.setText("Купить 5 миллионов за "+current_pay+" МР");
+									
+									
+								} else {
+									if (scroll.x <124) {
+										current_amount = 6;
+										current_pay = current_tax_/10 * current_amount;
+										buyBudgetText2.setText("Купить 6 миллионов за "+current_pay+" МР");
+										
+										
+									} else {
+										if (scroll.x <147) {
+											current_amount = 7;
+											current_pay = current_tax_/10 * current_amount;
+											buyBudgetText2.setText("Купить 7 миллионов за "+current_pay+" МР");
+											
+										} else {
+											if (scroll.x <170) {
+												current_amount = 8;
+												current_pay = current_tax_/10 * current_amount;
+												buyBudgetText2.setText("Купить 8 миллионов за "+current_pay+" МР");
+												
+											} else {
+												if (scroll.x <195) {
+													current_amount = 9;
+													current_pay = current_tax_/10 * current_amount;
+													buyBudgetText2.setText("Купить 9 миллионов за "+current_pay+" МР");
+													
+												} else {
+													current_amount = 10;
+													current_pay = current_tax_/10 * current_amount;
+													buyBudgetText2.setText("Купить 10 миллионов за "+current_pay+" МР");
+													
+													
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						
+					}
+				}
+				
+			}
 			
 			private function updateInfo(e:Event):void {
 			 	var woff_answer:XML = new XML(e.target.data);
@@ -215,6 +335,8 @@ public var woff_api_:String;
 					buyBudgetSprite.addChild(buyBudgetText);
 					buyBudgetSprite.addChild(buyBudgetText2);
 					buyBudgetSprite.addChild(buyBudgetText3);
+					buyBudgetSprite.addChild(scroll_line);
+					buyBudgetSprite.addChild(scroll);
 					buyBudgetSprite.addChild(buyBudgetErrorText);
 					
 						buyBudgetErrorText.setText("Снято " + woff_answer.transferred.text() + " MP");
