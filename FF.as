@@ -3573,8 +3573,8 @@ private var winners_list:winners_list_sprite;
 			//main3.addChild(button2);
 			
 			main3.addChild(button4_euro);
-			main3.addChild(select_leaders);
-			main3.addChild(select_leaders_tour_txt);
+			//main3.addChild(select_leaders);
+			//main3.addChild(select_leaders_tour_txt);
 			main3.addChild(liders);
 			main3.addChild(liders_list);
 			main3.addChild(profile);
@@ -5319,8 +5319,8 @@ private var winners_list:winners_list_sprite;
 			//main3.addChild(button2);
 			
 			main3.addChild(button4_euro);
-			main3.addChild(select_leaders);
-			main3.addChild(select_leaders_tour_txt);
+			//main3.addChild(select_leaders);
+			//main3.addChild(select_leaders_tour_txt);
 			main3.addChild(liders);
 			main3.addChild(liders_list);
 			main3.addChild(profile);
@@ -5415,8 +5415,8 @@ private var winners_list:winners_list_sprite;
 			//main4.addChild(button2);
 			main4.addChild(button3_euro);
 			main4.addChild(liders);
-			main4.addChild(select_leaders);
-			main4.addChild(select_leaders_tour_txt);
+			//main4.addChild(select_leaders);
+			//main4.addChild(select_leaders_tour_txt);
 			main4.addChild(main1_txt1);
 			main4.addChild(liders_list);
 			main4.addChild(profile);
@@ -6212,27 +6212,44 @@ private var winners_list:winners_list_sprite;
 			player_liga.addChild(block);
 			//team_sostav.addChild(block2);
 			player_liga.addChild(liders);
-			player_liga.addChild(link1);
-			player_liga.addChild(link2);
+			
 			player_liga.addChild(link3);
 			player_liga.addChild(link4);
-			player_liga.addChild(button1txt);
-			player_liga.addChild(button2txt);
-			player_liga.addChild(button3txt);
-			player_liga.addChild(button4txt);
+			
+			if (champ != "euro") {
+				player_liga.addChild(link1);
+				player_liga.addChild(link2);
+				player_liga.addChild(button1txt);
+				player_liga.addChild(button2txt);
+				player_liga.addChild(button3txt);
+				player_liga.addChild(button4txt);
+				
 				button1txt.setColor("0xffffff");
 				button2txt.setColor("0xffffff");
+				player_liga.addChild(button1);
+				player_liga.addChild(button2);
+				player_liga.addChild(button3);
+				player_liga.addChild(button4);
+				player_liga.addChild(select_leaders);
+				
+			} else {
+				player_liga.addChild(button3txt);
+				player_liga.addChild(button4txt);
+				
+				player_liga.addChild(button3_euro);
+				player_liga.addChild(button4_euro);
+				
+			}
+			
+			
 				button3txt.setColor("0xffffff");
 				button4txt.setColor("0xffffff");
-			player_liga.addChild(button1);
-			player_liga.addChild(button2);
-			player_liga.addChild(button3);
-			player_liga.addChild(button4);
 			
+				
 			//transfer.addChild(transfer_txt);
 			player_liga.addChild(main1_txt1);
 			
-			player_liga.addChild(select_leaders);
+			
 			player_liga.addChild(liders_list);
 			player_liga.addChild(profile);
 			player_liga.addChild(liga2);
@@ -7368,8 +7385,14 @@ private var winners_list:winners_list_sprite;
 			}
 			
 			points_[i].setText(int(woff_answer.footballer[i].score.text())/10);
-			sostav[i].setId(woff_answer.footballer[i].id_vk.text());
-			/*
+			if (champ=="euro") {
+				sostav[i].x = -20;
+			} else {	
+				sostav[i].x = 52;
+				sostav[i].setId(woff_answer.footballer[i].id_vk.text());
+			}
+				
+				/*
 			if (woff_answer.footballer[i].id_vk.text() == String(woff_uid)) {
 				main2_txt11.setText("Место:        	 "+ String(i+1));
 				}
@@ -7422,7 +7445,12 @@ private var winners_list:winners_list_sprite;
 			
 			points_[i].setText(int(woff_answer.league_member[i].score.text())/10);
 			
-			sostav[i].setId(woff_answer.league_member[i].id_vk.text());
+			if (champ=="euro") {
+				sostav[i].x = -20;
+			} else {	
+				sostav[i].x = 52;
+				sostav[i].setId(woff_answer.league_member[i].id_vk.text());
+			}
 			
 			if (woff_answer.league_member[i].id_vk.text() == String(woff_uid)) {
 				main3_txt2.setText("Место:        	 "+ String(i+1));
@@ -10412,8 +10440,13 @@ private var winners_list:winners_list_sprite;
 			}
 			
 			points_[i].setText(answer.player[i].tournament_score.text()/10);
-			sostav[i].setId(answer.player[i].id_vk.text());
 			
+			if (champ=="euro") {
+				sostav[i].x = -20;
+			} else {	
+				sostav[i].x = 52;
+				sostav[i].setId(answer.player[i].id_vk.text());
+			}
 			
 			/*
 			if (woff_answer.footballer[i].id_vk.text() == String(woff_uid)) {
@@ -10450,6 +10483,7 @@ private var winners_list:winners_list_sprite;
 			nazvanie[i].setText("");
 			points_[i].setText("0");
 			sostav[i].setId(0);
+			sostav[i].x = -20;
 				}
 				
 				

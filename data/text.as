@@ -7,7 +7,7 @@ package data {
 
 	public class text extends Sprite {
 		
-		[Embed(source='/home/spycom/workspace/FF/img/calibri.ttf', fontFamily="Calibri", fontStyle="normal")]
+		[Embed(source='/Users/Art/dev/FF/img/calibri.ttf', fontFamily="Calibri", fontStyle="normal", embedAsCFF="false")]
 		private static var CalibriFont:Class; //Ембедим кирилицу
 
 		private var formatter:TextFormat = new TextFormat();
