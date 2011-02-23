@@ -30,6 +30,7 @@ public var woff_api_:String;
 
 public var scroll:Loader;
 public var scrollTimer:Timer;
+public var myGlow:GlowFilter;
 
  public function buyBudgetTableClass(woff_uid2:int):void{
  		
@@ -82,16 +83,21 @@ public var scrollTimer:Timer;
 		scroll_line.graphics.drawRoundRect(25, 67, 220, 1, 0);
 		//buyBudgetscroll_line.addEventListener(MouseEvent.CLICK, buyBudgetClose);
 		
+		myGlow = new GlowFilter(); 
+		myGlow.color = 0x00FF00;
+		
+		
 		scroll = new Loader();
 		scroll.load(new URLRequest("http://woff73.valuehost.ru/woff_images/" + "img5/page.png"));
 		scroll.addEventListener(MouseEvent.MOUSE_DOWN, scrollDown);
 		scroll.addEventListener(MouseEvent.MOUSE_UP, scrollUp);
 			this.addEventListener(MouseEvent.MOUSE_UP, scrollUp);
+		scroll.filters = [myGlow];
 		
 		scroll.x = 215;
 		scroll.y = 56;
 		
-		scrollTimer = new Timer(5, 0);
+		scrollTimer = new Timer(1, 0);
 		scrollTimer.addEventListener(TimerEvent.TIMER, scrollTimerEvent);
 		
 		//addChild(buyBudgetSprite);
@@ -236,10 +242,14 @@ public var scrollTimer:Timer;
 			 }
 			private function scrollDown(e:MouseEvent):void {
 				scrollTimer.start(); 
+				myGlow.color = 0x0389af;
+				scroll.filters = [myGlow];
 			}
 			
 			private function scrollUp(e:MouseEvent):void {
 				scrollTimer.stop();
+				myGlow.color = 0x00FF00;
+				scroll.filters = [myGlow];
 			}
 			
 			private function scrollTimerEvent(e:TimerEvent):void {
