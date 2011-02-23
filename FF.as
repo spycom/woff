@@ -2638,8 +2638,8 @@ private var winners_list:winners_list_sprite;
 		removeChild(load);
 		window = "main";
 		
-		woff_general_request.url = woff_api;
-		current_tournament = 2;
+		woff_general_request.url = woff_api3;
+		current_tournament = 5;
 		background = background2;
 		setMethod("getProfile"); // загрузка 1-го профиля в ЧР
 		
@@ -2759,16 +2759,16 @@ private var winners_list:winners_list_sprite;
 		
 	}
 	
-	// переход к чемпионату россеи + итоговые результаты
+	// переход к чемпионату россеи 
 	public function select1listener(e:MouseEvent):void {
 		removeChild(main);
 		window = "main1";
 		
 		champ = "rus";
-		woff_general_request.url = woff_api;
+		woff_general_request.url = woff_api3;
 		current_tax = 250;
-		current_transfers_mass = 10;
-		current_tournament = 2;
+		current_transfers_mass = 60;
+		current_tournament = 5;
 		
 		background = background1;
 		
@@ -2897,7 +2897,7 @@ private var winners_list:winners_list_sprite;
 			main1.addChild(scroll);
 		main1.addChild(scroll2);
 		
-			main1.addChild(winners_list);
+			//main1.addChild(winners_list);
 	}
 	
 	// выбор лиги чемпионов
@@ -3636,8 +3636,8 @@ private var winners_list:winners_list_sprite;
 		
 		window = "main";
 		
-		woff_general_request.url = woff_api;
-		current_tournament = 2;
+		woff_general_request.url = woff_api3;
+		current_tournament = 5;
 		setMethod("getProfile");// загрузка 1-го профиля в ЧР
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
@@ -4208,9 +4208,9 @@ private var winners_list:winners_list_sprite;
 		removeChild(main);
 		window = "main2";
 		champ = "rus";
-		woff_general_request.url = woff_api;
+		woff_general_request.url = woff_api3;
 		current_tax = 250;
-		current_tournament = 2;
+		current_tournament = 5;
 		
 		//обнуление команды
 		for (var zope___:int=1; zope___< 16; zope___++) {
@@ -6837,7 +6837,7 @@ private var winners_list:winners_list_sprite;
 			//main2_txt16.setText("Проведённых трансферов:           	     " + transfers_do);
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
-			woff_general_request.url = woff_api;
+			woff_general_request.url = woff_api3;
 			
 			setMethod("checkTeam");
 			var woff_checkteam_loader:URLLoader = new URLLoader();
@@ -6848,6 +6848,8 @@ private var winners_list:winners_list_sprite;
 			//addChild(welcomeMessage);
 					
 			}  else {
+				
+				current_tournament = 5;
 				
 				setMethod("registerNewPlayer");
 				
@@ -8203,8 +8205,8 @@ private var winners_list:winners_list_sprite;
 				transfers_do = int(woff_answer.tournament.transfers_base.text()) + int(woff_answer.tournament.paid_transfers.text())*is_transfers_bought - transfers_left;
 			main2_txt16.setText("Проведённых трансферов:           	    " + transfers_do);
 			
-			//current_tour = int(woff_answer.tournament.current_tour.text());
-			current_tour = 30;
+			current_tour = int(woff_answer.tournament.current_tour.text());
+			//current_tour = 30;
 			current_new_tour = current_tour;
 			
 			current_budget = int(woff_answer.tournament.base_budget.text()); // + int(woff_answer.tournament.paid_budget.text());
@@ -8235,7 +8237,7 @@ private var winners_list:winners_list_sprite;
 			current_tax_b = woff_answer.tournament.paid_budget_cost_in_votes.text()*10;
 			current_tax_t = woff_answer.tournament.paid_transfers_cost_in_votes.text()*10;
 			
-			woff_general_request.url = woff_api;
+			woff_general_request.url = woff_api3;
 			
 			getTeam("getTeam", current_tour);
 		
