@@ -1,10 +1,18 @@
 package {
 	import adobe.PNGEncoder;
-
+	
 	import api.MD5;
-
+	
+	import com.bit.apps.banerrotator.AppgradeBannerRotator;
+	
+	import data.Ads;
+	import data.LeadersPartButton;
+	import data.SaveOffer;
 	import data.Version;
+	import data.WelcomeMsg;
+	import data.buyBudgetTableClass;
 	import data.down_b;
+	import data.firstManualHint;
 	import data.footman_form;
 	import data.hint;
 	import data.loadingProc;
@@ -16,24 +24,17 @@ package {
 	import data.transfer_get;
 	import data.up_b;
 	import data.vk_photo;
-	import data.buyBudgetTableClass;
-	import data.WelcomeMsg;
-	import data.firstManualHint;
-	import data.Ads;
-	import data.SaveOffer;
-	import data.LeadersPartButton;
 	import data.winners_list_sprite;
+	
 	import flash.display.*;
 	import flash.events.*;
 	import flash.filters.*;
-	import flash.geom.Rectangle;
 	import flash.geom.Point;
+	import flash.geom.Rectangle;
 	import flash.net.*;
-	//import flash.net.FileReference;
 	import flash.text.*;
 	import flash.ui.Mouse;
 	import flash.utils.*;
-	import com.bit.apps.banerrotator.AppgradeBannerRotator;
 	
 
 	public class FF extends Sprite{
@@ -233,7 +234,7 @@ private var main1_txt5:text;
 private var main1_txt6:text;
 private var main1_txt7:text;
 private var main1_txt8:text;
-
+private var main1_txt_note1:text;
 private var main1_txt2_winners:text;
 
 private var main2_txt1:text;
@@ -1601,8 +1602,8 @@ private var winners_list:winners_list_sprite;
 		main1_txt8 = new text(435, 244, "", "5");
 		main1_txt24 = new text(435, 123, "Выберите клуб", "2");
 		main1_txt25 = new text(5, 5, "Выберите клуб", "2");
-		
 		main1_txt2_winners = new text(230, 105, "ПОБЕДИТЕЛИ", "1");
+		main1_txt_note1 = new text(437, 144, "Выбор любимого клуба происходит\n      1 раз за турнир", "2");
 		
 		main2_txt1 = new text(430, 105, "РЕЗУЛЬТАТЫ ТУРА", "1");
 		main2_txt2 = new text(430, 152, "ОБЩИЙ ЗАЧЁТ", "1");
@@ -2887,6 +2888,7 @@ private var winners_list:winners_list_sprite;
 			main1.addChild(main1_txt6);
 			main1.addChild(main1_txt7);
 			main1.addChild(main1_txt8);
+			main1.addChild(main1_txt_note1);
 				addLeadersButtons();
 			main1.addChild(select);
 			main1.addChild(liga);
@@ -3029,6 +3031,7 @@ private var winners_list:winners_list_sprite;
 			main1.addChild(main1_txt6);
 			main1.addChild(main1_txt7);
 			main1.addChild(main1_txt8);
+			main1.addChild(main1_txt_note1);
 				addLeadersButtons();
 			main1.addChild(select);
 			main1.addChild(liga);
@@ -3171,6 +3174,7 @@ private var winners_list:winners_list_sprite;
 			main1.addChild(main1_txt6);
 			main1.addChild(main1_txt7);
 			main1.addChild(main1_txt8);
+			main1.addChild(main1_txt_note1);
 				addLeadersButtons();
 			main1.addChild(select);
 			main1.addChild(liga);
@@ -3319,6 +3323,7 @@ private var winners_list:winners_list_sprite;
 			main1.addChild(main1_txt6);
 			main1.addChild(main1_txt7);
 			main1.addChild(main1_txt8);
+			main1.addChild(main1_txt_note1);
 				addLeadersButtons();
 			main1.addChild(select);
 			main1.addChild(liga);
@@ -3468,6 +3473,7 @@ private var winners_list:winners_list_sprite;
 			main1.addChild(main1_txt6);
 			main1.addChild(main1_txt7);
 			main1.addChild(main1_txt8);
+			main1.addChild(main1_txt_note1);
 				addLeadersButtons();
 			main1.addChild(select);
 			main1.addChild(liga);
@@ -4013,6 +4019,7 @@ private var winners_list:winners_list_sprite;
 			main1.addChild(main1_txt6);
 			main1.addChild(main1_txt7);
 			main1.addChild(main1_txt8);
+			main1.addChild(main1_txt_note1);
 				addLeadersButtons();
 			main1.addChild(select);
 			main1.addChild(liga);

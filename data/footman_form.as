@@ -34,41 +34,41 @@ public var champ:String;
 		switch (champ) {
 			
 			case "rus":
-						if (club_id == 0)
+						if (club_id == 711)
 							footman_form_loader.load(new URLRequest(serv + "img4/forms.png"));
-						if (club_id == 1)
+						if (club_id == 712)
 							footman_form_loader.load(new URLRequest(serv + "img4/forms-rus.png"));
 						if (club_id == 2)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-alaniya.png"));
-						if (club_id == 3)
+						if (club_id == 713)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-amkar.png"));
-						if (club_id == 4)
+						if (club_id == 714)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-anji.png"));
-						if (club_id == 5)
+						if (club_id == 715)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-dinamo.png"));
-						if (club_id == 6)
+						if (club_id == 716)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-zenit.png"));
-						if (club_id == 7)
+						if (club_id == 717)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-krilya.png"));
-						if (club_id == 8)
+						if (club_id == 718)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-locomot.png"));
-						if (club_id == 9)
+						if (club_id == 719)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-rostov.png"));
-						if (club_id == 10)
+						if (club_id == 720)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-rubin.png"));
-						if (club_id == 11)
+						if (club_id == 721)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-saturn.png"));
-						if (club_id == 12)
+						if (club_id == 722)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-sibir.png"));
-						if (club_id == 13)
+						if (club_id == 723)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-spartak.png"));
-						if (club_id == 14)
+						if (club_id == 724)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-nalch.png"));
-						if (club_id == 15)
+						if (club_id == 725)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-tereg.png"));
-						if (club_id == 16)
+						if (club_id == 726)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-tom.png"));
-						if (club_id == 17)
+						if (club_id == 727)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-cska.png"));
 						break;
 			
