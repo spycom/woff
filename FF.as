@@ -6845,6 +6845,7 @@ private var winners_list:winners_list_sprite;
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
 			woff_general_request.url = woff_api3;
+			current_tournament = 5;
 			
 			setMethod("checkTeam");
 			var woff_checkteam_loader:URLLoader = new URLLoader();
