@@ -31,9 +31,9 @@ public var champ:String;
 		clubId =  club_id;
 		removeChild(footman_form_loader);
 		footman_form_loader = new Loader();
-		switch (champ) {
+		//switch (champ) {
 			
-			case "rus":
+			//case "rus":
 						if (club_id == 711)
 							footman_form_loader.load(new URLRequest(serv + "img4/forms.png"));
 						if (club_id == 712)
@@ -70,9 +70,9 @@ public var champ:String;
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-tom.png"));
 						if (club_id == 727)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-cska.png"));
-						break;
+					//	break;
 			
-			case "eng":
+			//case "eng":
 						// форма чемпионата Англии
 						if (club_id == 0)
 							footman_form_loader.load(new URLRequest(serv + "forms-world/forms.png"));
@@ -118,9 +118,9 @@ public var champ:String;
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Wigan.png"));
 						if (club_id == 710)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Wolves.png"));
-						break;
+				//		break;
 				
-				case "isp":
+			//	case "isp":
 						if (club_id == 0)
 							footman_form_loader.load(new URLRequest(serv + "forms-world/forms.png"));
 						if (club_id == 1)
@@ -165,9 +165,9 @@ public var champ:String;
 							footman_form_loader.load(new URLRequest(serv + "forms-spain/valencia.png"));
 						if (club_id == 43)
 							footman_form_loader.load(new URLRequest(serv + "forms-spain/villareal.png"));
-						break;
+					//break;
 						
-				case "ita":
+			//	case "ita":
 					if (club_id == 0)
 							footman_form_loader.load(new URLRequest(serv + "forms-world/forms.png"));
 						if (club_id == 1)
@@ -212,10 +212,10 @@ public var champ:String;
 							footman_form_loader.load(new URLRequest(serv + "forms-italy/sampdoria.png"));
 						if (club_id == 30)
 							footman_form_loader.load(new URLRequest(serv + "forms-italy/udinese.png"));
-						break;
-				case "chlig":
-						if (club_id == 0)
-							footman_form_loader.load(new URLRequest(serv + "forms-world/forms.png"));
+					//	break;
+			//	case "chlig":
+						//if (club_id == 0)
+						//	footman_form_loader.load(new URLRequest(serv + "forms-world/forms.png"));
 						if (club_id == 44)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-nalch.png"));
 						if (club_id == 45) 
@@ -285,11 +285,11 @@ public var champ:String;
 						if (club_id == 77)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-tereg.png"));
 						
-						break;
+						//break;
 						
-				default:
-					footman_form_loader.load(new URLRequest(serv + "img4/forms.png"));
-		}			
+				//default:
+					//footman_form_loader.load(new URLRequest(serv + "img4/forms.png"));
+		//}			
 		addChild(footman_form_loader);
 	}
 	

@@ -558,6 +558,11 @@ private var VKAds:Ads;
 private var page_button:Array;
 private var page_button_sprite:Sprite;
 private var winners_list:winners_list_sprite;
+private var woff_from_id:int;
+private var referrer:String;
+private var poster_id:int;
+private var post_id:int;
+
 
 	public function FF() {
 		
@@ -601,7 +606,12 @@ private var winners_list:winners_list_sprite;
 		//woff_uid = 20757; // Илья
 		//woff_uid = 35756; // Дима
 		//woff_uid = 16671933;
+		
+		referrer = stage.loaderInfo.parameters.referrer;
+		poster_id = stage.loaderInfo.parameters.poster_id;
+		post_id = stage.loaderInfo.parameters.post_id;
 
+		
 		woff_general_request.url = woff_api;
 		current_tournament = 2;
 		setMethod("getTournament");
@@ -2635,7 +2645,13 @@ private var winners_list:winners_list_sprite;
 	
 	public function loadComplete(e:Event):void {
 		//woff_lib.getProfile(woffLoadComplete2);
+		if (poster_id != 0) {
+			//version.setText('poster_id = ' + poster_id);
+			team_sostavEvent_wall(poster_id);
+		} 
+		else {
 		
+		//version.setText('referrer = ' + referrer + ' = ' + poster_id + ' = ' + post_id);
 		removeChild(load);
 		window = "main";
 		
@@ -2757,7 +2773,7 @@ private var winners_list:winners_list_sprite;
 			main.addChild(help_buttontxt);
 			main.addChild(mainhelp_button);
 			
-		
+		}
 	}
 	
 	// переход к чемпионату россеи 
@@ -5762,6 +5778,120 @@ private var winners_list:winners_list_sprite;
 			
 		}
 		
+		// окно состава команды противника - вход со стены
+		
+		public function team_sostavEvent_wall(teamId:int):void {
+			if (window == "main1") {
+				removeChild(main1);
+			} 	
+			if (window == "main2") {
+				removeChild(main2);
+			} 
+			if (window == "main3") {
+				removeChild(main3);
+			}
+			if (window == "main4") {
+				removeChild(main4);
+			} 
+			if (window == "help") {
+				removeChild(help);
+			}
+			if (window == "footman") {
+				removeChild(footman);
+			} 
+			
+			if (window == "team_stat") {
+				removeChild(team_stat);
+			}
+			if (window == "transfer") {
+				removeChild(transfer);
+			}
+			
+			window = "team_sostav";
+			
+			current_team_id = teamId;
+			current_tournament = 5;
+			woff_general_request.url = woff_api3;
+			current_new_tour = 1;
+			main2_txt24.setText("Текущий тур: №" + current_new_tour);
+			
+			getTeam2("getTeam", current_new_tour, current_team_id);
+			
+			var woff_Team_loader:URLLoader = new URLLoader();
+			woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
+			woff_Team_loader.load(woff_general_request);
+			
+			getLigs(current_team_id);
+			
+			var woff_LigList_loader:URLLoader = new URLLoader();
+			woff_LigList_loader.addEventListener(Event.COMPLETE, woffLigListLoadComplete2);
+			woff_LigList_loader.load(woff_general_request);
+			
+			
+			for (var iiiiii:int=1; iiiiii<=15; iiiiii++){
+				safe_team_list.addChild(footman_form_array[iiiiii]);
+				safe_team_list.addChild(footman_name_form[iiiiii]);
+				safe_team_list.addChild(footman_name_txt[iiiiii]);
+				safe_team_list.addChild(footman_scores[iiiiii]);
+			}
+			
+			safe_team_list.addChild(captain);
+			
+			addChild(team_sostav);
+			
+			team_sostav.addChild(background);
+			team_sostav.addChild(top1);
+			team_sostav.addChild(top2);
+			team_sostav.addChild(top3);
+			team_sostav.addChild(top4);
+			team_sostav.addChild(version);
+			team_sostav.addChild(mp);
+			team_sostav.addChild(eu);
+			team_sostav.addChild(all_txt1);
+			team_sostav.addChild(all_txt3);
+			team_sostav.addChild(all_txt4);
+			team_sostav.addChild(logo2);
+			team_sostav.addChild(help_buttontxt);
+			team_sostav.addChild(help_button);
+			team_sostav.addChild(main_button);
+			team_sostav.addChild(block);
+			team_sostav.addChild(link1);
+			team_sostav.addChild(link2);
+			team_sostav.addChild(link3);
+			team_sostav.addChild(link4);
+			team_sostav.addChild(button1txt);
+			team_sostav.addChild(button2txt);
+			team_sostav.addChild(button3txt);
+			team_sostav.addChild(button4txt);
+			button1txt.setColor("0xffffff");
+			button2txt.setColor("0xffffff");
+			button3txt.setColor("0xffffff");
+			button4txt.setColor("0xffffff");
+			team_sostav.addChild(button1);
+			team_sostav.addChild(button2);
+			team_sostav.addChild(button3);
+			team_sostav.addChild(button4);
+			/*
+			team_sostav.addChild(main1_txt1);
+			team_sostav.addChild(main1_txt2);
+			team_sostav.addChild(main1_txt3);
+			team_sostav.addChild(main1_txt4);
+			team_sostav.addChild(main1_txt5);
+			
+			*/
+			team_sostav.addChild(field);
+			//team_sostav.addChild(input);
+			team_sostav.addChild(select2);
+			team_sostav.addChild(main2_txt24);
+			team_sostav.addChild(safe_team_list);
+			team_sostav.addChild(liga);
+			team_sostav.addChild(liga_list);
+			//team_sostav.addChild(liders_list);
+			
+			//main1.addChild(team_list);
+			//main1.addChild(hover);
+			
+		}
 		// окно статистики команды
 		
 		public function team_statEvent(e:MouseEvent):void {
@@ -8476,6 +8606,10 @@ private var winners_list:winners_list_sprite;
 			var woff_answer:XML = new XML(e.target.data);	
 			
 			if (woff_answer.text() == "ok") {
+				//if (ticket_status.text2 == "Команда не допущена!") {
+				//	drawFieldEvent_offer();
+				//}
+				//drawFieldEvent_offer();
 				main_txt5.setText("Статус допуска: команда допущена");
 				//ticket_status.setColor("0x22b573");
 				ticket_status.setText("Команда допущена!");
@@ -8564,7 +8698,10 @@ private var winners_list:winners_list_sprite;
 			var woff_answer:XML = new XML(e.target.data);	
 			
 			if (woff_answer.text() == "ok") {
-				
+				if (String(ticket_status.text2) == String("Команда допущена!")) {
+					drawFieldEvent_offer();
+				}
+				//drawFieldEvent_offer();
 				ticket_status.setText("Команда допущена!");
 				ticket_status.setColor("0x22b573");
 			} else {
@@ -10664,6 +10801,44 @@ private var winners_list:winners_list_sprite;
 			
 			var SaveOfferWindow = new SaveOffer(brr, woff_uid, 1848099, "DuIP8H5HnE", wrapper, champ);
 				addChild(SaveOfferWindow);
+			
+			// !!!!!!!!!!!!!
+			//fil.save(brr, "FantasyTeam.png");
+			
+		}
+		
+		private function drawFieldEvent_offer():void {
+			
+			
+			
+			var raw:BitmapData = new BitmapData(field.width, field.height+50);
+			//raw = new BitmapData(640, 480);
+			//camera.x += 30;
+			raw.draw(field);
+			raw.draw(footman_list);
+			raw.draw(safe_team_list);
+			//camera.x += 30;
+			//raw.draw(logo2);
+			//raw.draw(stage);
+			//main2.removeChild(camera);
+			/*
+			var croppedBD:BitmapData = new BitmapData(field.width, field.height);
+			croppedBD.copyPixels(raw, new Rectangle(20, 130, field.width, field.height), new Point(0, 0));
+			
+			raw.dispose();
+			* 
+			*/
+			var brr:ByteArray = PNGEncoder.encode(raw);
+			
+			/*
+			croppedBD.dispose();
+			* 
+			*/
+			//var fil:FileReference = new FileReference();
+			main2.removeChild(camera);
+			
+			var SaveOfferWindow = new SaveOffer(brr, woff_uid, 1848099, "DuIP8H5HnE", wrapper, champ);
+			addChild(SaveOfferWindow);
 			
 			// !!!!!!!!!!!!!
 			//fil.save(brr, "FantasyTeam.png");

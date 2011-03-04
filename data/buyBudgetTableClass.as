@@ -74,7 +74,7 @@ public var myGlow:GlowFilter;
 		buyBudgetText3 = new text(130, 40, "Купить 1 миллионов", "12");
 		buyBudgetText3.addEventListener(MouseEvent.CLICK, buyBudget_req_q);
 		
-		buyBudgetErrorText = new text(140, 71, "error?", "12");
+		buyBudgetErrorText = new text(140, 75, "error?", "12");
 		buyBudgetErrorText.addEventListener(MouseEvent.CLICK, buyBudgetClose);
 		
 		scroll_line = new Sprite();

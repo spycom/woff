@@ -12,7 +12,7 @@ package data {
 		
 		// -------------------ВЕРСИЯ----------------------
 		
-					top.setText("v0.2.9.5-dev4.2");
+					top.setText("v0.2.9.6");
 		
 		// -----------------------------------------------
 		
@@ -32,4 +32,8 @@ package data {
 		}
 		 * 
 		 */
+		public function setText(texts:String):void {
+			top.setText(texts);
+			//top.setTextFormat(formatter);
+		}
 }}
