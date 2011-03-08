@@ -562,7 +562,7 @@ private var woff_from_id:int;
 private var referrer:String;
 private var poster_id:int;
 private var post_id:int;
-
+private var check_team_trigger:int;
 
 	public function FF() {
 		
@@ -2623,6 +2623,8 @@ private var post_id:int;
    	 AppgradeBannerRotator.init_rotator(game_movie_clip, banner_pid, banner_x, banner_y, banner_width);
 		
 		addChild(game_movie_clip);
+		check_team_trigger = 2;
+		
 	}
 	
 //----------------------------------------------------------------------------------------------------------------
@@ -2646,7 +2648,7 @@ private var post_id:int;
 	public function loadComplete(e:Event):void {
 		//woff_lib.getProfile(woffLoadComplete2);
 		if (poster_id != 0) {
-			//version.setText('poster_id = ' + poster_id);
+			version.setText('referrer = ' + referrer + ' @ ' +'poster_id = ' + poster_id + '@post_id=' + post_id);
 			team_sostavEvent_wall(poster_id);
 		} 
 		else {
@@ -8698,14 +8700,15 @@ private var post_id:int;
 			var woff_answer:XML = new XML(e.target.data);	
 			
 			if (woff_answer.text() == "ok") {
-				if (String(ticket_status.text2) == String("Команда допущена!")) {
+				if (check_team_trigger == 0) {
 					drawFieldEvent_offer();
 				}
+				check_team_trigger = 1;
 				//drawFieldEvent_offer();
 				ticket_status.setText("Команда допущена!");
 				ticket_status.setColor("0x22b573");
 			} else {
-				
+				check_team_trigger = 0;
 				ticket_status.setText("Команда не допущена!");
 				ticket_status.setColor("0xff0000");
 				

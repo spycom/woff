@@ -37,7 +37,7 @@ public var champ:String;
 						if (club_id == 711)
 							footman_form_loader.load(new URLRequest(serv + "img4/forms.png"));
 						if (club_id == 712)
-							footman_form_loader.load(new URLRequest(serv + "img4/forms-rus.png"));
+							footman_form_loader.load(new URLRequest(serv + "forms-england/WestBrom.png"));
 						if (club_id == 2)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-alaniya.png"));
 						if (club_id == 713)
@@ -57,9 +57,9 @@ public var champ:String;
 						if (club_id == 720)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-rubin.png"));
 						if (club_id == 721)
-							footman_form_loader.load(new URLRequest(serv + "img4/rus-saturn.png"));
+							footman_form_loader.load(new URLRequest(serv + "forms-spain/villareal.png"));
 						if (club_id == 722)
-							footman_form_loader.load(new URLRequest(serv + "img4/rus-sibir.png"));
+							footman_form_loader.load(new URLRequest(serv + "img4/Krasnodar.png"));
 						if (club_id == 723)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-spartak.png"));
 						if (club_id == 724)
