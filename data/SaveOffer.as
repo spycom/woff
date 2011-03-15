@@ -1,12 +1,12 @@
 package data {
+	import com.adobe.serialization.json.JSON;
+	
 	import flash.display.*;
-	//import flash.text.*;
 	import flash.events.*;
 	import flash.filters.*;
 	import flash.net.*;
-	import flash.utils.*;
-	import com.adobe.serialization.json.JSON;
 	import flash.system.*;
+	import flash.utils.*;
 		
 	public class SaveOffer extends Sprite {
 	
@@ -87,7 +87,7 @@ public var wrapper: Object;
 		
 		getUploadServer();
 		
-		getUploadServerPhotos();
+		//getUploadServerPhotos();
 		}
 		
 		public function SaveOfferClose(e:MouseEvent):void {
@@ -121,7 +121,7 @@ public var wrapper: Object;
 			
 			var test_mode:Number = 0;
 	
-			var methodFromAPI = "wall.getPhotoUploadServer";
+			var methodFromAPI = "photos.getWallUploadServer";
 		
 			var _sig:String =viewer_id + 'api_id='+api_id+'method='+methodFromAPI+'test_mode='+test_mode+'v=2.0'+ api_secret;
 			var sig:String = MD5.encrypt(_sig); // используем метод hash класса md5 и получаем сигнатуру
@@ -145,6 +145,7 @@ public var wrapper: Object;
 			loader222.addEventListener(Event.COMPLETE, loadUploadServerComplete);
 			loader222.load(request);
 		}
+		/*
 		public function getUploadServerPhotos():void {
 			Security.allowDomain("*");
 			
@@ -175,8 +176,11 @@ public var wrapper: Object;
 			loader222.addEventListener(Event.COMPLETE, loadUploadServerPhotoComplete);
 			loader222.load(request);
 		}
+		*/
+		
 		private function loadUploadServerComplete(e:Event):void {
 			//SaveCloseText.setText(e.target.data);
+			SaveCloseText.setColor('FF0000');
 			
 			var answer= new XML(e.target.data);
 			//save_text.setText("server load");
@@ -262,9 +266,9 @@ public var wrapper: Object;
    		
    		//save_text.setText("wtf!!!!");
          
-			loader2 = new URLLoader();
+			//loader2 = new URLLoader();
 			//loader222.dataFormat = URLLoaderDataFormat.BINARY;
-			loader2.addEventListener(Event.COMPLETE, loadAlbumPhotoComplete);
+			//loader2.addEventListener(Event.COMPLETE, loadAlbumPhotoComplete);
 			//loader222.load(request);
 			//doit(null);
 		
@@ -272,6 +276,7 @@ public var wrapper: Object;
 		private function doIt(e:MouseEvent):void {
 			loader.load(request);
 			//loader2.load(request2);
+			//SaveCloseText.setText('mouse clicked');
 		}
 		private function loadPhotoComplete(e:Event):void {
 			var json_data:Object=JSON.decode(e.target.data);
@@ -280,7 +285,7 @@ public var wrapper: Object;
 			
 			var test_mode:Number = 0;
 		
-			var methodFromAPI = "wall.savePost";
+			var methodFromAPI = "photos.saveWallPhoto";
 			
 			var wall_message:String = new String();
 			if (champ == "rus")
@@ -321,24 +326,37 @@ public var wrapper: Object;
 			//loader222.dataFormat = URLLoaderDataFormat.TEXT;
 			loader222.addEventListener(Event.COMPLETE, loadHashComplete);
 			loader222.load(request);
-			
+			//SaveCloseText.setText('wtf');
 			
 		}
 		
-		private function loadAlbumPhotoComplete(e:Event):void {
-			var json_data:Object=JSON.decode(e.target.data);
+		private function loadWallPhotoComplete(e:Event):void {
+			//var json_data:Object=JSON.decode(e.target.data);
 			
 			//SaveCloseText.setText(e.target.data);
+			var answer= new XML(e.target.data);
 			
 			var test_mode:Number = 0;
 		
-			var methodFromAPI = "photos.save";
+			var methodFromAPI = "wall.post";
 			
 			
-					
-			//var message:String = new String("собрал команду в World of Fantasy Fooball в " + wall_message + " http://vkontakte.ru/app1848099");
+			var wall_message:String = new String();
+			if (champ == "rus")
+				wall_message = "Чемпионатe России";
+			if (champ == "eng")
+				wall_message = "Чемпионате Англии";
+			if (champ == "isp")
+				wall_message = "Чемпионате Ипании";
+			if (champ == "ita")
+				wall_message = "Чемпионате Италии";
+			if (champ == "chlig")
+				wall_message = "Лиге Чемпионов";
 			
-			var _sig:String = viewer_id + 'aid='+ aid +'api_id='+api_id+'hash='+json_data.hash+'method='+methodFromAPI+'photos_list='+json_data.photos_list+'server='+json_data.server+'test_mode='+test_mode+'v=2.0' + api_secret;
+			var message:String = new String("собрал команду в World of Fantasy Fooball в " + wall_message + " http://vkontakte.ru/app1848099");
+			var attachment:String = new String(answer.photo.id.text());
+			
+			var _sig:String = viewer_id + 'api_id='+api_id+'attachment='+attachment+'message='+message+'method='+methodFromAPI+'test_mode='+test_mode+'v=2.0' + api_secret;
 			var sig:String = MD5.encrypt(_sig); // используем метод hash класса md5 и получаем сигнатуру
 		
 			var request = new URLRequest("http://api.vkontakte.ru/api.php");
@@ -351,19 +369,19 @@ public var wrapper: Object;
 			//v.uids = viewer_id;
 			v.test_mode = test_mode;
 			v.sig = sig;
-  			v.server = json_data.server;
-			v.photo = json_data.photos_list;
-			v.hash = json_data.hash;
-			v.aid = aid;
-			//v.message = message;
+  			//v.server = json_data.server;
+			//v.photo = json_data.photos_list;
+			v.attachment = attachment;
+			//v.aid = aid;
+			v.message = message;
 			
    			request.data = v;
           
 			var loader222:URLLoader = new URLLoader();
 			//loader222.dataFormat = URLLoaderDataFormat.TEXT;
-			loader222.addEventListener(Event.COMPLETE, loadPhotoHashComplete);
+			loader222.addEventListener(Event.COMPLETE, loadHashComplete);
 			loader222.load(request);
-			
+			//SaveCloseText.setText(attachment);
 			
 		}
 		private function  loadHashComplete(e:Event):void {
@@ -371,8 +389,24 @@ public var wrapper: Object;
 			
 			var answer= new XML(e.target.data);
 			
+			var wall_message:String = new String();
+			if (champ == "rus")
+				wall_message = "Чемпионатe России";
+			if (champ == "eng")
+				wall_message = "Чемпионате Англии";
+			if (champ == "isp")
+				wall_message = "Чемпионате Ипании";
+			if (champ == "ita")
+				wall_message = "Чемпионате Италии";
+			if (champ == "chlig")
+				wall_message = "Лиге Чемпионов";
+			
+			var message:String = new String("собрал команду в World of Fantasy Fooball в " + wall_message + " http://vkontakte.ru/app1848099");
+			var attachment:String = new String(answer.photo.id.text());
+			
 			//save_text.setText(answer);
-			wrapper.external.saveWallPost(answer.post_hash.text());
+			wrapper.external.api('wall.post', {message: message, attachment:attachment}, loadPhotoHashComplete);
+			//SaveCloseText.setText('wtf?!?!?!??!');
 		}
 		private function  loadPhotoHashComplete(e:Event):void {
 			//SaveCloseText.setText(e.target.data);

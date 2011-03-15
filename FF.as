@@ -590,7 +590,7 @@ private var check_team_trigger:int;
     		
 		// --- своя библиотека (request) --------------------------------------
 		woff_api = "http://woff73.valuehost.ru/api.php";
-		woff_api1 = "http://woff73.valuehost.ru/api1.php";
+		woff_api1 = "http://woff73.valuehost.ru/tapi.php";
 		woff_api2 = "http://woff73.valuehost.ru/api2.php";
 		woff_api3 = "http://woff73.valuehost.ru/tapi.php";
 		current_woff_api = woff_api;
@@ -6301,9 +6301,9 @@ private var check_team_trigger:int;
 		window = "player_liga";
 		
 		main3_txt1.setText(e.currentTarget.txt());
-		var current_liga_id:int = e.currentTarget.id;
+		var current_liga_id:String = e.currentTarget.league_id;
 		
-		if (current_liga_id == 33){
+		if (current_liga_id == "33"){
 					main3_txt5.setText("Вступить за 4 MP");
 					//main3_txt5.set
 					} else {
@@ -6311,7 +6311,7 @@ private var check_team_trigger:int;
 					}
 			
 		
-		getLeagueMembers(e.currentTarget.id);
+		getLeagueMembers(e.currentTarget.league_id);
 		
 		
 		var woff_LeagueMembers_loader:URLLoader = new URLLoader();
@@ -6405,13 +6405,13 @@ private var check_team_trigger:int;
 			player_liga.addChild(all_lig_list);
 			player_liga.addChild(button_blue_liga);
 			player_liga.addChild(main3_txt5);
-				main3_txt5.setId(current_liga_id);
+				main3_txt5.setLeagueId(current_liga_id);
 			player_liga.addChild(scroll_lig);
 			for (var blo:int=1; blo < 6; blo++) {
-				if (p_liga_backup[blo].id == e.currentTarget.id) {
+				if (p_liga_backup[blo].league_id == e.currentTarget.league_id) {
 					player_liga.removeChild(main3_txt5);
 					player_liga.addChild(main3_txt5_);
-					main3_txt5_.setId(current_liga_id);
+					main3_txt5_.setLeagueId(current_liga_id);
 					} 
 				}
 		}
@@ -8724,7 +8724,7 @@ private var check_team_trigger:int;
 				
 				
 			all_lig[ttt].setText(String(woff_answer.league[ttt].title.text()));
-			all_lig[ttt].setId(woff_answer.league[ttt].id.text());
+			all_lig[ttt].setLeagueId(woff_answer.league[ttt].id.text());
 			all_lig_p[ttt].setText(String(woff_answer.league[ttt].no_of_members.text()));
 			//team_stat_array[tt].setText(String(woff_answer.footballer[tt-1].name.text()));
 			
@@ -8733,7 +8733,7 @@ private var check_team_trigger:int;
 				
 				
 			all_lig[ttt].setText("-");
-			all_lig[ttt].setId(0);
+			all_lig[ttt].setLeagueId("0");
 			all_lig_p[ttt].setText("-");
 			//team_stat_array[tt].setText(String(woff_answer.footballer[tt-1].name.text()));
 			
@@ -10344,7 +10344,7 @@ private var check_team_trigger:int;
 			}
 			
 			// запрос состава лиг
-			public function getLeagueMembers(uid:int):void {
+			public function getLeagueMembers(uid:String):void {
 				
 				var params:Object = {method: "getLeagueMembers", id_l: uid, id_tm: current_tournament};
 				

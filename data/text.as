@@ -1,7 +1,7 @@
 package data {
 	import flash.display.*;
-	import flash.text.*;
 	import flash.events.*;
+	import flash.text.*;
 
 
 
@@ -13,11 +13,13 @@ package data {
 		private var formatter:TextFormat = new TextFormat();
 		private var top:TextField = new TextField();
 		public var id:int = new int;
+		public var league_id:String = new String();
 		public var text2:String;
 		public var full:String;
 		
 		public function text(menu_x:int,menu_y:int,top_str:String, type:String) {
 		 	id = 0;
+			league_id = "0";
 			full = "-";
 			
 		top.text = top_str;
@@ -213,6 +215,9 @@ package data {
 		}
 		public function setId(id_:int):void {
 			id = id_;
+		}
+		public function setLeagueId(id_l:String):void {
+			league_id = id_l;
 		}
 		public function setFull(new_full:String):void {
 			full = new_full;
