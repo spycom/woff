@@ -11,6 +11,7 @@ package {
 	import data.Version;
 	import data.WelcomeMsg;
 	import data.buyBudgetTableClass;
+	import data.down_arrow;
 	import data.down_b;
 	import data.firstManualHint;
 	import data.footman_form;
@@ -563,6 +564,7 @@ private var referrer:String;
 private var poster_id:int;
 private var post_id:int;
 private var check_team_trigger:int;
+private var down_arrows:Array;
 
 	public function FF() {
 		
@@ -4237,6 +4239,11 @@ private var check_team_trigger:int;
 		current_tax = 250;
 		current_tournament = 5;
 		
+		down_arrows = new Array();
+		//down_arrows[0] = new down_arrow();
+		//down_arrows[0].x = 200;
+		//down_arrows[0].y = 200;
+		
 		//обнуление команды
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
@@ -4255,6 +4262,9 @@ private var check_team_trigger:int;
 					team_stat_array[zope___].setText("---");
 					team_eu_cost[zope___].setText("-");
 					
+					down_arrows[zope___] = new down_arrow();
+					down_arrows[zope___].x = footman_replace[zope___].x + 9;
+					down_arrows[zope___].y = footman_replace[zope___].y+90;
 					
 					if (zope___ > 1 && zope___ <= 5){
 						footman_replace[zope___].setRole(1);
@@ -4268,6 +4278,8 @@ private var check_team_trigger:int;
 					if (zope___ > 12){
 						footman_replace[zope___].setRole(zope___-12);
 					}
+					
+					
 				}
 				
 		setMethod("getProfile");
@@ -4378,7 +4390,9 @@ private var check_team_trigger:int;
 			main2.addChild(main2_txt22);
 			main2.addChild(main2_txt23);
 			main2.addChild(main2_txt24);
-			
+				for (var num:int=1; num< 16; num++) {
+					main2.addChild(down_arrows[num]);
+				}
 			addChild(firstManual);
 			/*
 			addChild(errorSprite);
@@ -4405,6 +4419,8 @@ private var check_team_trigger:int;
 		champ = "eng";
 		woff_general_request.url = woff_api1;
 		
+		down_arrows = new Array();
+		
 		//обнуление команды
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
@@ -4421,6 +4437,10 @@ private var check_team_trigger:int;
 					team_role[zope___].setText("--");
 					team_stat_array[zope___].setText("---");
 					team_eu_cost[zope___].setText("-");
+					
+					down_arrows[zope___] = new down_arrow();
+					down_arrows[zope___].x = footman_replace[zope___].x + 9;
+					down_arrows[zope___].y = footman_replace[zope___].y+90;
 					
 					if (zope___ > 1 && zope___ <= 5){
 						footman_replace[zope___].setRole(1);
@@ -4542,7 +4562,9 @@ private var check_team_trigger:int;
 			main2.addChild(main2_txt22);
 			main2.addChild(main2_txt23);
 			main2.addChild(main2_txt24);
-			
+			for (var num:int=1; num< 16; num++) {
+				main2.addChild(down_arrows[num]);
+			}
 			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
     	
     			if (woff_isAppUser !== 1) {
@@ -4579,6 +4601,8 @@ private var check_team_trigger:int;
 		champ = "chlig";
 		woff_general_request.url = woff_api3;
 		
+		down_arrows = new Array();
+		
 		//обнуление команды
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
@@ -4595,6 +4619,10 @@ private var check_team_trigger:int;
 					team_role[zope___].setText("--");
 					team_stat_array[zope___].setText("---");
 					team_eu_cost[zope___].setText("-");
+					
+					down_arrows[zope___] = new down_arrow();
+					down_arrows[zope___].x = footman_replace[zope___].x + 9;
+					down_arrows[zope___].y = footman_replace[zope___].y+90;
 					
 					if (zope___ > 1 && zope___ <= 5){
 						footman_replace[zope___].setRole(1);
@@ -4717,7 +4745,9 @@ private var check_team_trigger:int;
 			main2.addChild(main2_txt22);
 			main2.addChild(main2_txt23);
 			main2.addChild(main2_txt24);
-			
+			for (var num:int=1; num< 16; num++) {
+				main2.addChild(down_arrows[num]);
+			}
 			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
     	
     			if (woff_isAppUser !== 1) {
@@ -4745,6 +4775,8 @@ private var check_team_trigger:int;
 		champ = "ita";
 		woff_general_request.url = woff_api3;
 		
+		down_arrows = new Array();
+		
 		//обнуление команды
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
@@ -4761,6 +4793,10 @@ private var check_team_trigger:int;
 					team_role[zope___].setText("--");
 					team_stat_array[zope___].setText("---");
 					team_eu_cost[zope___].setText("-");
+					
+					down_arrows[zope___] = new down_arrow();
+					down_arrows[zope___].x = footman_replace[zope___].x + 9;
+					down_arrows[zope___].y = footman_replace[zope___].y+90;
 					
 					if (zope___ > 1 && zope___ <= 5){
 						footman_replace[zope___].setRole(1);
@@ -4882,7 +4918,9 @@ private var check_team_trigger:int;
 			main2.addChild(main2_txt22);
 			main2.addChild(main2_txt23);
 			main2.addChild(main2_txt24);
-			
+			for (var num:int=1; num< 16; num++) {
+				main2.addChild(down_arrows[num]);
+			}
 			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
     	
     			if (woff_isAppUser !== 1) {
@@ -4919,6 +4957,8 @@ private var check_team_trigger:int;
 		champ = "isp";
 		woff_general_request.url = woff_api3;
 		
+		down_arrows = new Array();
+		
 		//обнуление команды
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
@@ -4935,6 +4975,10 @@ private var check_team_trigger:int;
 					team_role[zope___].setText("--");
 					team_stat_array[zope___].setText("---");
 					team_eu_cost[zope___].setText("-");
+					
+					down_arrows[zope___] = new down_arrow();
+					down_arrows[zope___].x = footman_replace[zope___].x + 9;
+					down_arrows[zope___].y = footman_replace[zope___].y+90;
 					
 					if (zope___ > 1 && zope___ <= 5){
 						footman_replace[zope___].setRole(1);
@@ -5057,7 +5101,9 @@ private var check_team_trigger:int;
 			main2.addChild(main2_txt22);
 			main2.addChild(main2_txt23);
 			main2.addChild(main2_txt24);
-			
+			for (var num:int=1; num< 16; num++) {
+				main2.addChild(down_arrows[num]);
+			}
 			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
     	
     			if (woff_isAppUser !== 1) {
