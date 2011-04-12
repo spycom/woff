@@ -4390,9 +4390,7 @@ private var down_arrows:Array;
 			main2.addChild(main2_txt22);
 			main2.addChild(main2_txt23);
 			main2.addChild(main2_txt24);
-				for (var num:int=1; num< 16; num++) {
-					main2.addChild(down_arrows[num]);
-				}
+				
 			addChild(firstManual);
 			/*
 			addChild(errorSprite);
@@ -4562,9 +4560,7 @@ private var down_arrows:Array;
 			main2.addChild(main2_txt22);
 			main2.addChild(main2_txt23);
 			main2.addChild(main2_txt24);
-			for (var num:int=1; num< 16; num++) {
-				main2.addChild(down_arrows[num]);
-			}
+			
 			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
     	
     			if (woff_isAppUser !== 1) {
@@ -4745,9 +4741,7 @@ private var down_arrows:Array;
 			main2.addChild(main2_txt22);
 			main2.addChild(main2_txt23);
 			main2.addChild(main2_txt24);
-			for (var num:int=1; num< 16; num++) {
-				main2.addChild(down_arrows[num]);
-			}
+			
 			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
     	
     			if (woff_isAppUser !== 1) {
@@ -4918,9 +4912,7 @@ private var down_arrows:Array;
 			main2.addChild(main2_txt22);
 			main2.addChild(main2_txt23);
 			main2.addChild(main2_txt24);
-			for (var num:int=1; num< 16; num++) {
-				main2.addChild(down_arrows[num]);
-			}
+			
 			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
     	
     			if (woff_isAppUser !== 1) {
@@ -5101,9 +5093,7 @@ private var down_arrows:Array;
 			main2.addChild(main2_txt22);
 			main2.addChild(main2_txt23);
 			main2.addChild(main2_txt24);
-			for (var num:int=1; num< 16; num++) {
-				main2.addChild(down_arrows[num]);
-			}
+			
 			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
     	
     			if (woff_isAppUser !== 1) {
@@ -7933,6 +7923,10 @@ private var down_arrows:Array;
 				
 			} else {
 				
+				for (var num:int=1; num< 16; num++) {
+					main2.addChild(down_arrows[num]);
+				}
+				
 				for (var zope:int=1; zope <= woff_answer.footballer.length(); zope++) {
 					total_team_cost += int(woff_answer.footballer[zope-1].cost.text());
 					team_eu_cost[zope].setText(int(woff_answer.footballer[zope-1].cost.text())/10 +"");
@@ -7985,6 +7979,7 @@ private var down_arrows:Array;
 								current_captain_id = int(woff_answer.footballer[zope-1].id.text());
 								}
 							zope0++;
+							main2.removeChild(down_arrows[1]);
 							}
 						
 						// -- вычленение полузащитников
@@ -8006,9 +8001,13 @@ private var down_arrows:Array;
 								footman_list.addChild(captain);
 								current_captain_id = int(woff_answer.footballer[zope-1].id.text());
 							}
+							main2.removeChild(down_arrows[zope1_]);
+							
 							zope0++;
 							zope1++;
 							zope1_++;
+							
+							
 							//if (zope1 == 5)
 							//	zope2_++;
 							if ((zope1 + zamena_trig1) == 5) 								
@@ -8037,9 +8036,12 @@ private var down_arrows:Array;
 								footman_list.addChild(captain);
 								current_captain_id = int(woff_answer.footballer[zope-1].id.text());
 							}
+							main2.removeChild(down_arrows[zope2_]);
+							
 							zope0++;
 							zope2++;
 							zope2_++;
+							
 							//if (zope2 == 4)
 							if (zope2 == 5)
 								zope3_ = zope2_;
@@ -8066,9 +8068,12 @@ private var down_arrows:Array;
 								footman_list.addChild(captain);
 								current_captain_id = int(woff_answer.footballer[zope-1].id.text());
 							}
+							main2.removeChild(down_arrows[zope3_]);
+							
 							zope0++;
 							zope3++;
 							zope3_++;
+							
 							if (zope3 == 2)
 								zope3_ = 9;
 						}
@@ -8086,7 +8091,7 @@ private var down_arrows:Array;
 						footman_scores[12].setText(woff_answer.footballer[zope-1].tour_score.text());
 						footman_form_array[12].setId(woff_answer.footballer[zope-1].id.text());
 						footman_form_array[12].setClub(woff_answer.footballer[zope-1].id_club.text());
-						
+						main2.removeChild(down_arrows[12]);
 					}
 					// вычленение замены 1
 					if (woff_answer.footballer[zope-1].status == "3") {
@@ -8116,7 +8121,7 @@ private var down_arrows:Array;
 						if (woff_answer.footballer[zope-1].role.text() == "3")
 							zamena_trig3++;
 							
-						
+						main2.removeChild(down_arrows[13]);
 					}
 					// вычленение замены 2
 					if (woff_answer.footballer[zope-1].status == "4") {
@@ -8145,6 +8150,7 @@ private var down_arrows:Array;
 							zamena_trig2++;
 						if (woff_answer.footballer[zope-1].role.text() == "3")
 							zamena_trig3++;
+						main2.removeChild(down_arrows[14]);
 					}
 					// вычленение замены 3
 					if (woff_answer.footballer[zope-1].status == "5") {
@@ -8173,6 +8179,7 @@ private var down_arrows:Array;
 							zamena_trig2++;
 						if (woff_answer.footballer[zope-1].role.text() == "3")
 							zamena_trig3++;
+						main2.removeChild(down_arrows[15]);
 					}
 				}
 				
@@ -8255,6 +8262,8 @@ private var down_arrows:Array;
 					footman_replace[num+2].y = (250/zope1)*num+15;
 					footman_form_array[num+2].x = 110;
 					footman_form_array[num+2].y = (250/zope1)*num;
+					down_arrows[num+2].y = footman_replace[num+2].y+90;
+					
 				}
 				for (var num:int=0; num < zope2; num++) {
 					footman_name_form[zope1+num+2].x = 200;
@@ -8269,6 +8278,7 @@ private var down_arrows:Array;
 					footman_replace[zope1+num+2].y = (250/zope2)*num+15;
 					footman_form_array[zope1+2+num].x = 210;
 					footman_form_array[zope1+2+num].y = (250/zope2)*num;
+					down_arrows[zope1+num+2].y = footman_replace[zope1+num+2].y+90;
 				}
 				for (var num:int=0; num < zope3; num++) {
 					footman_name_form[zope1+zope2+num+2].x = 300;
@@ -8283,6 +8293,7 @@ private var down_arrows:Array;
 					footman_replace[zope1+zope2+num+2].y = (150/zope3)*num+75;
 					footman_form_array[zope1+zope2+2+num].x = 310;
 					footman_form_array[zope1+zope2+2+num].y = (150/zope3)*num+60;
+					down_arrows[zope1+zope2+num+2].y = footman_replace[zope1+zope2+num+2].y+90;
 				}
 						/*			 
 					footman_name_form[12].x = 10;
