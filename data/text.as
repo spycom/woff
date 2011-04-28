@@ -178,7 +178,13 @@ package data {
 			top.autoSize = TextFieldAutoSize.LEFT;
 			top.width = 105;
 			top.wordWrap = true;
-		}		
+		}
+		if (type == "first_hint") {
+			formatter.color = 0x666666;
+			formatter.size = 22;
+			top.selectable = false;
+			top.autoSize = TextFieldAutoSize.LEFT;
+		}
 		top.embedFonts = true;
 		formatter.font = "Calibri";
 		//top.antiAliasType = AntiAliasType.ADVANCED;

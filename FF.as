@@ -8,6 +8,7 @@ package {
 	import data.Ads;
 	import data.LeadersPartButton;
 	import data.SaveOffer;
+	import data.UserAvatar;
 	import data.Version;
 	import data.WelcomeMsg;
 	import data.buyBudgetTableClass;
@@ -565,6 +566,7 @@ private var poster_id:int;
 private var post_id:int;
 private var check_team_trigger:int;
 private var down_arrows:Array;
+private var friends_league_avatar:UserAvatar;
 
 	public function FF() {
 		
@@ -971,7 +973,7 @@ private var down_arrows:Array;
 		// список лидеров турнира
 		liders_list = new Sprite();
 		liders_list.x = 15;
-		liders_list.y = 139;
+		liders_list.y = 142;
 		//liders_list.addEventListener(MouseEvent.CLICK, footmanEvent);
 		liders_list.scrollRect = new Rectangle(0, 0, 200, 315);
 		
@@ -1661,14 +1663,14 @@ private var down_arrows:Array;
 		main2_txt21.addEventListener(MouseEvent.MOUSE_OUT, outCashLiga);
 		
 		main3_txt1 = new text( 320, 130, "Лига друзей", "2");
-		main3_txt2 = new text( 570, 130, "Место:  00", "2");
+		main3_txt2 = new text( 560, 130, "Место:  00", "2");
 		main3_txt3 = new text( 320, 150, "ФИО", "2");
-		main3_txt4 = new text( 570, 150, "Очков: 000", "2");
+		main3_txt4 = new text( 560, 150, "Очков: 000", "2");
 		main3_txt5 = new text( 562, 260, "Вступить", "41");
 		main3_txt5_ = new text( 540, 260, "Покинуть", "4");
 		main3_txt6 = new text( 230, 300, "Название Лиги", "2");
 		main3_txt7 = new text( 510, 300, "количество участников", "2");
-		main3_txt8 = new text( 320, 170, "Лига друзей это круто! В данной лиге участвуют все Ваши друзья. сейчас в разработке, но следите за новостями... ! ", "6");
+		main3_txt8 = new text( 320, 170, "Лига друзей это круто! В данной лиге участвуют все Ваши друзья, собравшие укомплектованную команду. Приглашайте, соревнуйтесь и выигрывайте. Чем больше друзей - тем больше азарт!", "6");
 		main3_txt8_ = new text( 320, 170, "Общий зачёт! сейчас в разработке, но следите за новостями... !", "6");
 		main3_txt_inv = new text( 470, 263, "Пригласить друзей", "4");
 		select_leaders_tour_txt = new text(20, 118, "Выберите тур", "2");
@@ -2614,6 +2616,8 @@ private var down_arrows:Array;
 		
 		winners_list = new winners_list_sprite(woff_uid);
 		winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
+		
+		friends_league_avatar = new UserAvatar(woff_uid);
 		
 		var 
 			game_movie_clip : MovieClip = new MovieClip(), // MovieClip в который будет вставляться баннер
@@ -5196,7 +5200,7 @@ private var down_arrows:Array;
 			main3.addChild(scroll2);
 			main3.addChild(main3_txt1);
 			main3.addChild(main3_txt2);
-			main3.addChild(main3_txt3);
+			//main3.addChild(main3_txt3);
 			main3.addChild(main3_txt4);
 			
 			main3.addChild(main3_txt6);
@@ -5206,6 +5210,7 @@ private var down_arrows:Array;
 			main3.addChild(button_blue_invite);
 			main3.addChild(main3_txt_inv);
 			main3.addChild(scroll_lig);
+			main3.addChild(friends_league_avatar);
 		}
 		
 	
@@ -7606,8 +7611,8 @@ private var down_arrows:Array;
 			sostav[i].setId(0);
 			}
 			
-		//if ()
-		//all_txt3.setText(woff_answer);
+		main3_txt2.setText("Место: --");
+		//main3_txt4.setText("Очков: "+ woff_answer.league_member[i].score.text()/10);
 		
 		for (var i:int=0; i<woff_answer.league_member.length() && i<100; i++) {
 				
@@ -7631,7 +7636,8 @@ private var down_arrows:Array;
 			}
 			
 			if (woff_answer.league_member[i].id_vk.text() == String(woff_uid)) {
-				main3_txt2.setText("Место:        	 "+ String(i+1));
+				main3_txt2.setText("Место: "+ String(i+1));
+				main3_txt4.setText("Очков: "+ woff_answer.league_member[i].score.text()/10);
 				}
 		
 			}
@@ -8358,7 +8364,9 @@ private var down_arrows:Array;
 			for (var ii:int=1; ii<=5; ii++) {
 				p_liga[ii].setText("Создать лигу");
 				p_liga[ii].setId(0);
+				p_liga[ii].setLeagueId(0);
 				p_liga_backup[ii].setId(0);
+				p_liga_backup[ii].setLeagueId(0);
 				p_liga_poi[ii].setText("");
 			}
 			
@@ -8366,7 +8374,9 @@ private var down_arrows:Array;
 								
 					p_liga[ii].setText(woff_answer.league[ii-1].title.text());
 					p_liga[ii].setId(woff_answer.league[ii-1].id.text());
+					p_liga[ii].setLeagueId(woff_answer.league[ii-1].id.text());
 					p_liga_backup[ii].setId(woff_answer.league[ii-1].id.text());
+					p_liga_backup[ii].setLeagueId(woff_answer.league[ii-1].id.text());
 					p_liga_poi[ii].setText(woff_answer.league[ii-1].no_of_members.text());
 				    p_liga[ii].addEventListener(MouseEvent.CLICK, ligaEvent);
 			}
@@ -8381,6 +8391,7 @@ private var down_arrows:Array;
 			for (var ii:int=1; ii<=5; ii++) {
 				p_liga[ii].setText("Создать лигу");
 				p_liga[ii].setId(0);
+				p_liga[ii].setLeagueId(0);
 				p_liga_poi[ii].setText("");
 			}
 			
@@ -8388,6 +8399,7 @@ private var down_arrows:Array;
 								
 					p_liga[ii].setText(woff_answer.league[ii-1].title.text());
 					p_liga[ii].setId(woff_answer.league[ii-1].id.text());
+					p_liga[ii].setLeagueId(woff_answer.league[ii-1].id.text());
 					p_liga_poi[ii].setText(woff_answer.league[ii-1].no_of_members.text());
 				    p_liga[ii].addEventListener(MouseEvent.CLICK, ligaEvent);
 			}
@@ -8471,7 +8483,7 @@ private var down_arrows:Array;
 				tour_array[tour].setId(tour+1);
 				tour_array[tour].addEventListener(MouseEvent.CLICK, setTourEvent);
 				if (current_tour > 5) {
-					dropdowmmenu_png2.scaleY = 1 + (current_tour-5)/7;
+					dropdowmmenu_png2.scaleY = 1 + (current_tour-5)/6;
 				}
 				dropdown_menu_sprite2.addChild(tour_array[tour]);
 			}
@@ -8521,7 +8533,7 @@ private var down_arrows:Array;
 				tour_array[tour].setId(tour+1);
 				tour_array[tour].addEventListener(MouseEvent.CLICK, setTourEvent);
 				if (current_tour > 5) {
-					dropdowmmenu_png2.scaleY = 1 + (current_tour-5)/7;
+					dropdowmmenu_png2.scaleY = 1 + (current_tour-5)/6;
 				}
 				dropdown_menu_sprite2.addChild(tour_array[tour]);
 			}
@@ -8570,7 +8582,7 @@ private var down_arrows:Array;
 				tour_array[tour].setId(tour+1);
 				tour_array[tour].addEventListener(MouseEvent.CLICK, setTourEvent);
 				if (current_tour > 5) {
-					dropdowmmenu_png2.scaleY = 1 + (current_tour-5)/7;
+					dropdowmmenu_png2.scaleY = 1 + (current_tour-5)/6;
 				} else {
 					dropdowmmenu_png2.scaleY = 1.1;
 				}
@@ -8623,7 +8635,7 @@ private var down_arrows:Array;
 				tour_array[tour].setId(tour+1);
 				tour_array[tour].addEventListener(MouseEvent.CLICK, setTourEvent);
 				if (current_tour > 5) {
-					dropdowmmenu_png2.scaleY = 1 + (current_tour-5)/7;
+					dropdowmmenu_png2.scaleY = 1 + (current_tour-5)/6;
 				}
 				dropdown_menu_sprite2.addChild(tour_array[tour]);
 			}
@@ -9011,6 +9023,10 @@ private var down_arrows:Array;
 				dropdown_menu_sprite.y = 120;
 				dropdown_menu_sprite.addChild(main1_txt25);
 				//dropdown_menu_sprite.addChild(dropdowmmenu_png);
+				var rect:Rectangle = liders_list.scrollRect;
+				rect.y = 0;
+				dropdown_menu_sprite.scrollRect = rect;
+				scroll_tou.y = 15;
 				addChild(dropdown_menu_sprite);
 				
 			}
@@ -9018,6 +9034,10 @@ private var down_arrows:Array;
 				dropdown_menu_sprite2.x = 14;
 				dropdown_menu_sprite2.y = 100;
 				dropdown_menu_sprite2.addChild(main2_txt25);
+				var rect:Rectangle = liders_list.scrollRect;
+				rect.y = 0;
+					dropdown_menu_sprite2.scrollRect = rect;
+					scroll_tou.y = 15;
 					addChild(dropdown_menu_sprite2);
 				
 			}
@@ -9026,6 +9046,10 @@ private var down_arrows:Array;
 				dropdown_menu_sprite2.x = 10;
 				dropdown_menu_sprite2.y = 115;
 				dropdown_menu_sprite2.addChild(main2_txt25);
+				var rect:Rectangle = liders_list.scrollRect;
+				rect.y = 0;
+				dropdown_menu_sprite2.scrollRect = rect;
+				scroll_tou.y = 15;
 					addChild(dropdown_menu_sprite2);
 				
 			}
@@ -9034,7 +9058,10 @@ private var down_arrows:Array;
 				dropdown_menu_sprite2.x = 200;
 				dropdown_menu_sprite2.y = 100;
 				dropdown_menu_sprite2.addChild(main2_txt25);
-				
+				var rect:Rectangle = liders_list.scrollRect;
+				rect.y = 0;
+				dropdown_menu_sprite2.scrollRect = rect;
+				scroll_tou.y = 15;
 				//dropdown_menu_sprite2.addChild(dropdowmmenu_png);
 				addChild(dropdown_menu_sprite2);
 				
@@ -9186,25 +9213,25 @@ private var down_arrows:Array;
 				if (scroll2.y >= 147 && scroll2.y <= 389) {
 					
 					var rect:Rectangle = liders_list.scrollRect;
-					rect.y += ((mouseY - yy__)/260*4900);
+					rect.y += ((mouseY - yy__)/260*5290);
 					liders_list.scrollRect = rect;
 					yy__ = mouseY;
 				}
 				
 				
-				if (scroll2.y < 147) {
+				if (scroll2.y < 150) {
 					
 					var rect:Rectangle = liders_list.scrollRect;
 					rect.y = 0;
 					liders_list.scrollRect = rect;
-					scroll2.y = 147;
+					scroll2.y = 150;
 					
 				}
 				
 				if (scroll2.y > 389) {
 					
 					var rect:Rectangle = liders_list.scrollRect;
-					rect.y += (((mouseY - yy__)-(scroll2.y - 389))/260*4900);
+					rect.y += (((mouseY - yy__)-(scroll2.y - 389))/260*5290);
 					liders_list.scrollRect = rect;
 					scroll2.y = 389;
 				}
@@ -9476,7 +9503,7 @@ private var down_arrows:Array;
 				//e.target.y += (mouseY - yy__);
 				scroll_tou.y += (mouseY - yy__)*3;
 				
-				if (scroll_tou.y >= 15 && scroll_tou.y <= 450) {
+				if (scroll_tou.y >= 15 && scroll_tou.y <= 650) {
 					
 					var rect:Rectangle = dropdown_menu_sprite2.scrollRect;
 				
@@ -9500,16 +9527,16 @@ private var down_arrows:Array;
 					
 				}
 				
-				if (scroll_tou.y > 450) {
+				if (scroll_tou.y > 650) {
 					
 					
 					var rect:Rectangle = dropdown_menu_sprite2.scrollRect;
 				
-					rect.y = 300;
+					rect.y = 425;
 				
 					dropdown_menu_sprite2.scrollRect = rect;
 					
-					scroll_tou.y = 450;
+					scroll_tou.y = 650;
 				}
 				
 				////////////////////////////
@@ -10297,7 +10324,7 @@ private var down_arrows:Array;
 			
 			public function enterLeague(e:MouseEvent):void {
 				
-				if (e.currentTarget.id == 33) {
+				if (e.currentTarget.league_id == 33) {
 					setMethod("enterPaidTournament");
 				
 				var enterCashLeagueLoader:URLLoader = new URLLoader();
@@ -10306,7 +10333,7 @@ private var down_arrows:Array;
 				enterCashLeagueLoader.load(woff_general_request);
 				
 				} else {
-				var params:Object = {method: "enterLeague", id_l: e.currentTarget.id, id_tm: current_tournament};
+				var params:Object = {method: "enterLeague", id_l: e.currentTarget.league_id, id_tm: current_tournament};
 				
 				var keys:Array = new Array();
 				for (var k:String in params)
@@ -10333,13 +10360,13 @@ private var down_arrows:Array;
 				
 				player_liga.removeChild(main3_txt5);
 				player_liga.addChild(main3_txt5_);
-				main3_txt5_.setId(e.currentTarget.id);
+				main3_txt5_.setId(e.currentTarget.league_id);
 				}
 				
 			}
 			public function leaveLeague(e:MouseEvent):void {
 				
-				var params:Object = {method: "leaveLeague", id_l: e.currentTarget.id, id_tm: current_tournament};
+				var params:Object = {method: "leaveLeague", id_l: e.currentTarget.league_id, id_tm: current_tournament};
 				
 				var keys:Array = new Array();
 				for (var k:String in params)
@@ -10366,7 +10393,7 @@ private var down_arrows:Array;
 				
 				player_liga.removeChild(main3_txt5_);
 				player_liga.addChild(main3_txt5);
-				main3_txt5.setId(e.currentTarget.id);
+				main3_txt5.setId(e.currentTarget.league_id);
 				
 			}
 			
@@ -10662,7 +10689,10 @@ private var down_arrows:Array;
 				 
 				  * 
 				  */
-				 
+			if (answer.player[i].id_vk.text() == String(woff_uid)) {
+				main3_txt2.setText("Место: "+ String(i+1));
+				main3_txt4.setText("Очков: "+ answer.player[i].tournament_score.text()/10);
+			} 
 			
 			}
 			
@@ -10680,6 +10710,8 @@ private var down_arrows:Array;
 			}
 			 * 
 			 */
+			
+			
 			
 			user_photo = new vk_photo(woff_uid, uids_array);
 			user_photo.x = 0;
