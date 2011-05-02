@@ -7,14 +7,14 @@ package data {
 	import flash.filters.DropShadowFilter;
 	import flash.net.*;
 	import flash.utils.Timer;
-	
+	import flash.geom.Matrix;
 	import org.osmf.events.TimeEvent;
 
 	public class firstManualHint extends Sprite {
 
 private var WelcomeMsgSprite:Sprite;	
 private var WelcomeMsgText:text;
-private var WelcomeMsgFon:Loader;
+private var WelcomeMsgFon:Sprite;
 private var WelcomeMsgClose:text;
 private var WelcomeMsgFAQ:text;
 private var myShadow:DropShadowFilter;
@@ -27,6 +27,7 @@ private var myTimer:Timer;
 			myShadow = new DropShadowFilter();
 			
 			myBevel = new BevelFilter();
+			//myBevel.blurY = 16;
 			
 			myTimer = new Timer(20, 50);
 			myTimer.addEventListener(TimerEvent.TIMER, timerEvent);
@@ -50,10 +51,31 @@ private var myTimer:Timer;
 			WelcomeMsgFAQ.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgFAQOverEvent);
 			WelcomeMsgFAQ.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgFAQOutEvent);
 			
-			WelcomeMsgFon = new Loader();
-			WelcomeMsgFon.load(new URLRequest("http://woff73.valuehost.ru/woff_images/img5/profile.png"));
-			WelcomeMsgFon.scaleX = 1.4;
-			WelcomeMsgFon.scaleY = 0.83;
+			var fillType:String = GradientType.LINEAR;
+			var colors:Array = [0x999999, 0xFFFFFF];
+			var alphas:Array = [1, 0.9];
+			var ratios:Array = [0, 200];
+			var matr:Matrix = new Matrix();
+				matr.createGradientBox(500, 150, (Math.PI/180)*90, 0, 0);
+			//matr.cr
+			
+			var spreadMethod:String = SpreadMethod.PAD;
+			
+		
+			WelcomeMsgFon = new Sprite();
+			WelcomeMsgFon.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod); 
+			
+			//WelcomeMsgFon.graphics.beginFill(0x3366FF,1);
+			WelcomeMsgFon.graphics.lineStyle(0, 0x6699CC);
+			WelcomeMsgFon.graphics.drawRoundRect(0, 0, 565, 160, 30);
+			//window_block0.graphics.drawRoundRectComplex(0, 240, 145, 55, 0, 0 , 15, 48);
+			//WelcomeMsgFon.alpha = 0.7;
+			//window_block0.filters = [myBevel];
+			
+			//WelcomeMsgFon = new Loader();
+			//WelcomeMsgFon.load(new URLRequest("http://woff73.valuehost.ru/woff_images/img5/profile.png"));
+			//WelcomeMsgFon.scaleX = 1.4;
+			//WelcomeMsgFon.scaleY = 0.83;
 		
 			addChild(WelcomeMsgSprite);
 					WelcomeMsgText.setText("	" +
