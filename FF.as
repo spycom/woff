@@ -4396,6 +4396,7 @@ private var friends_league_avatar:UserAvatar;
 			main2.addChild(main2_txt24);
 				
 			addChild(firstManual);
+				firstManual.showMan();
 			/*
 			addChild(errorSprite);
 					errorText.setText("		Четыре шага успешного игрока: " +
@@ -4575,6 +4576,7 @@ private var friends_league_avatar:UserAvatar;
 					"   					 (клик чтобы закрыть)");
     			} else {
     				addChild(firstManual);
+						firstManual.showMan();
     			/*
 			addChild(errorSprite);
 					errorText.setText("		Четыре шага успешного игрока: " +
@@ -4756,7 +4758,7 @@ private var friends_league_avatar:UserAvatar;
 					"   					 (клик чтобы закрыть)");
     			} else {
     				addChild(firstManual);
-    			
+						firstManual.showMan();
     			}
 	}
 	
@@ -4927,6 +4929,7 @@ private var friends_league_avatar:UserAvatar;
 					"   					 (клик чтобы закрыть)");
     			} else {
     			addChild(firstManual);
+					firstManual.showMan();
     			/*
 			addChild(errorSprite);
 					errorText.setText("		Четыре шага успешного игрока: " +
@@ -5108,7 +5111,7 @@ private var friends_league_avatar:UserAvatar;
 					"   					 (клик чтобы закрыть)");
     			} else {
     			addChild(firstManual);
-    			
+					firstManual.showMan();
     			}
 	}
 	

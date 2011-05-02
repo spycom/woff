@@ -1,9 +1,14 @@
 package data {
-	import flash.display.*;
 	import data.text;
-	import flash.events.*;	
-	import flash.net.*;
+	
+	import flash.display.*;
+	import flash.events.*;
+	import flash.filters.BevelFilter;
 	import flash.filters.DropShadowFilter;
+	import flash.net.*;
+	import flash.utils.Timer;
+	
+	import org.osmf.events.TimeEvent;
 
 	public class firstManualHint extends Sprite {
 
@@ -13,15 +18,24 @@ private var WelcomeMsgFon:Loader;
 private var WelcomeMsgClose:text;
 private var WelcomeMsgFAQ:text;
 private var myShadow:DropShadowFilter;
+private var myBevel:BevelFilter;
+private var myTimer:Timer;
+
 
 		public function firstManualHint () {
 			
 			myShadow = new DropShadowFilter();
 			
+			myBevel = new BevelFilter();
+			
+			myTimer = new Timer(20, 50);
+			myTimer.addEventListener(TimerEvent.TIMER, timerEvent);
+			
 			WelcomeMsgSprite = new Sprite();
 			WelcomeMsgSprite.x = 50;
 			WelcomeMsgSprite.y = 170;
-			WelcomeMsgSprite.filters = [myShadow];
+			WelcomeMsgSprite.filters = [myBevel];
+			WelcomeMsgSprite.alpha = 0;
 			
 			WelcomeMsgText = new text(5, 6, "error", "first_hint");
 			
@@ -78,6 +92,12 @@ private var myShadow:DropShadowFilter;
 		WelcomeMsgClose.setColor("0x333366");
 	}
 	
+	public function showMan():void {
+		myTimer.start();
+	}
+	private function timerEvent(e:TimerEvent):void {
+		WelcomeMsgSprite.alpha += 0.05;
+	}
 	}
 	
 }
