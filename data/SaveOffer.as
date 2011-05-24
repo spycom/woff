@@ -4,18 +4,23 @@ package data {
 	import flash.display.*;
 	import flash.events.*;
 	import flash.filters.*;
+	import flash.geom.Matrix;
 	import flash.net.*;
 	import flash.system.*;
 	import flash.utils.*;
-		
+	
 	public class SaveOffer extends Sprite {
 	
 private var SaveOfferSprite:Sprite;
 private var myShadow___:DropShadowFilter;
 private var myGlow:GlowFilter;
+private var myBevel:BevelFilter;
 private var buyBudgetFon:Sprite;
+private var WelldoneText:text;
 private var WelcomeText:text;
+private var SaveToLocalButton:Sprite;
 private var SaveToLocalText:text;
+private var SaveToVkButton:Sprite;
 private var SaveToVklText:text;
 private var SaveCloseText:text;
 private var brr:ByteArray;
@@ -28,7 +33,7 @@ private var request:URLRequest;
 private var loader:URLLoader;
 private var request2:URLRequest;
 private var loader2:URLLoader;
-private var aid:String;
+//private var aid:String;
 public var wrapper: Object;
 
 
@@ -36,7 +41,7 @@ public var wrapper: Object;
 			wrapper = wrapper_;
 			//api_id = 1848099;
 			//aid = "16470824_120962438";
-			aid = "64416_8236384";
+			//aid = "64416_8236384";
 			champ = champ_;
 			
 			brr = brr_income;
@@ -49,38 +54,74 @@ public var wrapper: Object;
 			myGlow = new GlowFilter();
 			myGlow.color = 0x0389af;
 			
+			myBevel = new BevelFilter();
+			myBevel.angle = 90;
+			
+			
 			SaveOfferSprite = new Sprite();
-			SaveOfferSprite.x = 190;
-			SaveOfferSprite.y = 170;
-			SaveOfferSprite.filters = [myShadow___];
+			SaveOfferSprite.x = 85;
+			SaveOfferSprite.y = 150;
+			SaveOfferSprite.filters = [myShadow___, myBevel];
 		
-		buyBudgetFon = new Sprite();
-			buyBudgetFon.graphics.beginFill(0xFFFFFF,1);
-			buyBudgetFon.graphics.lineStyle(1);
-			buyBudgetFon.graphics.drawRoundRect(0, 0, 260, 100, 45);
+			var fillType:String = GradientType.LINEAR;
+			var colors:Array = [0x00CC66, 0xFFFFFF]; //999999
+			var alphas:Array = [1, 0.9];
+			var ratios:Array = [0, 250];
+			var matr:Matrix = new Matrix();
+			matr.createGradientBox(700, 250, (Math.PI/180)*90, 0, 0);
+			//matr.cr
+			
+			var spreadMethod:String = SpreadMethod.PAD;
+			
+					buyBudgetFon = new Sprite();
+
+			//WelcomeMsgFon = new Sprite();
+			buyBudgetFon.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod);
+			
+			//buyBudgetFon.graphics.beginFill(0xFFFFFF,1);
+			buyBudgetFon.graphics.lineStyle(2, 0x999999);
+			buyBudgetFon.graphics.drawRoundRect(0, 0, 446, 219, 30);
 			buyBudgetFon.addEventListener(MouseEvent.CLICK, SaveOfferClose);
 			
-		WelcomeText = new text(130, 6, "Хотите сохранить фотографию поля?", "12");
+			WelldoneText = new text(10, 6, "	Поздравляем, Ваша команда полностью укомплектована и сменила статус на ДОПУЩЕНА! По результатам реальных игр Вам будут начислены очки.", "save_offer2");
+			
+		WelcomeText = new text(220, 110, "Хотите сохранить фотографию поля?", "save_offer");
+		
 			//SaveToVklText.addEventListener(MouseEvent.CLICK, SaveOfferClose);
 			
-		SaveToLocalText = new text(130, 30, "Сохранить на локальный компьютер", "12");
+		
+		SaveToLocalButton = new Sprite();
+		SaveToLocalButton.graphics.beginFill(0xFFFFFF,1);
+		SaveToLocalButton.graphics.lineStyle(1, 0x999999);
+		SaveToLocalButton.graphics.drawRoundRect(72, 139, 300, 19, 20);
+		
+		SaveToLocalText = new text(220, 135, "Сохранить на локальный компьютер", "save_offer");
 			SaveToLocalText.addEventListener(MouseEvent.CLICK, SaveToLocalClick);
 			SaveToLocalText.addEventListener(MouseEvent.MOUSE_OVER, SaveToLocalOver);
 			SaveToLocalText.addEventListener(MouseEvent.MOUSE_OUT, SaveToLocalOut);
+		
+		SaveToVkButton = new Sprite();
+		SaveToVkButton.graphics.beginFill(0xFFFFFF,1);
+		SaveToVkButton.graphics.lineStyle(1, 0x999999);
+		SaveToVkButton.graphics.drawRoundRect(130, 160, 185, 19, 20);
+			//SaveToVkButton.filters = [myBevel];
 			
-		SaveToVklText = new text(130, 46, "Сохранить ВКонтакте", "12");
+		SaveToVklText = new text(220, 156, "Сохранить ВКонтакте", "save_offer");
 			SaveToVklText.addEventListener(MouseEvent.CLICK, doIt);
 			SaveToVklText.addEventListener(MouseEvent.MOUSE_OVER, SaveToVkOver);
 			SaveToVklText.addEventListener(MouseEvent.MOUSE_OUT, SaveToVkOut);
 		
-		SaveCloseText = new text(130, 76, "ЗАКРЫТЬ ОКНО", "12");
+		SaveCloseText = new text(220, 180, "ЗАКРЫТЬ ОКНО", "save_offer");
 			SaveCloseText.addEventListener(MouseEvent.CLICK, SaveOfferClose);
 			SaveCloseText.addEventListener(MouseEvent.MOUSE_OVER, SaveCloseOver);
 			SaveCloseText.addEventListener(MouseEvent.MOUSE_OUT, SaveCloseOut);
 			
 		SaveOfferSprite.addChild(buyBudgetFon);
+		SaveOfferSprite.addChild(WelldoneText);
 		SaveOfferSprite.addChild(WelcomeText);
+		SaveOfferSprite.addChild(SaveToLocalButton);
 		SaveOfferSprite.addChild(SaveToLocalText);
+		SaveOfferSprite.addChild(SaveToVkButton);
 		SaveOfferSprite.addChild(SaveToVklText);
 		SaveOfferSprite.addChild(SaveCloseText);
 			addChild(SaveOfferSprite);
@@ -100,10 +141,10 @@ public var wrapper: Object;
 			removeChild(SaveOfferSprite);
 		}
 		public function SaveToLocalOver(e:MouseEvent):void {
-			SaveToLocalText.filters = [myGlow];
+			SaveToLocalButton.filters = [myGlow];
 		}
 		public function SaveToLocalOut(e:MouseEvent):void {
-			SaveToLocalText.filters = [];
+			SaveToLocalButton.filters = [];
 		}
 		public function SaveCloseOver(e:MouseEvent):void {
 			SaveCloseText.filters = [myGlow];
@@ -112,10 +153,10 @@ public var wrapper: Object;
 			SaveCloseText.filters = [];
 		}
 		public function SaveToVkOver(e:MouseEvent):void {
-			SaveToVklText.filters = [myGlow];
+			SaveToVkButton.filters = [myGlow];
 		}
 		public function SaveToVkOut(e:MouseEvent):void {
-			SaveToVklText.filters = [];
+			SaveToVkButton.filters = [];
 		}
 		public function getUploadServer():void {
 			

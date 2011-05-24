@@ -146,6 +146,28 @@ package data {
 			top.selectable = false;
 		}
 		
+		//текст окна с предложением сохранить
+		if (type == "save_offer") {
+			formatter.color = 0x666666;
+			formatter.size = 18;
+			
+			top.autoSize = TextFieldAutoSize.CENTER;
+			//top.wordWrap = true;
+			top.width = 382;
+			top.height = 220;
+			top.selectable = false;
+		}
+		if (type == "save_offer2") {
+			formatter.color = 0x666666;
+			formatter.size = 20;
+			
+			top.autoSize = TextFieldAutoSize.CENTER;
+			top.wordWrap = true;
+			top.width = 432;
+			top.height = 220;
+			top.selectable = false;
+		}
+		
 		// подсказки
 		if (type == "13") {
 			formatter.color = 0x666666;

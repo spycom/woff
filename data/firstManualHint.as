@@ -27,6 +27,7 @@ private var myTimer:Timer;
 			myShadow = new DropShadowFilter();
 			
 			myBevel = new BevelFilter();
+			myBevel.angle = 90;
 			//myBevel.blurY = 16;
 			
 			myTimer = new Timer(20, 50);
@@ -118,7 +119,7 @@ private var myTimer:Timer;
 		myTimer.start();
 	}
 	private function timerEvent(e:TimerEvent):void {
-		WelcomeMsgSprite.alpha += 0.05;
+		WelcomeMsgSprite.alpha += 0.07;
 	}
 	}
 	

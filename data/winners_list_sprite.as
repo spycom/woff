@@ -18,24 +18,24 @@ public var uids:String;
 		block.x = 5;
 		block.y = 95;
 		
-		logo = new text(280, 110, "ПОБЕДИТЕЛИ ЧР", "3");
+		logo = new text(240, 110, "ПОБЕДИТЕЛИ Чемпионата Испании", "3");
 		
 		text_array = new Array();
 		
-		text_array[0] = new text(270, 180, "1. МЕЧТА - 714.1 очков", "2");
+		text_array[0] = new text(260, 180, "1. Solid State - 1611.9 очков", "2");
 		
-		text_array[1] = new text(130, 250, "2. Vinnimaks - 613.8 очков", "2");
-		text_array[2] = new text(290, 250, "3. Stritel - 607 очков", "2");
-		text_array[3] = new text(430, 250, "4. Химнасия де Хухуй - 601.5 очков", "2");
+		text_array[1] = new text(120, 250, "2. Мечта - 1607.6 очков", "2");
+		text_array[2] = new text(275, 250, "3. -- no name -- - 1565.7 очков", "2");
+		text_array[3] = new text(420, 250, "4. -- no name -- - 1526 очков", "2");
 				
-		text_array[4] = new text(130, 340, "5. DreamTeam - 580.8 очков", "2");
-		text_array[5] = new text(300, 340, "6. ZENIT - 580 очков", "2");
-		text_array[6] = new text(450, 340, "7. Aston - 568.5 очков", "2");
+		text_array[4] = new text(100, 340, "5. Химнасия де Хухуй - 1462.1 очков", "2");
+		text_array[5] = new text(280, 340, "6. Rebar - 1391.4 очков", "2");
+		text_array[6] = new text(420, 340, "7. vav_ne - 1278.9 очков", "2");
 		
 		
-		text_array[7] = new text(140, 430, "8. ОЧГ Насьональ - 567.3 очков", "2");
-		text_array[8] = new text(300, 430, "9. Vick - 566.5 очков", "2");
-		text_array[9] = new text(440, 430, "10. RUBIN FC - 562.1 очков", "2");
+		text_array[7] = new text(120, 430, "8. Barselona - 1130.4 очков", "2");
+		text_array[8] = new text(280, 430, "9. Вавилон - 1127.6 очков", "2");
+		text_array[9] = new text(420, 430, "10. Suares - 1104.8 очков", "2");
 		
 		addChild(block);
 		addChild(logo);
@@ -51,7 +51,7 @@ public var uids:String;
 		//var viewer_id:String = stage.loaderInfo.parameters.viewer_id;
 				
 		//var uids:Array = uid;
-		uids = "12613,12098,1199979,218476,20757,4291,15048044,57829,46035234,23496106" ;
+		uids = "12098,12613,172577,2488685,218476,20757,110757,69960818,3007376,24282273" ;
 		//for (var ii:int = 1; ii < uid.length; ii++)
 		//				uids = uids + ","+ uid[ii] ;
 						

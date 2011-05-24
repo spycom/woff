@@ -60,6 +60,7 @@ private var top4:Loader;
 private var eu:Loader;
 private var mp:Loader;
 private var star:Loader;
+private var star_sprite:Sprite;
 private var star2:Loader;
 private var star3:Loader;
 private var star4:Loader;
@@ -718,9 +719,14 @@ private var friends_league_avatar:UserAvatar;
 		star.x = 45;
 		star.y = 193;
 		star.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		//star.contentLoaderInfo.addEventListener(Event.COMPLETE, starLoadComplete);
+		
+		//star_sprite = new Sprite();
 		
 		star2 = new Loader();
+		//star2 = new Loader();
 		star2.load(new URLRequest(serv + "img2/star.png"));
+		//star2 = star_sprite.c
 		star2.x = 350;
 		star2.y = 193;
 		star2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
@@ -744,7 +750,7 @@ private var friends_league_avatar:UserAvatar;
 		star5.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		
 		star6 = new Loader();
-		star6.load(new URLRequest(serv + "img2/star.png"));
+		//star6.load(new URLRequest(serv + "img2/star.png"));
 		star6.x = 350;
 		star6.y = 433;
 		star6.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
@@ -3509,7 +3515,9 @@ private var friends_league_avatar:UserAvatar;
 			main1.addChild(scroll2);
 			
 			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
-    	
+    		
+			main1.addChild(winners_list);
+			
     		if (woff_isAppUser !== 1) {
     		addChild(errorSprite);
 					errorText.setText("	Зря ты не добавил это приложение! " +
@@ -4092,6 +4100,12 @@ private var friends_league_avatar:UserAvatar;
 		var woff_Team_loader:URLLoader = new URLLoader();
 		woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
 		woff_Team_loader.load(woff_general_request);
+		
+		setMethod("checkTeam");
+		var woff_checkteam_loader:URLLoader = new URLLoader();
+		woff_checkteam_loader.addEventListener(Event.COMPLETE, woffUniCheckTeamComplete);
+		woff_checkteam_loader.load(woff_general_request);
+		
 		
 		getMyTourScore(current_new_tour);
 		
@@ -8770,6 +8784,8 @@ private var friends_league_avatar:UserAvatar;
 		
 		public function woffUniCheckTeamComplete(e:Event):void {
 			var woff_answer:XML = new XML(e.target.data);	
+			//!!!!!!
+			//drawFieldEvent_offer();
 			
 			if (woff_answer.text() == "ok") {
 				if (check_team_trigger == 0) {
@@ -10799,58 +10815,58 @@ private var friends_league_avatar:UserAvatar;
 		}
 		
 		private function select1over(e:MouseEvent):void {
-			blocknation.filters = [myGlow_blue];
+			blocknation.filters = [myGlow_blue, myBevel];
 		}
 		private function select1out(e:MouseEvent):void {
 			blocknation.filters = [];
 		}
 		private function select4over(e:MouseEvent):void {
-			blocknation4.filters = [myGlow_blue];
+			blocknation4.filters = [myGlow_blue, myBevel];
 		}
 		private function select4out(e:MouseEvent):void {
 			blocknation4.filters = [];
 		}
 		
 		private function select2over(e:MouseEvent):void {
-			blocknation2.filters = [myGlow_blue];
+			blocknation2.filters = [myGlow_blue, myBevel];
 		}
 		private function select2out(e:MouseEvent):void {
 			blocknation2.filters = [];
 		}
 		private function select5over(e:MouseEvent):void {
-			blocknation5.filters = [myGlow_blue];
+			blocknation5.filters = [myGlow_blue, myBevel];
 		}
 		private function select5out(e:MouseEvent):void {
 			blocknation5.filters = [];
 		}
 		
 		private function select3over(e:MouseEvent):void {
-			blocknation3.filters = [myGlow_blue];
+			blocknation3.filters = [myGlow_blue, myBevel];
 		}
 		private function select3out(e:MouseEvent):void {
 			blocknation3.filters = [];
 		}
 		private function select6over(e:MouseEvent):void {
-			blocknation6.filters = [myGlow_blue];
+			blocknation6.filters = [myGlow_blue, myBevel];
 		}
 		private function select6out(e:MouseEvent):void {
 			blocknation6.filters = [];
 		}
 		
 		private function overBuyBudget(e:MouseEvent):void {
-			button_blue_long.filters = [myGlow];
+			button_blue_long.filters = [myGlow, myBevel];
 		}
 		private function outBuyBudget(e:MouseEvent):void {
 			button_blue_long.filters = [];
 		}
 		private function overBuyTransfers(e:MouseEvent):void {
-			button_blue_long2.filters = [myGlow];
+			button_blue_long2.filters = [myGlow, myBevel];
 		}
 		private function outBuyTransfers(e:MouseEvent):void {
 			button_blue_long2.filters = [];
 		}
 		private function overCashLiga(e:MouseEvent):void {
-			button_blue_long3.filters = [myGlow];
+			button_blue_long3.filters = [myGlow, myBevel];
 		}
 		private function outCashLiga(e:MouseEvent):void {
 			button_blue_long3.filters = [];
@@ -10988,6 +11004,29 @@ private var friends_league_avatar:UserAvatar;
 		
 		public function removeWinnerList(e:MouseEvent):void {
 			main1.removeChild(winners_list);
+		}
+		public function starLoadComplete(e:Event):void {
+			//main.removeChild(star3);
+			//star3.y += 30;
+			
+			//var bMap:Bitmap = Bitmap(star.content);
+			//bMap = Bitmap();
+			
+			//star3.y += -50;
+			
+			//var bMapCopy2:Bitmap = new Bitmap(bMap.bitmapData.clone());
+			//var bMapCopy3:Bitmap = new Bitmap(bMap.bitmapData.clone());
+			//var bMapCopy4:Bitmap = new Bitmap(bMap.bitmapData.clone());
+			//var bMapCopy5:Bitmap = new Bitmap(bMap.bitmapData.clone());
+			//var bMapCopy6:Bitmap = new Bitmap(bMap.bitmapData.clone());
+			
+			//star2 = new Sprite();
+			//star2.addChild(bMapCopy2);
+			//star3.addChild(bMapCopy3);
+			//star4.addChild(bMapCopy4);
+			//star5.addChild(bMapCopy5);
+			//star6.addChild(bMapCopy6);
+			//star3.x += 30;
 		}
 }
 }
