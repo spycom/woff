@@ -59,12 +59,17 @@ public var wrapper: Object;
 			
 			
 			SaveOfferSprite = new Sprite();
-			SaveOfferSprite.x = 85;
-			SaveOfferSprite.y = 150;
-			SaveOfferSprite.filters = [myShadow___, myBevel];
+			SaveOfferSprite.x = 90;
+			SaveOfferSprite.y = 260;
+			//SaveOfferSprite.filters = [myShadow___, myBevel];
 		
+			var SaveBackground:Loader = new Loader();
+			SaveBackground.load(new URLRequest("http://dl.dropbox.com/u/6044249/tits2.jpg"));
+			SaveBackground.x = -70;
+			SaveBackground.y = -180;
+			
 			var fillType:String = GradientType.LINEAR;
-			var colors:Array = [0x00CC66, 0xFFFFFF]; //999999
+			var colors:Array = [0x999999, 0xFFFFFF]; //999999
 			var alphas:Array = [1, 0.9];
 			var ratios:Array = [0, 250];
 			var matr:Matrix = new Matrix();
@@ -82,6 +87,7 @@ public var wrapper: Object;
 			buyBudgetFon.graphics.lineStyle(2, 0x999999);
 			buyBudgetFon.graphics.drawRoundRect(0, 0, 446, 219, 30);
 			buyBudgetFon.addEventListener(MouseEvent.CLICK, SaveOfferClose);
+			buyBudgetFon.filters = [myBevel];
 			
 			WelldoneText = new text(10, 6, "	Поздравляем, Ваша команда полностью укомплектована и сменила статус на ДОПУЩЕНА! По результатам реальных игр Вам будут начислены очки.", "save_offer2");
 			
@@ -116,6 +122,7 @@ public var wrapper: Object;
 			SaveCloseText.addEventListener(MouseEvent.MOUSE_OVER, SaveCloseOver);
 			SaveCloseText.addEventListener(MouseEvent.MOUSE_OUT, SaveCloseOut);
 			
+		SaveOfferSprite.addChild(SaveBackground);
 		SaveOfferSprite.addChild(buyBudgetFon);
 		SaveOfferSprite.addChild(WelldoneText);
 		SaveOfferSprite.addChild(WelcomeText);

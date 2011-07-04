@@ -42,7 +42,7 @@ package {
 	public class FF extends Sprite{
 
 private var version:Version;
-private var status:TextField;
+private var status:text;
 public var serv:String;
 private var loadedFiles:int;
 
@@ -1516,12 +1516,12 @@ private var friends_league_avatar:UserAvatar;
 		 
 		// текстовая строка загрузчика
 		
-		status = new TextField();
-		status.text = "Загрузка...";
-		status.x = 260;
-		status.y = 230;
-		status.autoSize = TextFieldAutoSize.LEFT;
-		status.setTextFormat(textFormatBlack);		
+		status = new text(260, 200, "Загрузка..", "1");
+		//#status.text = "Загрузка...";
+		//#status.x = 260;
+		//#status.y = 230;
+		//#status.autoSize = TextFieldAutoSize.LEFT;
+		//status.setTextFormat(textFormatBlack);		
 		
 		// таймеры
 		
@@ -6428,6 +6428,7 @@ private var friends_league_avatar:UserAvatar;
 				player_liga.addChild(button3);
 				player_liga.addChild(button4);
 				player_liga.addChild(select_leaders);
+				player_liga.addChild(select_leaders_tour_txt);
 				
 			} else {
 				player_liga.addChild(button3txt);
@@ -6594,8 +6595,8 @@ private var friends_league_avatar:UserAvatar;
 			var PersentLoaded:Number = Math.round((loadedFiles/389000)*100); 
 			
 			//status.text = "Загрузка " + PersentLoaded + "% " + loadedFiles;
-			status.text = "Загрузка " + PersentLoaded + "% ";
-			status.setTextFormat(textFormatBlack);
+			status.setText("Загрузка " + PersentLoaded + "% ");
+			//status.setTextFormat(textFormatBlack);
 		}
 		
 		// обработчики таймеров
@@ -6606,16 +6607,17 @@ private var friends_league_avatar:UserAvatar;
 			}			
 		}
 		public function loadStatusComplete (e:TimerEvent):void {
+			//!!!
 			postload_timer.start();
-			load.removeChild(status);
+			//load.removeChild(status);
 		}
 		public function postloadTimerHandler (e:TimerEvent):void {
 			
 			
 			if (load.alpha <= 0) {
-				main.alpha += 0.06;
+				main.alpha += 0.07;
 			} else {
-				load.alpha -= 0.06;
+				load.alpha -= 0.08;
 			}
 		}
 		public function loadedFilesComplete(e:ProgressEvent):void{
@@ -8785,7 +8787,7 @@ private var friends_league_avatar:UserAvatar;
 		public function woffUniCheckTeamComplete(e:Event):void {
 			var woff_answer:XML = new XML(e.target.data);	
 			//!!!!!!
-			//drawFieldEvent_offer();
+			///drawFieldEvent_offer();
 			
 			if (woff_answer.text() == "ok") {
 				if (check_team_trigger == 0) {
@@ -9169,8 +9171,11 @@ private var friends_league_avatar:UserAvatar;
 				woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
 				woff_Team_loader.load(woff_general_request);
 				
-				getLeaders(1, current_new_tour);
+				if (window == "player_liga") {
 				
+				} else {
+				getLeaders(1, current_new_tour);
+				}
 				getTeamStats(e.currentTarget.id);
 				
 				getMyTourScore(e.currentTarget.id);

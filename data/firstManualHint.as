@@ -5,9 +5,10 @@ package data {
 	import flash.events.*;
 	import flash.filters.BevelFilter;
 	import flash.filters.DropShadowFilter;
+	import flash.geom.Matrix;
 	import flash.net.*;
 	import flash.utils.Timer;
-	import flash.geom.Matrix;
+	
 	import org.osmf.events.TimeEvent;
 
 	public class firstManualHint extends Sprite {
@@ -36,17 +37,22 @@ private var myTimer:Timer;
 			WelcomeMsgSprite = new Sprite();
 			WelcomeMsgSprite.x = 50;
 			WelcomeMsgSprite.y = 170;
-			WelcomeMsgSprite.filters = [myBevel];
+			//WelcomeMsgSprite.filters = [myBevel];
 			WelcomeMsgSprite.alpha = 0;
 			
-			WelcomeMsgText = new text(5, 6, "error", "first_hint");
+			var WelcomeMsgBackground:Loader = new Loader();
+			WelcomeMsgBackground.load(new URLRequest("http://dl.dropbox.com/u/6044249/football_girls_team2_widescreen_small.jpg"));
+			WelcomeMsgBackground.x = -18;
+			WelcomeMsgBackground.y = -110;
 			
-			WelcomeMsgClose = new text(380, 110, " < ЗАКРЫТЬ >", "first_hint");
+			WelcomeMsgText = new text(5, 26, "error", "first_hint");
+			
+			WelcomeMsgClose = new text(380, 130, " < ЗАКРЫТЬ >", "first_hint");
 			WelcomeMsgClose.addEventListener(MouseEvent.CLICK, WelcomeMsgCloseEvent);
 			WelcomeMsgClose.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgCloseOverEvent);
 			WelcomeMsgClose.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgCloseOutEvent);
 			
-			WelcomeMsgFAQ = new text(102, 110, "группа приложения", "first_hint");
+			WelcomeMsgFAQ = new text(102, 130, "группа приложения", "first_hint");
 			WelcomeMsgFAQ.setColor("0x000033");
 			WelcomeMsgFAQ.addEventListener(MouseEvent.CLICK, WelcomeMsgFAQEvent);
 			WelcomeMsgFAQ.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgFAQOverEvent);
@@ -68,10 +74,10 @@ private var myTimer:Timer;
 			
 			//WelcomeMsgFon.graphics.beginFill(0x3366FF,1);
 			WelcomeMsgFon.graphics.lineStyle(0, 0x6699CC);
-			WelcomeMsgFon.graphics.drawRoundRect(0, 0, 565, 160, 30);
+			WelcomeMsgFon.graphics.drawRoundRect(0, 20, 565, 160, 30);
 			//window_block0.graphics.drawRoundRectComplex(0, 240, 145, 55, 0, 0 , 15, 48);
 			//WelcomeMsgFon.alpha = 0.7;
-			//window_block0.filters = [myBevel];
+			WelcomeMsgFon.filters = [myBevel];
 			
 			//WelcomeMsgFon = new Loader();
 			//WelcomeMsgFon.load(new URLRequest("http://woff73.valuehost.ru/woff_images/img5/profile.png"));
@@ -87,6 +93,7 @@ private var myTimer:Timer;
 					"\n"+
 					"\n");
 					
+			WelcomeMsgSprite.addChild(WelcomeMsgBackground);		
 			WelcomeMsgSprite.addChild(WelcomeMsgFon);
 			WelcomeMsgSprite.addChild(WelcomeMsgText);	
 			WelcomeMsgSprite.addChild(WelcomeMsgFAQ);		
