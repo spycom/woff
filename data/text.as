@@ -40,6 +40,15 @@ package data {
 			top.selectable = false;
 			top.autoSize = TextFieldAutoSize.LEFT;
 		}
+		
+		
+		// текст приветствия
+		if (type == "welcome") {
+			formatter.color = 0x666666;
+			formatter.size = 20;
+			top.selectable = false;
+			top.autoSize = TextFieldAutoSize.LEFT;
+		}
 		// душный побольше
 		if (type == "3") {
 			formatter.color = 0x666666;
@@ -145,6 +154,19 @@ package data {
 			top.height = 220;
 			top.selectable = false;
 		}
+		
+		// текст welcome, центрированный по центру
+		if (type == "welcomeFaq") {
+			formatter.color = 0x666666;
+			formatter.size = 20;
+			
+			top.autoSize = TextFieldAutoSize.CENTER;
+			//top.wordWrap = true;
+			top.width = 282;
+			top.height = 220;
+			top.selectable = false;
+		}
+		
 		
 		//текст окна с предложением сохранить
 		if (type == "save_offer") {

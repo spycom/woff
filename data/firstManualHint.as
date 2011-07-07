@@ -51,6 +51,8 @@ private var myTimer:Timer;
 			WelcomeMsgClose.addEventListener(MouseEvent.CLICK, WelcomeMsgCloseEvent);
 			WelcomeMsgClose.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgCloseOverEvent);
 			WelcomeMsgClose.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgCloseOutEvent);
+			//WelcomeMsgClose.buttonMode = true;
+			//WelcomeMsgClose.useHandCursor = true;
 			
 			WelcomeMsgFAQ = new text(102, 130, "группа приложения", "first_hint");
 			WelcomeMsgFAQ.setColor("0x000033");
