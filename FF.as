@@ -1876,6 +1876,8 @@ private var friends_league_avatar:UserAvatar;
 		select1.addEventListener(MouseEvent.CLICK, select1listener);
 		select1.addEventListener(MouseEvent.MOUSE_OVER, select1over);
 		select1.addEventListener(MouseEvent.MOUSE_OUT, select1out);
+		select1.buttonMode = true;
+		select1.useHandCursor = true;
 		
 		select4 = new Sprite();
 		select4.graphics.beginFill(0x000000,1);
@@ -1885,6 +1887,8 @@ private var friends_league_avatar:UserAvatar;
 		select4.addEventListener(MouseEvent.CLICK, select4listener);
 		select4.addEventListener(MouseEvent.MOUSE_OVER, select4over);
 		select4.addEventListener(MouseEvent.MOUSE_OUT, select4out);
+		select4.buttonMode = true;
+		select4.useHandCursor = true;
 		
 		select2_ = new Sprite();
 		select2_.graphics.beginFill(0x000000,1);
@@ -1894,6 +1898,8 @@ private var friends_league_avatar:UserAvatar;
 		select2_.addEventListener(MouseEvent.CLICK, select2listener);
 		select2_.addEventListener(MouseEvent.MOUSE_OVER, select2over);
 		select2_.addEventListener(MouseEvent.MOUSE_OUT, select2out);
+		select2_.buttonMode = true;
+		select2_.useHandCursor = true;
 		
 		select5 = new Sprite();
 		select5.graphics.beginFill(0x000000,1);
@@ -1903,6 +1909,8 @@ private var friends_league_avatar:UserAvatar;
 		select5.addEventListener(MouseEvent.CLICK, select5listener);
 		select5.addEventListener(MouseEvent.MOUSE_OVER, select5over);
 		select5.addEventListener(MouseEvent.MOUSE_OUT, select5out);
+		select5.buttonMode = true;
+		select5.useHandCursor = true;
 		
 		select3 = new Sprite();
 		select3.graphics.beginFill(0x000000,1);
@@ -1912,6 +1920,8 @@ private var friends_league_avatar:UserAvatar;
 		select3.addEventListener(MouseEvent.CLICK, select3listener);
 		select3.addEventListener(MouseEvent.MOUSE_OVER, select3over);
 		select3.addEventListener(MouseEvent.MOUSE_OUT, select3out);
+		select3.buttonMode = true;
+		select3.useHandCursor = true;
 		
 		select6 = new Sprite();
 		select6.graphics.beginFill(0x000000,1);
@@ -1921,6 +1931,8 @@ private var friends_league_avatar:UserAvatar;
 		select6.addEventListener(MouseEvent.CLICK, select6listener);
 		select6.addEventListener(MouseEvent.MOUSE_OVER, select6over);
 		select6.addEventListener(MouseEvent.MOUSE_OUT, select6out);
+		select6.buttonMode = true;
+		select6.useHandCursor = true;
 		
 		// детали окна с футболистом
 		
@@ -10871,10 +10883,12 @@ private var friends_league_avatar:UserAvatar;
 		private function select1over(e:MouseEvent):void {
 			blocknation.filters = [myGlow_blue, myBevel, innerGlow];
 			//select1.alpha = 0.2;
+			//Mouse.cursor = HAND;
 		}
 		private function select1out(e:MouseEvent):void {
 			blocknation.filters = [];
 			select1.alpha = 0;
+			//Mouse.cursor = MouseCursor
 		}
 		private function select4over(e:MouseEvent):void {
 			blocknation4.filters = [myGlow_blue, myBevel, innerGlow];
