@@ -515,6 +515,7 @@ private var loading_balls:loadingProc;
 public var user_photo:vk_photo;
 private var myGlow:GlowFilter;
 private var myGlow_blue:GlowFilter;
+private var innerGlow:GlowFilter;
 private var myBevel:BevelFilter;
 private var myShadow:DropShadowFilter;
 private var test:text;
@@ -690,14 +691,23 @@ private var friends_league_avatar:UserAvatar;
 		top1.load(new URLRequest(serv + "img2/top1.png"));
 		top1.x = 220;
 		top1.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		top1.addEventListener(MouseEvent.MOUSE_OVER, mouseOverMain);
+		top1.addEventListener(MouseEvent.MOUSE_OUT, mouseOutMain);
+		
+		
 		top2 = new Loader();
 		top2.load(new URLRequest(serv + "img2/top1.png"));
 		top2.x = 330;
 		top2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		top2.addEventListener(MouseEvent.MOUSE_OVER, mouseOverHelp);
+		top2.addEventListener(MouseEvent.MOUSE_OUT, mouseOutHelp);
+		
 		top3 = new Loader();
 		top3.load(new URLRequest(serv + "img2/top1.png"));
 		top3.x = 440;
 		top3.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		
+		
 		top4 = new Loader();
 		top4.load(new URLRequest(serv + "img2/top1.png"));
 		top4.x = 550;
@@ -1544,6 +1554,8 @@ private var friends_league_avatar:UserAvatar;
 		
 		all_txt1 = new text(237, 5, "ТУРНИРЫ", "1");
 		all_txt1.setColor("0x666666");
+		all_txt1.addEventListener(MouseEvent.MOUSE_OVER, mouseOverMain);
+		
 		all_txt3 = new text(467, 5, "EU:", "1");
 		all_txt4 = new text(574, 5, "MP:", "1");
 		all_txt4.addEventListener(MouseEvent.CLICK, showPaymentBox);
@@ -1599,6 +1611,7 @@ private var friends_league_avatar:UserAvatar;
 // -----------------------------
 		
 		rules_txt1 = new text(25, 100, "ПРАВИЛА", "1");
+		rules_txt1.addEventListener(MouseEvent.MOUSE_OVER, mouseOverHelp);
 		//rules_txt2 = new text(0, 0, "", "rules");
 		
 		rules = new rules_s();
@@ -1701,6 +1714,8 @@ private var friends_league_avatar:UserAvatar;
 		main_button.graphics.drawRoundRect(220, 0, 89, 29, 9);
 		main_button.alpha = 0;
 		main_button.addEventListener(MouseEvent.CLICK, mainButton);
+		main_button.addEventListener(MouseEvent.MOUSE_OVER, mouseOverMain);
+		main_button.addEventListener(MouseEvent.MOUSE_OUT, mouseOutMain);
 		
 		// help button ака ПРАВИЛА!
 		
@@ -1710,6 +1725,9 @@ private var friends_league_avatar:UserAvatar;
 		help_button.graphics.drawRoundRect(330, 0, 89, 29, 9);
 		help_button.alpha = 0;
 		help_button.addEventListener(MouseEvent.CLICK, helpButton);
+		help_button.addEventListener(MouseEvent.MOUSE_OVER, mouseOverHelp);
+		help_button.addEventListener(MouseEvent.MOUSE_OUT, mouseOutHelp);
+		
 		
 		mainhelp_button = new Sprite();
 		mainhelp_button.graphics.beginFill(0x000000,1);
@@ -1717,9 +1735,13 @@ private var friends_league_avatar:UserAvatar;
 		mainhelp_button.graphics.drawRoundRect(330, 0, 89, 29, 9);
 		mainhelp_button.alpha = 0;
 		mainhelp_button.addEventListener(MouseEvent.CLICK, mainhelpButton);
+		mainhelp_button.addEventListener(MouseEvent.MOUSE_OVER, mouseOverHelp);
+		mainhelp_button.addEventListener(MouseEvent.MOUSE_OUT, mouseOutHelp);
+		
 		
 		help_buttontxt = new text(348, 5, "ПРАВИЛА", "2");
-				
+		help_buttontxt.addEventListener(MouseEvent.MOUSE_OVER, mouseOverHelp);
+		
 		// надписи на кнопках
 		
 		/*		
@@ -2603,6 +2625,13 @@ private var friends_league_avatar:UserAvatar;
 		myGlow_blue.color = 0x0389af;
 		myGlow_blue.alpha = 0.5;
 		
+		innerGlow = new GlowFilter();
+		innerGlow.inner = true;
+		innerGlow.blurX = 8;
+		innerGlow.blurY = 32;
+		innerGlow.alpha = 0.5;
+		innerGlow.color = 0x66CC00;
+		
 		team_fb_cost = new Array();
 		
 		current_foot_id1_ = 1;
@@ -2715,7 +2744,7 @@ private var friends_league_avatar:UserAvatar;
 		addChild(main);
 			main.addChild(background);
 			main.addChild(logo2);
-			main.addChild(top2);
+			
 			main.addChild(top4);
 			main.addChild(mp);
 			
@@ -2784,9 +2813,11 @@ private var friends_league_avatar:UserAvatar;
 			main.addChild(select5);
 			main.addChild(select3);
 			main.addChild(select6);
+			
+			
+			main.addChild(top2);
 			main.addChild(help_buttontxt);
 			main.addChild(mainhelp_button);
-			
 		}
 	}
 	
@@ -3807,6 +3838,8 @@ private var friends_league_avatar:UserAvatar;
 			main.addChild(select3);
 			main.addChild(select5);
 			main.addChild(select6);
+			
+			
 			main.addChild(help_buttontxt);
 			main.addChild(mainhelp_button);
 	}
@@ -3910,6 +3943,22 @@ private var friends_league_avatar:UserAvatar;
 			help.addChild(rules);
 			help.addChild(main_button);
 			help.addChild(scroll_r);
+	}
+	
+	public function mouseOverHelp(e:MouseEvent):void {
+		  top2.filters = [myShadow];
+	}
+	
+	public function mouseOutHelp(e:MouseEvent):void {
+		top2.filters = [];
+	}
+	
+	public function mouseOverMain(e:MouseEvent):void {
+		top1.filters = [myShadow];
+	}
+	
+	public function mouseOutMain(e:MouseEvent):void {
+		top1.filters = [];
 	}
 	
 	public function helpExitButton(e:MouseEvent):void {
@@ -10820,39 +10869,43 @@ private var friends_league_avatar:UserAvatar;
 		}
 		
 		private function select1over(e:MouseEvent):void {
-			blocknation.filters = [myGlow_blue, myBevel];
+			blocknation.filters = [myGlow_blue, myBevel, innerGlow];
+			//select1.alpha = 0.2;
 		}
 		private function select1out(e:MouseEvent):void {
 			blocknation.filters = [];
+			select1.alpha = 0;
 		}
 		private function select4over(e:MouseEvent):void {
-			blocknation4.filters = [myGlow_blue, myBevel];
+			blocknation4.filters = [myGlow_blue, myBevel, innerGlow];
+			//select4.alpha = 0.2;
 		}
 		private function select4out(e:MouseEvent):void {
 			blocknation4.filters = [];
+			select4.alpha = 0;
 		}
 		
 		private function select2over(e:MouseEvent):void {
-			blocknation2.filters = [myGlow_blue, myBevel];
+			blocknation2.filters = [myGlow_blue, myBevel, innerGlow];
 		}
 		private function select2out(e:MouseEvent):void {
 			blocknation2.filters = [];
 		}
 		private function select5over(e:MouseEvent):void {
-			blocknation5.filters = [myGlow_blue, myBevel];
+			blocknation5.filters = [myGlow_blue, myBevel, innerGlow];
 		}
 		private function select5out(e:MouseEvent):void {
 			blocknation5.filters = [];
 		}
 		
 		private function select3over(e:MouseEvent):void {
-			blocknation3.filters = [myGlow_blue, myBevel];
+			blocknation3.filters = [myGlow_blue, myBevel, innerGlow];
 		}
 		private function select3out(e:MouseEvent):void {
 			blocknation3.filters = [];
 		}
 		private function select6over(e:MouseEvent):void {
-			blocknation6.filters = [myGlow_blue, myBevel];
+			blocknation6.filters = [myGlow_blue, myBevel, innerGlow];
 		}
 		private function select6out(e:MouseEvent):void {
 			blocknation6.filters = [];
