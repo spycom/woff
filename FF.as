@@ -1444,13 +1444,21 @@ private var friends_league_avatar:UserAvatar;
 		button_blue_.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		button_blue_.x = 435;
 		button_blue_.y = 100;
+		button_blue_.addEventListener(MouseEvent.MOUSE_OVER, mouseOver);
+		button_blue_.addEventListener(MouseEvent.MOUSE_OUT, mouseOut);
 		button_blue_.addEventListener(MouseEvent.CLICK, button2event);
+		//button_blue_.buttonMode = true;
+		//button_blue_.useHandCursor = true;
 		
 		button_blue_alpha_ = new Loader();
 		button_blue_alpha_.load(new URLRequest(serv + "img4/button-blue-alpha.png"));
+		button_blue_alpha_.addEventListener(MouseEvent.MOUSE_OVER, mouseOver);
+		button_blue_alpha_.addEventListener(MouseEvent.MOUSE_OUT, mouseOut);
 		button_blue_alpha_.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		button_blue_alpha_.x = 535;
 		button_blue_alpha_.y = 100;
+		//button_blue_alpha_.buttonMode = true;
+		//button_blue_alpha_.useHandCursor = true;
 		
 		dropdowmmenu_png = new Loader();
 		dropdowmmenu_png.load(new URLRequest(serv + "img3/liga.png"));
@@ -1643,8 +1651,8 @@ private var friends_league_avatar:UserAvatar;
 		main2_txt3 = new text(430, 200, "БЮДЖЕТ", "1");
 		main2_txt4 = new text(430, 302, "ТРАНСФЕРЫ", "1");
 		main2_txt5 = new text(430, 425, "ПЛАТНАЯ СТАТИСТИКА", "1");
-		main2_txt6 = new text(252, 104, "Команда", "4");
-		main2_txt7 = new text(357, 104, "Игроки", "4");
+		main2_txt6 = new text(252, 103, "Команда", "4");
+		main2_txt7 = new text(357, 103, "Игроки", "4");
 		main2_txt8 = new text(430, 129, "Очков:", "2");
 		main2_txt9 = new text(515, 129, "Место:", "2");
 			main2_txt8_ = new text(495, 129, "00", "11");
@@ -1656,7 +1664,7 @@ private var friends_league_avatar:UserAvatar;
 		main2_txt12 = new text(430, 225, "Остаток бюджета:    ", "2");
 		//main2_txt12_ = new text(430, 225, "Начальный бюджет:    ", "2");
 		main2_txt13 = new text(430, 240, "Стоимость футболистов:    ", "2");
-		main2_txt14 = new text(430, 273, "Приобрести дополнительный бюджет", "4");
+		main2_txt14 = new text(429, 273, "Приобрести дополнительный бюджет", "4");
 		main2_txt15 = new text(430, 319, "Базовый трансфер:                             00", "2");
 		main2_txt16 = new text(430, 336, "Проведённых трансферов:                 00", "2");
 		main2_txt17 = new text(430, 350, "Остаток:", "2");
@@ -10629,9 +10637,9 @@ private var friends_league_avatar:UserAvatar;
 			}
 			
 			private function mouseOver(e:MouseEvent):void {
-				var test_bevel:BevelFilter = new BevelFilter();
-				test_bevel.strength = 1;
-				test_bevel.shadowAlpha = 0.5;
+				//var test_bevel:BevelFilter = new BevelFilter();
+				//test_bevel.strength = 1;
+				//test_bevel.shadowAlpha = 0.5;
 				e.currentTarget.filters = [myGlow_blue];
 				
 				Mouse.hide();

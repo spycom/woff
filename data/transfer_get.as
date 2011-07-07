@@ -12,11 +12,17 @@ public var id2:int;
 public var status:int;
 
 		public function transfer_get() {
+			this.buttonMode = true;
+			this.useHandCursor = true;
 			
 			
 			var tr_buy:text = new text(7, 0, "купить", "4");
+			//tr_buy.buttonMode = true;
+			//tr_buy.useHandCursor = true;
 			tr_buy.addEventListener(MouseEvent.MOUSE_OVER, buyOverEvent);
 			tr_buy.addEventListener(MouseEvent.MOUSE_OUT, buyOutEvent);
+			//this.mouseChildren = false;
+			
 			
 			footman_buy = new Loader();
 			footman_buy.load(new URLRequest("http://woff73.valuehost.ru/woff_images/" + "img10/buy.png"));
