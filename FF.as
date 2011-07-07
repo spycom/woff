@@ -1716,6 +1716,9 @@ private var friends_league_avatar:UserAvatar;
 		main_button.addEventListener(MouseEvent.CLICK, mainButton);
 		main_button.addEventListener(MouseEvent.MOUSE_OVER, mouseOverMain);
 		main_button.addEventListener(MouseEvent.MOUSE_OUT, mouseOutMain);
+		main_button.buttonMode = true;
+		main_button.useHandCursor = true;
+		
 		
 		// help button ака ПРАВИЛА!
 		
@@ -1727,6 +1730,8 @@ private var friends_league_avatar:UserAvatar;
 		help_button.addEventListener(MouseEvent.CLICK, helpButton);
 		help_button.addEventListener(MouseEvent.MOUSE_OVER, mouseOverHelp);
 		help_button.addEventListener(MouseEvent.MOUSE_OUT, mouseOutHelp);
+		help_button.buttonMode = true;
+		help_button.useHandCursor = true;
 		
 		
 		mainhelp_button = new Sprite();
@@ -1737,55 +1742,21 @@ private var friends_league_avatar:UserAvatar;
 		mainhelp_button.addEventListener(MouseEvent.CLICK, mainhelpButton);
 		mainhelp_button.addEventListener(MouseEvent.MOUSE_OVER, mouseOverHelp);
 		mainhelp_button.addEventListener(MouseEvent.MOUSE_OUT, mouseOutHelp);
+		mainhelp_button.buttonMode = true;
+		mainhelp_button.useHandCursor = true;
 		
 		
 		help_buttontxt = new text(348, 5, "ПРАВИЛА", "2");
 		help_buttontxt.addEventListener(MouseEvent.MOUSE_OVER, mouseOverHelp);
+		help_buttontxt.buttonMode = true;
+		help_buttontxt.useHandCursor = true;
 		
 		// надписи на кнопках
-		
-		/*		
-		button1txt = new TextField();
-		button1txt.text = "ГЛАВНАЯ";
-		button1txt.autoSize = TextFieldAutoSize.LEFT;
-		button1txt.selectable = false;
-		button1txt.x = 120;
-		button1txt.y = y+5;
-		button1txt.setTextFormat(textFormat);
-		 * 
-		 */
 		
 		button1txt = new text(120, y+5, "ГЛАВНАЯ", "31");
 		button2txt = new text(234, y+5, "СОСТАВ КОМАНДЫ", "31");
 		button3txt = new text(385, y+5, "ЛИГА ДРУЗЕЙ", "31");
 		button4txt = new text(525, y+5, "ОБЩИЙ ЗАЧЁТ", "31");
-		
-		/*
-		button2txt = new TextField();
-		button2txt.text = "СОСТАВ КОМАНДЫ";
-		button2txt.autoSize = TextFieldAutoSize.LEFT;
-		button2txt.selectable = false;
-		button2txt.x = 234;
-		button2txt.y = y+5;
-		button2txt.setTextFormat(textFormat);
-		
-		button3txt = new TextField();
-		button3txt.text = "ЛИГА ДРУЗЕЙ";
-		button3txt.autoSize = TextFieldAutoSize.LEFT;
-		button3txt.selectable = false;
-		button3txt.x = 385;
-		button3txt.y = y+5;
-		button3txt.setTextFormat(textFormat);
-		
-		button4txt = new TextField();
-		button4txt.text = "ОБЩИЙ ЗАЧЁТ";
-		button4txt.autoSize = TextFieldAutoSize.LEFT;
-		button4txt.selectable = false;
-		button4txt.x = 525;
-		button4txt.y = y+5;
-		button4txt.setTextFormat(textFormat);
-		 * 
-		 */
 		
 		// сами кнопки меню !!!
 		
@@ -1798,6 +1769,8 @@ private var friends_league_avatar:UserAvatar;
 		button1.addEventListener(MouseEvent.MOUSE_OVER, button1over);
 		button1.addEventListener(MouseEvent.MOUSE_DOWN, button1down);
 		button1.addEventListener(MouseEvent.MOUSE_OUT, button1out);
+		button1.buttonMode = true;
+		button1.useHandCursor = true;
 		
 		button2 = new Sprite();
 		button2.graphics.beginFill(0x000000,1);
@@ -1808,6 +1781,8 @@ private var friends_league_avatar:UserAvatar;
 		button2.addEventListener(MouseEvent.MOUSE_OVER, button2over);
 		button2.addEventListener(MouseEvent.MOUSE_DOWN, button2down);
 		button2.addEventListener(MouseEvent.MOUSE_OUT, button2out);
+		button2.buttonMode = true;
+		button2.useHandCursor = true;
 		
 		button3 = new Sprite();
 		button3.graphics.beginFill(0x000000,1);
@@ -1818,6 +1793,8 @@ private var friends_league_avatar:UserAvatar;
 		button3.addEventListener(MouseEvent.MOUSE_OVER, button3over);
 		button3.addEventListener(MouseEvent.MOUSE_DOWN, button3down);
 		button3.addEventListener(MouseEvent.MOUSE_OUT, button3out);
+		button3.buttonMode = true;
+		button3.useHandCursor = true;
 		
 		button4 = new Sprite();
 		button4.graphics.beginFill(0x000000,1);
@@ -1828,6 +1805,8 @@ private var friends_league_avatar:UserAvatar;
 		button4.addEventListener(MouseEvent.MOUSE_OVER, button4over);
 		button4.addEventListener(MouseEvent.MOUSE_DOWN, button4down);
 		button4.addEventListener(MouseEvent.MOUSE_OUT, button4out);
+		button4.buttonMode = true;
+		button4.useHandCursor = true;
 		
 		button3_euro = new Sprite();
 		button3_euro.graphics.beginFill(0x000000,1);
@@ -1838,6 +1817,8 @@ private var friends_league_avatar:UserAvatar;
 		button3_euro.addEventListener(MouseEvent.MOUSE_OVER, button3over);
 		button3_euro.addEventListener(MouseEvent.MOUSE_DOWN, button3down);
 		button3_euro.addEventListener(MouseEvent.MOUSE_OUT, button3out);
+		button3_euro.buttonMode = true;
+		button3_euro.useHandCursor = true;
 		
 		button4_euro = new Sprite();
 		button4_euro.graphics.beginFill(0x000000,1);
@@ -1848,6 +1829,8 @@ private var friends_league_avatar:UserAvatar;
 		button4_euro.addEventListener(MouseEvent.MOUSE_OVER, button4over);
 		button4_euro.addEventListener(MouseEvent.MOUSE_DOWN, button4down);
 		button4_euro.addEventListener(MouseEvent.MOUSE_OUT, button4out);
+		button4_euro.buttonMode = true;
+		button4_euro.useHandCursor = true;
 		
 		load = new Sprite();
 		help = new Sprite();

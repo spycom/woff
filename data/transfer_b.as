@@ -14,6 +14,10 @@ public var status:int;
 
 		public function transfer_b(footballer_id:int, role:int, field_place:int) {
 			//var server:String = new String(stage.parent.serv);
+			
+			this.buttonMode = true;
+			this.useHandCursor = true;
+			
 			status = 0;
 			foot_id = footballer_id;
 			amplua = role;
@@ -22,6 +26,7 @@ public var status:int;
 			footman_replace.load(new URLRequest("http://woff73.valuehost.ru/woff_images/" + "img4/replace.png"));
 			footman_replace.addEventListener(MouseEvent.MOUSE_OVER, replaceOverEvent);
 			footman_replace.addEventListener(MouseEvent.MOUSE_OUT, replaceOutEvent);
+			
 			addChild(footman_replace);
 		}
 		public function setId(id_:int):void {
