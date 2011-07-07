@@ -1275,25 +1275,31 @@ private var friends_league_avatar:UserAvatar;
 		liga.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		
 		// второе окно
+			// кнопка "игроки"
 		button_blue = new Loader();
 		button_blue.load(new URLRequest(serv + "img4/button-blue.png"));
 		button_blue.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		button_blue.x = 335;
 		button_blue.y = 100;
 		button_blue.addEventListener(MouseEvent.CLICK, team_statEvent);
+		button_blue.addEventListener(MouseEvent.MOUSE_OVER, overTeamButton);
+		button_blue.addEventListener(MouseEvent.MOUSE_OUT, outTeamButton);
 		
+			//
 		button_blue2 = new Loader();
 		button_blue2.load(new URLRequest(serv + "img4/button-blue.png"));
 		button_blue2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		button_blue2.x = 425;
 		button_blue2.y = 440;
-		
+			
+			//
 		button_blue3 = new Loader();
 		button_blue3.load(new URLRequest(serv + "img4/button-blue.png"));
 		button_blue3.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		button_blue3.x = 525;
 		button_blue3.y = 440;
 		
+			//
 		button_blue_liga = new Loader();
 		button_blue_liga.load(new URLRequest(serv + "img4/button-blue.png"));
 		button_blue_liga.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
@@ -1684,6 +1690,8 @@ private var friends_league_avatar:UserAvatar;
 		main2_txt18.addEventListener(MouseEvent.MOUSE_OVER, overBuyTransfers);
 		main2_txt14.addEventListener(MouseEvent.MOUSE_OUT, outBuyBudget);
 		main2_txt18.addEventListener(MouseEvent.MOUSE_OUT, outBuyTransfers);
+		main2_txt7.addEventListener(MouseEvent.MOUSE_OVER, overTeamButton);
+		
 		
 		main2_txt21.addEventListener(MouseEvent.CLICK, CashLiga);
 		main2_txt21.addEventListener(MouseEvent.MOUSE_OVER, overCashLiga);
@@ -10914,6 +10922,13 @@ private var friends_league_avatar:UserAvatar;
 		}
 		private function select6out(e:MouseEvent):void {
 			blocknation6.filters = [];
+		}
+		
+		private function overTeamButton(e:MouseEvent):void {
+			button_blue.filters = [myGlow, myBevel];
+		}
+		private function outTeamButton(e:MouseEvent):void {
+			button_blue.filters = [];
 		}
 		
 		private function overBuyBudget(e:MouseEvent):void {
