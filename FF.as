@@ -2830,9 +2830,9 @@ private var friends_league_avatar:UserAvatar;
 			main.addChild(help_buttontxt);
 			main.addChild(mainhelp_button);
 			
-				welcomeMessage = new WelcomeMsg();
-				addChild(welcomeMessage);
-				welcomeMessage.showWelcome();
+				//welcomeMessage = new WelcomeMsg();
+				//addChild(welcomeMessage);
+				//welcomeMessage.showWelcome();
 		}
 	}
 	
@@ -7136,6 +7136,7 @@ private var friends_league_avatar:UserAvatar;
 					 */
 					welcomeMessage = new WelcomeMsg();
 					addChild(welcomeMessage);
+					welcomeMessage.showWelcome();
 			}
 			 
 		}

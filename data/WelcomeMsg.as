@@ -14,10 +14,14 @@ private var WelcomeMsgSprite:Sprite;
 private var WelcomeMsgText:text;
 private var WelcomeMsgFon:Sprite;
 private var WelcomeMsgClose:text;
+private var WelcomeMsgCloseButton:Sprite;
 private var WelcomeMsgFAQ:text;
 private var myShadow:DropShadowFilter;
 private var myBevel:BevelFilter;
+private var myGlow:GlowFilter;
 private var showTimer:Timer;
+private var buttonTimer:Timer;
+private var button_tr:int;
 
 		public function WelcomeMsg() {
 			
@@ -26,8 +30,17 @@ private var showTimer:Timer;
 			myBevel = new BevelFilter();
 			myBevel.angle = 90;
 			
+			myGlow = new GlowFilter();
+			myGlow.blurX = 32;
+			
 			showTimer = new Timer(35, 25);
 			showTimer.addEventListener(TimerEvent.TIMER, showTimerEvent);
+			
+			buttonTimer = new Timer(10, 25);
+			buttonTimer.addEventListener(TimerEvent.TIMER, buttonTimerEvent);
+			
+			button_tr = new int();
+			//button_tr = 0;
 			
 			WelcomeMsgSprite = new Sprite();
 			WelcomeMsgSprite.x = 20;
@@ -58,7 +71,7 @@ private var showTimer:Timer;
 			var alphas:Array = [1, 0.9];
 			var ratios:Array = [0, 200];
 			var matr:Matrix = new Matrix();
-			matr.createGradientBox(500, 150, (Math.PI/180)*90, 0, 0);
+			matr.createGradientBox(500, 250, (Math.PI/180)*90, 0, 0);
 			//matr.cr
 			
 			var spreadMethod:String = SpreadMethod.PAD;
@@ -74,6 +87,15 @@ private var showTimer:Timer;
 			//WelcomeMsgFon.alpha = 0.7;
 			WelcomeMsgFon.filters = [myBevel];
 			
+			WelcomeMsgCloseButton = new Sprite();
+			//WelcomeMsgCloseButton.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod); 
+			
+			WelcomeMsgCloseButton.graphics.beginFill(0xFF3333,1);
+			WelcomeMsgCloseButton.graphics.lineStyle(0, 0xFF3333);
+			WelcomeMsgCloseButton.graphics.drawRoundRect(400, 205, 100, 30, 30);
+			WelcomeMsgCloseButton.alpha = 0;
+			WelcomeMsgCloseButton.filters = [myGlow];
+			
 			addChild(WelcomeMsgSprite);
 					WelcomeMsgText.setText("		--- Приветствуем Вас в нашей игре! ---" +
 					"\n Здесь Вы сможете доказать своим друзьям и всему 'контакту',\n кто лучше всех разбирается в футболе."+
@@ -85,7 +107,8 @@ private var showTimer:Timer;
 					
 			WelcomeMsgSprite.addChild(WelcomeMsgFon);
 			WelcomeMsgSprite.addChild(WelcomeMsgText);	
-			WelcomeMsgSprite.addChild(WelcomeMsgFAQ);		
+			WelcomeMsgSprite.addChild(WelcomeMsgFAQ);	
+			WelcomeMsgSprite.addChild(WelcomeMsgCloseButton);	
 			WelcomeMsgSprite.addChild(WelcomeMsgClose);		
 		}
 		
@@ -106,15 +129,31 @@ private var showTimer:Timer;
 	}
 	
 	public function WelcomeMsgCloseOverEvent(e:MouseEvent):void {
-		WelcomeMsgClose.setColor("0x0389af");
+		WelcomeMsgClose.setColor("0x330033");
+		button_tr = 5;
+		buttonTimer.reset();
+		
+		buttonTimer.start();
+		//WelcomeMsgCloseButton.alpha = 0.8;
+		
 	}
 	public function WelcomeMsgCloseOutEvent(e:MouseEvent):void {
 		WelcomeMsgClose.setColor("0x666666");
+		button_tr = -5;
+		buttonTimer.reset();
+		buttonTimer.start();
+		
+			
 	}
 	
 	public function showTimerEvent(e:TimerEvent):void {
 		WelcomeMsgSprite.alpha += 0.05;
 	}
+	
+	public function buttonTimerEvent(e:TimerEvent):void {
+		WelcomeMsgCloseButton.alpha += button_tr/100;
+	}
+	
 	
 	public function showWelcome():void {
 		showTimer.start();
