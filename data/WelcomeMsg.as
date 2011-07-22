@@ -32,6 +32,7 @@ private var button_tr:int;
 			
 			myGlow = new GlowFilter();
 			myGlow.blurX = 32;
+			myGlow.blurY = 0;
 			
 			showTimer = new Timer(35, 25);
 			showTimer.addEventListener(TimerEvent.TIMER, showTimerEvent);
@@ -56,7 +57,7 @@ private var button_tr:int;
 			WelcomeMsgClose.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgCloseOutEvent);
 			
 			
-			WelcomeMsgFAQ = new text(119, 152, "FAQ", "welcomeFaq");
+			WelcomeMsgFAQ = new text(105, 152, "FAQ", "welcomeFaq");
 			WelcomeMsgFAQ.addEventListener(MouseEvent.CLICK, WelcomeMsgFAQEvent);
 			WelcomeMsgFAQ.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgFAQOverEvent);
 			WelcomeMsgFAQ.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgFAQOutEvent);
@@ -92,7 +93,7 @@ private var button_tr:int;
 			
 			WelcomeMsgCloseButton.graphics.beginFill(0xFF3333,1);
 			WelcomeMsgCloseButton.graphics.lineStyle(0, 0xFF3333);
-			WelcomeMsgCloseButton.graphics.drawRoundRect(400, 205, 100, 30, 30);
+			WelcomeMsgCloseButton.graphics.drawRoundRect(400, 205, 100, 30, 17);
 			WelcomeMsgCloseButton.alpha = 0;
 			WelcomeMsgCloseButton.filters = [myGlow];
 			
@@ -101,9 +102,9 @@ private var button_tr:int;
 					"\n Здесь Вы сможете доказать своим друзьям и всему 'контакту',\n кто лучше всех разбирается в футболе."+
 					" Набирайте команду из 15\n реальных футболистов и в бой! Мы предлагаем вам целый МИР\n Fantasy Football." +
 					" Заявляйте команды в ведущих европейских\n турнирах и Российской Премьер Лиге. "+
-					" Рекомендумаем начать\n с раздела ____."+
+					" Рекомендуем начать с\n раздела ____."+
 					" Мы верим что"+
-					" игра и сам 'МИР' Fantasy Football\n в целом придутся Вам по душе, не даром мы выбрали девиз\n 'Fantasy World for Fantastic Game'.");
+					" игра и сам 'МИР' Fantasy Football\n в целом придутся Вам по душе, недаром мы выбрали девиз\n 'Fantasy World for Fantastic Game'.");
 					
 			WelcomeMsgSprite.addChild(WelcomeMsgFon);
 			WelcomeMsgSprite.addChild(WelcomeMsgText);	
