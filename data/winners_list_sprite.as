@@ -1,8 +1,9 @@
 package data{
-	import flash.display.*;	
-	import flash.net.*;
 	import data.text;
+	
+	import flash.display.*;
 	import flash.events.*;
+	import flash.net.*;
 	
 	public class winners_list_sprite extends Sprite {
 	
@@ -10,9 +11,13 @@ private var block:Loader;
 private var logo:text;
 private var text_array:Array;
 public var uids:String;
+private var uids_array:Array;
+private var viewer_id:int;
 
-		public function winners_list_sprite(viewer_id:int) {
+
+		public function winners_list_sprite(viewer_id_:int) {
 		
+			viewer_id = viewer_id_;
 		block = new Loader();
 		block.load(new URLRequest("http://woff73.valuehost.ru/woff_images/img2/block.png"));
 		block.x = 5;
@@ -44,6 +49,10 @@ public var uids:String;
 				addChild(text_array[n]);
 			}
 			
+		}
+						
+		public function changePhotos(new_uids:Array):void {
+			
 		//var uid = "64416";
 			//var api_id:String = stage.loaderInfo.parameters.api_id;
 		var api_id:String = "1848099";
@@ -51,7 +60,8 @@ public var uids:String;
 		//var viewer_id:String = stage.loaderInfo.parameters.viewer_id;
 				
 		//var uids:Array = uid;
-		uids = "12098,12613,172577,2488685,218476,20757,110757,69960818,3007376,24282273" ;
+		//var uids = "12098,12613,172577,2488685,218476,20757,110757,69960818,3007376,24282273" ;
+		var uids:String = new_uids.toString();
 		//for (var ii:int = 1; ii < uid.length; ii++)
 		//				uids = uids + ","+ uid[ii] ;
 						
@@ -114,6 +124,47 @@ public var uids:String;
 				user_photo.y = 380;
 				}
 				addChild(user_photo);
+				
+			}
+		}
+		
+		public function setScores(new_winner_list:Array):void {
+			uids_array = new Array();
+			
+			for (var i:int=0; i<10; i++) {
+				if (String(new_winner_list[i].team_title) == "") {
+					text_array[i].setText(i+1 +". -- no name -- - " + new_winner_list[i].score/10);
+				} else {
+					text_array[i].setText(i+1 +". " + new_winner_list[i].team_title + " - " + new_winner_list[i].score/10);
+				}
+				
+				uids_array.push(new_winner_list[i].id_vk);
+				
+			}
+			
+			changePhotos(uids_array);
+		}
+		
+		public function setChamp(new_champ:String):void {
+			switch (new_champ) {
+				case "rus": 
+						logo.setText("ПОБЕДИТЕЛИ Чемпионата России");
+					break;
+				case "eng": 
+					logo.setText("ПОБЕДИТЕЛИ Чемпионата Англии");
+					break;
+				case "isp": 
+					logo.setText("ПОБЕДИТЕЛИ Чемпионата Испании");
+					break;
+				case "ita": 
+					logo.setText("ПОБЕДИТЕЛИ Чемпионата Италии");
+					break;
+				case "lch": 
+					logo.setText("ПОБЕДИТЕЛИ Чемпионата Лиги Чемпионов");
+					break;
+				case "eup": 
+					logo.setText("ПОБЕДИТЕЛИ Чемпионата Евротурнира");
+					break;
 				
 			}
 		}

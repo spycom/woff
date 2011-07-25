@@ -3119,6 +3119,12 @@ private var friends_league_avatar:UserAvatar;
 			main1.addChild(main1_txt24);
 			main1.addChild(scroll);
 			main1.addChild(scroll2);
+			
+			main1.addChild(winners_list);
+			winners_list.setChamp("lch");
+				getLeadersFinal();
+				
+			
 	}
 	
 	// переход к чемпионату англии
@@ -3263,9 +3269,11 @@ private var friends_league_avatar:UserAvatar;
 			main1.addChild(scroll);
 			main1.addChild(scroll2);
 			
-			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
-    	
-    		if (woff_isAppUser !== 1) {
+			main1.addChild(winners_list);
+			winners_list.setChamp("eng");
+				getLeadersFinal();
+			
+			if (woff_isAppUser !== 1) {
     		addChild(errorSprite);
 					errorText.setText("	Зря ты не добавил это приложение! " +
 					"\nТеперь у тебя отсутствует доступ к лиге друзей"+
@@ -3413,8 +3421,10 @@ private var friends_league_avatar:UserAvatar;
 			main1.addChild(scroll2);
 			//main1.addChild(camera);
 			
-			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
-    	
+			main1.addChild(winners_list);
+			winners_list.setChamp("ita");
+				getLeadersFinal();
+			
     		if (woff_isAppUser !== 1) {
     		addChild(errorSprite);
 					errorText.setText("	Зря ты не добавил это приложение! " +
@@ -3565,6 +3575,8 @@ private var friends_league_avatar:UserAvatar;
 			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
     		
 			main1.addChild(winners_list);
+			winners_list.setChamp("isp");
+				getLeadersFinal();
 			
     		if (woff_isAppUser !== 1) {
     		addChild(errorSprite);
@@ -7616,6 +7628,21 @@ private var friends_league_avatar:UserAvatar;
 			
 		}
 		
+		// список победителей
+		public function woffLeadersFinalLoadComplete(e:Event):void {
+			var woff_answer:XML = new XML(e.target.data);
+			
+			var leaders_final_array:Array = new Array();
+			
+			for (var i:int=0; i<10; i++) {
+				leaders_final_array.push({id_vk:woff_answer.footballer[i].id_vk.text(), 
+					score:woff_answer.footballer[i].score.text(),
+					team_title:woff_answer.footballer[i].team_title.text()});
+			}
+			
+			winners_list.setScores(leaders_final_array);
+		}
+		
 		// список лидеров
 		public function woffLeadersLoadComplete(e:Event):void {
 			
@@ -9671,6 +9698,43 @@ private var friends_league_avatar:UserAvatar;
 					
 				var woff_Leaders_loader:URLLoader = new URLLoader();
 				woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
+				woff_Leaders_loader.load(woff_general_request);
+				
+			}
+			
+			
+			// метод запроса списка лидеров в законченном чемпионате
+			public function getLeadersFinal():void {
+				//if (tour == current_tour)
+					//tour = 0;
+				var time:Date = new Date();
+				var params:Object = {method: "getLeaders", time:time, id_tm: current_tournament, part:"1", tour:"0"};
+				
+				var keys:Array = new Array();
+				for (var k:String in params)
+					keys.push(k);
+				keys.sort();
+				woff_sig = String(woff_uid);			
+				for (var i:int = 0; i < keys.length; i++)
+					woff_sig = woff_sig + keys[i] + "=" + params[keys[i]];
+				
+				woff_sig = woff_sig + "DuIP8H5HnE";
+				
+				//params.test = woff_sig;
+				
+				woff_sig = MD5.encrypt(woff_sig); // используем метод hash класса md5 и получаем сигнатуру
+				
+				params.sig = String(woff_sig);
+				params.uid = String(woff_uid);
+				
+				
+				woff_general_request.data = new URLVariables();
+				
+				for (var k:String in params)
+					woff_general_request.data[k] = params[k];
+				
+				var woff_Leaders_loader:URLLoader = new URLLoader();
+				woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersFinalLoadComplete);
 				woff_Leaders_loader.load(woff_general_request);
 				
 			}
