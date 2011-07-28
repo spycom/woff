@@ -3120,6 +3120,8 @@ private var friends_league_avatar:UserAvatar;
 			main1.addChild(scroll);
 			main1.addChild(scroll2);
 			
+			winners_list = new winners_list_sprite(woff_uid);
+			winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
 			main1.addChild(winners_list);
 			winners_list.setChamp("lch");
 				getLeadersFinal();
@@ -3269,6 +3271,8 @@ private var friends_league_avatar:UserAvatar;
 			main1.addChild(scroll);
 			main1.addChild(scroll2);
 			
+			winners_list = new winners_list_sprite(woff_uid);
+			winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
 			main1.addChild(winners_list);
 			winners_list.setChamp("eng");
 				getLeadersFinal();
@@ -3421,6 +3425,8 @@ private var friends_league_avatar:UserAvatar;
 			main1.addChild(scroll2);
 			//main1.addChild(camera);
 			
+			winners_list = new winners_list_sprite(woff_uid);
+			winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
 			main1.addChild(winners_list);
 			winners_list.setChamp("ita");
 				getLeadersFinal();
@@ -3574,6 +3580,8 @@ private var friends_league_avatar:UserAvatar;
 			
 			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
     		
+			winners_list = new winners_list_sprite(woff_uid);
+			winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
 			main1.addChild(winners_list);
 			winners_list.setChamp("isp");
 				getLeadersFinal();

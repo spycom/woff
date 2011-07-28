@@ -27,20 +27,20 @@ private var viewer_id:int;
 		
 		text_array = new Array();
 		
-		text_array[0] = new text(260, 180, "1. Solid State - 1611.9 очков", "2");
+		text_array[0] = new text(320, 180, "1.", "ads_well");
 		
-		text_array[1] = new text(120, 250, "2. Мечта - 1607.6 очков", "2");
-		text_array[2] = new text(275, 250, "3. -- no name -- - 1565.7 очков", "2");
-		text_array[3] = new text(420, 250, "4. -- no name -- - 1526 очков", "2");
+		text_array[1] = new text(160, 250, "2.", "ads_well");
+		text_array[2] = new text(320, 250, "3.", "ads_well");
+		text_array[3] = new text(470, 250, "4.", "ads_well");
 				
-		text_array[4] = new text(100, 340, "5. Химнасия де Хухуй - 1462.1 очков", "2");
-		text_array[5] = new text(280, 340, "6. Rebar - 1391.4 очков", "2");
-		text_array[6] = new text(420, 340, "7. vav_ne - 1278.9 очков", "2");
+		text_array[4] = new text(170, 340, "5.", "ads_well");
+		text_array[5] = new text(320, 340, "6.", "ads_well");
+		text_array[6] = new text(470, 340, "7.", "ads_well");
 		
 		
-		text_array[7] = new text(120, 430, "8. Barselona - 1130.4 очков", "2");
-		text_array[8] = new text(280, 430, "9. Вавилон - 1127.6 очков", "2");
-		text_array[9] = new text(420, 430, "10. Suares - 1104.8 очков", "2");
+		text_array[7] = new text(170, 430, "8.", "ads_well");
+		text_array[8] = new text(320, 430, "9.", "ads_well");
+		text_array[9] = new text(470, 430, "10/", "ads_well");
 		
 		addChild(block);
 		addChild(logo);
