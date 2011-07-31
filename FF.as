@@ -589,7 +589,7 @@ private var friends_league_avatar:UserAvatar;
     	if (woff_isAppUser !== 1) {
     		wrapper.external.showInstallBox();
     		wrapper.addEventListener("onApplicationAdded", showSettingsBox);
-    	}
+    		}
     		
     	//----- конец обёртки	--------------------------------------
     		
@@ -597,7 +597,7 @@ private var friends_league_avatar:UserAvatar;
 		// --- своя библиотека (request) --------------------------------------
 		woff_api = "http://woff73.valuehost.ru/api.php";
 		woff_api1 = "http://woff73.valuehost.ru/tapi.php";
-		woff_api2 = "http://woff73.valuehost.ru/api2.php";
+		//woff_api2 = "http://woff73.valuehost.ru/api2.php";
 		woff_api3 = "http://woff73.valuehost.ru/tapi.php";
 		current_woff_api = woff_api;
 		
@@ -823,7 +823,7 @@ private var friends_league_avatar:UserAvatar;
 		russia.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		
 		world = new Loader();
-		world.load(new URLRequest("http://dl.dropbox.com/u/6044249/chempions.png"));
+		world.load(new URLRequest(serv + "img2/chempions.png"));
 		//world.load(new URLRequest("http://high.dih.ru/high/img/" + "img2/world.png"));
 		world.x = 335;
 		world.y = 110;
@@ -831,7 +831,7 @@ private var friends_league_avatar:UserAvatar;
 		
 		england = new Loader();
 		//england.load(new URLRequest(serv + "img2/england.png"));
-		england.load(new URLRequest("http://dl.dropbox.com/u/6044249/main/england.png"));
+		england.load(new URLRequest(serv + "img2/england.png"));
 		england.x = 25;
 		england.y = 230;
 		england.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
@@ -2718,8 +2718,8 @@ private var friends_league_avatar:UserAvatar;
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadComplete);
 		woff_Profile_loader.load(woff_general_request);
 		
-		woff_general_request.url = woff_api1;
-		current_tournament = 2;
+		woff_general_request.url = woff_api3;
+		current_tournament = 6;
 		setMethod("getProfile"); // загрузка 2-го профиля в ЧА
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
@@ -3273,9 +3273,10 @@ private var friends_league_avatar:UserAvatar;
 			
 			winners_list = new winners_list_sprite(woff_uid);
 			winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
-			main1.addChild(winners_list);
-			winners_list.setChamp("eng");
-				getLeadersFinal();
+			
+			//main1.addChild(winners_list);
+			//winners_list.setChamp("eng");
+			//	getLeadersFinal();
 			
 			if (woff_isAppUser !== 1) {
     		addChild(errorSprite);
@@ -3750,34 +3751,14 @@ private var friends_league_avatar:UserAvatar;
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadComplete);
 		woff_Profile_loader.load(woff_general_request);
 		
-		woff_general_request.url = woff_api1;
-		current_tournament = 2;
+		woff_general_request.url = woff_api3;
+		current_tournament = 6;
 		setMethod("getProfile"); // загрузка 2-го профиля в Ч-Англии
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadEnglandComplete);
 		woff_Profile_loader.load(woff_general_request);
-		
-		/*
-		woff_general_request.url = woff_api;
-		current_tournament = 2;
-		background = background2;
-		setMethod("getProfile"); // загрузка 1-го профиля в ЧР
-		
-		var woff_Profile_loader:URLLoader = new URLLoader();
-		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadComplete);
-		woff_Profile_loader.load(woff_general_request);
-		
-		woff_general_request.url = woff_api1;
-		current_tournament = 2;
-		setMethod("getProfile"); // загрузка 2-го профиля в ЧА #ЧМ
-		
-		var woff_Profile_loader:URLLoader = new URLLoader();
-		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadEnglandComplete);
-		woff_Profile_loader.load(woff_general_request);
-				
-		 */
-		 
+ 
 		woff_general_request.url = woff_api3;
 		current_tournament = 2;
 		setMethod("getProfile"); // загрузка 3-го профиля в Ч Италии
@@ -4516,11 +4497,11 @@ private var friends_league_avatar:UserAvatar;
 		dropdown_menu_sprite.addChild(scroll_clubs);
 		window = "main2";
 		current_tax = 150;
-		current_tournament = 1;
+		current_tournament = 6;
 		
 		background = background3;
 		champ = "eng";
-		woff_general_request.url = woff_api1;
+		//woff_general_request.url = woff_api1;
 		
 		down_arrows = new Array();
 		
@@ -7213,6 +7194,7 @@ private var friends_league_avatar:UserAvatar;
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
 			woff_general_request.url = woff_api1;
+			current_tournament = 6;
 			
 			setMethod("checkTeam");
 			var woff_checkteam_loader:URLLoader = new URLLoader();
@@ -7222,7 +7204,7 @@ private var friends_league_avatar:UserAvatar;
 			
 		
 			}  else {
-			
+				current_tournament = 6;
 				setMethod("registerNewPlayer");
 				
 				var woff_RegNew_loader:URLLoader = new URLLoader();
@@ -7230,7 +7212,6 @@ private var friends_league_avatar:UserAvatar;
 				
 				select2_.removeEventListener(MouseEvent.CLICK, select2listener);
 				select2_.addEventListener(MouseEvent.CLICK, button2event4);
-				
 				
 			}
 			
@@ -8822,12 +8803,12 @@ private var friends_league_avatar:UserAvatar;
 			if (woff_answer.text() == "ok") {
 				main_txt35.setText("Статус допуска: команда допущена");
 				//ticket_status.setColor("0x22b573");
-				ticket_status.setText("Команда допущена!");
-				ticket_status.setColor("0x22b573");
+				//ticket_status.setText("Команда допущена!");
+				//ticket_status.setColor("0x22b573");
 			} else {
 				main_txt35.setText("Статус допуска: команда не допущена");
-				ticket_status.setText("Команда не допущена!");
-				ticket_status.setColor("0xff0000");
+				//ticket_status.setText("Команда не допущена!");
+				//ticket_status.setColor("0xff0000");
 				
 				select2_.removeEventListener(MouseEvent.CLICK, select2listener);
 				select2_.addEventListener(MouseEvent.CLICK, button2event4);
