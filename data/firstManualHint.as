@@ -29,6 +29,7 @@ private var myTimer:Timer;
 			
 			myBevel = new BevelFilter();
 			myBevel.angle = 90;
+			myBevel.strength = 0.5;
 			//myBevel.blurY = 16;
 			
 			myTimer = new Timer(20, 50);
@@ -54,18 +55,18 @@ private var myTimer:Timer;
 			//WelcomeMsgClose.buttonMode = true;
 			//WelcomeMsgClose.useHandCursor = true;
 			
-			WelcomeMsgFAQ = new text(102, 130, "группа приложения", "first_hint");
+			WelcomeMsgFAQ = new text(80, 130, "группа приложения", "first_hint");
 			WelcomeMsgFAQ.setColor("0x000033");
 			WelcomeMsgFAQ.addEventListener(MouseEvent.CLICK, WelcomeMsgFAQEvent);
 			WelcomeMsgFAQ.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgFAQOverEvent);
 			WelcomeMsgFAQ.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgFAQOutEvent);
 			
-			var fillType:String = GradientType.LINEAR;
-			var colors:Array = [0x999999, 0xFFFFFF];
-			var alphas:Array = [1, 0.9];
-			var ratios:Array = [0, 200];
+			var fillType:String = GradientType.RADIAL;
+			var colors:Array = [0x999999, 0x333333];
+			var alphas:Array = [1, 1];
+			var ratios:Array = [0, 250];
 			var matr:Matrix = new Matrix();
-				matr.createGradientBox(500, 150, (Math.PI/180)*90, 0, 0);
+				matr.createGradientBox(565, 300, 0, 0, 30);
 			//matr.cr
 			
 			var spreadMethod:String = SpreadMethod.PAD;
@@ -73,19 +74,10 @@ private var myTimer:Timer;
 		
 			WelcomeMsgFon = new Sprite();
 			WelcomeMsgFon.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod); 
-			
-			//WelcomeMsgFon.graphics.beginFill(0x3366FF,1);
-			WelcomeMsgFon.graphics.lineStyle(0, 0x6699CC);
+			WelcomeMsgFon.graphics.lineStyle(0, 0x333333);
 			WelcomeMsgFon.graphics.drawRoundRect(0, 20, 565, 160, 30);
-			//window_block0.graphics.drawRoundRectComplex(0, 240, 145, 55, 0, 0 , 15, 48);
-			//WelcomeMsgFon.alpha = 0.7;
 			WelcomeMsgFon.filters = [myBevel];
 			
-			//WelcomeMsgFon = new Loader();
-			//WelcomeMsgFon.load(new URLRequest("http://woff73.valuehost.ru/woff_images/img5/profile.png"));
-			//WelcomeMsgFon.scaleX = 1.4;
-			//WelcomeMsgFon.scaleY = 0.83;
-		
 			addChild(WelcomeMsgSprite);
 					WelcomeMsgText.setText("	" +
 					" Для начала Вам необходимо собрать команду из 15\n футболистов! Нажимайте на стрелочки рядом с серыми\n футболками и выбирайте игроков соответствующего\n амплуа."+

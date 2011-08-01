@@ -224,7 +224,7 @@ package data {
 			top.wordWrap = true;
 		}
 		if (type == "first_hint") {
-			formatter.color = 0x666666;
+			formatter.color = 0xCCCCCC;
 			formatter.size = 22;
 			top.selectable = false;
 			top.autoSize = TextFieldAutoSize.LEFT;
