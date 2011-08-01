@@ -180,7 +180,7 @@ package data {
 			top.selectable = false;
 		}
 		if (type == "save_offer2") {
-			formatter.color = 0x666666;
+			formatter.color = 0xCCCCCC;
 			formatter.size = 20;
 			
 			top.autoSize = TextFieldAutoSize.CENTER;

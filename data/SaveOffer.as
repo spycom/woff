@@ -12,7 +12,7 @@ package data {
 	public class SaveOffer extends Sprite {
 	
 private var SaveOfferSprite:Sprite;
-private var myShadow___:DropShadowFilter;
+private var myShadow:DropShadowFilter;
 private var myGlow:GlowFilter;
 private var myBevel:BevelFilter;
 private var buyBudgetFon:Sprite;
@@ -49,7 +49,8 @@ public var wrapper: Object;
 			api_id = api_id_;
 			api_secret = api_secret_;
 			
-			myShadow___ = new DropShadowFilter();
+			myShadow = new DropShadowFilter();
+			myShadow.inner = true;
 			
 			myGlow = new GlowFilter();
 			myGlow.color = 0x0389af;
@@ -68,12 +69,13 @@ public var wrapper: Object;
 			SaveBackground.x = -70;
 			SaveBackground.y = -180;
 			
-			var fillType:String = GradientType.LINEAR;
-			var colors:Array = [0x999999, 0xFFFFFF]; //999999
-			var alphas:Array = [1, 0.9];
+			var fillType:String = GradientType.RADIAL;
+			//var colors:Array = [0x999999, 0xFFFFFF]; //999999
+			var colors:Array = [0x999999, 0x333333];
+			var alphas:Array = [1, 1];
 			var ratios:Array = [0, 250];
 			var matr:Matrix = new Matrix();
-			matr.createGradientBox(700, 250, (Math.PI/180)*90, 0, 0);
+			matr.createGradientBox(446, 400, 0, 0, 0);
 			//matr.cr
 			
 			var spreadMethod:String = SpreadMethod.PAD;
@@ -91,7 +93,7 @@ public var wrapper: Object;
 			
 			WelldoneText = new text(10, 6, "	Поздравляем, Ваша команда полностью укомплектована и сменила статус на ДОПУЩЕНА! По результатам реальных игр Вам будут начислены очки.", "save_offer2");
 			
-		WelcomeText = new text(220, 110, "Хотите сохранить фотографию поля?", "save_offer");
+		WelcomeText = new text(70, 110, "Хотите сохранить фотографию поля?", "save_offer2");
 		
 			//SaveToVklText.addEventListener(MouseEvent.CLICK, SaveOfferClose);
 			
@@ -100,6 +102,7 @@ public var wrapper: Object;
 		SaveToLocalButton.graphics.beginFill(0xFFFFFF,1);
 		SaveToLocalButton.graphics.lineStyle(1, 0x999999);
 		SaveToLocalButton.graphics.drawRoundRect(72, 139, 300, 19, 20);
+		SaveToLocalButton.filters = [myShadow];
 		
 		SaveToLocalText = new text(220, 135, "Сохранить на локальный компьютер", "save_offer");
 			SaveToLocalText.addEventListener(MouseEvent.CLICK, SaveToLocalClick);
@@ -110,7 +113,7 @@ public var wrapper: Object;
 		SaveToVkButton.graphics.beginFill(0xFFFFFF,1);
 		SaveToVkButton.graphics.lineStyle(1, 0x999999);
 		SaveToVkButton.graphics.drawRoundRect(130, 160, 185, 19, 20);
-			//SaveToVkButton.filters = [myBevel];
+			SaveToVkButton.filters = [myShadow];
 			
 		SaveToVklText = new text(220, 156, "Сохранить ВКонтакте", "save_offer");
 			SaveToVklText.addEventListener(MouseEvent.CLICK, doIt);
@@ -148,10 +151,10 @@ public var wrapper: Object;
 			removeChild(SaveOfferSprite);
 		}
 		public function SaveToLocalOver(e:MouseEvent):void {
-			SaveToLocalButton.filters = [myGlow];
+			SaveToLocalButton.filters = [myGlow, myShadow];
 		}
 		public function SaveToLocalOut(e:MouseEvent):void {
-			SaveToLocalButton.filters = [];
+			SaveToLocalButton.filters = [myShadow];
 		}
 		public function SaveCloseOver(e:MouseEvent):void {
 			SaveCloseText.filters = [myGlow];
@@ -160,10 +163,10 @@ public var wrapper: Object;
 			SaveCloseText.filters = [];
 		}
 		public function SaveToVkOver(e:MouseEvent):void {
-			SaveToVkButton.filters = [myGlow];
+			SaveToVkButton.filters = [myGlow, myShadow];
 		}
 		public function SaveToVkOut(e:MouseEvent):void {
-			SaveToVkButton.filters = [];
+			SaveToVkButton.filters = [myShadow];
 		}
 		public function getUploadServer():void {
 			

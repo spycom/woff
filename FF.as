@@ -2835,6 +2835,8 @@ private var friends_league_avatar:UserAvatar;
 				addChild(welcomeMessage);
 				welcomeMessage.showWelcome();
 			*/
+			
+			
 		}
 	}
 	
@@ -3126,7 +3128,7 @@ private var friends_league_avatar:UserAvatar;
 			winners_list.setChamp("lch");
 				getLeadersFinal();
 				
-			
+				
 	}
 	
 	// переход к чемпионату англии
@@ -8877,7 +8879,9 @@ private var friends_league_avatar:UserAvatar;
 					drawFieldEvent_offer();
 				}
 				check_team_trigger = 1;
+				//!!!!!
 				//drawFieldEvent_offer();
+				//!!!!
 				ticket_status.setText("Команда допущена!");
 				ticket_status.setColor("0x22b573");
 			} else {
