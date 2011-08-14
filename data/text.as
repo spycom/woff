@@ -44,7 +44,7 @@ package data {
 		
 		// текст приветствия
 		if (type == "welcome") {
-			formatter.color = 0x666666;
+			formatter.color = 0xCCCCCC;
 			formatter.size = 20;
 			top.selectable = false;
 			top.autoSize = TextFieldAutoSize.LEFT;
@@ -157,7 +157,7 @@ package data {
 		
 		// текст welcome, центрированный по центру
 		if (type == "welcomeFaq") {
-			formatter.color = 0x666666;
+			formatter.color = 0xCCCCCC;
 			formatter.size = 20;
 			
 			top.autoSize = TextFieldAutoSize.CENTER;

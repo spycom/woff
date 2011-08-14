@@ -29,6 +29,13 @@ private var button_tr:int;
 			
 			myBevel = new BevelFilter();
 			myBevel.angle = 90;
+			//myBevel.distance = 7;
+			//myBevel.strength = 2;
+			myBevel.blurX = 8;
+			myBevel.blurY = 8;
+			myBevel.shadowAlpha = 0.5;
+			myBevel.highlightAlpha = 0.5;
+			
 			
 			myGlow = new GlowFilter();
 			myGlow.blurX = 32;
@@ -37,7 +44,7 @@ private var button_tr:int;
 			showTimer = new Timer(35, 25);
 			showTimer.addEventListener(TimerEvent.TIMER, showTimerEvent);
 			
-			buttonTimer = new Timer(10, 25);
+			buttonTimer = new Timer(25, 10);
 			buttonTimer.addEventListener(TimerEvent.TIMER, buttonTimerEvent);
 			
 			button_tr = new int();
@@ -51,13 +58,13 @@ private var button_tr:int;
 			
 			WelcomeMsgText = new text(8, 6, "error", "welcome");
 			
-			WelcomeMsgClose = new text(448, 206, "ЗАКРЫТЬ", "welcomeFaq");
+			WelcomeMsgClose = new text(498, 216, "ЗАКРЫТЬ", "welcomeFaq");
 			WelcomeMsgClose.addEventListener(MouseEvent.CLICK, WelcomeMsgCloseEvent);
 			WelcomeMsgClose.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgCloseOverEvent);
 			WelcomeMsgClose.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgCloseOutEvent);
 			
 			
-			WelcomeMsgFAQ = new text(105, 152, "FAQ", "welcomeFaq");
+			WelcomeMsgFAQ = new text(390, 202, "FAQ", "welcomeFaq");
 			WelcomeMsgFAQ.addEventListener(MouseEvent.CLICK, WelcomeMsgFAQEvent);
 			WelcomeMsgFAQ.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgFAQOverEvent);
 			WelcomeMsgFAQ.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgFAQOutEvent);
@@ -67,44 +74,43 @@ private var button_tr:int;
 			//WelcomeMsgFon.scaleX = 1.45;
 			//WelcomeMsgFon.scaleY = 1.4;
 			
-			var fillType:String = GradientType.LINEAR;
-			var colors:Array = [0x999999, 0xFFFFFF];
-			var alphas:Array = [1, 0.9];
-			var ratios:Array = [0, 200];
+			var fillType:String = GradientType.RADIAL;
+			var colors:Array = [0x6699CC, 0x336699];
+			var colors_b:Array = [0xffffff, 0x000000];
+			var alphas:Array = [1, 1];
+			var ratios:Array = [0, 250];
+			var ratios_b:Array = [0, 200];
 			var matr:Matrix = new Matrix();
-			matr.createGradientBox(500, 250, (Math.PI/180)*90, 0, 0);
-			//matr.cr
+			matr.createGradientBox(879, 500, 0, -150, 0);
+			var matr_b:Matrix = new Matrix();
+			matr_b.createGradientBox(400, 500, 0, 300, 50);
 			
 			var spreadMethod:String = SpreadMethod.PAD;
 			
 			
 			WelcomeMsgFon = new Sprite();
 			WelcomeMsgFon.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod); 
-			
-			//WelcomeMsgFon.graphics.beginFill(0x3366FF,1);
 			WelcomeMsgFon.graphics.lineStyle(0, 0x6699CC);
-			WelcomeMsgFon.graphics.drawRoundRect(0, -5, 579, 250, 40);
-			//window_block0.graphics.drawRoundRectComplex(0, 240, 145, 55, 0, 0 , 15, 48);
-			//WelcomeMsgFon.alpha = 0.7;
-			WelcomeMsgFon.filters = [myBevel];
+			WelcomeMsgFon.graphics.drawRoundRect(-10, -8, 599, 285, 100);
+			//WelcomeMsgFon.filters = [myBevel];
 			
 			WelcomeMsgCloseButton = new Sprite();
-			//WelcomeMsgCloseButton.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod); 
-			
-			WelcomeMsgCloseButton.graphics.beginFill(0xFF3333,1);
-			WelcomeMsgCloseButton.graphics.lineStyle(0, 0xFF3333);
-			WelcomeMsgCloseButton.graphics.drawRoundRect(400, 205, 100, 30, 17);
+			WelcomeMsgCloseButton.graphics.beginGradientFill(fillType, colors_b, alphas, ratios_b, matr_b, spreadMethod); 
+			WelcomeMsgCloseButton.graphics.lineStyle(1, 0x666666);
+			//WelcomeMsgCloseButton.graphics.drawRoundRect(450, 215, 100, 30, 32);
+			WelcomeMsgCloseButton.graphics.drawRoundRect(450, 215, 100, 30, 32);
 			WelcomeMsgCloseButton.alpha = 0;
-			WelcomeMsgCloseButton.filters = [myGlow];
+			WelcomeMsgCloseButton.filters = [myBevel];
 			
 			addChild(WelcomeMsgSprite);
-					WelcomeMsgText.setText("		--- Приветствуем Вас в нашей игре! ---" +
-					"\n Здесь Вы сможете доказать своим друзьям и всему 'контакту',\n кто лучше всех разбирается в футболе."+
-					" Набирайте команду из 15\n реальных футболистов и в бой! Мы предлагаем вам целый МИР\n Fantasy Football." +
-					" Заявляйте команды в ведущих европейских\n турнирах и Российской Премьер Лиге. "+
-					" Рекомендуем начать с\n раздела ____."+
-					" Мы верим, что"+
-					" игра и сам 'МИР' Fantasy Football\n в целом придутся Вам по душе, недаром мы выбрали девиз\n 'Fantasy World for Fantastic Game'.");
+					WelcomeMsgText.setText("		       Приветствуем Вас в нашей игре!\n" +
+						" 	Докажите своим друзьям и всему 'контакту', кто лучше всех\n разбирается в футболе:\n" +
+						" * Выберите Российскую Премьер Лигу или любой из ведущих\n европейских турниров!\n"+
+						" * Наберите команду из 15 реальных футболистов\n" +
+						" * Следите за развитием чемпионатов и набирайте очки\n"+
+						" * Не забывайте проводить трансферы по результатам туров\n"+
+					" Новичкам рекомендуем начать с раздела ____.\n"+
+					" 		Fantasy World for Fantastic Game.");
 					
 			WelcomeMsgSprite.addChild(WelcomeMsgFon);
 			WelcomeMsgSprite.addChild(WelcomeMsgText);	
@@ -123,24 +129,27 @@ private var button_tr:int;
 		
 	}
 	public function WelcomeMsgFAQOverEvent(e:MouseEvent):void {
-		WelcomeMsgFAQ.setColor("0x0389af");
+		WelcomeMsgFAQ.setColor("0x003366");
 	}
 	public function WelcomeMsgFAQOutEvent(e:MouseEvent):void {
-		WelcomeMsgFAQ.setColor("0x666666");
+		WelcomeMsgFAQ.setColor("0xCCCCCC");
 	}
 	
 	public function WelcomeMsgCloseOverEvent(e:MouseEvent):void {
 		WelcomeMsgClose.setColor("0x330033");
-		button_tr = 5;
+	
+		buttonTimer.stop();
+		button_tr = 10;
 		buttonTimer.reset();
-		
 		buttonTimer.start();
 		//WelcomeMsgCloseButton.alpha = 0.8;
 		
 	}
 	public function WelcomeMsgCloseOutEvent(e:MouseEvent):void {
-		WelcomeMsgClose.setColor("0x666666");
-		button_tr = -5;
+		WelcomeMsgClose.setColor("0xCCCCCC");
+		
+		buttonTimer.stop();
+		button_tr = -10;
 		buttonTimer.reset();
 		buttonTimer.start();
 		

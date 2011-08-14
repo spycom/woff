@@ -515,6 +515,7 @@ private var loading_balls:loadingProc;
 public var user_photo:vk_photo;
 private var myGlow:GlowFilter;
 private var myGlow_blue:GlowFilter;
+private var innerGlow_red:GlowFilter;
 private var innerGlow:GlowFilter;
 private var myBevel:BevelFilter;
 private var myShadow:DropShadowFilter;
@@ -595,11 +596,10 @@ private var friends_league_avatar:UserAvatar;
     		
     		
 		// --- своя библиотека (request) --------------------------------------
-		woff_api = "http://woff73.valuehost.ru/api.php";
+		woff_api = "http://woff73.valuehost.ru/tapi.php";
 		woff_api1 = "http://woff73.valuehost.ru/tapi.php";
-		//woff_api2 = "http://woff73.valuehost.ru/api2.php";
 		woff_api3 = "http://woff73.valuehost.ru/tapi.php";
-		current_woff_api = woff_api;
+		current_woff_api = woff_api1;
 		
 		woff_general_request = new URLRequest(woff_api);
 		woff_general_request.method = URLRequestMethod.GET;
@@ -2632,9 +2632,11 @@ private var friends_league_avatar:UserAvatar;
 		 
 		
 		myGlow = new GlowFilter();
+		
 		myGlow_blue = new GlowFilter();
 		myGlow_blue.color = 0x0389af;
 		myGlow_blue.alpha = 0.5;
+		
 		
 		innerGlow = new GlowFilter();
 		innerGlow.inner = true;
@@ -2642,6 +2644,14 @@ private var friends_league_avatar:UserAvatar;
 		innerGlow.blurY = 32;
 		innerGlow.alpha = 0.5;
 		innerGlow.color = 0x66CC00;
+		
+		innerGlow_red = new GlowFilter();
+		innerGlow_red.inner = true;
+		innerGlow_red.blurX = 8;
+		innerGlow_red.blurY = 32;
+		innerGlow_red.alpha = 0.5;
+		//innerGlow.color = 0x66CC00;
+		
 		
 		team_fb_cost = new Array();
 		
@@ -2697,6 +2707,7 @@ private var friends_league_avatar:UserAvatar;
 		
 	}
 	
+	// загрузка окончена
 	public function loadComplete(e:Event):void {
 		//woff_lib.getProfile(woffLoadComplete2);
 		if (poster_id != 0) {
@@ -3140,7 +3151,7 @@ private var friends_league_avatar:UserAvatar;
 		woff_general_request.url = woff_api3;
 		current_tax = 250;
 		current_transfers_mass = 20;
-		current_tournament = 4;
+		current_tournament = 6;
 		
 		background = background3;
 		
@@ -10954,7 +10965,7 @@ private var friends_league_avatar:UserAvatar;
 			//Mouse.cursor = MouseCursor
 		}
 		private function select4over(e:MouseEvent):void {
-			blocknation4.filters = [myGlow_blue, myBevel, innerGlow];
+			blocknation4.filters = [myGlow_blue, myBevel, innerGlow_red];
 			//select4.alpha = 0.2;
 		}
 		private function select4out(e:MouseEvent):void {
@@ -10969,20 +10980,20 @@ private var friends_league_avatar:UserAvatar;
 			blocknation2.filters = [];
 		}
 		private function select5over(e:MouseEvent):void {
-			blocknation5.filters = [myGlow_blue, myBevel, innerGlow];
+			blocknation5.filters = [myGlow_blue, myBevel, innerGlow_red];
 		}
 		private function select5out(e:MouseEvent):void {
 			blocknation5.filters = [];
 		}
 		
 		private function select3over(e:MouseEvent):void {
-			blocknation3.filters = [myGlow_blue, myBevel, innerGlow];
+			blocknation3.filters = [myGlow_blue, myBevel, innerGlow_red];
 		}
 		private function select3out(e:MouseEvent):void {
 			blocknation3.filters = [];
 		}
 		private function select6over(e:MouseEvent):void {
-			blocknation6.filters = [myGlow_blue, myBevel, innerGlow];
+			blocknation6.filters = [myGlow_blue, myBevel, innerGlow_red];
 		}
 		private function select6out(e:MouseEvent):void {
 			blocknation6.filters = [];
