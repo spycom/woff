@@ -165,6 +165,7 @@ private var button_blue_alpha_:Loader;
 
 private var dropdowmmenu_png:Loader;
 private var dropdowmmenu_png2:Loader;
+private var dropdownmenu_tours:Sprite;
 private var captain:Loader;
 private var one:Loader;
 private var two:Loader;
@@ -617,34 +618,23 @@ private var friends_league_avatar:UserAvatar;
 		poster_id = stage.loaderInfo.parameters.poster_id;
 		post_id = stage.loaderInfo.parameters.post_id;
 
-		
-		woff_general_request.url = woff_api;
-		current_tournament = 2;
+		/*
+		//woff_general_request.url = woff_api;
+		current_tournament = 5;
 		setMethod("getTournament");
 		
 		var woff_Tournament_loader:URLLoader = new URLLoader();
 		woff_Tournament_loader.addEventListener(Event.COMPLETE, woffTornamentLoadComplete);
 		woff_Tournament_loader.load(woff_general_request);
 		
-		woff_general_request.url = woff_api1;
-		current_tournament = 1;
+		//woff_general_request.url = woff_api1;
+		current_tournament = 6;
 		setMethod("getTournament");
 		
 		var woff_Tournament_loader:URLLoader = new URLLoader();
 		woff_Tournament_loader.addEventListener(Event.COMPLETE, woffTornament2LoadComplete);
 		woff_Tournament_loader.load(woff_general_request);
-		
-		
-		
-		/*
-		setMethod("checkTeam");
-		var woff_checkteam_loader:URLLoader = new URLLoader();
-		woff_checkteam_loader.addEventListener(Event.COMPLETE, woffCheckTeamComplete);
-		woff_checkteam_loader.load(woff_general_request);
-		
-		//
-		 * 
-		 */
+		*/
 		
 		//serv = new String("");
 		serv = new String("http://woff73.valuehost.ru/woff_images/");
@@ -991,7 +981,7 @@ private var friends_league_avatar:UserAvatar;
 		liders_list.x = 15;
 		liders_list.y = 142;
 		//liders_list.addEventListener(MouseEvent.CLICK, footmanEvent);
-		liders_list.scrollRect = new Rectangle(0, 0, 200, 315);
+		liders_list.scrollRect = new Rectangle(0, 0, 210, 315);
 		
 		team_list = new Sprite();
 		team_list.x = 220; 
@@ -1031,7 +1021,8 @@ private var friends_league_avatar:UserAvatar;
 		footman_list.y = 130;
 		
 		dropdown_menu_sprite = new Sprite();
-		dropdown_menu_sprite2 = new Sprite();
+		//dropdown_menu_sprite2 = new Sprite();
+		
 		
 		// введине название команды
 		input = new Loader();
@@ -1128,6 +1119,7 @@ private var friends_league_avatar:UserAvatar;
 		scroll_tou.y = 15;
 		scroll_tou.scaleX = 1.6;
 		scroll_tou.filters = [myBevel];
+		//scroll_tou.
 		scroll_tou.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		scroll_tou.addEventListener(MouseEvent.MOUSE_DOWN, scrolldownToursEvent);
 		scroll_tou.addEventListener(MouseEvent.MOUSE_UP, scrollupToursEvent);
@@ -1474,17 +1466,25 @@ private var friends_league_avatar:UserAvatar;
 		dropdowmmenu_png.addEventListener(MouseEvent.CLICK, dropdowm_menu_out);
 		
 		dropdown_menu_sprite.addChild(dropdowmmenu_png);
-		dropdown_menu_sprite.scrollRect = new Rectangle(0, 0, 205, 350);
+		dropdown_menu_sprite.scrollRect = new Rectangle(0, 0, 225, 300);
 		
+		/*
 		dropdowmmenu_png2 = new Loader();
 		dropdowmmenu_png2.load(new URLRequest(serv + "img3/liga.png"));
 		dropdowmmenu_png2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		dropdowmmenu_png2.scaleY = 1.1;
 		//dropdowmmenu_png.addEventListener(MouseEvent.MOUSE_OUT, dropdowm_menu_out2);
 		dropdowmmenu_png2.addEventListener(MouseEvent.CLICK, dropdowm_menu_out2);
-		
-		dropdown_menu_sprite2.addChild(dropdowmmenu_png2);
-		dropdown_menu_sprite2.scrollRect = new Rectangle(0, 0, 210, 350);
+		*/
+		/*
+		dropdownmenu_tours = new Sprite();
+		dropdownmenu_tours.graphics.beginFill(0xffffff, 1); 
+		dropdownmenu_tours.graphics.lineStyle(1, 0xCCCCCC);
+		dropdownmenu_tours.graphics.drawRoundRect(2, 0, 300, 128, 12);
+		dropdownmenu_tours.addEventListener(MouseEvent.CLICK, dropdowm_menu_out2);
+		*/
+		//dropdown_menu_sprite2.addChild(dropdownmenu_tours);
+		//dropdown_menu_sprite2.scrollRect = new Rectangle(0, 0, 300, 300);
 		
 		errorSprite = new Sprite();
 		errorSprite.x = 80;
@@ -2720,7 +2720,7 @@ private var friends_league_avatar:UserAvatar;
 		removeChild(load);
 		window = "main";
 		
-		woff_general_request.url = woff_api3;
+		//woff_general_request.url = woff_api3;
 		current_tournament = 5;
 		background = background2;
 		setMethod("getProfile"); // загрузка 1-го профиля в ЧР
@@ -2729,7 +2729,7 @@ private var friends_league_avatar:UserAvatar;
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadComplete);
 		woff_Profile_loader.load(woff_general_request);
 		
-		woff_general_request.url = woff_api3;
+		//woff_general_request.url = woff_api3;
 		current_tournament = 6;
 		setMethod("getProfile"); // загрузка 2-го профиля в ЧА
 		
@@ -2737,7 +2737,7 @@ private var friends_league_avatar:UserAvatar;
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadEnglandComplete);
 		woff_Profile_loader.load(woff_general_request);
 		
-		woff_general_request.url = woff_api3;
+		//woff_general_request.url = woff_api3;
 		current_tournament = 2;
 		setMethod("getProfile"); // загрузка 3-го профиля в Ч Италии
 		
@@ -2746,7 +2746,7 @@ private var friends_league_avatar:UserAvatar;
 		woff_Profile_loader.load(woff_general_request);
 		
 	//-------------------------------// загрузка 4-го профиля в Лиге чемпионов
-		woff_general_request.url = woff_api3;
+		//woff_general_request.url = woff_api3;
 		current_tournament = 3;
 		setMethod("getProfile"); 
 		
@@ -2755,7 +2755,7 @@ private var friends_league_avatar:UserAvatar;
 		woff_Profile_loader.load(woff_general_request);
 		
 	//-----------------------------------------------------// загрузка 5-го профиля в ЧИспании
-		woff_general_request.url = woff_api3;
+		//woff_general_request.url = woff_api3;
 		current_tournament = 1;
 		setMethod("getProfile"); 
 		
@@ -2857,14 +2857,14 @@ private var friends_league_avatar:UserAvatar;
 		window = "main1";
 		
 		champ = "rus";
-		woff_general_request.url = woff_api3;
+		//woff_general_request.url = woff_api3;
 		current_tax = 250;
 		current_transfers_mass = 60;
 		current_tournament = 5;
 		
 		background = background1;
 		
-		dropdown_menu_sprite2.addChild(scroll_tou);
+		//dropdown_menu_sprite2.addChild(scroll_tou);
 		
 		//обнуление команды
 		for (var zope___:int=1; zope___< 16; zope___++) {
@@ -2967,6 +2967,7 @@ private var friends_league_avatar:UserAvatar;
 				button4txt.setColor("0xffffff");
 			main1.addChild(button2);
 			main1.addChild(button3);
+			main1.addChild(button4);
 			main1.addChild(input);
 			main1.addChild(input2);
 		//	main1.addChild(test);
@@ -3155,7 +3156,7 @@ private var friends_league_avatar:UserAvatar;
 		
 		background = background3;
 		
-		dropdown_menu_sprite2.addChild(scroll_tou);
+		//dropdown_menu_sprite2.addChild(scroll_tou);
 		
 		//обнуление команды
 		for (var zope___:int=1; zope___< 16; zope___++) {
@@ -4333,7 +4334,7 @@ private var friends_league_avatar:UserAvatar;
 		removeChild(main);
 		window = "main2";
 		champ = "rus";
-		woff_general_request.url = woff_api3;
+		//woff_general_request.url = woff_api3;
 		current_tax = 250;
 		current_tournament = 5;
 		
@@ -7443,7 +7444,7 @@ private var friends_league_avatar:UserAvatar;
 			//main2_txt16.setText("Проведённых трансферов:           	     " + transfers_do);
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
-			woff_general_request.url = woff_api3;
+			//woff_general_request.url = woff_api3;
 			current_tournament = 2;
 			
 			setMethod("checkTeam");
@@ -8520,37 +8521,65 @@ private var friends_league_avatar:UserAvatar;
 			}
 		}
 		
+		// функция генерации выпадающего меню с турами
+		public function dropDownMenu_generate(new_current_tour:int):void {
+			
+			var tour_array:Array = new Array();
+			
+			dropdown_menu_sprite2 = new Sprite();
+			
+			dropdownmenu_tours = new Sprite();
+			dropdownmenu_tours.graphics.beginFill(0xffffff, 1); 
+			dropdownmenu_tours.graphics.lineStyle(1, 0xCCCCCC);
+			
+			if (current_tour > 5) {
+				
+				dropdownmenu_tours.graphics.drawRoundRect(2, 0, 200, new_current_tour*20+20, 12);
+				
+				dropdown_menu_sprite2.addChild(dropdownmenu_tours);
+				dropdown_menu_sprite2.addChild(scroll_tou);
+				
+			} else {
+				
+				dropdownmenu_tours.graphics.drawRoundRect(2, 0, 200, 128, 12);
+				
+				dropdown_menu_sprite2.addChild(dropdownmenu_tours);
+				
+			}
+			
+			dropdownmenu_tours.addEventListener(MouseEvent.CLICK, dropdowm_menu_out2);
+			
+			
+			for (var tour:int=0; tour<new_current_tour; tour++) {
+				
+				var freq_tour:int = tour * 19 + 24;
+				tour_array[tour] = new text(7,freq_tour, "Тур №" + (tour+1), "3");
+				tour_array[tour].setId(tour+1);
+				tour_array[tour].addEventListener(MouseEvent.CLICK, setTourEvent);
+				
+				dropdown_menu_sprite2.addChild(tour_array[tour]);
+				
+			}
+			dropdown_menu_sprite2.scrollRect = new Rectangle(0, 0, 220, 275);
+			
+		}
+		
 		// фунция окончания загрузки информации по турниру ЧР
 		
 		public function woffTornamentLoadComplete(e:Event):void {
 			var woff_answer:XML = new XML(e.target.data);	
-			//transfers_left = int(woff_answer.tournament);
+			
 			main2_txt15.setText("Базовый трансфер:	                          " + woff_answer.tournament.transfers_base.text());
 				transfers_do = int(woff_answer.tournament.transfers_base.text()) + int(woff_answer.tournament.paid_transfers.text())*is_transfers_bought - transfers_left;
 			main2_txt16.setText("Проведённых трансферов:           	    " + transfers_do);
 			
 			current_tour = int(woff_answer.tournament.current_tour.text());
-			//current_tour = 30;
+			
 			current_new_tour = current_tour;
 			
 			current_budget = int(woff_answer.tournament.base_budget.text()); // + int(woff_answer.tournament.paid_budget.text());
 			
-			// генерация выпадающего меню с турами
-			var tour_array:Array = new Array();
-		
-			for (var tour:int=0; tour<current_tour; tour++) {
-			
-				var freq_tour:int = tour * 19 + 24;
-				tour_array[tour] = new text(7,freq_tour, "Тур №" + (tour+1), "3");
-				tour_array[tour].setId(tour+1);
-				tour_array[tour].addEventListener(MouseEvent.CLICK, setTourEvent);
-				if (current_tour > 5) {
-					dropdowmmenu_png2.scaleY = 1.15 + (current_tour-5)/7;
-				}
-				dropdown_menu_sprite2.addChild(tour_array[tour]);
-				
-			}
-			
+				dropDownMenu_generate(current_tour);
 			
 			main2_txt24.setText("Текущий тур: №" + current_tour);
 			team_stat_txt9.setText("Текущий тур: №" + current_tour);
@@ -8561,7 +8590,7 @@ private var friends_league_avatar:UserAvatar;
 			current_tax_b = woff_answer.tournament.paid_budget_cost_in_votes.text()*10;
 			current_tax_t = woff_answer.tournament.paid_transfers_cost_in_votes.text()*10;
 			
-			woff_general_request.url = woff_api3;
+			//woff_general_request.url = woff_api3;
 			
 			getTeam("getTeam", current_tour);
 		
@@ -8585,23 +8614,9 @@ private var friends_league_avatar:UserAvatar;
 			current_budget = int(woff_answer.tournament.base_budget.text()); // + int(woff_answer.tournament.paid_budget.text());
 			
 			// генерация выпадающего меню с турами
-			var tour_array:Array = new Array();
-				dropdown_menu_sprite2 = new Sprite();
-				dropdown_menu_sprite2.scrollRect = new Rectangle(0, 0, 210, 350);
-				dropdown_menu_sprite2.addChild(dropdowmmenu_png2);
-				dropdown_menu_sprite2.addChild(scroll_tou);
-				
-			for (var tour:int=0; tour<current_tour; tour++) {
+			dropDownMenu_generate(current_tour);
 			
-				var freq_tour:int = tour * 19 + 24;
-				tour_array[tour] = new text(7,freq_tour, "Тур №" + (tour+1), "3");
-				tour_array[tour].setId(tour+1);
-				tour_array[tour].addEventListener(MouseEvent.CLICK, setTourEvent);
-				if (current_tour > 5) {
-					dropdowmmenu_png2.scaleY = 1 + (current_tour-5)/6;
-				}
-				dropdown_menu_sprite2.addChild(tour_array[tour]);
-			}
+			
 			main2_txt24.setText("Текущий тур: №" + current_tour);
 			team_stat_txt9.setText("Текущий тур: №" + current_tour);
 			select_leaders_tour_txt.setText("Текущий тур: №" + current_tour);
@@ -8611,7 +8626,7 @@ private var friends_league_avatar:UserAvatar;
 			current_tax_b = woff_answer.tournament.paid_budget_cost_in_votes.text()*10;
 			current_tax_t = woff_answer.tournament.paid_transfers_cost_in_votes.text()*10;
 			
-			woff_general_request.url = woff_api1;
+			//woff_general_request.url = woff_api1;
 			
 			getTeam("getTeam", current_tour);
 		
@@ -8634,11 +8649,12 @@ private var friends_league_avatar:UserAvatar;
 			
 			current_budget = int(woff_answer.tournament.base_budget.text()); // + int(woff_answer.tournament.paid_budget.text());
 			
+			/*
 			// генерация выпадающего меню с турами
 			var tour_array:Array = new Array();
 				dropdown_menu_sprite2 = new Sprite();
-				dropdown_menu_sprite2.scrollRect = new Rectangle(0, 0, 210, 350);
-				dropdown_menu_sprite2.addChild(dropdowmmenu_png2);
+				dropdown_menu_sprite2.scrollRect = new Rectangle(0, 0, 300, 350);
+				dropdown_menu_sprite2.addChild(dropdownmenu_tours);
 				dropdown_menu_sprite2.addChild(scroll_tou);
 				
 			for (var tour:int=0; tour<current_tour; tour++) {
@@ -8652,6 +8668,8 @@ private var friends_league_avatar:UserAvatar;
 				}
 				dropdown_menu_sprite2.addChild(tour_array[tour]);
 			}
+			*/
+			
 			main2_txt24.setText("Текущий тур: №" + current_tour);
 			team_stat_txt9.setText("Текущий тур: №" + current_tour);
 			select_leaders_tour_txt.setText("Текущий тур: №" + current_tour);
@@ -8684,12 +8702,12 @@ private var friends_league_avatar:UserAvatar;
 			current_new_tour = current_tour;
 			
 			current_budget = int(woff_answer.tournament.base_budget.text()); // + int(woff_answer.tournament.paid_budget.text());
-			
+			/*
 			// генерация выпадающего меню с турами
 			var tour_array:Array = new Array();
 				dropdown_menu_sprite2 = new Sprite();
-				dropdown_menu_sprite2.scrollRect = new Rectangle(0, 0, 210, 350);
-				dropdown_menu_sprite2.addChild(dropdowmmenu_png2);
+				dropdown_menu_sprite2.scrollRect = new Rectangle(0, 0, 300, 350);
+				dropdown_menu_sprite2.addChild(dropdownmenu_tours);
 			for (var tour:int=0; tour<current_tour; tour++) {
 			
 				var freq_tour:int = tour * 19 + 24;
@@ -8703,6 +8721,7 @@ private var friends_league_avatar:UserAvatar;
 				}
 				dropdown_menu_sprite2.addChild(tour_array[tour]);
 			}
+			*/
 			main2_txt24.setText("Текущий тур: №" + current_tour);
 			team_stat_txt9.setText("Текущий тур: №" + current_tour);
 			select_leaders_tour_txt.setText("Текущий тур: №" + current_tour);
@@ -8735,12 +8754,12 @@ private var friends_league_avatar:UserAvatar;
 			current_new_tour = current_tour;
 			
 			current_budget = int(woff_answer.tournament.base_budget.text()); // + int(woff_answer.tournament.paid_budget.text());
-			
+			/*
 			// генерация выпадающего меню с турами
 			var tour_array:Array = new Array();
 				dropdown_menu_sprite2 = new Sprite();
-				dropdown_menu_sprite2.scrollRect = new Rectangle(0, 0, 210, 350);
-				dropdown_menu_sprite2.addChild(dropdowmmenu_png2);
+				dropdown_menu_sprite2.scrollRect = new Rectangle(0, 0, 300, 350);
+				dropdown_menu_sprite2.addChild(dropdownmenu_tours);
 				dropdown_menu_sprite2.addChild(scroll_tou);
 				
 			for (var tour:int=0; tour<current_tour; tour++) {
@@ -8754,6 +8773,7 @@ private var friends_league_avatar:UserAvatar;
 				}
 				dropdown_menu_sprite2.addChild(tour_array[tour]);
 			}
+			*/
 			main2_txt24.setText("Текущий тур: №" + current_tour);
 			team_stat_txt9.setText("Текущий тур: №" + current_tour);
 			select_leaders_tour_txt.setText("Текущий тур: №" + current_tour);
@@ -9054,89 +9074,7 @@ private var friends_league_avatar:UserAvatar;
 			
 		}
 		
-		// событие загрузки АПИ контакта
-		/*
-		public function loadVkComplete(e:Event):void {
-	
-			var answer:XML = new XML(e.target.data);
-			answer.ignoreWhite = true;
-			
-			var name__:String = answer.user[0].first_name.text() + " " + answer.user[0].last_name.text();
-			//nazvanie.setText(answer);
-			//var player_name:text = new text(15, 50, answer, "2");
-			//	liders_list.addChild(high_scores);
-			
-			// генерация списка лидеров
-			
-			
-			user_id = new int(answer.user[0].uid.text());
-			
-		for (var i:int=0; i<100; i++) {
-				
-				var freq:int = new int(69*i);
-				
-			number = (i+1);
-			number_txt = new text(2,freq, String(number)+".","2");
-			
-			var user_photo:Loader = new Loader();
-			user_photo.load(new URLRequest(answer.user[0].photo.text()));
-			user_photo.x = 17;
-			user_photo.y = 3 + freq;
-			
-			nazvanie = new text(72, freq, name__, "2");
-			nazvanie.addEventListener(MouseEvent.CLICK, infoHandler);
-			
-			nazvanie2 = new text(72, 10+freq, "Любимый клуб", "2");
-			
-			points_ = new text(130, 37+freq, "Очков:  000", "2");
-			
-			avatar = new Loader();
-			avatar.load(new URLRequest(serv + "img3/fonava.png"));
-			avatar.x = 10;
-			avatar.y = freq;
-			avatar.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-			
-			//field.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-			//field.contentLoaderInfo.addEventListener(Event.COMPLETE, backgroundComplete);
-			
-			info = new Loader();
-			info.load(new URLRequest(serv + "img3/info.png"));
-			info.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-			info.x = 74;
-			info.y = 45+freq;
-			info.addEventListener(MouseEvent.CLICK, infoHandler);
-						
-			sostav[i] = new Loader();
-			sostav.load(new URLRequest(serv + "img3/sostav.png"));
-			sostav.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-			sostav.x = 92;
-			sostav.y = 45+freq;
-			sostav.addEventListener(MouseEvent.CLICK, team_sostavEvent);
-			
-			liders_list.addChild(number_txt);
-			liders_list.addChild(user_photo);
-			liders_list.addChild(nazvanie);
-			liders_list.addChild(nazvanie2);
-			liders_list.addChild(points_);
-			liders_list.addChild(avatar);
-			liders_list.addChild(info);
-			liders_list.addChild(sostav);
 		
-			}}
-			 * 
-			 
-	
-
-			
-			
-			public function infoHandler (e:MouseEvent):void {
-				navigateToURL(new URLRequest("http://vkontakte.ru/"));
-				
-			}
-			
-			 * 
-			 */
-			
 			public function dropdowm_menu(e:MouseEvent):void {
 				dropdown_menu_sprite.x = 425;
 				dropdown_menu_sprite.y = 120;
@@ -9153,7 +9091,7 @@ private var friends_league_avatar:UserAvatar;
 				dropdown_menu_sprite2.x = 14;
 				dropdown_menu_sprite2.y = 100;
 				dropdown_menu_sprite2.addChild(main2_txt25);
-				var rect:Rectangle = liders_list.scrollRect;
+				var rect:Rectangle = dropdown_menu_sprite2.scrollRect;
 				rect.y = 0;
 					dropdown_menu_sprite2.scrollRect = rect;
 					scroll_tou.y = 15;
