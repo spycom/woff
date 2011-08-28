@@ -571,6 +571,7 @@ private var post_id:int;
 private var check_team_trigger:int;
 private var down_arrows:Array;
 private var friends_league_avatar:UserAvatar;
+private var main4_avatar:Loader;
 
 	public function FF() {
 		
@@ -1714,7 +1715,7 @@ private var friends_league_avatar:UserAvatar;
 		main3_txt6 = new text( 230, 300, "Название Лиги", "2");
 		main3_txt7 = new text( 510, 300, "количество участников", "2");
 		main3_txt8 = new text( 320, 170, "Лига друзей это круто! В данной лиге участвуют все Ваши друзья, собравшие укомплектованную команду. Приглашайте, соревнуйтесь и выигрывайте. Чем больше друзей - тем больше азарт!", "6");
-		main3_txt8_ = new text( 320, 170, "Общий зачёт! сейчас в разработке, но следите за новостями... !", "6");
+		main3_txt8_ = new text( 320, 170, "Общий зачёт! В общем зачете учавствуют все игроки данного Чемпионата. сейчас в разработке, но следите за новостями... !", "6");
 		main3_txt_inv = new text( 470, 263, "Пригласить друзей", "4");
 		select_leaders_tour_txt = new text(20, 118, "Выберите тур", "2");
 		
@@ -2618,7 +2619,7 @@ private var friends_league_avatar:UserAvatar;
 						
 			sostav[i] = new sostav_b();
 			sostav[i].x = 52;
-			sostav[i].y = 34+freq;
+			sostav[i].y = 35+freq;
 			sostav[i].addEventListener(MouseEvent.CLICK, team_sostavEvent);
 			
 			liders_list.addChild(number_txt);
@@ -2682,6 +2683,13 @@ private var friends_league_avatar:UserAvatar;
 		winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
 		
 		friends_league_avatar = new UserAvatar(woff_uid);
+		
+		main4_avatar = new Loader();
+		main4_avatar.load(new URLRequest("http://cs4571.vkontakte.ru/u64416/d_dcd73d6f.jpg"));
+		main4_avatar.x = 235;
+		main4_avatar.y = 139;
+		main4_avatar.scaleX = 1;
+		main4_avatar.scaleY = 1;
 		
 		var 
 			game_movie_clip : MovieClip = new MovieClip(), // MovieClip в который будет вставляться баннер
@@ -5412,11 +5420,12 @@ private var friends_league_avatar:UserAvatar;
 			main4.addChild(profile);
 			main4.addChild(liga2);
 			main4.addChild(ava_big);
+			main4.addChild(main4_avatar);
 			main4.addChild(scroll);
 			main4.addChild(scroll2);
 			main4.addChild(main4_txt1);
 			main4.addChild(main3_txt2);
-			main4.addChild(main3_txt3);
+			//main4.addChild(main3_txt3);
 			main4.addChild(main3_txt4);
 			main4.addChild(main3_txt6);
 			main4.addChild(main3_txt7);
@@ -6558,7 +6567,7 @@ private var friends_league_avatar:UserAvatar;
 			player_liga.addChild(scroll2);
 			player_liga.addChild(main3_txt1);
 			player_liga.addChild(main3_txt2);
-			player_liga.addChild(main3_txt3);
+			//player_liga.addChild(main3_txt3);
 			player_liga.addChild(main3_txt4);
 			
 			player_liga.addChild(main3_txt6);
@@ -6669,7 +6678,7 @@ private var friends_league_avatar:UserAvatar;
 			player_liga.addChild(ava_big);
 			player_liga.addChild(main3_txt1);
 			player_liga.addChild(main3_txt2);
-			player_liga.addChild(main3_txt3);
+			//player_liga.addChild(main3_txt3);
 			player_liga.addChild(main3_txt4);
 			
 			player_liga.addChild(main3_txt6);
@@ -10813,21 +10822,6 @@ private var friends_league_avatar:UserAvatar;
 			} 
 			
 			}
-			
-			/*
-			for (var liders:int=0; liders < 100; liders++) {
-				for (var friends:int=0; friends < answer.uid.length(); friends++) {
-					
-					if (uids_array[friends] == leaders_list_array[liders].id_vk) {
-						nazvanie[friends].setText(leaders_list_array[liders].team_title);
-						points_[friends].setText(leaders_list_array[liders].score);
-						
-					}
-					
-				}
-			}
-			 * 
-			 */
 			
 			
 			
