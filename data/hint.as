@@ -29,9 +29,9 @@ private var timer:Timer;
 		
 		public function showHint(new_text:String):void {
 			
-			hint_form.x = mouseX - 53;
-			hint_form.y = mouseY - 30;
-			hint_text.x = mouseX;
+			hint_form.x = mouseX - 120;
+			hint_form.y = mouseY - 15;
+			hint_text.x = mouseX - 67;
 			hint_text.y = hint_form.y + 4;
 			
 			hint_text.setText(new_text);
@@ -49,9 +49,9 @@ private var timer:Timer;
 		
 		// позиционирование подсказки
 		public function posHint(e:TimerEvent):void {
-			hint_form.x = mouseX - 53;
-			hint_form.y = mouseY - 30;
-			hint_text.x = mouseX;
+			hint_form.x = mouseX - 120;
+			hint_form.y = mouseY - 15;
+			hint_text.x = mouseX - 67;
 			hint_text.y = hint_form.y + 4;
 		}
 	}

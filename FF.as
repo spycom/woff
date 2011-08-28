@@ -1571,7 +1571,15 @@ private var friends_league_avatar:UserAvatar;
 		all_txt1.addEventListener(MouseEvent.MOUSE_OVER, mouseOverMain);
 		
 		all_txt3 = new text(467, 5, "EU:", "1");
+		all_txt3.setFull("Ваши деньги");
+		all_txt3.addEventListener(MouseEvent.MOUSE_OVER, showMouseHint);
+		all_txt3.addEventListener(MouseEvent.MOUSE_OUT, hideMouseHint);
+		
 		all_txt4 = new text(574, 5, "MP:", "1");
+		all_txt4.setFull("Очки менеджера");
+		all_txt4.addEventListener(MouseEvent.MOUSE_OVER, showMouseHint);
+		all_txt4.addEventListener(MouseEvent.MOUSE_OUT, hideMouseHint);
+		
 		all_txt4.addEventListener(MouseEvent.CLICK, showPaymentBox);
 			
 		main_txt1 = new text(100, 120, "ЧЕМПИОНАТ РОССИИ", "1");
@@ -2846,7 +2854,7 @@ private var friends_league_avatar:UserAvatar;
 				addChild(welcomeMessage);
 				welcomeMessage.showWelcome();
 			*/
-			
+			main.addChild(stat_hint);
 			
 		}
 	}
@@ -2990,7 +2998,7 @@ private var friends_league_avatar:UserAvatar;
 			main1.addChild(main1_txt24);
 			main1.addChild(scroll);
 		main1.addChild(scroll2);
-		
+		main1.addChild(stat_hint);
 			//main1.addChild(winners_list);
 	}
 	
@@ -3287,6 +3295,8 @@ private var friends_league_avatar:UserAvatar;
 			
 			winners_list = new winners_list_sprite(woff_uid);
 			winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
+			
+			main1.addChild(stat_hint);
 			
 			//main1.addChild(winners_list);
 			//winners_list.setChamp("eng");
@@ -3874,6 +3884,7 @@ private var friends_league_avatar:UserAvatar;
 			
 			main.addChild(help_buttontxt);
 			main.addChild(mainhelp_button);
+			main.addChild(stat_hint);
 	}
 	
 	// окно с праивлами
@@ -3950,6 +3961,8 @@ private var friends_league_avatar:UserAvatar;
 			help.addChild(button4);
 			help.addChild(scroll_r);
 			
+			help.addChild(stat_hint);
+			
 	}
 	public function mainhelpButton(e:MouseEvent):void{
 		removeChild(main);
@@ -3975,6 +3988,7 @@ private var friends_league_avatar:UserAvatar;
 			help.addChild(rules);
 			help.addChild(main_button);
 			help.addChild(scroll_r);
+			help.addChild(stat_hint);
 	}
 	
 	public function mouseOverHelp(e:MouseEvent):void {
@@ -4142,6 +4156,7 @@ private var friends_league_avatar:UserAvatar;
 			main1.addChild(main1_txt24);
 			main1.addChild(scroll);
 			main1.addChild(scroll2);
+			main1.addChild(stat_hint);
 		}
 	public function button2event(e:Event):void {
 		if (window == "main1") {
@@ -4303,6 +4318,8 @@ private var friends_league_avatar:UserAvatar;
 			main2.addChild(main2_txt23);
 			main2.addChild(main2_txt24);
 			main2.addChild(camera);
+			
+			main2.addChild(stat_hint);
 			
 			if (current_new_tour < current_tour) {
 				main2.removeChild(footman_list);
@@ -4490,6 +4507,8 @@ private var friends_league_avatar:UserAvatar;
 			main2.addChild(main2_txt23);
 			main2.addChild(main2_txt24);
 				
+			main2.addChild(stat_hint);
+			
 			addChild(firstManual);
 				firstManual.showMan();
 			/*
@@ -4661,7 +4680,7 @@ private var friends_league_avatar:UserAvatar;
 			main2.addChild(main2_txt23);
 			main2.addChild(main2_txt24);
 			
-			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
+			main2.addChild(stat_hint);
     	
     			if (woff_isAppUser !== 1) {
     			addChild(errorSprite);
@@ -5309,6 +5328,7 @@ private var friends_league_avatar:UserAvatar;
 			main3.addChild(main3_txt_inv);
 			main3.addChild(scroll_lig);
 			main3.addChild(friends_league_avatar);
+			main3.addChild(stat_hint);
 		}
 		
 	
@@ -5403,6 +5423,7 @@ private var friends_league_avatar:UserAvatar;
 			main4.addChild(main3_txt8_);
 			main4.addChild(all_lig_list);
 			main4.addChild(scroll_lig);
+			main4.addChild(stat_hint);
 		}
 		
 		
