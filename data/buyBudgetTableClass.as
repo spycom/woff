@@ -17,6 +17,7 @@ private var buyBudgetText:text;
 private var buyBudgetErrorText:text;
 private var buyBudgetText2:text;
 private var buyBudgetText3:text;
+private var closeButton:text;
 private var myShadow___:DropShadowFilter;
 public var new_current_tournament_:int;
 public var current_tax_:int;
@@ -65,16 +66,16 @@ private var myShadow:DropShadowFilter;
 		
 		buyBudgetFon = new Sprite();
 			buyBudgetFon.graphics.beginFill(0xFFFFFF,1);
-			buyBudgetFon.graphics.lineStyle(2);
-			buyBudgetFon.graphics.drawRoundRect(0, 0, 265, 100, 35);
-			buyBudgetFon.addEventListener(MouseEvent.CLICK, buyBudgetClose);
+			buyBudgetFon.graphics.lineStyle(2, 0x666666);
+			buyBudgetFon.graphics.drawRoundRect(0, 0, 270, 130, 35);
+			//buyBudgetFon.addEventListener(MouseEvent.CLICK, buyBudgetClose);
 			buyBudgetFon.addEventListener(MouseEvent.MOUSE_OUT, scrollUp);
 		
 		
-		buyBudgetText = new text(140, 6, "Купить бюджет", "12");
+		buyBudgetText = new text(135, 6, "Купить бюджет", "save_offer");
 		buyBudgetText.addEventListener(MouseEvent.CLICK, buyBudgetClose);
 		
-		buyBudgetText2 = new text(130, 59, "Купить 10 миллионов", "12");
+		buyBudgetText2 = new text(135, 59, "Купить 10 миллионов", "12");
 		buyBudgetText2.addEventListener(MouseEvent.CLICK, buyBudget_req_max);
 		buyBudgetText2.addEventListener(MouseEvent.MOUSE_OVER, buyOver);
 		buyBudgetText2.addEventListener(MouseEvent.MOUSE_OUT, buyOut);
@@ -82,7 +83,7 @@ private var myShadow:DropShadowFilter;
 		buyBudgetButtonSprite = new Sprite();
 		buyBudgetButtonSprite.graphics.beginFill(0xFFFFFF,1);
 		buyBudgetButtonSprite.graphics.lineStyle(1, 0x999999);
-		buyBudgetButtonSprite.graphics.drawRoundRect(30, 57, 205, 19, 20);
+		buyBudgetButtonSprite.graphics.drawRoundRect(30, 57, 205, 20, 20);
 		buyBudgetButtonSprite.filters = [myShadow];
 		buyBudgetButtonSprite.addEventListener(MouseEvent.MOUSE_OVER, buyOver);
 		buyBudgetButtonSprite.addEventListener(MouseEvent.MOUSE_OUT, buyOut);
@@ -91,8 +92,14 @@ private var myShadow:DropShadowFilter;
 		//buyBudgetText3 = new text(130, 40, "Купить 1 миллионов", "12");
 		//buyBudgetText3.addEventListener(MouseEvent.CLICK, buyBudget_req_q);
 		
-		buyBudgetErrorText = new text(140, 77, "error?", "12");
+		buyBudgetErrorText = new text(135, 80, "error?", "12");
 		buyBudgetErrorText.addEventListener(MouseEvent.CLICK, buyBudgetClose);
+		
+		closeButton = new text(135, 102, "ЗАКРЫТЬ", "save_offer");
+		closeButton.addEventListener(MouseEvent.CLICK, buyBudgetClose);
+		closeButton.addEventListener(MouseEvent.MOUSE_OVER, closeOver);
+		closeButton.addEventListener(MouseEvent.MOUSE_OUT, closeOut);
+		
 		
 		scroll_line = new Sprite();
 		scroll_line.graphics.beginFill(0xFFFFFF,0.1);
@@ -128,6 +135,7 @@ private var myShadow:DropShadowFilter;
 			//buyBudgetSprite.addChild(buyBudgetText3);
 			buyBudgetSprite.addChild(scroll_line);
 			buyBudgetSprite.addChild(scroll);
+			buyBudgetSprite.addChild(closeButton);
 		
 	}
 	/*
@@ -256,6 +264,7 @@ private var myShadow:DropShadowFilter;
 					buyBudgetSprite.addChild(scroll_line);
 					buyBudgetSprite.addChild(scroll);
 					buyBudgetSprite.addChild(buyBudgetErrorText);
+					buyBudgetSprite.addChild(closeButton);
 					
 						buyBudgetErrorText.setText( woff_answer.error.text());
 				}
@@ -280,6 +289,14 @@ private var myShadow:DropShadowFilter;
 			private function buyOut(e:MouseEvent):void {
 				buyBudgetButtonSprite.filters = [myShadow];
 			}
+			
+			private function closeOver(e:MouseEvent):void {
+				closeButton.filters = [myGlow];	
+			}
+			private function closeOut(e:MouseEvent):void {
+				closeButton.filters = [];
+			}
+			
 			
 			private function scrollTimerEvent(e:TimerEvent):void {
 				if (mouseX < 430 && mouseX > 220) {
@@ -378,6 +395,7 @@ private var myShadow:DropShadowFilter;
 					buyBudgetSprite.addChild(scroll_line);
 					buyBudgetSprite.addChild(scroll);
 					buyBudgetSprite.addChild(buyBudgetErrorText);
+					buyBudgetSprite.addChild(closeButton);
 					
 						buyBudgetErrorText.setText("Снято " + woff_answer.transferred.text() + " MP");
 				}
