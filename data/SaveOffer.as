@@ -53,7 +53,9 @@ public var wrapper: Object;
 			myShadow.inner = true;
 			
 			myGlow = new GlowFilter();
-			myGlow.color = 0x0389af;
+			myGlow.color = 0xFF0000;
+			//myGlow.inner = true;
+			myGlow.strength = 1;
 			
 			myBevel = new BevelFilter();
 			myBevel.angle = 90;
@@ -71,7 +73,7 @@ public var wrapper: Object;
 			
 			var fillType:String = GradientType.RADIAL;
 			//var colors:Array = [0x999999, 0xFFFFFF]; //999999
-			var colors:Array = [0x999999, 0x333333];
+			var colors:Array = [0x6699FF, 0x3366FF];
 			var alphas:Array = [1, 1];
 			var ratios:Array = [0, 250];
 			var matr:Matrix = new Matrix();
@@ -112,15 +114,16 @@ public var wrapper: Object;
 		SaveToVkButton = new Sprite();
 		SaveToVkButton.graphics.beginFill(0xFFFFFF,1);
 		SaveToVkButton.graphics.lineStyle(1, 0x999999);
-		SaveToVkButton.graphics.drawRoundRect(130, 160, 185, 19, 20);
+		//SaveToVkButton.graphics.drawRoundRect(130, 160, 185, 19, 20);
+		SaveToVkButton.graphics.drawRoundRect(72, 162, 300, 19, 20);
 			SaveToVkButton.filters = [myShadow];
 			
-		SaveToVklText = new text(220, 156, "Сохранить ВКонтакте", "save_offer");
+		SaveToVklText = new text(220, 158, "Сохранить ВКонтакте", "save_offer");
 			SaveToVklText.addEventListener(MouseEvent.CLICK, doIt);
 			SaveToVklText.addEventListener(MouseEvent.MOUSE_OVER, SaveToVkOver);
 			SaveToVklText.addEventListener(MouseEvent.MOUSE_OUT, SaveToVkOut);
 		
-		SaveCloseText = new text(220, 180, "ЗАКРЫТЬ ОКНО", "save_offer");
+		SaveCloseText = new text(220, 183, "ЗАКРЫТЬ ОКНО", "save_offer");
 			SaveCloseText.addEventListener(MouseEvent.CLICK, SaveOfferClose);
 			SaveCloseText.addEventListener(MouseEvent.MOUSE_OVER, SaveCloseOver);
 			SaveCloseText.addEventListener(MouseEvent.MOUSE_OUT, SaveCloseOut);

@@ -1653,7 +1653,7 @@ private var main4_avatar:Loader;
 		main1_txt4 = new text(430, 210, "ВВЕДИТЕ НАЗВАНИЕ КОМАНДЫ", "1");
 			main1_txt4_1 = new text(435, 224, "Нажмите Enter чтобы сохранить", "small");
 		main1_txt5 = new text(430, 265, "СЛЕДУЮЩЕЕ СОХРАНЕНИЕ ЗАЯВКИ", "1");
-		main1_txt6 = new text(430, 320, "ЛИГИ ИГРОКА", "1");
+		main1_txt6 = new text(430, 319, "ЛИГИ ИГРОКА", "1");
 		main1_txt7 = new text(435, 284, "", "2");
 		main1_txt8 = new text(435, 244, "", "5");
 		main1_txt24 = new text(435, 123, "Выберите клуб", "2");
@@ -2991,7 +2991,7 @@ private var main4_avatar:Loader;
 			main1.addChild(main1_txt2);
 			main1.addChild(main1_txt3);
 			main1.addChild(main1_txt4);
-		//	main1.addChild(main1_txt4_1);
+			main1.addChild(main1_txt4_1);
 			main1.addChild(main1_txt5);
 			main1.addChild(main1_txt6);
 			main1.addChild(main1_txt7);
@@ -6563,6 +6563,7 @@ private var main4_avatar:Loader;
 			player_liga.addChild(profile);
 			player_liga.addChild(liga2);
 			player_liga.addChild(ava_big);
+			player_liga.addChild(main4_avatar);
 			player_liga.addChild(scroll);
 			player_liga.addChild(scroll2);
 			player_liga.addChild(main3_txt1);
@@ -6587,7 +6588,7 @@ private var main4_avatar:Loader;
 		}
 		
 		// окно лиги номер 2 !"№;%:?*
-		
+		/*
 		public function ligaEvent2(liga:String):void {
 		if (window == "main1") {
 			removeChild(main1);
@@ -6671,7 +6672,7 @@ private var main4_avatar:Loader;
 			//transfer.addChild(table3);
 			//transfer.addChild(buy);
 			//transfer.addChild(zebra3);
-			
+			/*
 			player_liga.addChild(liders_list);
 			player_liga.addChild(profile);
 			player_liga.addChild(liga2);
@@ -6690,6 +6691,11 @@ private var main4_avatar:Loader;
 			player_liga.addChild(main3_txt5);
 			player_liga.addChild(scroll_lig);
 		}
+		*/
+	
+	
+	
+	
 		// загрузчик
 		
 		public function progressHandler (e:ProgressEvent):void{
@@ -9238,9 +9244,9 @@ private var main4_avatar:Loader;
 				woff_Team_loader.load(woff_general_request);
 				
 				if (window == "player_liga") {
-				
+					//getLeaders(1, current_new_tour);
 				} else {
-				getLeaders(1, current_new_tour);
+					getLeaders(1, current_new_tour);
 				}
 				getTeamStats(e.currentTarget.id);
 				

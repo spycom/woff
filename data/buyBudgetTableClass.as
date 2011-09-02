@@ -27,10 +27,12 @@ public var woff_sig_:String;
 public var woff_uid_:int;
 public var woff_general_request_:URLRequest;
 public var woff_api_:String;
-
+private var buyBudgetButtonSprite:Sprite;
 public var scroll:Loader;
 public var scrollTimer:Timer;
 public var myGlow:GlowFilter;
+public var myGlow_i:GlowFilter;
+private var myShadow:DropShadowFilter;
 
  public function buyBudgetTableClass(woff_uid2:int):void{
  		
@@ -38,6 +40,10 @@ public var myGlow:GlowFilter;
 		woff_uid_ = woff_uid2;
  	 	myShadow___ = new DropShadowFilter();
  	 	
+		myShadow = new DropShadowFilter();
+		myShadow.inner = true;
+		
+		
  		buyBudgetSprite = new Sprite();
 		buyBudgetSprite.x = 190;
 		buyBudgetSprite.y = 170;
@@ -68,24 +74,38 @@ public var myGlow:GlowFilter;
 		buyBudgetText = new text(140, 6, "Купить бюджет", "12");
 		buyBudgetText.addEventListener(MouseEvent.CLICK, buyBudgetClose);
 		
-		buyBudgetText2 = new text(130, 26, "Купить 10 миллионов", "12");
+		buyBudgetText2 = new text(130, 59, "Купить 10 миллионов", "12");
 		buyBudgetText2.addEventListener(MouseEvent.CLICK, buyBudget_req_max);
+		buyBudgetText2.addEventListener(MouseEvent.MOUSE_OVER, buyOver);
+		buyBudgetText2.addEventListener(MouseEvent.MOUSE_OUT, buyOut);
 		
-		buyBudgetText3 = new text(130, 40, "Купить 1 миллионов", "12");
-		buyBudgetText3.addEventListener(MouseEvent.CLICK, buyBudget_req_q);
+		buyBudgetButtonSprite = new Sprite();
+		buyBudgetButtonSprite.graphics.beginFill(0xFFFFFF,1);
+		buyBudgetButtonSprite.graphics.lineStyle(1, 0x999999);
+		buyBudgetButtonSprite.graphics.drawRoundRect(30, 57, 205, 19, 20);
+		buyBudgetButtonSprite.filters = [myShadow];
+		buyBudgetButtonSprite.addEventListener(MouseEvent.MOUSE_OVER, buyOver);
+		buyBudgetButtonSprite.addEventListener(MouseEvent.MOUSE_OUT, buyOut);
 		
-		buyBudgetErrorText = new text(140, 75, "error?", "12");
+		
+		//buyBudgetText3 = new text(130, 40, "Купить 1 миллионов", "12");
+		//buyBudgetText3.addEventListener(MouseEvent.CLICK, buyBudget_req_q);
+		
+		buyBudgetErrorText = new text(140, 77, "error?", "12");
 		buyBudgetErrorText.addEventListener(MouseEvent.CLICK, buyBudgetClose);
 		
 		scroll_line = new Sprite();
 		scroll_line.graphics.beginFill(0xFFFFFF,0.1);
 		scroll_line.graphics.lineStyle(0.1);
-		scroll_line.graphics.drawRoundRect(25, 67, 220, 1, 0);
+		scroll_line.graphics.drawRoundRect(25, 42, 220, 1, 0);
 		//buyBudgetscroll_line.addEventListener(MouseEvent.CLICK, buyBudgetClose);
 		
 		myGlow = new GlowFilter(); 
 		myGlow.color = 0x00FF00;
 		
+		myGlow_i = new GlowFilter(); 
+		myGlow_i.color = 0x6699FF;
+		myGlow_i.inner = true;
 		
 		scroll = new Loader();
 		scroll.load(new URLRequest("http://woff73.valuehost.ru/woff_images/" + "img5/page.png"));
@@ -95,7 +115,7 @@ public var myGlow:GlowFilter;
 		scroll.filters = [myGlow];
 		
 		scroll.x = 215;
-		scroll.y = 56;
+		scroll.y = 30;
 		
 		scrollTimer = new Timer(1, 0);
 		scrollTimer.addEventListener(TimerEvent.TIMER, scrollTimerEvent);
@@ -103,8 +123,9 @@ public var myGlow:GlowFilter;
 		//addChild(buyBudgetSprite);
 			buyBudgetSprite.addChild(buyBudgetFon);
 			buyBudgetSprite.addChild(buyBudgetText);
+			buyBudgetSprite.addChild(buyBudgetButtonSprite);
 			buyBudgetSprite.addChild(buyBudgetText2);
-			buyBudgetSprite.addChild(buyBudgetText3);
+			//buyBudgetSprite.addChild(buyBudgetText3);
 			buyBudgetSprite.addChild(scroll_line);
 			buyBudgetSprite.addChild(scroll);
 		
@@ -126,7 +147,7 @@ public var myGlow:GlowFilter;
 	public function buyBudgetOpen():void {
 		addChild(buyBudgetSprite);
 		buyBudgetText2.setText("Купить 10 миллионов за "+current_tax_+" МР");
-		buyBudgetText3.setText("Купить 1 миллион за "+current_tax_/10+" МР");
+		//buyBudgetText3.setText("Купить 1 миллион за "+current_tax_/10+" МР");
 		buyBudgetErrorText.setText(" ");
 	}
 	 
@@ -229,8 +250,9 @@ public var myGlow:GlowFilter;
 						
 					buyBudgetSprite.addChild(buyBudgetFon);
 					buyBudgetSprite.addChild(buyBudgetText);
+					buyBudgetSprite.addChild(buyBudgetButtonSprite);
 					buyBudgetSprite.addChild(buyBudgetText2);
-					buyBudgetSprite.addChild(buyBudgetText3);
+					//buyBudgetSprite.addChild(buyBudgetText3);
 					buyBudgetSprite.addChild(scroll_line);
 					buyBudgetSprite.addChild(scroll);
 					buyBudgetSprite.addChild(buyBudgetErrorText);
@@ -250,6 +272,13 @@ public var myGlow:GlowFilter;
 				scrollTimer.stop();
 				myGlow.color = 0x00FF00;
 				scroll.filters = [myGlow];
+			}
+			
+			private function buyOver(e:MouseEvent):void {
+				buyBudgetButtonSprite.filters = [myGlow_i];	
+			}
+			private function buyOut(e:MouseEvent):void {
+				buyBudgetButtonSprite.filters = [myShadow];
 			}
 			
 			private function scrollTimerEvent(e:TimerEvent):void {
@@ -343,8 +372,9 @@ public var myGlow:GlowFilter;
 						
 					buyBudgetSprite.addChild(buyBudgetFon);
 					buyBudgetSprite.addChild(buyBudgetText);
+					buyBudgetSprite.addChild(buyBudgetButtonSprite);
 					buyBudgetSprite.addChild(buyBudgetText2);
-					buyBudgetSprite.addChild(buyBudgetText3);
+					//buyBudgetSprite.addChild(buyBudgetText3);
 					buyBudgetSprite.addChild(scroll_line);
 					buyBudgetSprite.addChild(scroll);
 					buyBudgetSprite.addChild(buyBudgetErrorText);
