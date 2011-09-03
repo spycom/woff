@@ -4,7 +4,6 @@ package {
 	import api.MD5;
 	
 	import com.bit.apps.banerrotator.AppgradeBannerRotator;
-	import ru.etcs.ui.MouseWheel;
 	
 	import data.Ads;
 	import data.LeadersPartButton;
@@ -38,6 +37,8 @@ package {
 	import flash.text.*;
 	import flash.ui.Mouse;
 	import flash.utils.*;
+	
+	import ru.etcs.ui.MouseWheel;
 	
 
 	public class FF extends Sprite{
@@ -573,6 +574,7 @@ private var check_team_trigger:int;
 private var down_arrows:Array;
 private var friends_league_avatar:UserAvatar;
 private var main4_avatar:Loader;
+private var tour_array:Array;
 
 	public function FF() {
 		
@@ -8572,7 +8574,7 @@ private var main4_avatar:Loader;
 		// функция генерации выпадающего меню с турами
 		public function dropDownMenu_generate(new_current_tour:int):void {
 			
-			var tour_array:Array = new Array();
+			tour_array = new Array();
 			
 			dropdown_menu_sprite2 = new Sprite();
 			
@@ -8604,7 +8606,8 @@ private var main4_avatar:Loader;
 				tour_array[tour] = new text(7,freq_tour, "Тур №" + (tour+1), "3");
 				tour_array[tour].setId(tour+1);
 				tour_array[tour].addEventListener(MouseEvent.CLICK, setTourEvent);
-				tour_array[tour].addEventListener(MouseEvent.MOUSE_OVER, setTourEvent);
+				tour_array[tour].addEventListener(MouseEvent.MOUSE_OVER, overTourEvent);
+				tour_array[tour].addEventListener(MouseEvent.MOUSE_OUT, outTourEvent);
 				
 				dropdown_menu_sprite2.addChild(tour_array[tour]);
 				
@@ -8613,6 +8616,14 @@ private var main4_avatar:Loader;
 			
 		}
 		
+		private function overTourEvent(e:MouseEvent):void {
+			//tour_array[tour].x += 30;
+			e.currentTarget.filters = [myGlow_blue];
+		}
+		private function outTourEvent(e:MouseEvent):void {
+			//tour_array[tour].x += 30;
+			e.currentTarget.filters = [];
+		}
 		// фунция окончания загрузки информации по турниру ЧР
 		
 		public function woffTornamentLoadComplete(e:Event):void {
