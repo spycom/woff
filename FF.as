@@ -4,6 +4,7 @@ package {
 	import api.MD5;
 	
 	import com.bit.apps.banerrotator.AppgradeBannerRotator;
+	import ru.etcs.ui.MouseWheel;
 	
 	import data.Ads;
 	import data.LeadersPartButton;
@@ -851,6 +852,7 @@ private var main4_avatar:Loader;
 		liders.y = 140;
 		liders.scaleY = 0.95;
 		liders.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		liders.addEventListener(MouseEvent.MOUSE_WHEEL, lidersWheelHandler);
 		
 		// кнопки
 		
@@ -983,7 +985,7 @@ private var main4_avatar:Loader;
 		liders_list.y = 142;
 		//liders_list.addEventListener(MouseEvent.CLICK, footmanEvent);
 		liders_list.scrollRect = new Rectangle(0, 0, 210, 315);
-		
+		liders_list.addEventListener(MouseEvent.MOUSE_WHEEL, lidersWheelHandler);
 		
 		team_list = new Sprite();
 		team_list.x = 220; 
@@ -1096,6 +1098,7 @@ private var main4_avatar:Loader;
 		scroll.y = 143;
 		scroll.scaleY = 0.95;
 		scroll.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		scroll.addEventListener(MouseEvent.MOUSE_WHEEL, lidersWheelHandler);
 		
 		// сам скролл на списке лидеров
 		scroll2 = new Loader();
@@ -1105,6 +1108,7 @@ private var main4_avatar:Loader;
 		scroll2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		scroll2.addEventListener(MouseEvent.MOUSE_DOWN, scrolldownEvent);
 		scroll2.addEventListener(MouseEvent.MOUSE_UP, scrollupEvent);
+		scroll2.addEventListener(MouseEvent.MOUSE_WHEEL, lidersWheelHandler);
 			this.addEventListener(MouseEvent.MOUSE_UP, scrollupEvent);
 		
 		myBevel = new BevelFilter();
@@ -9308,7 +9312,36 @@ private var main4_avatar:Loader;
 			}
 			
 			// схема скролла списка лидеров 
-			public function scrollTimerEvent(e:TimerEvent):void {
+			
+			private function lidersWheelHandler(e:MouseEvent):void {
+				//scrollTimerEvent(e);
+				MouseWheel.capture(); 
+				
+				if (scroll2.y >= 149 && scroll2.y <= 392) {
+				var rect:Rectangle = liders_list.scrollRect;
+				rect.y -= e.delta;
+				liders_list.scrollRect = rect;
+				scroll2.y -= e.delta*249/5000;
+				}	
+				if (scroll2.y < 149) {
+					
+					var rect:Rectangle = liders_list.scrollRect;
+					rect.y = 0;
+					liders_list.scrollRect = rect;
+					scroll2.y = 149;
+					
+				}
+				
+				if (scroll2.y > 392) {
+					
+					var rect:Rectangle = liders_list.scrollRect;
+					rect.y = (4910);
+					liders_list.scrollRect = rect;
+					scroll2.y = 392;
+				}
+			}
+			
+			public function scrollTimerEvent(e:Event):void {
 				
 				// ебаная схема скролла!!!!
 				
