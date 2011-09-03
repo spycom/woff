@@ -44,7 +44,7 @@ package data {
 		
 		// текст приветствия
 		if (type == "welcome") {
-			formatter.color = 0xCCCCCC;
+			formatter.color = 0x003366;
 			formatter.size = 20;
 			top.selectable = false;
 			top.autoSize = TextFieldAutoSize.LEFT;

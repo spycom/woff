@@ -8604,6 +8604,7 @@ private var main4_avatar:Loader;
 				tour_array[tour] = new text(7,freq_tour, "Тур №" + (tour+1), "3");
 				tour_array[tour].setId(tour+1);
 				tour_array[tour].addEventListener(MouseEvent.CLICK, setTourEvent);
+				tour_array[tour].addEventListener(MouseEvent.MOUSE_OVER, setTourEvent);
 				
 				dropdown_menu_sprite2.addChild(tour_array[tour]);
 				

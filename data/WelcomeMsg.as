@@ -51,7 +51,7 @@ private var button_tr:int;
 			//button_tr = 0;
 			
 			WelcomeMsgSprite = new Sprite();
-			WelcomeMsgSprite.x = 20;
+			WelcomeMsgSprite.x = 30;
 			WelcomeMsgSprite.y = 130;
 			WelcomeMsgSprite.filters = [myShadow];
 			WelcomeMsgSprite.alpha = 0;
@@ -75,9 +75,9 @@ private var button_tr:int;
 			//WelcomeMsgFon.scaleY = 1.4;
 			
 			var fillType:String = GradientType.RADIAL;
-			var colors:Array = [0x6699CC, 0x336699];
+			var colors:Array = [0xCCCCCC, 0xCCCCCC];
 			var colors_b:Array = [0xffffff, 0x000000];
-			var alphas:Array = [1, 1];
+			var alphas:Array = [0.6, 1];
 			var ratios:Array = [0, 250];
 			var ratios_b:Array = [0, 200];
 			var matr:Matrix = new Matrix();
