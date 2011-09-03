@@ -76,10 +76,11 @@ public var champ:String;
 						// форма чемпионата Англии
 						if (club_id == 0)
 							footman_form_loader.load(new URLRequest(serv + "forms-world/forms.png"));
-						if (club_id > 746)
+						if (club_id > 746 && club_id < 771)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/" + club_id + ".png"));
-						/*if (club_id == 748) 
-							footman_form_loader.load(new URLRequest(serv + "forms-england/Arsenal.png"));
+						if (club_id >= 771 ) 
+							footman_form_loader.load(new URLRequest(serv + "forms/" + club_id + ".png"));
+						/*
 						if (club_id == 749)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/Aston-Villa.png"));
 						if (club_id == 693)

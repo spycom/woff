@@ -984,6 +984,7 @@ private var main4_avatar:Loader;
 		//liders_list.addEventListener(MouseEvent.CLICK, footmanEvent);
 		liders_list.scrollRect = new Rectangle(0, 0, 210, 315);
 		
+		
 		team_list = new Sprite();
 		team_list.x = 220; 
 		team_list.y = 110; 
@@ -1100,7 +1101,7 @@ private var main4_avatar:Loader;
 		scroll2 = new Loader();
 		scroll2.load(new URLRequest(serv + "img3/scroll2.png"));
 		scroll2.x = 195;
-		scroll2.y = 147;
+		scroll2.y = 149;
 		scroll2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		scroll2.addEventListener(MouseEvent.MOUSE_DOWN, scrolldownEvent);
 		scroll2.addEventListener(MouseEvent.MOUSE_UP, scrollupEvent);
@@ -9313,30 +9314,30 @@ private var main4_avatar:Loader;
 				
 				scroll2.y += (mouseY - yy__);
 				
-				if (scroll2.y >= 147 && scroll2.y <= 389) {
+				if (scroll2.y >= 149 && scroll2.y <= 392) {
 					
 					var rect:Rectangle = liders_list.scrollRect;
-					rect.y += ((mouseY - yy__)/260*5290);
+					rect.y += ((mouseY - yy__)/248*5000);
 					liders_list.scrollRect = rect;
 					yy__ = mouseY;
 				}
 				
 				
-				if (scroll2.y < 150) {
+				if (scroll2.y < 149) {
 					
 					var rect:Rectangle = liders_list.scrollRect;
 					rect.y = 0;
 					liders_list.scrollRect = rect;
-					scroll2.y = 150;
+					scroll2.y = 149;
 					
 				}
 				
-				if (scroll2.y > 389) {
+				if (scroll2.y > 392) {
 					
 					var rect:Rectangle = liders_list.scrollRect;
-					rect.y += (((mouseY - yy__)-(scroll2.y - 389))/260*5290);
+					rect.y += (((mouseY - yy__)-(scroll2.y - 392))/248*5000);
 					liders_list.scrollRect = rect;
-					scroll2.y = 389;
+					scroll2.y = 392;
 				}
 				
 				////////////////////////////
