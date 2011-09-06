@@ -53,7 +53,7 @@ private var button_tr:int;
 			WelcomeMsgSprite = new Sprite();
 			WelcomeMsgSprite.x = 30;
 			WelcomeMsgSprite.y = 130;
-			WelcomeMsgSprite.filters = [myShadow];
+			WelcomeMsgSprite.filters = [myShadow, myBevel];
 			WelcomeMsgSprite.alpha = 0;
 			
 			WelcomeMsgText = new text(8, 6, "error", "welcome");
@@ -75,7 +75,7 @@ private var button_tr:int;
 			//WelcomeMsgFon.scaleY = 1.4;
 			
 			var fillType:String = GradientType.RADIAL;
-			var colors:Array = [0xCCCCCC, 0xCCCCCC];
+			var colors:Array = [0xffffff, 0xE8E8E8];
 			var colors_b:Array = [0xffffff, 0x000000];
 			var alphas:Array = [0.6, 1];
 			var ratios:Array = [0, 250];
@@ -129,14 +129,14 @@ private var button_tr:int;
 		
 	}
 	public function WelcomeMsgFAQOverEvent(e:MouseEvent):void {
-		WelcomeMsgFAQ.setColor("0x003366");
+		WelcomeMsgFAQ.setColor("0x006699");
 	}
 	public function WelcomeMsgFAQOutEvent(e:MouseEvent):void {
-		WelcomeMsgFAQ.setColor("0xCCCCCC");
+		WelcomeMsgFAQ.setColor("0x003366");
 	}
 	
 	public function WelcomeMsgCloseOverEvent(e:MouseEvent):void {
-		WelcomeMsgClose.setColor("0x330033");
+		WelcomeMsgClose.setColor("0x006699");
 	
 		buttonTimer.stop();
 		button_tr = 10;
@@ -146,7 +146,7 @@ private var button_tr:int;
 		
 	}
 	public function WelcomeMsgCloseOutEvent(e:MouseEvent):void {
-		WelcomeMsgClose.setColor("0xCCCCCC");
+		WelcomeMsgClose.setColor("0x003366");
 		
 		buttonTimer.stop();
 		button_tr = -10;

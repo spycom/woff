@@ -1879,9 +1879,6 @@ private var tour_array:Array;
 		team_sostav = new Sprite();
 		transfer = new Sprite();
 		player_liga = new Sprite();	
-			
-		//loaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		//stage.loaderInfo.addEventListener(Event.COMPLETE, loadComplete);
 				
 		select1 = new Sprite();
 		select1.graphics.beginFill(0x000000,1);
@@ -1921,7 +1918,7 @@ private var tour_array:Array;
 		select5.graphics.lineStyle(1);
 		select5.graphics.drawRoundRect(327, 223, 300, 115, 10);
 		select5.alpha = 0;
-		select5.addEventListener(MouseEvent.CLICK, select5listener);
+		//select5.addEventListener(MouseEvent.CLICK, select5listener);
 		select5.addEventListener(MouseEvent.MOUSE_OVER, select5over);
 		select5.addEventListener(MouseEvent.MOUSE_OUT, select5out);
 		select5.buttonMode = true;
@@ -1932,7 +1929,7 @@ private var tour_array:Array;
 		select3.graphics.lineStyle(1);
 		select3.graphics.drawRoundRect(12, 343, 300, 115, 10);
 		select3.alpha = 0;
-		select3.addEventListener(MouseEvent.CLICK, select3listener);
+		//select3.addEventListener(MouseEvent.CLICK, select3listener);
 		select3.addEventListener(MouseEvent.MOUSE_OVER, select3over);
 		select3.addEventListener(MouseEvent.MOUSE_OUT, select3out);
 		select3.buttonMode = true;
@@ -1943,7 +1940,7 @@ private var tour_array:Array;
 		select6.graphics.lineStyle(1);
 		select6.graphics.drawRoundRect(327, 343, 300, 115, 10);
 		select6.alpha = 0;
-		select6.addEventListener(MouseEvent.CLICK, select6listener);
+		//select6.addEventListener(MouseEvent.CLICK, select6listener);
 		select6.addEventListener(MouseEvent.MOUSE_OVER, select6over);
 		select6.addEventListener(MouseEvent.MOUSE_OUT, select6out);
 		select6.buttonMode = true;
@@ -2593,7 +2590,7 @@ private var tour_array:Array;
 		all_lig = new Array();
 		all_lig_p = new Array();
 		
-		for (var lig_n:int=0; lig_n<33; lig_n++) {
+		for (var lig_n:int=0; lig_n<63; lig_n++) {
 			var lig_freq:int = lig_n * 20;
 			all_lig[lig_n] = new text(5, lig_freq, "---", "3");
 			all_lig[lig_n].addEventListener(MouseEvent.CLICK, ligaEvent);
@@ -2739,11 +2736,9 @@ private var tour_array:Array;
 		} 
 		else {
 		
-		//version.setText('referrer = ' + referrer + ' = ' + poster_id + ' = ' + post_id);
 		removeChild(load);
 		window = "main";
 		
-		//woff_general_request.url = woff_api3;
 		current_tournament = 5;
 		background = background2;
 		setMethod("getProfile"); // загрузка 1-го профиля в ЧР
@@ -2752,7 +2747,7 @@ private var tour_array:Array;
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadComplete);
 		woff_Profile_loader.load(woff_general_request);
 		
-		//woff_general_request.url = woff_api3;
+		
 		current_tournament = 6;
 		setMethod("getProfile"); // загрузка 2-го профиля в ЧА
 		
@@ -2760,17 +2755,17 @@ private var tour_array:Array;
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadEnglandComplete);
 		woff_Profile_loader.load(woff_general_request);
 		
-		//woff_general_request.url = woff_api3;
+		
+		/*
 		current_tournament = 2;
 		setMethod("getProfile"); // загрузка 3-го профиля в Ч Италии
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadItalyComplete);
 		woff_Profile_loader.load(woff_general_request);
-		
+		*/
 	//-------------------------------// загрузка 4-го профиля в Лиге чемпионов
-		//woff_general_request.url = woff_api3;
-		current_tournament = 3;
+		current_tournament = 7;
 		setMethod("getProfile"); 
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
@@ -2779,12 +2774,13 @@ private var tour_array:Array;
 		
 	//-----------------------------------------------------// загрузка 5-го профиля в ЧИспании
 		//woff_general_request.url = woff_api3;
-		current_tournament = 1;
+		/*current_tournament = 1;
 		setMethod("getProfile"); 
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadSpainComplete);
 		woff_Profile_loader.load(woff_general_request);
+		*/
 		
 		addChild(main);
 			main.addChild(background);
@@ -2864,11 +2860,11 @@ private var tour_array:Array;
 			main.addChild(help_buttontxt);
 			main.addChild(mainhelp_button);
 			
-			/*
+			
 				welcomeMessage = new WelcomeMsg();
 				addChild(welcomeMessage);
 				welcomeMessage.showWelcome();
-			*/
+			
 			main.addChild(stat_hint);
 			
 		}
@@ -3027,7 +3023,7 @@ private var tour_array:Array;
 		woff_general_request.url = woff_api3;
 		current_tax = 150;
 		current_transfers_mass = 15;
-		current_tournament = 3;
+		current_tournament = 7;
 		
 		background = background2;
 		
@@ -3790,7 +3786,7 @@ private var tour_array:Array;
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadComplete);
 		woff_Profile_loader.load(woff_general_request);
 		
-		woff_general_request.url = woff_api3;
+		//woff_general_request.url = woff_api3;
 		current_tournament = 6;
 		setMethod("getProfile"); // загрузка 2-го профиля в Ч-Англии
 		
@@ -3798,24 +3794,25 @@ private var tour_array:Array;
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadEnglandComplete);
 		woff_Profile_loader.load(woff_general_request);
  
-		woff_general_request.url = woff_api3;
-		current_tournament = 2;
+		//woff_general_request.url = woff_api3;
+		/*current_tournament = 2;
 		setMethod("getProfile"); // загрузка 3-го профиля в Ч Италии
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadItalyComplete);
 		woff_Profile_loader.load(woff_general_request);
 		
-		woff_general_request.url = woff_api3;
+		//woff_general_request.url = woff_api3;
 		current_tournament = 1;
 		setMethod("getProfile"); // загрузка 5-го профиля в ЧИспании
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadSpainComplete);
 		woff_Profile_loader.load(woff_general_request);
+		*/
 		
-		woff_general_request.url = woff_api3;
-		current_tournament = 3;
+		//woff_general_request.url = woff_api3;
+		current_tournament = 7;
 		setMethod("getProfile"); // загрузка 4-го профиля в Лиге Чемпионов
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
@@ -4733,7 +4730,7 @@ private var tour_array:Array;
 		dropdown_menu_sprite.addChild(scroll_clubs);
 		window = "main2";
 		current_tax = 150;
-		current_tournament = 3;
+		current_tournament = 7;
 		
 		background = background3;
 		champ = "chlig";
@@ -4835,6 +4832,10 @@ private var tour_array:Array;
 				button2txt.setColor("0x696969");
 				button3txt.setColor("0xffffff");
 				button4txt.setColor("0xffffff");
+			
+			main2.addChild(button1);
+			main2.addChild(button3);
+			main2.addChild(button4);	
 			main2.addChild(main2_txt1);
 			main2.addChild(main2_txt2);
 			main2.addChild(main2_txt3);
@@ -7323,113 +7324,18 @@ private var tour_array:Array;
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
 			woff_general_request.url = woff_api3;
-			current_tournament = 3;
+			current_tournament = 7;
 			
 			setMethod("checkTeam");
 			var woff_checkteam_loader:URLLoader = new URLLoader();
 			woff_checkteam_loader.addEventListener(Event.COMPLETE, woffCheckTeam4Complete);
 			woff_checkteam_loader.load(woff_general_request);
 			
-			/*current_tournament = 1;
-			
-			regNew(2488685);
-			regNew(31201657);
-			regNew(7234122);
-			regNew(35756);
-			regNew(113847);
-			regNew(1199979);
-			regNew(18522079);
-			regNew(960129);
-			regNew(6345116);
-			regNew(55651892);
-			regNew(18679571);
-			regNew(68257093);
-			regNew(133386);
-			regNew(84806606);
-			regNew(29713952);
-			regNew(31429413);
-			regNew(47054383);
-			regNew(61110894);
-			regNew(41835141);
-			regNew(28190815);
-			regNew(1164112);
-			regNew(49261555);
-			regNew(2705429);
-			regNew(15673100);
-			regNew(76482137);
-			regNew(338703);
-			regNew(34597077);
-			regNew(1453556);
-			regNew(58243713);
-			regNew(35060823);
-			regNew(58942604);
-			regNew(34494137);
-			regNew(46920540);
-			regNew(3596716);
-			regNew(4066979);
-			regNew(54793949);
-			regNew(72558227);
-			regNew(41414510);
-			regNew(12354906);
-			regNew(140356);
-			regNew(27564684);
-			regNew(64668095);
-			regNew(15426239);
-			regNew(4291);
-			regNew(9164688);
-			regNew(22348843);
-			regNew(31986064);
-			regNew(1324266);
-			regNew(31469195);
-			regNew(50942077);
-			regNew(65787060);
-			regNew(48554624);
-			regNew(81726818);
-			regNew(8413902);
-			regNew(66430501);
-			regNew(12362783);
-			regNew(83388372);
-			regNew(45968208);
-			regNew(59010326);
-			regNew(14225671);
-			regNew(67280236);
-			regNew(6852387);
-			regNew(47905789);
-			regNew(50682377);
-			regNew(21107174);
-			regNew(81098216);
-			regNew(3090777);
-			regNew(52227991);
-			regNew(37291781);
-			regNew(26919914);
-			regNew(80404445);
-			regNew(47473664);
-			regNew(85222381);
-			regNew(44372556);
-			regNew(29021633);
-			regNew(27627534);
-			regNew(21742533);
-			regNew(61132912);
-			regNew(467257);
-			regNew(76902693);
-			regNew(10237730);
-			regNew(29140553);
-			regNew(78443006);
-			regNew(66411371);
-			regNew(10873841);
-			regNew(24489078);
-			regNew(24095412);
-			regNew(22785209);
-			regNew(79494857);
-			regNew(65902140);
-			regNew(9389718);
-			regNew(542674);
-			*/
 			
 			}  else {
 			
 				woff_general_request.url = woff_api3;
-				current_tournament = 3;
+				current_tournament = 7;
 			
 				setMethod("registerNewPlayer");
 				
@@ -8782,6 +8688,8 @@ private var tour_array:Array;
 				dropdown_menu_sprite2.addChild(tour_array[tour]);
 			}
 			*/
+			dropDownMenu_generate(current_tour);
+			
 			main2_txt24.setText("Текущий тур: №" + current_tour);
 			team_stat_txt9.setText("Текущий тур: №" + current_tour);
 			select_leaders_tour_txt.setText("Текущий тур: №" + current_tour);
@@ -8997,7 +8905,7 @@ private var tour_array:Array;
 			//team_stat_array[tt].setText(String(woff_answer.footballer[tt-1].name.text()));
 			
 			}
-		for (var ttt:int = woff_answer.league.length()+1; ttt <= 33; ttt++) {
+		for (var ttt:int = woff_answer.league.length()+1; ttt <= 63; ttt++) {
 				
 				
 			all_lig[ttt].setText("-");
@@ -9503,7 +9411,7 @@ private var tour_array:Array;
 				if (scroll_lig.y >= 225 && scroll_lig.y <= 475) {
 					
 					var rect:Rectangle = all_lig_list.scrollRect;
-					rect.y += ((mouseY - yy__)/260*1300);
+					rect.y += ((mouseY - yy__)/260*1900);
 					all_lig_list.scrollRect = rect;
 					yy__ = mouseY;
 				}
@@ -9520,7 +9428,7 @@ private var tour_array:Array;
 				if (scroll_lig.y > 422) {
 							
 					var rect:Rectangle = all_lig_list.scrollRect;
-					rect.y += (((mouseY - yy__)-(scroll_lig.y - 422))/260*1300);
+					rect.y += (((mouseY - yy__)-(scroll_lig.y - 422))/260*1900);
 					all_lig_list.scrollRect = rect;
 					scroll_lig.y = 422;
 				}
@@ -10977,7 +10885,7 @@ private var tour_array:Array;
 			//Mouse.cursor = MouseCursor
 		}
 		private function select4over(e:MouseEvent):void {
-			blocknation4.filters = [myGlow_blue, myBevel, innerGlow_red];
+			blocknation4.filters = [myGlow_blue, myBevel, innerGlow];
 			//select4.alpha = 0.2;
 		}
 		private function select4out(e:MouseEvent):void {

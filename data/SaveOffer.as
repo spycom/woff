@@ -73,8 +73,8 @@ public var wrapper: Object;
 			
 			var fillType:String = GradientType.RADIAL;
 			//var colors:Array = [0x999999, 0xFFFFFF]; //999999
-			var colors:Array = [0x6699FF, 0x3366FF];
-			var alphas:Array = [1, 1];
+			var colors:Array = [0xffffFF, 0xE8E8E8];
+			var alphas:Array = [0.8, 1];
 			var ratios:Array = [0, 250];
 			var matr:Matrix = new Matrix();
 			matr.createGradientBox(446, 400, 0, 0, 0);

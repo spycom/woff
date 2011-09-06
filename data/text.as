@@ -157,7 +157,7 @@ package data {
 		
 		// текст welcome, центрированный по центру
 		if (type == "welcomeFaq") {
-			formatter.color = 0xCCCCCC;
+			formatter.color = 0x003366;
 			formatter.size = 20;
 			
 			top.autoSize = TextFieldAutoSize.CENTER;
@@ -180,7 +180,7 @@ package data {
 			top.selectable = false;
 		}
 		if (type == "save_offer2") {
-			formatter.color = 0x000000;
+			formatter.color = 0x003366;
 			formatter.size = 20;
 			
 			top.autoSize = TextFieldAutoSize.CENTER;
@@ -224,7 +224,7 @@ package data {
 			top.wordWrap = true;
 		}
 		if (type == "first_hint") {
-			formatter.color = 0xCCCCCC;
+			formatter.color = 0x003366;
 			formatter.size = 22;
 			top.selectable = false;
 			top.autoSize = TextFieldAutoSize.LEFT;

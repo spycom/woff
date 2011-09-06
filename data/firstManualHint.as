@@ -48,7 +48,7 @@ private var myTimer:Timer;
 			
 			WelcomeMsgText = new text(5, 26, "error", "first_hint");
 			
-			WelcomeMsgClose = new text(380, 130, " < ЗАКРЫТЬ >", "first_hint");
+			WelcomeMsgClose = new text(380, 130, " ЗАКРЫТЬ", "first_hint");
 			WelcomeMsgClose.addEventListener(MouseEvent.CLICK, WelcomeMsgCloseEvent);
 			WelcomeMsgClose.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgCloseOverEvent);
 			WelcomeMsgClose.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgCloseOutEvent);
@@ -62,8 +62,8 @@ private var myTimer:Timer;
 			WelcomeMsgFAQ.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgFAQOutEvent);
 			
 			var fillType:String = GradientType.RADIAL;
-			var colors:Array = [0x999999, 0x333333];
-			var alphas:Array = [1, 1];
+			var colors:Array = [0xffffff, 0xE8E8E8];
+			var alphas:Array = [0.7, 1];
 			var ratios:Array = [0, 250];
 			var matr:Matrix = new Matrix();
 				matr.createGradientBox(565, 300, 0, 0, 30);
@@ -104,16 +104,16 @@ private var myTimer:Timer;
 		
 	}
 	public function WelcomeMsgFAQOverEvent(e:MouseEvent):void {
-		WelcomeMsgFAQ.setColor("0x0389af");
+		WelcomeMsgFAQ.setColor("0x006699");
 	}
 	public function WelcomeMsgFAQOutEvent(e:MouseEvent):void {
-		WelcomeMsgFAQ.setColor("0x000033");
+		WelcomeMsgFAQ.setColor("0x003366");
 	}
 	public function WelcomeMsgCloseOverEvent(e:MouseEvent):void {
-		WelcomeMsgClose.setColor("0x0389af");
+		WelcomeMsgClose.setColor("0x006699");
 	}
 	public function WelcomeMsgCloseOutEvent(e:MouseEvent):void {
-		WelcomeMsgClose.setColor("0x333366");
+		WelcomeMsgClose.setColor("0x003366");
 	}
 	
 	public function showMan():void {
