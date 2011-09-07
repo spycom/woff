@@ -3153,11 +3153,14 @@ private var tour_array:Array;
 			main1.addChild(scroll);
 			main1.addChild(scroll2);
 			
+			/*
 			winners_list = new winners_list_sprite(woff_uid);
 			winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
 			main1.addChild(winners_list);
 			winners_list.setChamp("lch");
 				getLeadersFinal();
+			*/
+			main1.addChild(stat_hint);
 				
 				
 	}
@@ -3304,8 +3307,10 @@ private var tour_array:Array;
 			main1.addChild(scroll);
 			main1.addChild(scroll2);
 			
+			/*
 			winners_list = new winners_list_sprite(woff_uid);
 			winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
+			*/
 			
 			main1.addChild(stat_hint);
 			
@@ -4527,16 +4532,7 @@ private var tour_array:Array;
 			
 			addChild(firstManual);
 				firstManual.showMan();
-			/*
-			addChild(errorSprite);
-					errorText.setText("		Четыре шага успешного игрока: " +
-					"\n- Для начала Вам необходимо собрать команду из 15 футболистов. Нажимайте на стрелочки\n	рядом с серыми футболками и выбирайте игроков соответствующего амплуа."+
-					"\n- В закладке 'главная' Вы можете ввести название своей команды и выбрать любимый футбольный клуб." +
-					"\n- Возможно у Вас есть заносчивые друзья, которые считают что разбираются в футболе лучше чем Вы! \n	Пригласите их в игру из вкладки 'Лига друзей' и докажите что они жестоко ошибаются.    "+	
-					"\n- Ну и наконец самое приятное - следите за реальным развитием турниров. \n	Проводите замены в вашей команде, принимайте учатие в обсуждениях в группе приложения    \n и общайтесь с другими игроками."+
-					"\n   				 (клик чтобы закрыть)");
-					 * 
-					 */
+			
 	}
 	
 	// окно набора команды для первого посещения чемпионата Англии
@@ -4710,16 +4706,7 @@ private var tour_array:Array;
     			} else {
     				addChild(firstManual);
 						firstManual.showMan();
-    			/*
-			addChild(errorSprite);
-					errorText.setText("		Четыре шага успешного игрока: " +
-					"\n- Для начала Вам необходимо собрать команду из 15 футболистов. Нажимайте на стрелочки\n	рядом с серыми футболками и выбирайте игроков соответствующего амплуа."+
-					"\n- В закладке 'главная' Вы можете ввести название своей команды и выбрать любимый футбольный клуб." +
-					"\n- Возможно у Вас есть заносчивые друзья, которые считают что разбираются в футболе лучше чем Вы! \n	Пригласите их в игру из вкладки 'Лига друзей' и докажите что они жестоко ошибаются.    "+	
-					"\n- Ну и наконец самое приятное - следите за реальным развитием турниров. \n	Проводите замены в вашей команде, принимайте учатие в обсуждениях в группе приложения    \n и общайтесь с другими игроками."+
-					"\n   				 (клик чтобы закрыть)");
-					 * 
-					 */
+    			
     			}
 	}
 	
@@ -4884,6 +4871,8 @@ private var tour_array:Array;
 			main2.addChild(main2_txt22);
 			main2.addChild(main2_txt23);
 			main2.addChild(main2_txt24);
+			
+			main2.addChild(stat_hint);
 			
 			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
     	

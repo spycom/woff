@@ -67,15 +67,14 @@ private var myTimer:Timer;
 			var ratios:Array = [0, 250];
 			var matr:Matrix = new Matrix();
 				matr.createGradientBox(565, 300, 0, 0, 30);
-			//matr.cr
 			
 			var spreadMethod:String = SpreadMethod.PAD;
 			
 		
 			WelcomeMsgFon = new Sprite();
 			WelcomeMsgFon.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod); 
-			WelcomeMsgFon.graphics.lineStyle(0, 0x333333);
-			WelcomeMsgFon.graphics.drawRoundRect(0, 20, 565, 160, 30);
+			WelcomeMsgFon.graphics.lineStyle(1, 0x333333);
+			WelcomeMsgFon.graphics.drawRoundRect(0, 20, 565, 160, 40);
 			WelcomeMsgFon.filters = [myBevel];
 			
 			addChild(WelcomeMsgSprite);
