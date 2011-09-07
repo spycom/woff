@@ -1017,6 +1017,7 @@ private var tour_array:Array;
 		transfer_list.x = 10; 
 		transfer_list.y = 145;
 		transfer_list.scrollRect = new Rectangle(0, 0, 470, 300);
+		transfer_list.addEventListener(MouseEvent.MOUSE_WHEEL, transfersWheelHandler);
 		
 		liga_list = new Sprite();
 		liga_list.x = 433; 
@@ -1150,6 +1151,7 @@ private var tour_array:Array;
 		scroll_tr.y = 135;
 		scroll_tr.filters = [myBevel];
 		scroll_tr.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		scroll_tr.addEventListener(MouseEvent.MOUSE_WHEEL, transfersWheelHandler);
 		scroll_tr.addEventListener(MouseEvent.MOUSE_DOWN, scrollTrdownEvent);
 		scroll_tr.addEventListener(MouseEvent.MOUSE_UP, scrollTrupEvent);
 			this.addEventListener(MouseEvent.MOUSE_UP, scrollTrupEvent);
@@ -1404,6 +1406,7 @@ private var tour_array:Array;
 		table3 = new Loader();
 		table3.load(new URLRequest(serv + "img10/table3.png"));
 		table3.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		table3.addEventListener(MouseEvent.MOUSE_WHEEL, transfersWheelHandler);
 		table3.x = 102;
 		table3.y = 125;
 		
@@ -1412,7 +1415,8 @@ private var tour_array:Array;
 		transfers2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		transfers2.x = 12;
 		transfers2.y = 120;
-				
+		transfers2.addEventListener(MouseEvent.MOUSE_WHEEL, transfersWheelHandler);
+		
 		zebra3 = new Loader();
 		zebra3.load(new URLRequest(serv + "img10/zebra3.png"));
 		zebra3.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
@@ -2678,11 +2682,6 @@ private var tour_array:Array;
 		
 		firstManual = new firstManualHint();
 		
-		//VKAds = new Ads(woff_uid);
-		//VKAds.x = 20;
-		//VKAds.y = 490;
-		//addChild(VKAds);
-		
 		winners_list = new winners_list_sprite(woff_uid);
 		winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
 		
@@ -2860,10 +2859,11 @@ private var tour_array:Array;
 			main.addChild(help_buttontxt);
 			main.addChild(mainhelp_button);
 			
-			
+			/*
 				welcomeMessage = new WelcomeMsg();
 				addChild(welcomeMessage);
 				welcomeMessage.showWelcome();
+			*/
 			
 			main.addChild(stat_hint);
 			
@@ -6049,10 +6049,10 @@ private var tour_array:Array;
 			team_sostav.addChild(button2txt);
 			team_sostav.addChild(button3txt);
 			team_sostav.addChild(button4txt);
-			button1txt.setColor("0xffffff");
-			button2txt.setColor("0xffffff");
-			button3txt.setColor("0xffffff");
-			button4txt.setColor("0xffffff");
+				button1txt.setColor("0xffffff");
+				button2txt.setColor("0xffffff");
+				button3txt.setColor("0xffffff");
+				button4txt.setColor("0xffffff");
 			team_sostav.addChild(button1);
 			team_sostav.addChild(button2);
 			team_sostav.addChild(button3);
@@ -9348,7 +9348,36 @@ private var tour_array:Array;
 				
 			}
 			
-			// схема скролла трансфера
+			// схема скролла трансферов
+			
+			private function transfersWheelHandler(e:MouseEvent):void {
+				//scrollTimerEvent(e);
+				MouseWheel.capture(); 
+				
+				if (scroll_tr.y >= 125 && scroll_tr.y <= 385) {
+					var rect:Rectangle = transfer_list.scrollRect;
+					rect.y -= e.delta;
+					transfer_list.scrollRect = rect;
+					scroll_tr.y -= e.delta*260/5500;
+				}	
+				if (scroll_tr.y < 125) {
+					
+					var rect:Rectangle = transfer_list.scrollRect;
+					rect.y = 0;
+					transfer_list.scrollRect = rect;
+					scroll_tr.y = 125;
+					
+				}
+				
+				if (scroll_tr.y > 385) {
+					
+					var rect:Rectangle = transfer_list.scrollRect;
+					rect.y = (6010);
+					transfer_list.scrollRect = rect;
+					scroll_tr.y = 385;
+				}
+			}
+			
 			public function scrollTrTimerEvent(e:TimerEvent):void {
 				
 				// ебаная схема скролла!!!!
