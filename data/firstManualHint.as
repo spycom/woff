@@ -30,13 +30,15 @@ private var myTimer:Timer;
 			myBevel = new BevelFilter();
 			myBevel.angle = 90;
 			myBevel.strength = 0.5;
-			//myBevel.blurY = 16;
+			myBevel.blurY = 30;
+			myBevel.distance = 15;
+			
 			
 			myTimer = new Timer(20, 50);
 			myTimer.addEventListener(TimerEvent.TIMER, timerEvent);
 			
 			WelcomeMsgSprite = new Sprite();
-			WelcomeMsgSprite.x = 50;
+			WelcomeMsgSprite.x = 40;
 			WelcomeMsgSprite.y = 170;
 			//WelcomeMsgSprite.filters = [myBevel];
 			WelcomeMsgSprite.alpha = 0;
@@ -63,7 +65,7 @@ private var myTimer:Timer;
 			
 			var fillType:String = GradientType.RADIAL;
 			var colors:Array = [0xffffff, 0xE8E8E8];
-			var alphas:Array = [0.7, 1];
+			var alphas:Array = [0.75, 1];
 			var ratios:Array = [0, 250];
 			var matr:Matrix = new Matrix();
 				matr.createGradientBox(565, 300, 0, 0, 30);
@@ -73,8 +75,8 @@ private var myTimer:Timer;
 		
 			WelcomeMsgFon = new Sprite();
 			WelcomeMsgFon.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod); 
-			WelcomeMsgFon.graphics.lineStyle(1, 0x333333);
-			WelcomeMsgFon.graphics.drawRoundRect(0, 20, 565, 160, 40);
+			WelcomeMsgFon.graphics.lineStyle(2, 0x999999);
+			WelcomeMsgFon.graphics.drawRoundRect(0, 20, 565, 160, 50);
 			WelcomeMsgFon.filters = [myBevel];
 			
 			addChild(WelcomeMsgSprite);
