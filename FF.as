@@ -1511,7 +1511,7 @@ private var tour_array:Array;
 		errorFon.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		errorFon.addEventListener(MouseEvent.CLICK, errorClose);
 		
-		errorText = new text(288, 6, "error", "12");
+		errorText = new text(275, 6, "error", "welcomeFaq");
 		errorText.addEventListener(MouseEvent.CLICK, errorClose);
 		
 		errorSprite.addChild(errorFon);
@@ -10578,22 +10578,28 @@ private var tour_array:Array;
 					
 					errorText.setText("\n" + woff_answer.error.text());
 				}
+				if (String(woff_answer.error.text()) == "502:Not enough votes on user's balance") {
+					addChild(errorSprite);
+					
+					errorText.setText("\nНедостаточно очков менеджера" +
+						"\n");
+					
+					var payment:text = new text(268, 76, "пополнить счет", "welcomeFaq");
+						payment.addEventListener(MouseEvent.CLICK, showPaymentBox);
+						payment.addEventListener(MouseEvent.MOUSE_OVER, function() {
+							payment.filters = [myGlow_blue]
+						});
+						payment.addEventListener(MouseEvent.MOUSE_OUT, function() {
+							payment.filters = []
+						});
+					errorSprite.addChild(payment);
+				}
 			}
 			
 			public function errorClose(e:Event):void {
 				removeChild(errorSprite);
 				
-				
-    	/*
-    			if (woff_isAppUser !== 1) {
-    			addChild(errorSprite);
-					errorText.setText("			Зря ты не добавил это приложение! " +
-					"\n			Теперь у тебя отсутствует доступ к лиге друзей"+
-					" и ты не можешь\n получать уведомления\n =(" +
-					"   				 (клик чтобы закрыть)");
-    			}
-    			 * 
-    			 */
+			
 				
 			}
 			
@@ -10883,8 +10889,15 @@ private var tour_array:Array;
 		private function showPaymentBox(e:MouseEvent):void {
 			//var answer:XML = new XML(e.target.data);
 			wrapper.external.showPaymentBox(0);
+			wrapper.addEventListener("onBalanceChanged", onBalanceChanged);
 		}
-		
+		private function onBalanceChanged(e:Object):void {
+			setMethod("getProfile");
+			
+			var woff_Profile_loader:URLLoader = new URLLoader();
+			woff_Profile_loader.addEventListener(Event.COMPLETE, woffProfileLoadComplete);
+			woff_Profile_loader.load(woff_general_request);
+		}
 		private function showMouseHint(e:MouseEvent):void {
 			stat_hint.showHint(e.currentTarget.full);
 		}
