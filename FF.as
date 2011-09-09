@@ -10886,10 +10886,12 @@ private var tour_array:Array;
 				main3_txt5_.setId(e.currentTarget.id);
 		
 		}
-		private function showPaymentBox(e:MouseEvent):void {
+		private function showPaymentBox(e:Event):void {
 			//var answer:XML = new XML(e.target.data);
 			wrapper.external.showPaymentBox(0);
 			wrapper.addEventListener("onBalanceChanged", onBalanceChanged);
+			
+			removeChild(errorSprite);
 		}
 		private function onBalanceChanged(e:Object):void {
 			setMethod("getProfile");
