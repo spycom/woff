@@ -265,8 +265,11 @@ private var myShadow:DropShadowFilter;
 					buyBudgetSprite.addChild(scroll);
 					buyBudgetSprite.addChild(buyBudgetErrorText);
 					buyBudgetSprite.addChild(closeButton);
-					
-						buyBudgetErrorText.setText( woff_answer.error.text());
+						if (String(woff_answer.error.text()) == "502:Not enough votes on user's balance") {
+							buyBudgetErrorText.setText("Недостаточно очков менеджера");
+						} else {
+							buyBudgetErrorText.setText( woff_answer.error.text());
+						}
 				}
 				
 			
