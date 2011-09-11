@@ -12,7 +12,7 @@ package data {
 		
 		// -------------------ВЕРСИЯ----------------------
 		
-					top.setText("v0.5.6.7");
+					top.setText("v0.6");
 		
 		// -----------------------------------------------
 		
@@ -24,16 +24,9 @@ package data {
 		addChild(top);
 		
 		}
-	/*
-	 	public function eventHandler():void {
-	 		var e:Event = new Event(Event.COMPLETE); 
-                        dispatchEvent(e); 
-			
-		}
-		 * 
-		 */
+	
 		public function setText(texts:String):void {
 			top.setText(texts);
-			//top.setTextFormat(formatter);
+			
 		}
 }}

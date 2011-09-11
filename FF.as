@@ -9347,7 +9347,7 @@ private var tour_array:Array;
 					var rect:Rectangle = transfer_list.scrollRect;
 					rect.y -= e.delta;
 					transfer_list.scrollRect = rect;
-					scroll_tr.y -= e.delta*260/5500;
+					scroll_tr.y -= e.delta*260/7000;
 				}	
 				if (scroll_tr.y < 125) {
 					
@@ -9361,7 +9361,7 @@ private var tour_array:Array;
 				if (scroll_tr.y > 385) {
 					
 					var rect:Rectangle = transfer_list.scrollRect;
-					rect.y = (6010);
+					rect.y = (7010);
 					transfer_list.scrollRect = rect;
 					scroll_tr.y = 385;
 				}
@@ -9377,7 +9377,7 @@ private var tour_array:Array;
 				if (scroll_tr.y >= 125 && scroll_tr.y <= 385) {
 					
 					var rect:Rectangle = transfer_list.scrollRect;
-						rect.y += ((mouseY - yy__)/260*5500);
+						rect.y += ((mouseY - yy__)/260*7000);
 				
 					transfer_list.scrollRect = rect;
 					yy__ = mouseY;
@@ -9397,7 +9397,7 @@ private var tour_array:Array;
 				if (scroll_tr.y > 385) {
 					
 					var rect:Rectangle = transfer_list.scrollRect;
-						rect.y += (((mouseY - yy__)-(scroll_tr.y - 385))/260*5500);
+						rect.y += (((mouseY - yy__)-(scroll_tr.y - 385))/260*7000);
 				
 					transfer_list.scrollRect = rect;
 					scroll_tr.y = 385;
