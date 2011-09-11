@@ -165,8 +165,21 @@ package data {
 			top.width = 282;
 			top.height = 220;
 			top.selectable = false;
+			top.multiline = true;
 		}
 		
+		// текст error
+		if (type == "error") {
+			formatter.color = 0x003366;
+			formatter.size = 20;
+			
+			top.autoSize = TextFieldAutoSize.CENTER;
+			//.wordWrap = true;
+			top.width = 382;
+			top.height = 220;
+			top.selectable = false;
+			top.multiline = true;
+		}
 		
 		//текст окна с предложением сохранить
 		if (type == "save_offer") {

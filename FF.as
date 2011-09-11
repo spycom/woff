@@ -10467,7 +10467,7 @@ private var tour_array:Array;
 					woff_general_request.data[k] = params[k];
 					
 				var woff_enterLeague_loader:URLLoader = new URLLoader();
-				//woff_enterLeague_loader.addEventListener(Event.COMPLETE, woff_FootballerStats_LoadComplete);
+				woff_enterLeague_loader.addEventListener(Event.COMPLETE, errorEvent);
 				woff_enterLeague_loader.load(woff_general_request);
 				
 				player_liga.removeChild(main3_txt5);
@@ -10577,22 +10577,28 @@ private var tour_array:Array;
 					addChild(errorSprite);
 					
 					errorText.setText("\n" + woff_answer.error.text());
-				}
-				if (String(woff_answer.error.text()) == "502:Not enough votes on user's balance") {
-					addChild(errorSprite);
+				
+					if (String(woff_answer.error.text()) == "502:Not enough votes on user's balance") {
+						//addChild(errorSprite);
+						
+						errorText.setText("\nНедостаточно очков менеджера" +
+							"\n");
+						
+						var payment:text = new text(268, 76, "пополнить счет", "welcomeFaq");
+							payment.addEventListener(MouseEvent.CLICK, showPaymentBox);
+							payment.addEventListener(MouseEvent.MOUSE_OVER, function() {
+								payment.filters = [myGlow_blue]
+							});
+							payment.addEventListener(MouseEvent.MOUSE_OUT, function() {
+								payment.filters = []
+							});
+						errorSprite.addChild(payment);
+					}
 					
-					errorText.setText("\nНедостаточно очков менеджера" +
-						"\n");
-					
-					var payment:text = new text(268, 76, "пополнить счет", "welcomeFaq");
-						payment.addEventListener(MouseEvent.CLICK, showPaymentBox);
-						payment.addEventListener(MouseEvent.MOUSE_OVER, function() {
-							payment.filters = [myGlow_blue]
-						});
-						payment.addEventListener(MouseEvent.MOUSE_OUT, function() {
-							payment.filters = []
-						});
-					errorSprite.addChild(payment);
+					if  (String(woff_answer.error.text()) == "Вы уже вступили в максимальное количество лиг в этом турнире (2). Если хотите поменять свой выбор, покиньте какую-нибудь другую лигу.") {
+						errorText.setText("\nВы уже вступили в максимальное количество лиг в этом\nтурнире." +
+							" Если хотите поменять свой выбор, покиньте\nкакую-нибудь другую лигу.");
+					}
 				}
 			}
 			
