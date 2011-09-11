@@ -2195,7 +2195,7 @@ private var tour_array:Array;
 		 
 		 
 		 
-		for (n=1; n<300; n++) {
+		for (n=1; n<350; n++) {
 				
 				var trstat_freq:int = new int(23*n);
 				
@@ -8996,7 +8996,7 @@ private var tour_array:Array;
 				transfer_efficiency[n].setText(Math.round(int(woff_answer.footballer[n-1].tournament_score.text())*100/int(woff_answer.footballer[n-1].cost.text()))/10);
 				}
 				
-			for (var nnnn:int = woff_answer.footballer.length()+1; nnnn<300; nnnn++) {
+			for (var nnnn:int = woff_answer.footballer.length()+1; nnnn<350; nnnn++) {
 				transfer_array[nnnn].setText("--");
 				transfer_array[nnnn].setId(0);
 				transfer_club_array[nnnn].setText("----");
@@ -10172,7 +10172,7 @@ private var tour_array:Array;
 				transfer_efficiency[n].setText(Math.round(int(search_xml_res[n-1].tournament_score.text())*100/int(search_xml_res[n-1].cost.text()))/10);
 				}
 				
-			for (var nnnn:int = search_xml_res.length()+1; nnnn<300; nnnn++) {
+			for (var nnnn:int = search_xml_res.length()+1; nnnn<350; nnnn++) {
 				transfer_array[nnnn].setText("------");
 				transfer_array[nnnn].setId(0);
 				transfer_club_array[nnnn].setText("--");
@@ -10994,8 +10994,6 @@ private var tour_array:Array;
 		
 		private function drawFieldEvent(e:MouseEvent):void {
 			
-			
-			
 			var raw:BitmapData = new BitmapData(field.width, field.height+50);
 			//raw = new BitmapData(640, 480);
 			//camera.x += 30;
@@ -11031,8 +11029,6 @@ private var tour_array:Array;
 		}
 		
 		private function drawFieldEvent_offer():void {
-			
-			
 			
 			var raw:BitmapData = new BitmapData(field.width, field.height+50);
 			//raw = new BitmapData(640, 480);
@@ -11118,27 +11114,7 @@ private var tour_array:Array;
 			main1.removeChild(winners_list);
 		}
 		public function starLoadComplete(e:Event):void {
-			//main.removeChild(star3);
-			//star3.y += 30;
 			
-			//var bMap:Bitmap = Bitmap(star.content);
-			//bMap = Bitmap();
-			
-			//star3.y += -50;
-			
-			//var bMapCopy2:Bitmap = new Bitmap(bMap.bitmapData.clone());
-			//var bMapCopy3:Bitmap = new Bitmap(bMap.bitmapData.clone());
-			//var bMapCopy4:Bitmap = new Bitmap(bMap.bitmapData.clone());
-			//var bMapCopy5:Bitmap = new Bitmap(bMap.bitmapData.clone());
-			//var bMapCopy6:Bitmap = new Bitmap(bMap.bitmapData.clone());
-			
-			//star2 = new Sprite();
-			//star2.addChild(bMapCopy2);
-			//star3.addChild(bMapCopy3);
-			//star4.addChild(bMapCopy4);
-			//star5.addChild(bMapCopy5);
-			//star6.addChild(bMapCopy6);
-			//star3.x += 30;
 		}
 }
 }
