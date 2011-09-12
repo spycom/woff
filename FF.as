@@ -34,6 +34,7 @@ package {
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	import flash.net.*;
+	import flash.system.LoaderContext;
 	import flash.text.*;
 	import flash.ui.Mouse;
 	import flash.utils.*;
@@ -55,10 +56,10 @@ private var background3:Loader;
 private var logo:Loader;
 private var logo2:Loader;
 private var loader3:Loader;
-private var top1:Loader;
-private var top2:Loader;
-private var top3:Loader;
-private var top4:Loader;
+public var top1:Loader;
+private var top2:Bitmap;
+private var top3:Bitmap;
+private var top4:Bitmap;
 private var eu:Loader;
 private var mp:Loader;
 private var star:Loader;
@@ -575,6 +576,7 @@ private var down_arrows:Array;
 private var friends_league_avatar:UserAvatar;
 private var main4_avatar:Loader;
 private var tour_array:Array;
+private var lc:LoaderContext;
 
 	public function FF() {
 		
@@ -605,6 +607,8 @@ private var tour_array:Array;
 		woff_api1 = "http://woff73.valuehost.ru/tapi.php";
 		woff_api3 = "http://woff73.valuehost.ru/tapi.php";
 		current_woff_api = woff_api1;
+		
+		lc = new LoaderContext(true);
 		
 		woff_general_request = new URLRequest(woff_api);
 		woff_general_request.method = URLRequestMethod.GET;
@@ -642,7 +646,6 @@ private var tour_array:Array;
 		
 		//serv = new String("");
 		serv = new String("http://woff73.valuehost.ru/woff_images/");
-		//serv = new String("http://high.dih.ru/high/img/");
 		
 		// загрузка первого кадра
 		
@@ -682,30 +685,17 @@ private var tour_array:Array;
 		// верхнее поле x4
 		
 		top1 = new Loader();
-		top1.load(new URLRequest(serv + "img2/top1.png"));
+		top1.load(new URLRequest(serv + "img2/top1.png"), lc);
 		top1.x = 220;
 		top1.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		top1.contentLoaderInfo.addEventListener(Event.COMPLETE, topCompleteEvent);
 		top1.addEventListener(MouseEvent.MOUSE_OVER, mouseOverMain);
 		top1.addEventListener(MouseEvent.MOUSE_OUT, mouseOutMain);
 		
+		//top2 = new Bitmap();
+		//top3 = new Bitmap();
+		//top4 = new Bitmap();
 		
-		top2 = new Loader();
-		top2.load(new URLRequest(serv + "img2/top1.png"));
-		top2.x = 330;
-		top2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		top2.addEventListener(MouseEvent.MOUSE_OVER, mouseOverHelp);
-		top2.addEventListener(MouseEvent.MOUSE_OUT, mouseOutHelp);
-		
-		top3 = new Loader();
-		top3.load(new URLRequest(serv + "img2/top1.png"));
-		top3.x = 440;
-		top3.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		
-		
-		top4 = new Loader();
-		top4.load(new URLRequest(serv + "img2/top1.png"));
-		top4.x = 550;
-		top4.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		
 		eu = new Loader();
 		eu.load(new URLRequest(serv + "img2/eu.png"));
@@ -1128,7 +1118,6 @@ private var tour_array:Array;
 		scroll_tou.y = 15;
 		scroll_tou.scaleX = 1.6;
 		scroll_tou.filters = [myBevel];
-		//scroll_tou.
 		scroll_tou.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		scroll_tou.addEventListener(MouseEvent.MOUSE_DOWN, scrolldownToursEvent);
 		scroll_tou.addEventListener(MouseEvent.MOUSE_UP, scrollupToursEvent);
@@ -2215,17 +2204,6 @@ private var tour_array:Array;
 				footman_points = new text(350, trstat_freq, "", String(number));
 				 
 				
-				 
-				 //var transfer_table_columns:Array = new Array();
-				 //var transfer_table:Array = [transfer_table_columns, 2];
-				 
-					//for (var column:int = 1; column < 3; column++) {
-					//	transfer_table_columns[column] = new text(30*column, 10, "transfer_table", String(number));
-						//transfer_list.addChild(transfer_table_columns[column]);
-				//	}
-				
-				//transfer_array[n] = new Array(1, 2);
-				//
 				transfer_array[n].addEventListener(MouseEvent.CLICK, footmanEvent2);
 				transfer_array[n].addEventListener(MouseEvent.MOUSE_OVER, mouseOver);
 				transfer_array[n].addEventListener(MouseEvent.MOUSE_OUT, mouseOut);
@@ -11115,6 +11093,28 @@ private var tour_array:Array;
 		}
 		public function starLoadComplete(e:Event):void {
 			
+		}
+		public function topCompleteEvent(e:Event) {
+			var top:Bitmap = e.target.content as Bitmap;
+			
+			
+			
+			top2 = new Bitmap(top.bitmapData);
+			top2.x = 330;
+			//top2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+			top2.addEventListener(MouseEvent.MOUSE_OVER, mouseOverHelp);
+			top2.addEventListener(MouseEvent.MOUSE_OUT, mouseOutHelp);
+			//main.addChildAt(top2, main.getChildIndex(help_buttontxt)-1);
+			
+			
+			top3 = new Bitmap(top.bitmapData);
+			top3.x = 440;
+			
+
+			top4 = new Bitmap(top.bitmapData);
+			top4.x = 550;
+			//top4.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+			//main.addChildAt(top4, main.getChildIndex(all_txt4)-1);
 		}
 }
 }
