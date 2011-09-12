@@ -401,8 +401,8 @@ private var button1txt:text;
 private var button2txt:text;
 private var button3txt:text;
 private var button4txt:text;
-private var textFormat:TextFormat;
-private var textFormatBlack:TextFormat;
+//private var textFormat:TextFormat;
+//private var textFormatBlack:TextFormat;
 
 private var load:Sprite;
 private var main:Sprite;
@@ -577,6 +577,8 @@ private var friends_league_avatar:UserAvatar;
 private var main4_avatar:Loader;
 private var tour_array:Array;
 private var lc:LoaderContext;
+[Embed(source='/Users/Art/Dropbox/FF/img3/razdelitel.png')]
+private var razdelitel_b:Class;
 
 	public function FF() {
 		
@@ -1483,7 +1485,7 @@ private var lc:LoaderContext;
 		
 		
 		// форматирование текста
-		
+		/*
 		textFormat = new TextFormat();
 		textFormat.font = "calibri";
 		textFormat.italic = true;
@@ -1498,7 +1500,7 @@ private var lc:LoaderContext;
 		//textFormatBlack.bold = true;
 		textFormatBlack.size = 9;
 		textFormatBlack.color = 0x696969;
-		 
+		 */
 		 
 		
 		 
@@ -2570,6 +2572,8 @@ private var lc:LoaderContext;
 			sostav[i] = new sostav_b();
 			sostav[i].x = 52;
 			sostav[i].y = 35+freq;
+			sostav[i].addEventListener(MouseEvent.MOUSE_OVER, sostavOver);
+			sostav[i].addEventListener(MouseEvent.MOUSE_OUT, sostavOut);
 			sostav[i].addEventListener(MouseEvent.CLICK, team_sostavEvent);
 			
 			liders_list.addChild(number_txt);
@@ -2921,7 +2925,6 @@ private var lc:LoaderContext;
 			main1.addChild(button2txt);
 			main1.addChild(button3txt);
 			main1.addChild(button4txt);
-				//button1txt.setTextFormat(textFormatBlack);
 				button1txt.setColor("0x696969");
 				button2txt.setColor("0xffffff");
 				button3txt.setColor("0xffffff");
@@ -3064,7 +3067,6 @@ private var lc:LoaderContext;
 			main1.addChild(button2txt);
 			main1.addChild(button3txt);
 			main1.addChild(button4txt);
-				//button1txt.setTextFormat(textFormatBlack);
 				button1txt.setColor("0x696969");
 				button2txt.setColor("0xffffff");
 				button3txt.setColor("0xffffff");
@@ -3218,7 +3220,6 @@ private var lc:LoaderContext;
 			main1.addChild(button2txt);
 			main1.addChild(button3txt);
 			main1.addChild(button4txt);
-				//button1txt.setTextFormat(textFormatBlack);
 				button1txt.setColor("0x696969");
 				button2txt.setColor("0xffffff");
 				button3txt.setColor("0xffffff");
@@ -3376,7 +3377,6 @@ private var lc:LoaderContext;
 			main1.addChild(button2txt);
 			main1.addChild(button3txt);
 			main1.addChild(button4txt);
-				//button1txt.setTextFormat(textFormatBlack);
 				button1txt.setColor("0x696969");
 				button2txt.setColor("0xffffff");
 				button3txt.setColor("0xffffff");
@@ -3530,7 +3530,6 @@ private var lc:LoaderContext;
 			main1.addChild(button2txt);
 			main1.addChild(button3txt);
 			main1.addChild(button4txt);
-				//button1txt.setTextFormat(textFormatBlack);
 				button1txt.setColor("0x696969");
 				button2txt.setColor("0xffffff");
 				button3txt.setColor("0xffffff");
@@ -3900,7 +3899,6 @@ private var lc:LoaderContext;
 			help.addChild(button2txt);
 			help.addChild(button3txt);
 			help.addChild(button4txt);
-				//button1txt.setTextFormat(textFormat);
 				button1txt.setColor("0xffffff");
 				button2txt.setColor("0x696969");
 				button3txt.setColor("0xffffff");
@@ -4086,7 +4084,6 @@ private var lc:LoaderContext;
 			main1.addChild(button2txt);
 			main1.addChild(button3txt);
 			main1.addChild(button4txt);
-				//button1txt.setTextFormat(textFormatBlack);
 				button1txt.setColor("0x696969");
 				button2txt.setColor("0xffffff");
 				button3txt.setColor("0xffffff");
@@ -10172,9 +10169,10 @@ private var lc:LoaderContext;
 			
 			footman_club[nnn] = new text(5, 10+freq2, "no club", "2");
 						
-			razdelitel = new Loader();
-			razdelitel.load(new URLRequest(serv + "img3/razdelitel.png"));
-			razdelitel.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+			//razdelitel = new Loader();
+			//razdelitel.load(new URLRequest(serv + "img3/razdelitel.png"));
+			//razdelitel.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+			var razdelitel:Bitmap = new razdelitel_b();
 			razdelitel.x = 7;
 			razdelitel.y = 25+freq2;
 			
@@ -11128,6 +11126,13 @@ private var lc:LoaderContext;
 			blocknation6.y = 345;
 			//blocknation6.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 			
+		}
+		
+		private function sostavOver(e:MouseEvent):void {
+			e.currentTarget.filters = [myBevel];
+		}
+		private function sostavOut(e:MouseEvent):void {
+			e.currentTarget.filters = [];
 		}
 }
 }
