@@ -64,19 +64,19 @@ private var eu:Loader;
 private var mp:Loader;
 private var star:Loader;
 private var star_sprite:Sprite;
-private var star2:Loader;
-private var star3:Loader;
-private var star4:Loader;
-private var star5:Loader;
-private var star6:Loader;
+private var star2:Bitmap;
+private var star3:Bitmap;
+private var star4:Bitmap;
+private var star5:Bitmap;
+private var star6:Bitmap;
 private var block:Loader;
 private var block2:Loader;
 private var blocknation:Loader;
-private var blocknation2:Loader;
-private var blocknation3:Loader;
-private var blocknation4:Loader;
-private var blocknation5:Loader;
-private var blocknation6:Loader;
+private var blocknation2:Bitmap;
+private var blocknation3:Bitmap;
+private var blocknation4:Bitmap;
+private var blocknation5:Bitmap;
+private var blocknation6:Bitmap;
 private var russia:Loader;
 private var world:Loader;
 private var england:Loader;
@@ -663,6 +663,7 @@ private var lc:LoaderContext;
 		background3.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);	
 		//background3.load(new URLRequest(serv + "img/fon-3.jpg"));
 		background3.load(new URLRequest("http://dl.dropbox.com/u/6044249/fon-3.jpg"));
+		background3.contentLoaderInfo.addEventListener(Event.COMPLETE, backgroundComplete);
 		
 		logo = new Loader();
 		logo.load(new URLRequest(serv + "img/logo1.png"));
@@ -683,7 +684,6 @@ private var lc:LoaderContext;
 		loader3.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		
 		// верхнее поле x4
-		
 		top1 = new Loader();
 		top1.load(new URLRequest(serv + "img2/top1.png"), lc);
 		top1.x = 220;
@@ -692,11 +692,7 @@ private var lc:LoaderContext;
 		top1.addEventListener(MouseEvent.MOUSE_OVER, mouseOverMain);
 		top1.addEventListener(MouseEvent.MOUSE_OUT, mouseOutMain);
 		
-		//top2 = new Bitmap();
-		//top3 = new Bitmap();
-		//top4 = new Bitmap();
-		
-		
+		//
 		eu = new Loader();
 		eu.load(new URLRequest(serv + "img2/eu.png"));
 		eu.x = 450;
@@ -709,18 +705,15 @@ private var lc:LoaderContext;
 		mp.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		
 		star = new Loader();
-		star.load(new URLRequest(serv + "img2/star.png"));
+		star.load(new URLRequest(serv + "img2/star.png"), lc);
 		star.x = 45;
 		star.y = 193;
 		star.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		//star.contentLoaderInfo.addEventListener(Event.COMPLETE, starLoadComplete);
+		star.contentLoaderInfo.addEventListener(Event.COMPLETE, starLoadComplete);
 		
-		//star_sprite = new Sprite();
-		
+		/*
 		star2 = new Loader();
-		//star2 = new Loader();
 		star2.load(new URLRequest(serv + "img2/star.png"));
-		//star2 = star_sprite.c
 		star2.x = 350;
 		star2.y = 193;
 		star2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
@@ -748,6 +741,7 @@ private var lc:LoaderContext;
 		star6.x = 350;
 		star6.y = 433;
 		star6.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		*/
 		
 		// белый большой блок
 		
@@ -765,41 +759,13 @@ private var lc:LoaderContext;
 		
 		// блок для страны х6
 		blocknation = new Loader();
-		blocknation.load(new URLRequest(serv + "img2/block-nation.png"));
+		blocknation.load(new URLRequest(serv + "img2/block-nation.png"), lc);
 		blocknation.x = 10;
 		blocknation.y =105;
 		blocknation.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		blocknation.contentLoaderInfo.addEventListener(Event.COMPLETE, blocknationLoadComplete);
 		
-		blocknation2 = new Loader();
-		blocknation2.load(new URLRequest(serv + "img2/block-nation.png"));
-		blocknation2.x = 10;
-		blocknation2.y =225;
-		blocknation2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		
-		blocknation3 = new Loader();
-		blocknation3.load(new URLRequest(serv + "img2/block-nation.png"));
-		blocknation3.x = 10;
-		blocknation3.y =345;
-		blocknation3.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		
-		blocknation4 = new Loader();
-		blocknation4.load(new URLRequest(serv + "img2/block-nation.png"));
-		blocknation4.x = 325;
-		blocknation4.y =105;
-		blocknation4.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		
-		blocknation5 = new Loader();
-		blocknation5.load(new URLRequest(serv + "img2/block-nation.png"));
-		blocknation5.x = 325;
-		blocknation5.y =225;
-		blocknation5.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		
-		blocknation6 = new Loader();
-		blocknation6.load(new URLRequest(serv + "img2/block-nation.png"));
-		blocknation6.x = 325;
-		blocknation6.y = 345;
-		blocknation6.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		
+		//
 		russia = new Loader();
 		russia.load(new URLRequest(serv + "img2/russia.png"));
 		russia.x = 25;
@@ -808,13 +774,11 @@ private var lc:LoaderContext;
 		
 		world = new Loader();
 		world.load(new URLRequest(serv + "img2/chempions.png"));
-		//world.load(new URLRequest("http://high.dih.ru/high/img/" + "img2/world.png"));
 		world.x = 335;
 		world.y = 110;
 		world.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		
 		england = new Loader();
-		//england.load(new URLRequest(serv + "img2/england.png"));
 		england.load(new URLRequest(serv + "img2/england.png"));
 		england.x = 25;
 		england.y = 230;
@@ -958,7 +922,7 @@ private var lc:LoaderContext;
 		field.x = 20;
 		field.y = 130;
 		field.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		field.contentLoaderInfo.addEventListener(Event.COMPLETE, backgroundComplete);
+		//field.contentLoaderInfo.addEventListener(Event.COMPLETE, backgroundComplete);
 		//field.addEventListener(MouseEvent.CLICK, drawFieldEvent);
 		
 		camera = new Loader();
@@ -11091,30 +11055,79 @@ private var lc:LoaderContext;
 		public function removeWinnerList(e:MouseEvent):void {
 			main1.removeChild(winners_list);
 		}
+		// размножение картинки со звездами
 		public function starLoadComplete(e:Event):void {
+			var star_:Bitmap = e.target.content as Bitmap;
 			
+			star2 = new Bitmap(star_.bitmapData);
+			star2.x = 350;
+			star2.y = 193;
+			
+			star3 = new Bitmap(star_.bitmapData);
+			star3.x = 45;
+			star3.y = 312;
+			
+			star4 = new Bitmap(star_.bitmapData);
+			star4.x = 350;
+			star4.y = 312;
+			
+			star5 = new Bitmap(star_.bitmapData);
+			star5.x = 45;
+			star5.y = 433;
+			
+			star6 = new Bitmap(star_.bitmapData);
+			star6.x = 350;
+			star6.y = 433;
 		}
+		//размножение картинки меню в топе
 		public function topCompleteEvent(e:Event) {
 			var top:Bitmap = e.target.content as Bitmap;
 			
-			
-			
 			top2 = new Bitmap(top.bitmapData);
 			top2.x = 330;
-			//top2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 			top2.addEventListener(MouseEvent.MOUSE_OVER, mouseOverHelp);
 			top2.addEventListener(MouseEvent.MOUSE_OUT, mouseOutHelp);
-			//main.addChildAt(top2, main.getChildIndex(help_buttontxt)-1);
-			
 			
 			top3 = new Bitmap(top.bitmapData);
 			top3.x = 440;
 			
-
 			top4 = new Bitmap(top.bitmapData);
 			top4.x = 550;
-			//top4.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-			//main.addChildAt(top4, main.getChildIndex(all_txt4)-1);
+		}
+		//
+		private function blocknationLoadComplete(e:Event):void {
+			var blocknation_:Bitmap = e.target.content as Bitmap;
+			
+			blocknation2 = new Bitmap(blocknation_.bitmapData);
+			//blocknation2.load(new URLRequest(serv + "img2/block-nation.png"));
+			blocknation2.x = 10;
+			blocknation2.y =225;
+			//blocknation2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+			
+			blocknation3 = new Bitmap(blocknation_.bitmapData);
+			//blocknation3.load(new URLRequest(serv + "img2/block-nation.png"));
+			blocknation3.x = 10;
+			blocknation3.y =345;
+			//blocknation3.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+			
+			blocknation4 = new Bitmap(blocknation_.bitmapData);
+			//blocknation4.load(new URLRequest(serv + "img2/block-nation.png"));
+			blocknation4.x = 325;
+			blocknation4.y =105;
+			//blocknation4.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+			
+			blocknation5 = new Bitmap(blocknation_.bitmapData);
+			//blocknation5.load(new URLRequest(serv + "img2/block-nation.png"));
+			blocknation5.x = 325;
+			blocknation5.y =225;
+			//blocknation5.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+			
+			blocknation6 = new Bitmap(blocknation_.bitmapData);
+			//blocknation6.load(new URLRequest(serv + "img2/block-nation.png"));
+			blocknation6.x = 325;
+			blocknation6.y = 345;
+			//blocknation6.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+			
 		}
 }
 }
