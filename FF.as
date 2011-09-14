@@ -9167,9 +9167,9 @@ private var razdelitel_b:Class;
 				
 				if (scroll2.y >= 149 && scroll2.y <= 392) {
 				var rect:Rectangle = liders_list.scrollRect;
-				rect.y -= e.delta;
+				rect.y -= e.delta*5;
 				liders_list.scrollRect = rect;
-				scroll2.y -= e.delta*249/5000;
+				scroll2.y -= e.delta*5*249/5000;
 				}	
 				if (scroll2.y < 149) {
 					

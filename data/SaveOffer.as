@@ -353,7 +353,7 @@ public var wrapper: Object;
 			if (champ == "chlig")
 				wall_message = "Лиге Чемпионов";
 					
-			var message:String = new String("собрал команду в World of Fantasy Fooball в " + wall_message + " http://vkontakte.ru/app1848099");
+			var message:String = new String("собрал команду в World of Fantasy Fooball в " + wall_message + " http://vkontakte.ru/fantasyfootball");
 			
 			var _sig:String = viewer_id + 'api_id='+api_id+'hash='+json_data.hash+'message='+message+'method='+methodFromAPI+'photo='+json_data.photo+'server='+json_data.server+'test_mode='+test_mode+'v=2.0'+'wall_id='+viewer_id + api_secret;
 			var sig:String = MD5.encrypt(_sig); // используем метод hash класса md5 и получаем сигнатуру
