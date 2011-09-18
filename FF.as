@@ -530,9 +530,9 @@ public var woff_isAppUser:int;
 public var search_field:text;
 public var search_xml:XMLList;
 public var search_xml2:XML;
-private var woff_api:String;
+//private var woff_api:String;
 private var woff_api1:String;
-private var woff_api2:String;
+//private var woff_api2:String;
 private var woff_api3:String;
 private var current_woff_api:String;
 private var fff:Array;
@@ -576,7 +576,6 @@ private var down_arrows:Array;
 private var friends_league_avatar:UserAvatar;
 private var main4_avatar:Loader;
 private var tour_array:Array;
-//private var leftPanel:panel;
 
 private var lc:LoaderContext;
 [Embed(source='/Users/Art/Dropbox/FF/img3/razdelitel.png')]
@@ -609,14 +608,13 @@ private var zebra3_bitmap:Class;
     		
     		
 		// --- своя библиотека (request) --------------------------------------
-		woff_api = "http://woff73.valuehost.ru/tapi.php";
 		woff_api1 = "http://woff73.valuehost.ru/tapi.php";
 		woff_api3 = "http://woff73.valuehost.ru/tapi.php";
 		current_woff_api = woff_api1;
 		
 		lc = new LoaderContext(true);
 		
-		woff_general_request = new URLRequest(woff_api);
+		woff_general_request = new URLRequest(woff_api1);
 		woff_general_request.method = URLRequestMethod.GET;
 		woff_general_request.contentType = "text/xml";
 		
@@ -2572,7 +2570,7 @@ private var zebra3_bitmap:Class;
 	public function loadComplete(e:Event):void {
 		//woff_lib.getProfile(woffLoadComplete2);
 		if (poster_id != 0) {
-			version.setText('referrer = ' + referrer + ' @ ' +'poster_id = ' + poster_id + '@post_id=' + post_id);
+			//version.setText('referrer = ' + referrer + ' @ ' +'poster_id = ' + poster_id + '@post_id=' + post_id);
 			team_sostavEvent_wall(poster_id);
 		} 
 		else {
@@ -3886,6 +3884,7 @@ private var zebra3_bitmap:Class;
 	// функции кнопок *****
 	
 	public function button1event(e:MouseEvent):void {
+		/*
 		if (window == "main2") {
 			removeChild(main2);
 		} 
@@ -3910,6 +3909,8 @@ private var zebra3_bitmap:Class;
 		if (window == "transfer") {
 			removeChild(transfer);
 		}
+		*/
+		closeCurrentWindow();
 		
 		setMethod("getProfile");
 		
@@ -4014,6 +4015,7 @@ private var zebra3_bitmap:Class;
 			main1.addChild(stat_hint);
 		}
 	public function button2event(e:Event):void {
+		/*
 		if (window == "main1") {
 			removeChild(main1);
 		} 
@@ -4038,6 +4040,9 @@ private var zebra3_bitmap:Class;
 		if (window == "transfer") {
 			removeChild(transfer);
 		}
+		*/
+		closeCurrentWindow();
+		
 		window = "main2";
 		
 		current_team_id = woff_uid;
@@ -5080,7 +5085,7 @@ private var zebra3_bitmap:Class;
 	}
 	
 	public function button3event(e:MouseEvent):void {
-		
+		/*
 		if (window == "main1") {
 			removeChild(main1);
 		} 
@@ -5105,6 +5110,8 @@ private var zebra3_bitmap:Class;
 		if (window == "transfer") {
 			removeChild(transfer);
 		}
+		*/
+		closeCurrentWindow();
 		
 		setMethod("getAllLeagues");
 		
@@ -5183,6 +5190,7 @@ private var zebra3_bitmap:Class;
 		
 	
 	public function button4event(e:MouseEvent):void {
+		/*
 		if (window == "main1") {
 			removeChild(main1);
 		} 
@@ -5207,7 +5215,8 @@ private var zebra3_bitmap:Class;
 		if (window == "transfer") {
 			removeChild(transfer);
 		}
-		
+		*/
+		closeCurrentWindow();
 		//setMethod("getLeaders");
 		
 			//var woff_Leaders_loader:URLLoader = new URLLoader();
@@ -5476,7 +5485,7 @@ private var zebra3_bitmap:Class;
 			
 			var test:String = new String(e.target.text);
 			var footman_txt__:text = new text(20, 142, test, "2");
-			
+		/*	
 		if (window == "main1") {
 			removeChild(main1);
 		}
@@ -5501,6 +5510,9 @@ private var zebra3_bitmap:Class;
 		if (window == "transfer") {
 			removeChild(transfer);
 		}
+			*/
+		closeCurrentWindow();
+		
 		window = "footman";
 		
 		getFootballerStats(e.currentTarget.id);
@@ -5579,7 +5591,7 @@ private var zebra3_bitmap:Class;
 			
 			var test:String = new String(e.target.text);
 			var footman_txt__:text = new text(20, 142, test, "2");
-			
+		/*	
 		if (window == "main1") {
 			removeChild(main1);
 		}
@@ -5604,6 +5616,8 @@ private var zebra3_bitmap:Class;
 		if (window == "transfer") {
 			removeChild(transfer);
 		}
+			*/
+			
 		window = "footman";
 		
 				footman_txt11.setText("-");
@@ -5683,7 +5697,8 @@ private var zebra3_bitmap:Class;
 		// окно состава команды противника
 		
 		public function team_sostavEvent(e:MouseEvent):void {
-		if (window == "main1") {
+		/*
+			if (window == "main1") {
 			removeChild(main1);
 		} 	
 		if (window == "main2") {
@@ -5708,7 +5723,9 @@ private var zebra3_bitmap:Class;
 		if (window == "transfer") {
 			removeChild(transfer);
 		}
-		
+		*/
+			closeCurrentWindow();
+			
 		window = "team_sostav";
 		
 		current_team_id = e.currentTarget.teamId;
@@ -5794,6 +5811,7 @@ private var zebra3_bitmap:Class;
 		// окно состава команды противника - вход со стены
 		
 		public function team_sostavEvent_wall(teamId:int):void {
+			/*
 			if (window == "main1") {
 				removeChild(main1);
 			} 	
@@ -5819,6 +5837,8 @@ private var zebra3_bitmap:Class;
 			if (window == "transfer") {
 				removeChild(transfer);
 			}
+			*/
+			closeCurrentWindow();
 			
 			window = "team_sostav";
 			
@@ -5908,7 +5928,8 @@ private var zebra3_bitmap:Class;
 		// окно статистики команды
 		
 		public function team_statEvent(e:MouseEvent):void {
-		if (window == "main1") {
+		/*
+			if (window == "main1") {
 			removeChild(main1);
 		} 	
 		if (window == "main2") {
@@ -5932,7 +5953,9 @@ private var zebra3_bitmap:Class;
 		if (window == "transfer") {
 			removeChild(transfer);
 		}
-		
+		*/
+			closeCurrentWindow();
+			
 		window = "team_stat";
 		
 		getTeamStats(current_tour);
@@ -6053,7 +6076,8 @@ private var zebra3_bitmap:Class;
 		
 		// окно трансферов
 		public function transferEvent(e:Event):void {
-		if (window == "main1") {
+		/*
+			if (window == "main1") {
 			removeChild(main1);
 		} 	
 		if (window == "main2") {
@@ -6077,6 +6101,8 @@ private var zebra3_bitmap:Class;
 		if (window == "team_stat") {
 			removeChild(team_stat);
 		}
+			*/
+			closeCurrentWindow();	
 		
 		window = "transfer";
 		
@@ -6178,7 +6204,7 @@ private var zebra3_bitmap:Class;
 		
 		// функция возврата к странице трансферов
 		public function transferEvent2(e:MouseEvent):void {
-		if (window == "main1") {
+		/*if (window == "main1") {
 			removeChild(main1);
 		} 	
 		if (window == "main2") {
@@ -6202,7 +6228,9 @@ private var zebra3_bitmap:Class;
 		if (window == "team_stat") {
 			removeChild(team_stat);
 		}
-		
+		*/
+			closeCurrentWindow();
+			
 		window = "transfer";
 		
 		//current_id = (e.currentTarget.foot_id);
@@ -6281,7 +6309,7 @@ private var zebra3_bitmap:Class;
 		// окно лиги
 		
 		public function ligaEvent(e:MouseEvent):void {
-		if (window == "main1") {
+		/*if (window == "main1") {
 			removeChild(main1);
 		} 	
 		if (window == "main2") {
@@ -6308,7 +6336,9 @@ private var zebra3_bitmap:Class;
 		if (window == "transfer") {
 			removeChild(transfer);
 		}
-		
+		*/
+			closeCurrentWindow();
+			
 		window = "player_liga";
 		
 		main3_txt1.setText(e.currentTarget.txt());
@@ -6429,112 +6459,7 @@ private var zebra3_bitmap:Class;
 				}
 		}
 		
-		// окно лиги номер 2 !"№;%:?*
-		/*
-		public function ligaEvent2(liga:String):void {
-		if (window == "main1") {
-			removeChild(main1);
-		} 	
-		if (window == "main2") {
-			removeChild(main2);
-		} 
-		if (window == "main3") {
-			removeChild(main3);
-		}
-		if (window == "main4") {
-			removeChild(main4);
-		} 
-		if (window == "help") {
-			removeChild(help);
-		}
-		if (window == "footman") {
-			removeChild(footman);
-		} 
-		if (window == "team_sostav") {
-			removeChild(team_sostav);
-		}
-		if (window == "team_stat") {
-			removeChild(team_stat);
-		}
-		if (window == "transfer") {
-			removeChild(transfer);
-		}
 		
-		main3_txt1.setText(liga);
-		
-		window = "player_liga";
-		addChild(player_liga);
-			
-			player_liga.addChild(background);
-			player_liga.addChild(top1);
-			player_liga.addChild(top2);
-			player_liga.addChild(top3);
-			player_liga.addChild(top4);
-			player_liga.addChild(version);
-			player_liga.addChild(mp);
-			player_liga.addChild(eu);
-			player_liga.addChild(all_txt1);
-			player_liga.addChild(all_txt3);
-			player_liga.addChild(all_txt4);
-			player_liga.addChild(logo2);
-			player_liga.addChild(help_buttontxt);
-			player_liga.addChild(help_button);
-			player_liga.addChild(main_button);
-			player_liga.addChild(block);
-			//team_sostav.addChild(block2);
-			player_liga.addChild(liders);
-			player_liga.addChild(link1);
-			player_liga.addChild(link2);
-			player_liga.addChild(link3);
-			player_liga.addChild(link4);
-			player_liga.addChild(button1txt);
-			player_liga.addChild(button2txt);
-			player_liga.addChild(button3txt);
-			player_liga.addChild(button4txt);
-				button1txt.setColor("0xffffff");
-				button2txt.setColor("0xffffff");
-				button3txt.setColor("0xffffff");
-				button4txt.setColor("0xffffff");
-			player_liga.addChild(button1);
-			player_liga.addChild(button2);
-			player_liga.addChild(button3);
-			player_liga.addChild(button4);
-			
-			//transfer.addChild(transfer_txt);
-			player_liga.addChild(main1_txt1);
-			
-			 /*
-			team_sostav.addChild(main1_txt3);
-			team_sostav.addChild(main1_txt4);
-			team_sostav.addChild(main1_txt5);
-			team_sostav.addChild(main1_txt6);			 
-			 */
-			//transfer.addChild(transfers2);
-			//transfer.addChild(match);
-			//transfer.addChild(table3);
-			//transfer.addChild(buy);
-			//transfer.addChild(zebra3);
-			/*
-			player_liga.addChild(liders_list);
-			player_liga.addChild(profile);
-			player_liga.addChild(liga2);
-			player_liga.addChild(ava_big);
-			player_liga.addChild(main3_txt1);
-			player_liga.addChild(main3_txt2);
-			//player_liga.addChild(main3_txt3);
-			player_liga.addChild(main3_txt4);
-			
-			player_liga.addChild(main3_txt6);
-			player_liga.addChild(main3_txt7);
-			player_liga.addChild(scroll);
-			player_liga.addChild(scroll2);
-			player_liga.addChild(all_lig_list);
-			player_liga.addChild(button_blue_liga);
-			player_liga.addChild(main3_txt5);
-			player_liga.addChild(scroll_lig);
-		}
-		*/
-	
 	
 	
 	
@@ -6953,25 +6878,10 @@ private var zebra3_bitmap:Class;
 			
 			if (String(woff_answer.profile.tournament_score.text()) !== "") {
 				main_txt2.setText("Любимый клуб: " + woff_answer.profile.club_title.text());
-				/*if (woff_answer.profile.club_title.text() == "no_fav_club") {
-					main1_txt24.setText(woff_answer.profile.club_title.text());
-					
-					} else {
-						main1_txt24.setText(woff_answer.profile.club_title.text());
-						select.removeEventListener(MouseEvent.CLICK, dropdowm_menu);
-					}
-					 * 
-					 */
+				
 				main_txt55.setText("Название команды: " + woff_answer.profile.team_title.text());
 				all_txt3.setText("EU: " + int(woff_answer.profile.budget.text())/10 + "");
-				//main2_txt12.setText("Остаток бюджета:			" + int(woff_answer.profile.budget.text()));
-					//budget_left = int(woff_answer.profile.budget.text());
-				/*if (String(woff_answer.profile.team_title.text()) !== "") {
-					main1_txt8.setText(woff_answer.profile.team_title.text());
-					main1_txt8.removeEventListener(KeyboardEvent.KEY_DOWN, textInputEvent);
-					}
-					 * 
-					 */
+				
 				if ( String(woff_answer.profile.is_part_in_paid_tournament.text()) !== "0") {
 					main_txt3.setText("Участие в платном турнире: участвует");
 					} else {
@@ -6979,10 +6889,7 @@ private var zebra3_bitmap:Class;
 					}
 				
 				main_txt4.setText("Кол-во очков: " + int(woff_answer.profile.tournament_score.text())/10);
-				//main2_txt10.setText("Очков:      "+ int(woff_answer.profile.score.text())/10);
-				//main2_txt11.setText("Место:    00000 "+ woff_answer.text());
-				//main_txt5.setText("Статус допуска: " + woff_answer);
-			
+				
 				if ( woff_answer.profile.is_expert.text() == 1) {
 					//main.removeChild(main_txt6);
 					main.addChild(star);
@@ -6992,10 +6899,9 @@ private var zebra3_bitmap:Class;
 			all_txt4.setText("MP: " + woff_answer.profile.MP.text());
 			transfers_left = int(woff_answer.profile.transfers_left.text());
 			
-			//main2_txt16.setText("Проведённых трансферов:           	     " + transfers_do);
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
-			woff_general_request.url = woff_api3;
+			//woff_general_request.url = woff_api3;
 			current_tournament = 5;
 			
 			setMethod("checkTeam");
@@ -7018,17 +6924,6 @@ private var zebra3_bitmap:Class;
 				select1.removeEventListener(MouseEvent.CLICK, select1listener);
 				select1.addEventListener(MouseEvent.CLICK, button2event2);
 				
-				/*
-				addChild(errorSprite);
-					errorText.setText("			Приветствуем Вас в нашей игре! " +
-					"\n		В ней Вы сможете доказать своим друзьям и всему <<контакту>>, кто лучше всех разбирается в футболе."+
-					"\n		Набирайте команды из 15 реальных футболистов и в бой! Мы предлагаем вам целый МИР Fantasy Football." +
-					"\n		Заявляйте команды в ведущих европейские турнирах и конечно же Российской Премьер Лиге. "+
-					"\n		Не забывайте, что у нашей игры тоже есть правила. Рекомендумаем начать вам с раздела FAQ"+
-					"\n		И пускай на мировом фоне, Fantasy Football в России только набирает популярность, мы верим\n 		что игра и 'МИР' в целом придутся Вам по душе, не даром мы выбрали девиз 'Fantasy World for Fantastic Game'"+
-					"   				 \n					(клик чтобы закрыть)");
-					 * 
-					 */
 					welcomeMessage = new WelcomeMsg();
 					addChild(welcomeMessage);
 					welcomeMessage.showWelcome();
@@ -7043,25 +6938,10 @@ private var zebra3_bitmap:Class;
 			
 			if (String(woff_answer.profile.MP.text()) !== "") {
 				main_txt32.setText("Любимый клуб: " + woff_answer.profile.club_title.text());
-				/*if (woff_answer.profile.club_title.text() == "no_fav_club") {
-					main1_txt24.setText(woff_answer.profile.club_title.text());
-					
-					} else {
-						main1_txt24.setText(woff_answer.profile.club_title.text());
-						select.removeEventListener(MouseEvent.CLICK, dropdowm_menu);
-					}
-					 * 
-					 */
+				
 				main_txt355.setText("Название команды: " + woff_answer.profile.team_title.text());
 				all_txt3.setText("EU: " + int(woff_answer.profile.budget.text())/10 + "");
-				//main2_txt12.setText("Остаток бюджета:			" + int(woff_answer.profile.budget.text()));
-					//budget_left = int(woff_answer.profile.budget.text());
-				/*if (String(woff_answer.profile.team_title.text()) !== "") {
-					main1_txt8.setText(woff_answer.profile.team_title.text());
-					main1_txt8.removeEventListener(KeyboardEvent.KEY_DOWN, textInputEvent);
-					}
-					 * 
-					 */
+				
 				if ( String(woff_answer.profile.is_part_in_paid_tournament.text()) !== "0") {
 					main_txt33.setText("Участие в платном турнире: участвует");
 					} else {
@@ -7069,10 +6949,7 @@ private var zebra3_bitmap:Class;
 					}
 				
 				main_txt34.setText("Кол-во очков: " + int(woff_answer.profile.tournament_score.text())/10);
-				//main2_txt10.setText("Очков:      "+ int(woff_answer.profile.score.text())/10);
-				//main2_txt11.setText("Место:    00000 "+ woff_answer.text());
-				//main_txt5.setText("Статус допуска: " + woff_answer);
-			
+				
 				if ( woff_answer.profile.is_expert.text() == 1) {
 					//main.removeChild(main_txt6);
 					main.addChild(star3);
@@ -7081,8 +6958,6 @@ private var zebra3_bitmap:Class;
 			
 			all_txt4.setText("MP: " + woff_answer.profile.MP.text());
 			transfers_left2 = int(woff_answer.profile.transfers_left.text());
-			//transfers_do = 30 - transfers_left;
-			//main2_txt16.setText("Проведённых трансферов:           	     " + transfers_do);
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
 			woff_general_request.url = woff_api1;
@@ -7119,14 +6994,7 @@ private var zebra3_bitmap:Class;
 				
 				main_txt255.setText("Название команды: " + woff_answer.profile.team_title.text());
 				all_txt3.setText("EU: " + int(woff_answer.profile.budget.text())/10 + "");
-				//main2_txt12.setText("Остаток бюджета:			" + int(woff_answer.profile.budget.text()));
-					//budget_left = int(woff_answer.profile.budget.text());
-				/*if (String(woff_answer.profile.team_title.text()) !== "") {
-					main1_txt8.setText(woff_answer.profile.team_title.text());
-					main1_txt8.removeEventListener(KeyboardEvent.KEY_DOWN, textInputEvent);
-					}
-					 * 
-					 */
+				
 				if ( String(woff_answer.profile.is_part_in_paid_tournament.text()) !== "0") {
 					main_txt23.setText("Участие в платном турнире: участвует");
 					} else {
@@ -7134,10 +7002,7 @@ private var zebra3_bitmap:Class;
 					}
 				
 				main_txt24.setText("Кол-во очков: " + int(woff_answer.profile.tournament_score.text())/10);
-				//main2_txt10.setText("Очков:      "+ int(woff_answer.profile.score.text())/10);
-				//main2_txt11.setText("Место:    00000 "+ woff_answer.text());
-				//main_txt5.setText("Статус допуска: " + woff_answer);
-			
+				
 				if ( woff_answer.profile.is_expert.text() == 1) {
 					//main.removeChild(main_txt6);
 					main.addChild(star2);
@@ -7146,11 +7011,9 @@ private var zebra3_bitmap:Class;
 			
 			all_txt4.setText("MP: " + woff_answer.profile.MP.text());
 			transfers_left4 = int(woff_answer.profile.transfers_left.text());
-			//transfers_do = 30 - transfers_left;
-			//main2_txt16.setText("Проведённых трансферов:           	     " + transfers_do);
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
-			woff_general_request.url = woff_api3;
+			//woff_general_request.url = woff_api3;
 			current_tournament = 7;
 			
 			setMethod("checkTeam");
@@ -7161,7 +7024,7 @@ private var zebra3_bitmap:Class;
 			
 			}  else {
 			
-				woff_general_request.url = woff_api3;
+				//woff_general_request.url = woff_api3;
 				current_tournament = 7;
 			
 				setMethod("registerNewPlayer");
@@ -7185,25 +7048,10 @@ private var zebra3_bitmap:Class;
 			
 			if (String(woff_answer.profile.MP.text()) !== "") {
 				main_txt52.setText("Любимый клуб: " + woff_answer.profile.club_title.text());
-				/*if (woff_answer.profile.club_title.text() == "no_fav_club") {
-					main1_txt24.setText(woff_answer.profile.club_title.text());
-					
-					} else {
-						main1_txt24.setText(woff_answer.profile.club_title.text());
-						select.removeEventListener(MouseEvent.CLICK, dropdowm_menu);
-					}
-					 * 
-					 */
+				
 				main_txt555.setText("Название команды: " + woff_answer.profile.team_title.text());
 				all_txt3.setText("EU: " + int(woff_answer.profile.budget.text())/10 + "");
-				//main2_txt12.setText("Остаток бюджета:			" + int(woff_answer.profile.budget.text()));
-					//budget_left = int(woff_answer.profile.budget.text());
-				/*if (String(woff_answer.profile.team_title.text()) !== "") {
-					main1_txt8.setText(woff_answer.profile.team_title.text());
-					main1_txt8.removeEventListener(KeyboardEvent.KEY_DOWN, textInputEvent);
-					}
-					 * 
-					 */
+				
 				if ( String(woff_answer.profile.is_part_in_paid_tournament.text()) !== "0") {
 					main_txt53.setText("Участие в платном турнире: участвует");
 					} else {
@@ -7211,10 +7059,7 @@ private var zebra3_bitmap:Class;
 					}
 				
 				main_txt54.setText("Кол-во очков: " + int(woff_answer.profile.tournament_score.text())/10);
-				//main2_txt10.setText("Очков:      "+ int(woff_answer.profile.score.text())/10);
-				//main2_txt11.setText("Место:    00000 "+ woff_answer.text());
-				//main_txt5.setText("Статус допуска: " + woff_answer);
-			
+				
 				if ( woff_answer.profile.is_expert.text() == 1) {
 					//main.removeChild(main_txt6);
 					main.addChild(star5);
@@ -7239,7 +7084,7 @@ private var zebra3_bitmap:Class;
 		
 			}  else {
 				current_tournament = 2;
-				woff_general_request.url = woff_api3;
+				//woff_general_request.url = woff_api3;
 				setMethod("registerNewPlayer");
 				
 				var woff_RegNew_loader:URLLoader = new URLLoader();
@@ -7261,25 +7106,10 @@ private var zebra3_bitmap:Class;
 			
 			if (String(woff_answer.profile.MP.text()) !== "") {
 				main_txt422.setText("Любимый клуб: " + woff_answer.profile.club_title.text());
-				/*if (woff_answer.profile.club_title.text() == "no_fav_club") {
-					main1_txt24.setText(woff_answer.profile.club_title.text());
-					
-					} else {
-						main1_txt24.setText(woff_answer.profile.club_title.text());
-						select.removeEventListener(MouseEvent.CLICK, dropdowm_menu);
-					}
-					 * 
-					 */
+				
 				main_txt4255.setText("Название команды: " + woff_answer.profile.team_title.text());
 				all_txt3.setText("EU: " + int(woff_answer.profile.budget.text())/10 + "");
-				//main2_txt12.setText("Остаток бюджета:			" + int(woff_answer.profile.budget.text()));
-					//budget_left = int(woff_answer.profile.budget.text());
-				/*if (String(woff_answer.profile.team_title.text()) !== "") {
-					main1_txt8.setText(woff_answer.profile.team_title.text());
-					main1_txt8.removeEventListener(KeyboardEvent.KEY_DOWN, textInputEvent);
-					}
-					 * 
-					 */
+				
 				if ( String(woff_answer.profile.is_part_in_paid_tournament.text()) !== "0") {
 					main_txt423.setText("Участие в платном турнире: участвует");
 					} else {
@@ -7287,10 +7117,7 @@ private var zebra3_bitmap:Class;
 					}
 				
 				main_txt424.setText("Кол-во очков: " + int(woff_answer.profile.tournament_score.text())/10);
-				//main2_txt10.setText("Очков:      "+ int(woff_answer.profile.score.text())/10);
-				//main2_txt11.setText("Место:    00000 "+ woff_answer.text());
-				//main_txt5.setText("Статус допуска: " + woff_answer);
-			
+				
 				if ( woff_answer.profile.is_expert.text() == 1) {
 					//main.removeChild(main_txt6);
 					main.addChild(star4);
@@ -7299,11 +7126,9 @@ private var zebra3_bitmap:Class;
 			
 			all_txt4.setText("MP: " + woff_answer.profile.MP.text());
 			transfers_left2 = int(woff_answer.profile.transfers_left.text());
-			//transfers_do = 30 - transfers_left;
-			//main2_txt16.setText("Проведённых трансферов:           	     " + transfers_do);
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
-			woff_general_request.url = woff_api3;
+			//woff_general_request.url = woff_api3;
 			current_tournament = 1;
 			
 			setMethod("checkTeam");
@@ -7315,7 +7140,7 @@ private var zebra3_bitmap:Class;
 		
 			}  else {
 				current_tournament = 1;
-				woff_general_request.url = woff_api3;
+				//woff_general_request.url = woff_api3;
 				
 				setMethod("registerNewPlayer");
 				
@@ -7355,62 +7180,16 @@ private var zebra3_bitmap:Class;
 					} else {
 					main1_txt8.setText("no team title");
 					}
-			/*	if ( String(woff_answer.profile.is_part_in_paid_tournament.text()) !== "0") {
-					main_txt23.setText("Участие в платном турнире: участвует");
-					} else {
-					main_txt23.setText("Участие в платном турнире: не участвует");
-					}
-					 * 
-					 */
-				
-				//main_txt24.setText("Кол-во очков: " + int(woff_answer.profile.score.text())/10);
-				//main2_txt10.setText("Очков:      "+ int(woff_answer.profile.score.text())/10);
-				//main2_txt11.setText("Место:    00000 "+ woff_answer.text());
-				//main_txt5.setText("Статус допуска: " + woff_answer);
-			/*
-				if ( woff_answer.profile.is_expert.text() == 1) {
-					//main.removeChild(main_txt6);
-					main.addChild(star);
-					main_txt6.setText("Эксперт");
-				}
-				 * 
-				 */
+			
 			
 			all_txt4.setText("MP: " + woff_answer.profile.MP.text());
 			transfers_left = int(woff_answer.profile.transfers_left.text());
 			transfers_left2 = int(woff_answer.profile.transfers_left.text());
-			//transfers_do = 30 - transfers_left;
-			//main2_txt16.setText("Проведённых трансферов:           	     " + transfers_do);
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
 			is_budget_bought = int(woff_answer.profile.is_budget_bought.text());
 			is_transfers_bought = int(woff_answer.profile.is_transfers_bought.text());
 			
-			//woff_general_request.url = woff_api1;
-			
-			/*setMethod("checkTeam");
-			var woff_checkteam_loader:URLLoader = new URLLoader();
-			woff_checkteam_loader.addEventListener(Event.COMPLETE, woffCheckTeam2Complete);
-			woff_checkteam_loader.load(woff_general_request);
-			 * 
-			 */
-			
-			
-		/*
-			}  else {
-			
-				setMethod("registerNewPlayer");
-				
-				var woff_RegNew_loader:URLLoader = new URLLoader();
-				woff_RegNew_loader.load(woff_general_request);
-				
-				select4.removeEventListener(MouseEvent.CLICK, select4listener);
-				select4.addEventListener(MouseEvent.CLICK, button2event4);
-				
-				
-			}
-			 * 
-			 */
 			
 		}
 		
@@ -10645,13 +10424,6 @@ private var zebra3_bitmap:Class;
 				sostav[i].setId(answer.player[i].id_vk.text());
 			}
 			
-			/*
-			if (woff_answer.footballer[i].id_vk.text() == String(woff_uid)) {
-				main2_txt11.setText("Место:        	 "+ String(i+1));
-				}
-				 
-				  * 
-				  */
 			if (answer.player[i].id_vk.text() == String(woff_uid)) {
 				main3_txt2.setText("Место: "+ String(i+1));
 				main3_txt4.setText("Очков: "+ answer.player[i].tournament_score.text()/10);
@@ -10845,9 +10617,6 @@ private var zebra3_bitmap:Class;
 			var SaveOfferWindow = new SaveOffer(brr, woff_uid, 1848099, "DuIP8H5HnE", wrapper, champ);
 				addChild(SaveOfferWindow);
 			
-			// !!!!!!!!!!!!!
-			//fil.save(brr, "FantasyTeam.png");
-			
 		}
 		
 		private function drawFieldEvent_offer():void {
@@ -10864,7 +10633,6 @@ private var zebra3_bitmap:Class;
 			var SaveOfferWindow = new SaveOffer(brr, woff_uid, 1848099, "DuIP8H5HnE", wrapper, champ);
 			addChild(SaveOfferWindow);
 			
-			
 		}
 		
 		public function drawFieldOver(e:MouseEvent):void {
@@ -10879,22 +10647,9 @@ private var zebra3_bitmap:Class;
 		}
 		
 		public function addLeadersButtons():void {
-			//for (var buttons = 0; buttons < 6 ; buttons++) {
+			
 				main1.addChild(page_button_sprite);
-				//}
-				/*
-			var page_button_text = new Array();
-			for (var button_txt=0; button_txt < 6; button_txt++) {
-				page_button_text[button_txt] = new text(20+button_txt*34, 118, String(button_txt+1), "2");
-				page_button_text[button_txt].setId(button_txt);
-				page_button_text[button_txt].addEventListener(MouseEvent.MOUSE_OVER, page_button_textOverEvent);
-				page_button_text[button_txt].addEventListener(MouseEvent.CLICK, page_button_textClickEvent);
 				
-				//page_button_text[button_txt].
-					page_button_sprite[button_txt].addChild(page_button_text[button_txt]);
-			}
-			 * 
-			 */
 		}
 		
 		public function page_buttonOvernEvent(e:MouseEvent):void {
@@ -10985,6 +10740,39 @@ private var zebra3_bitmap:Class;
 		}
 		private function sostavOut(e:MouseEvent):void {
 			e.currentTarget.filters = [];
+		}
+		private function closeCurrentWindow():void {
+			
+			if (window == "main") {
+				removeChild(main);
+			}
+			if (window == "main1") {
+				removeChild(main1);
+			}
+			if (window == "main2") {
+				removeChild(main2);
+			} 
+			if (window == "main3") {
+				removeChild(main3);
+			}
+			if (window == "main4") {
+				removeChild(main4);
+			} 
+			if (window == "help") {
+				removeChild(help);
+			}
+			if (window == "footman") {
+				removeChild(footman);
+			}
+			if (window == "team_sostav") {
+				removeChild(team_sostav);
+			}
+			if (window == "team_stat") {
+				removeChild(team_stat);
+			}
+			if (window == "transfer") {
+				removeChild(transfer);
+			}
 		}
 }
 }
