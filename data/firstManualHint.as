@@ -1,4 +1,5 @@
 package data {
+	import data.panel;
 	import data.text;
 	
 	import flash.display.*;
@@ -21,7 +22,7 @@ private var WelcomeMsgFAQ:text;
 private var myShadow:DropShadowFilter;
 private var myBevel:BevelFilter;
 private var myTimer:Timer;
-
+private var leftPanel:panel;
 
 		public function firstManualHint () {
 			
@@ -93,13 +94,20 @@ private var myTimer:Timer;
 			WelcomeMsgSprite.addChild(WelcomeMsgText);	
 			WelcomeMsgSprite.addChild(WelcomeMsgFAQ);		
 			WelcomeMsgSprite.addChild(WelcomeMsgClose);		
+			
+			leftPanel = new panel();
+			leftPanel.addEventListener(MouseEvent.CLICK, leftPanelClick);
+			addChild(leftPanel);
 		}
 		
 	public function WelcomeMsgCloseEvent(e:MouseEvent):void {
 		
 		removeChild(WelcomeMsgSprite);
+		leftPanel.panelShow();
 	}
-	
+	private function leftPanelClick(e:MouseEvent):void {
+		leftPanel.panelHide();
+	}
 	public function WelcomeMsgFAQEvent(e:MouseEvent):void {
 		navigateToURL(new URLRequest("http://vkontakte.ru/club16470824"), "_blank");
 		

@@ -6,11 +6,14 @@ package data {
 
 	public class transfer_b extends Sprite {
 		
-public var footman_replace:Loader;		
+public var footman_replace;	
+private var footman_replace_sprite:Sprite;
 public var foot_id:int;
 public var amplua:int;
 public var position:int;
 public var status:int;
+[Embed(source='/Users/Art/Dropbox/FF/img4/replace.png')]
+private var footman_replace_bitmap:Class;
 
 		public function transfer_b(footballer_id:int, role:int, field_place:int) {
 			//var server:String = new String(stage.parent.serv);
@@ -22,12 +25,17 @@ public var status:int;
 			foot_id = footballer_id;
 			amplua = role;
 			position = field_place;
-			footman_replace = new Loader();
-			footman_replace.load(new URLRequest("http://woff73.valuehost.ru/woff_images/" + "img4/replace.png"));
-			footman_replace.addEventListener(MouseEvent.MOUSE_OVER, replaceOverEvent);
-			footman_replace.addEventListener(MouseEvent.MOUSE_OUT, replaceOutEvent);
+			footman_replace = new footman_replace_bitmap();
+			//footman_replace.load(new URLRequest("http://woff73.valuehost.ru/woff_images/" + "img4/replace.png"));
 			
-			addChild(footman_replace);
+			footman_replace_sprite = new Sprite();
+			
+			footman_replace_sprite.addEventListener(MouseEvent.MOUSE_OVER, replaceOverEvent);
+			footman_replace_sprite.addEventListener(MouseEvent.MOUSE_OUT, replaceOutEvent);
+			
+			footman_replace_sprite.addChild(footman_replace);
+			addChild(footman_replace_sprite);
+			
 		}
 		public function setId(id_:int):void {
 			foot_id = id_;

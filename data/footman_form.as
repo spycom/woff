@@ -10,6 +10,8 @@ public var clubId:int;
 public var footman_form_loader:Loader;
 private var serv:String = "http://woff73.valuehost.ru/woff_images/";	
 public var champ:String;
+[Embed(source='/Users/Art/Dropbox/FF/img4/forms.png')]
+private var footman_form_bitmap:Class;
 
 	public function footman_form():void {
 		
@@ -68,7 +70,7 @@ public var champ:String;
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-tom.png"));
 						if (club_id == 727)
 							footman_form_loader.load(new URLRequest(serv + "img4/rus-cska.png"));
-					//	break;
+					
 			
 			//case "eng":
 						// форма чемпионата Англии
@@ -77,7 +79,7 @@ public var champ:String;
 						if (club_id > 746 && club_id < 771)
 							footman_form_loader.load(new URLRequest(serv + "forms-england/" + club_id + ".png"));
 						
-						
+						// вся остальная форма
 						if (club_id >= 771 ) 
 							footman_form_loader.load(new URLRequest(serv + "forms/" + club_id + ".png"));
 						

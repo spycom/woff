@@ -6,10 +6,12 @@ package data {
 
 	public class transfer_get extends Sprite {
 		
-public var footman_buy:Loader;		
+public var footman_buy;		
 public var id1:int;
 public var id2:int;
 public var status:int;
+[Embed(source='/Users/Art/Dropbox/FF/img10/buy.png')]
+private var footman_buy_bitmap:Class;
 
 		public function transfer_get() {
 			this.buttonMode = true;
@@ -24,8 +26,8 @@ public var status:int;
 			//this.mouseChildren = false;
 			
 			
-			footman_buy = new Loader();
-			footman_buy.load(new URLRequest("http://woff73.valuehost.ru/woff_images/" + "img10/buy.png"));
+			footman_buy = new footman_buy_bitmap();
+			//footman_buy.load(new URLRequest("http://woff73.valuehost.ru/woff_images/" + "img10/buy.png"));
 			footman_buy.y = 2;
 			//footman_buy.addEventListener(MouseEvent.MOUSE_OVER, buyOverEvent);
 			//footman_buy.addEventListener(MouseEvent.MOUSE_OUT, buyOutEvent);

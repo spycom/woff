@@ -5,21 +5,27 @@ package data {
 	import flash.filters.BevelFilter;
 	import flash.net.*;
 	
-	public class info_b extends Sprite {
+public class info_b extends Sprite {
 	
 	private var uid:String;
 	private var bevelFilter:BevelFilter;
-	private var info:Loader;
-	
+	private var info;
+	private var info_sprite:Sprite;
+	[Embed(source='/Users/Art/Dropbox/FF/img3/info.png')]
+	private var info_bitmap:Class;
+
 public function info_b(uid_:String) {
 
 		uid = uid_;
-			info = new Loader();
-			info.load(new URLRequest("http://woff73.valuehost.ru/woff_images/img3/info.png"));
-			info.addEventListener(MouseEvent.CLICK, infoHandler);
-			info.addEventListener(MouseEvent.MOUSE_OVER, infoOver);
-			info.addEventListener(MouseEvent.MOUSE_OUT, infoOut);
-			addChild(info);
+			info = new info_bitmap();
+			//info.load(new URLRequest("http://woff73.valuehost.ru/woff_images/img3/info.png"));
+			info_sprite = new Sprite();
+			info_sprite.addChild(info);
+			
+			info_sprite.addEventListener(MouseEvent.CLICK, infoHandler);
+			info_sprite.addEventListener(MouseEvent.MOUSE_OVER, infoOver);
+			info_sprite.addEventListener(MouseEvent.MOUSE_OUT, infoOut);
+			addChild(info_sprite);
 			
 			bevelFilter = new BevelFilter();
 			bevelFilter.distance = 2;

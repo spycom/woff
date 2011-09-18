@@ -18,6 +18,7 @@ package {
 	import data.footman_form;
 	import data.hint;
 	import data.loadingProc;
+	import data.panel;
 	import data.rules_s;
 	import data.sostav_b;
 	import data.team_role_pic;
@@ -42,7 +43,7 @@ package {
 	import ru.etcs.ui.MouseWheel;
 	
 
-	public class FF extends Sprite{
+public class FF extends Sprite{
 
 private var version:Version;
 private var status:text;
@@ -360,7 +361,6 @@ private var scroll_timer_clubs:Timer;
 private var scroll_timer_ftb:Timer;
 private var scroll_timer_tours:Timer;
 
-
 private var team_list:Sprite;
 private var safe_team_list:Sprite;
 private var all_lig_list:Sprite;
@@ -421,7 +421,7 @@ private var help_button:Sprite;
 private var main_button:Sprite; 
 private var mainhelp_button:Sprite;
 private var help_buttontxt:text;
-private var help_exit:Sprite;
+//private var help_exit:Sprite;
 private var help:Sprite;
 private var window:String;
 
@@ -576,9 +576,13 @@ private var down_arrows:Array;
 private var friends_league_avatar:UserAvatar;
 private var main4_avatar:Loader;
 private var tour_array:Array;
+//private var leftPanel:panel;
+
 private var lc:LoaderContext;
 [Embed(source='/Users/Art/Dropbox/FF/img3/razdelitel.png')]
 private var razdelitel_b:Class;
+[Embed(source='/Users/Art/Dropbox/FF/img10/zebra3.png')]
+private var zebra3_bitmap:Class;
 
 	public function FF() {
 		
@@ -616,7 +620,6 @@ private var razdelitel_b:Class;
 		woff_general_request.method = URLRequestMethod.GET;
 		woff_general_request.contentType = "text/xml";
 		
-		//woff_uid = 1;
 		woff_secret = stage.loaderInfo.parameters.api_secret;
 		woff_uid = stage.loaderInfo.parameters.viewer_id;
 		//woff_uid = 64416;
@@ -713,37 +716,7 @@ private var razdelitel_b:Class;
 		star.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		star.contentLoaderInfo.addEventListener(Event.COMPLETE, starLoadComplete);
 		
-		/*
-		star2 = new Loader();
-		star2.load(new URLRequest(serv + "img2/star.png"));
-		star2.x = 350;
-		star2.y = 193;
-		star2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		
-		star3 = new Loader();
-		star3.load(new URLRequest(serv + "img2/star.png"));
-		star3.x = 45;
-		star3.y = 312;
-		star3.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		
-		star4 = new Loader();
-		star4.load(new URLRequest(serv + "img2/star.png"));
-		star4.x = 350;
-		star4.y = 312;
-		star4.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		
-		star5 = new Loader();
-		star5.load(new URLRequest(serv + "img2/star.png"));
-		star5.x = 45;
-		star5.y = 433;
-		star5.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		
-		star6 = new Loader();
-		//star6.load(new URLRequest(serv + "img2/star.png"));
-		star6.x = 350;
-		star6.y = 433;
-		star6.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		*/
 		
 		// белый большой блок
 		
@@ -1601,16 +1574,12 @@ private var razdelitel_b:Class;
 		
 		rules_txt1 = new text(25, 100, "ПРАВИЛА", "1");
 		rules_txt1.addEventListener(MouseEvent.MOUSE_OVER, mouseOverHelp);
-		//rules_txt2 = new text(0, 0, "", "rules");
 		
 		rules = new rules_s();
 		rules.x = 25;
 		rules.y = 120;
 		rules.scrollRect = new Rectangle(0, 0, 615, 345);
 		
-		//rules_txt2.x = 25;
-		//rules_txt2.y = 120;
-		//rules_txt2.scrollRect = new Rectangle(0, 0, 615, 345);
 		test = new text(120, 100, "", "2");
 		
 		main1_txt1 = new text(20, 100, "ЛИДЕРЫ ТУРНИРА", "1");
@@ -1643,7 +1612,6 @@ private var razdelitel_b:Class;
 			main2_txt10_ = new text(495, 175, "00", "11");
 			main2_txt11_ = new text(610, 175, "00", "11");
 		main2_txt12 = new text(430, 225, "Остаток бюджета:    ", "2");
-		//main2_txt12_ = new text(430, 225, "Начальный бюджет:    ", "2");
 		main2_txt13 = new text(430, 240, "Стоимость футболистов:    ", "2");
 		main2_txt14 = new text(429, 273, "Приобрести дополнительный бюджет", "4");
 		main2_txt15 = new text(430, 319, "Базовый трансфер:                             00", "2");
@@ -1667,7 +1635,6 @@ private var razdelitel_b:Class;
 		main2_txt18.addEventListener(MouseEvent.MOUSE_OUT, outBuyTransfers);
 		main2_txt7.addEventListener(MouseEvent.MOUSE_OVER, overTeamButton);
 		
-		
 		main2_txt21.addEventListener(MouseEvent.CLICK, CashLiga);
 		main2_txt21.addEventListener(MouseEvent.MOUSE_OVER, overCashLiga);
 		main2_txt21.addEventListener(MouseEvent.MOUSE_OUT, outCashLiga);
@@ -1681,7 +1648,7 @@ private var razdelitel_b:Class;
 		main3_txt6 = new text( 230, 300, "Название Лиги", "2");
 		main3_txt7 = new text( 510, 300, "количество участников", "2");
 		main3_txt8 = new text( 320, 170, "Лига друзей это круто! В данной лиге участвуют все Ваши друзья, собравшие укомплектованную команду. Приглашайте, соревнуйтесь и выигрывайте. Чем больше друзей - тем больше азарт!", "6");
-		main3_txt8_ = new text( 320, 170, "Общий зачёт! В общем зачете учавствуют все игроки данного Чемпионата. сейчас в разработке, но следите за новостями... !", "6");
+		main3_txt8_ = new text( 320, 170, "Общий зачёт! В общем зачете учавствуют все игроки данного Чемпионата.", "6");
 		main3_txt_inv = new text( 470, 263, "Пригласить друзей", "4");
 		select_leaders_tour_txt = new text(20, 118, "Выберите тур", "2");
 		
@@ -2186,8 +2153,8 @@ private var razdelitel_b:Class;
 				
 				
 			if ((n & 1) == 0) {
-				var zebra_tr:Loader = new Loader();
-				zebra_tr.load(new URLRequest(serv + "img10/zebra3.png"));
+				var zebra_tr = new zebra3_bitmap();
+				//zebra_tr.load(new URLRequest(serv + "img10/zebra3.png"));
 				//zebra_tr.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 				zebra_tr.x = 10;
 				zebra_tr.y = trstat_freq-2;
@@ -2458,80 +2425,7 @@ private var razdelitel_b:Class;
 		
 		
 			
-		//generateTeamList();	
 		
-		/*	
-		footman_array = new Array();
-		footman_club = new Array();
-		for (var nnn:int=1; nnn<13; nnn++) {
-				
-				var freq2:int = new int(27*nnn);
-				
-			number = nnn;
-			
-			if (nnn == 1) {
-				footman_pic = new Loader();
-				footman_pic.load(new URLRequest(serv + "img3/vrat.png"));
-				//footman_pic.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-				footman_pic.x = 154;
-				footman_pic.y = freq2;
-				
-				style = new text(173, 7+freq2, "ВР", "2");
-				
-				footman_array[nnn] = new text(5, freq2, "---", "3");
-				
-				
-			}
-			
-			if (nnn > 1 && nnn < 5) {
-				footman_pic = new Loader();
-				footman_pic.load(new URLRequest(serv + "img3/zaschit.png"));
-				footman_pic.x = 154;
-				footman_pic.y = freq2;
-				style = new text(170, 7+freq2, "ЗАЩ", "2");
-				
-				footman_array[nnn] = new text(5, freq2, "---", "3");
-			}
-			if (nnn > 4 && nnn < 8) {
-				footman_pic = new Loader();
-				footman_pic.load(new URLRequest(serv + "img3/poluzasch.png"));
-				footman_pic.x = 154;
-				footman_pic.y = freq2;
-				
-				style = new text(173, 7+freq2, "ПЗ", "2");
-				
-				footman_array[nnn] = new text(5, freq2, "---", "3");
-			}
-			if (nnn > 7) {
-				footman_pic = new Loader();
-				footman_pic.load(new URLRequest(serv + "img3/napad.png"));
-				footman_pic.x = 154;
-				footman_pic.y = freq2;
-				
-				style = new text(170, 7+freq2, "НАП", "2");
-				
-				footman_array[nnn] = new text(5, freq2, "---", "3");
-			}
-			
-			footman_array[nnn].addEventListener(MouseEvent.CLICK, footmanEvent);
-			
-			footman_club[nnn] = new text(5, 10+freq2, "no club", "2");
-						
-			razdelitel = new Loader();
-			razdelitel.load(new URLRequest(serv + "img3/razdelitel.png"));
-			razdelitel.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-			razdelitel.x = 7;
-			razdelitel.y = 25+freq2;
-			
-			team_list.addChild(footman_array[nnn]);
-			team_list.addChild(footman_club[nnn]);
-			team_list.addChild(footman_pic);
-			team_list.addChild(razdelitel);
-			team_list.addChild(style);
-		}
-		 * 
-		 * 
-		 */
 		
 		// генерация списка всех лиг
 		
@@ -2637,8 +2531,10 @@ private var razdelitel_b:Class;
 		main4_avatar.load(new URLRequest("http://cs4571.vkontakte.ru/u64416/d_dcd73d6f.jpg"));
 		main4_avatar.x = 235;
 		main4_avatar.y = 139;
-		main4_avatar.scaleX = 1;
-		main4_avatar.scaleY = 1;
+		//main4_avatar.scaleX = 1;
+		//main4_avatar.scaleY = 1;
+		
+		//leftPanel = new panel();
 		
 		var 
 			game_movie_clip : MovieClip = new MovieClip(), // MovieClip в который будет вставляться баннер
@@ -2684,6 +2580,7 @@ private var razdelitel_b:Class;
 		removeChild(load);
 		window = "main";
 		
+		//-------------------------------// 
 		current_tournament = 5;
 		background = background2;
 		setMethod("getProfile"); // загрузка 1-го профиля в ЧР
@@ -2692,7 +2589,7 @@ private var razdelitel_b:Class;
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadComplete);
 		woff_Profile_loader.load(woff_general_request);
 		
-		
+		//-------------------------------// 
 		current_tournament = 6;
 		setMethod("getProfile"); // загрузка 2-го профиля в ЧА
 		
@@ -2700,7 +2597,7 @@ private var razdelitel_b:Class;
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadEnglandComplete);
 		woff_Profile_loader.load(woff_general_request);
 		
-		
+		//-------------------------------// 
 		/*
 		current_tournament = 2;
 		setMethod("getProfile"); // загрузка 3-го профиля в Ч Италии
@@ -2727,6 +2624,7 @@ private var razdelitel_b:Class;
 		woff_Profile_loader.load(woff_general_request);
 		*/
 		
+		//-------------------------------// 	
 		addChild(main);
 			main.addChild(background);
 			main.addChild(logo2);
@@ -2867,12 +2765,7 @@ private var razdelitel_b:Class;
 		woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
 		woff_Team_loader.load(woff_general_request);
 		
-		//setMethod("getLeaders");
-		
-		//var woff_Leaders_loader:URLLoader = new URLLoader();
-		//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
-		//woff_Leaders_loader.load(woff_general_request);
-			getLeaders(1, current_new_tour);
+		getLeaders(1, current_new_tour);
 			
 		setMethod("getSaveDate");
 		
@@ -3106,7 +2999,7 @@ private var razdelitel_b:Class;
 			*/
 			main1.addChild(stat_hint);
 				
-				
+			
 	}
 	
 	// переход к чемпионату англии
@@ -3724,6 +3617,7 @@ private var razdelitel_b:Class;
 		
 		window = "main";
 		
+		//-------------------------------// 
 		woff_general_request.url = woff_api3;
 		current_tournament = 5;
 		setMethod("getProfile");// загрузка 1-го профиля в ЧР
@@ -3732,6 +3626,7 @@ private var razdelitel_b:Class;
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadComplete);
 		woff_Profile_loader.load(woff_general_request);
 		
+		//-------------------------------// 
 		//woff_general_request.url = woff_api3;
 		current_tournament = 6;
 		setMethod("getProfile"); // загрузка 2-го профиля в Ч-Англии
@@ -3740,6 +3635,7 @@ private var razdelitel_b:Class;
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadEnglandComplete);
 		woff_Profile_loader.load(woff_general_request);
  
+		//-------------------------------// 
 		//woff_general_request.url = woff_api3;
 		/*current_tournament = 2;
 		setMethod("getProfile"); // загрузка 3-го профиля в Ч Италии
@@ -3757,6 +3653,7 @@ private var razdelitel_b:Class;
 		woff_Profile_loader.load(woff_general_request);
 		*/
 		
+		//-------------------------------// 
 		//woff_general_request.url = woff_api3;
 		current_tournament = 7;
 		setMethod("getProfile"); // загрузка 4-го профиля в Лиге Чемпионов
@@ -3764,6 +3661,8 @@ private var razdelitel_b:Class;
 		var woff_Profile_loader:URLLoader = new URLLoader();
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadChampComplete);
 		woff_Profile_loader.load(woff_general_request);
+		
+		//-------------------------------// 
 		
 		addChild(main);
 			main.addChild(background);
@@ -3900,17 +3799,17 @@ private var razdelitel_b:Class;
 			help.addChild(button3txt);
 			help.addChild(button4txt);
 				button1txt.setColor("0xffffff");
-				button2txt.setColor("0x696969");
+				button2txt.setColor("0xffffff");
 				button3txt.setColor("0xffffff");
 				button4txt.setColor("0xffffff");
-		
+		/*
 		help_exit = new Sprite();
 		help_exit.graphics.beginFill(0x000000,1);
 		help_exit.graphics.lineStyle(1);
 		help_exit.graphics.drawRoundRect(12, 95, 290, 110, 10);
 		help_exit.alpha = 0.5;
 		help_exit.addEventListener(MouseEvent.CLICK, helpExitButton);
-		
+		*/
 			//help.addChild(help_exit);
 			help.addChild(button1);
 			help.addChild(button2);
@@ -4796,7 +4695,6 @@ private var razdelitel_b:Class;
 			main2.addChild(main2_txt11_);
 			main2.addChild(main2_txt12);
 			main2.addChild(main2_txt13);
-				//main2_txt14.setText("Приобрести 10`000`000 EU за "+ current_tax +" MP");
 			main2.addChild(main2_txt14);
 			main2.addChild(main2_txt15);
 			main2.addChild(main2_txt16);
@@ -4813,7 +4711,8 @@ private var razdelitel_b:Class;
 			
 			main2.addChild(stat_hint);
 			
-			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
+			//main2.addChild(leftPanel);
+				//leftPanel.panelShow();
     	
     			if (woff_isAppUser !== 1) {
     			addChild(errorSprite);
@@ -10935,29 +10834,12 @@ private var razdelitel_b:Class;
 		private function drawFieldEvent(e:MouseEvent):void {
 			
 			var raw:BitmapData = new BitmapData(field.width, field.height+50);
-			//raw = new BitmapData(640, 480);
-			//camera.x += 30;
 			raw.draw(field);
 			raw.draw(footman_list);
 			raw.draw(safe_team_list);
-			//camera.x += 30;
-			//raw.draw(logo2);
-			//raw.draw(stage);
-			//main2.removeChild(camera);
-			/*
-            var croppedBD:BitmapData = new BitmapData(field.width, field.height);
-            croppedBD.copyPixels(raw, new Rectangle(20, 130, field.width, field.height), new Point(0, 0));
-            
-            raw.dispose();
-            * 
-      		 */
+			
       		var brr:ByteArray = PNGEncoder.encode(raw);
       		 
-			/*
-			croppedBD.dispose();
-			 * 
-			 */
-			//var fil:FileReference = new FileReference();
 			main2.removeChild(camera);
 			
 			var SaveOfferWindow = new SaveOffer(brr, woff_uid, 1848099, "DuIP8H5HnE", wrapper, champ);
@@ -10971,42 +10853,22 @@ private var razdelitel_b:Class;
 		private function drawFieldEvent_offer():void {
 			
 			var raw:BitmapData = new BitmapData(field.width, field.height+50);
-			//raw = new BitmapData(640, 480);
-			//camera.x += 30;
 			raw.draw(field);
 			raw.draw(footman_list);
 			raw.draw(safe_team_list);
-			//camera.x += 30;
-			//raw.draw(logo2);
-			//raw.draw(stage);
-			//main2.removeChild(camera);
-			/*
-			var croppedBD:BitmapData = new BitmapData(field.width, field.height);
-			croppedBD.copyPixels(raw, new Rectangle(20, 130, field.width, field.height), new Point(0, 0));
 			
-			raw.dispose();
-			* 
-			*/
 			var brr:ByteArray = PNGEncoder.encode(raw);
 			
-			/*
-			croppedBD.dispose();
-			* 
-			*/
-			//var fil:FileReference = new FileReference();
 			main2.removeChild(camera);
 			
 			var SaveOfferWindow = new SaveOffer(brr, woff_uid, 1848099, "DuIP8H5HnE", wrapper, champ);
 			addChild(SaveOfferWindow);
 			
-			// !!!!!!!!!!!!!
-			//fil.save(brr, "FantasyTeam.png");
 			
 		}
 		
 		public function drawFieldOver(e:MouseEvent):void {
 			camera.filters = [myGlow];
-			//camera.x += 20;
 		}
 		public function drawFieldOut(e:MouseEvent):void {
 			camera.filters = [];
@@ -11092,39 +10954,29 @@ private var razdelitel_b:Class;
 			top4 = new Bitmap(top.bitmapData);
 			top4.x = 550;
 		}
-		//
+		//размножение картинки
 		private function blocknationLoadComplete(e:Event):void {
 			var blocknation_:Bitmap = e.target.content as Bitmap;
 			
 			blocknation2 = new Bitmap(blocknation_.bitmapData);
-			//blocknation2.load(new URLRequest(serv + "img2/block-nation.png"));
 			blocknation2.x = 10;
 			blocknation2.y =225;
-			//blocknation2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 			
 			blocknation3 = new Bitmap(blocknation_.bitmapData);
-			//blocknation3.load(new URLRequest(serv + "img2/block-nation.png"));
 			blocknation3.x = 10;
 			blocknation3.y =345;
-			//blocknation3.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 			
 			blocknation4 = new Bitmap(blocknation_.bitmapData);
-			//blocknation4.load(new URLRequest(serv + "img2/block-nation.png"));
 			blocknation4.x = 325;
 			blocknation4.y =105;
-			//blocknation4.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 			
 			blocknation5 = new Bitmap(blocknation_.bitmapData);
-			//blocknation5.load(new URLRequest(serv + "img2/block-nation.png"));
 			blocknation5.x = 325;
 			blocknation5.y =225;
-			//blocknation5.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 			
 			blocknation6 = new Bitmap(blocknation_.bitmapData);
-			//blocknation6.load(new URLRequest(serv + "img2/block-nation.png"));
 			blocknation6.x = 325;
 			blocknation6.y = 345;
-			//blocknation6.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 			
 		}
 		
