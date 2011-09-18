@@ -1008,13 +1008,8 @@ private var zebra3_bitmap:Class;
 		page_button = new Array();
 		for (var button=0; button < 6; button++) {
 			page_button[button] = new LeadersPartButton(button);
-			//page_button[button].load(new URLRequest(serv + "img5/page.png"));
 			page_button[button].x = 10+button*34;
 			page_button[button].y = 115;
-			//page_button[button].contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-			
-			//page_button_sprite[button] = new LeadersPartButton(button);
-			//page_button_sprite[button].addEventListener(MouseEvent.MOUSE_OVER, page_buttonOvernEvent);
 			page_button[button].addEventListener(MouseEvent.CLICK, page_button_ClickEvent);
 			
 			page_button_sprite.addChild(page_button[button]);
@@ -1544,7 +1539,7 @@ private var zebra3_bitmap:Class;
 		main_txt355 = new text(100, 295, "Название команды: --", "2");
 		main_txt36 = new text(55, 310, "", "2");
 		
-		main_txt421 = new text(410, 240, "ЧЕМПИОНАТ ИСПАНИИ", "1");
+		main_txt421 = new text(410, 240, "ЧЕМПИОНАТ ИСПАНИИ - ОКОНЧЕН", "1");
 		main_txt422 = new text(410, 255, "Любимый клуб: --", "2");
 		main_txt423 = new text(410, 265, "Участие в платном турнире: --", "2");
 		main_txt424 = new text(410, 275, "Лучшая игра: --", "2");
@@ -1552,7 +1547,7 @@ private var zebra3_bitmap:Class;
 		main_txt4255 = new text(410, 295, "Название команды: --", "2");
 		main_txt426 = new text(363, 310, "", "2");
 		
-		main_txt51 = new text(100, 360, "ЧЕМПИОНАТ ИТАЛИИ", "1");
+		main_txt51 = new text(100, 360, "ЧЕМПИОНАТ ИТАЛИИ - ОКОНЧЕН", "1");
 		main_txt52 = new text(100, 375, "Любимый клуб: --", "2");
 		main_txt53 = new text(100, 385, "Участие в платном турнире: --", "2");
 		main_txt54 = new text(100, 395, "Лучшая игра: --", "2");
@@ -1560,7 +1555,7 @@ private var zebra3_bitmap:Class;
 		main_txt555 = new text(100, 415, "Название команды: --", "2");
 		main_txt56 = new text(55, 430, "", "2");
 		
-		main_txt621 = new text(410, 360, "ЕВРОТУРНИР", "1");
+		main_txt621 = new text(410, 360, "ЕВРОТУРНИР - ОКОНЧЕН", "1");
 		main_txt622 = new text(410, 375, "Любимый клуб: --", "2");
 		main_txt623 = new text(410, 385, "Участие в платном турнире: --", "2");
 		main_txt624 = new text(410, 395, "Лучшая игра: --", "2");
@@ -1789,6 +1784,8 @@ private var zebra3_bitmap:Class;
 		button4_euro.useHandCursor = true;
 		
 		load = new Sprite();
+		load.alpha = 0;
+		
 		help = new Sprite();
 	
 		main = new Sprite();
@@ -2381,7 +2378,7 @@ private var zebra3_bitmap:Class;
 			
 			var iii:int;
 			
-			for (var ii:int=1; ii<6; ii++) {
+			for (var ii:int=1; ii<=5; ii++) {
 				number = ii;
 				var freq3:int = new int(23*(ii-1));
 				/*
@@ -2403,6 +2400,8 @@ private var zebra3_bitmap:Class;
 				p_liga[ii] = new text(11,freq3,"Создать лигу", "2");
 				p_liga_poi[ii] = new text(170, freq3, "", "2");
 				p_liga[ii].addEventListener(MouseEvent.CLICK, ligaEvent);
+				p_liga[ii].addEventListener(MouseEvent.MOUSE_OVER, overTextEvent);
+				p_liga[ii].addEventListener(MouseEvent.MOUSE_OUT, outTextEvent);
 			//})
 			//}
 			p_liga_backup[ii] = new text(0,0,"", "2");
@@ -2434,6 +2433,8 @@ private var zebra3_bitmap:Class;
 			var lig_freq:int = lig_n * 20;
 			all_lig[lig_n] = new text(5, lig_freq, "---", "3");
 			all_lig[lig_n].addEventListener(MouseEvent.CLICK, ligaEvent);
+			all_lig[lig_n].addEventListener(MouseEvent.MOUSE_OVER, overTextEvent);
+			all_lig[lig_n].addEventListener(MouseEvent.MOUSE_OUT, outTextEvent);
 			
 			all_lig_p[lig_n] = new text(353, lig_freq, "00", "11");	
 			
@@ -2447,7 +2448,6 @@ private var zebra3_bitmap:Class;
 		sostav = new Array();
 		nazvanie = new Array();
 		points_ = new Array();
-		//var uids_array:Array = new Array();
 		
 		for (var i:int=0; i<100; i++) {
 				
@@ -2472,18 +2472,14 @@ private var zebra3_bitmap:Class;
 			liders_list.addChild(nazvanie[i]);
 			liders_list.addChild(points_[i]);
 			liders_list.addChild(sostav[i]);
-			}
+		}
 			
 			var blablabla:Array = new Array();
 			blablabla.push(0);
 			user_photo = new vk_photo(woff_uid, blablabla);
 			liders_list.addChild(user_photo);
 			
-			//var user_photo:vk_photo = new vk_photo(woff_uid, uids_array);
-			//user_photo.x = 0;
-			//user_photo.y = 0;
-			//liders_list.addChild(user_photo);
-		
+			
 		 
 		
 		myGlow = new GlowFilter();
@@ -2532,10 +2528,8 @@ private var zebra3_bitmap:Class;
 		//main4_avatar.scaleX = 1;
 		//main4_avatar.scaleY = 1;
 		
-		//leftPanel = new panel();
-		
-		var 
-			game_movie_clip : MovieClip = new MovieClip(), // MovieClip в который будет вставляться баннер
+		//баннер с рекламой приложений
+		var game_movie_clip : MovieClip = new MovieClip(), // MovieClip в который будет вставляться баннер
      	 banner_pid : int = 176, // идентификатор приложения "World of Fantasy Football" в сети Appgrade
     	  banner_x : int = 0, // координата X панели с баннерами
     	  banner_y : int = 485, // координата Y панели с баннерами
@@ -2544,6 +2538,7 @@ private var zebra3_bitmap:Class;
    	 AppgradeBannerRotator.init_rotator(game_movie_clip, banner_pid, banner_x, banner_y, banner_width);
 		
 		addChild(game_movie_clip);
+		
 		check_team_trigger = 2;
 		
 	}
@@ -2559,7 +2554,7 @@ private var zebra3_bitmap:Class;
 			load.addChild(status);
 			load.addChild(logo);
 			load.addChild(loader3);
-		load.alpha = 0;
+		
 		begin_timer.start();
 		preload_timer.start();
 		loadStatus_timer.start();
@@ -8136,6 +8131,13 @@ private var zebra3_bitmap:Class;
 			//tour_array[tour].x += 30;
 			e.currentTarget.filters = [];
 		}
+		// общая функция выделеня текста при наведении мышки
+		private function overTextEvent(e:MouseEvent):void {
+			e.currentTarget.filters = [myGlow_blue];
+		}
+		private function outTextEvent(e:MouseEvent):void {
+			e.currentTarget.filters = [];
+		}
 		// фунция окончания загрузки информации по турниру ЧР
 		
 		public function woffTornamentLoadComplete(e:Event):void {
@@ -10643,7 +10645,7 @@ private var zebra3_bitmap:Class;
 		}
 		
 		public function setMP():void {
-			all_txt4.setText("ololo");
+			//all_txt4.setText("ololo");
 		}
 		
 		public function addLeadersButtons():void {
@@ -10651,7 +10653,7 @@ private var zebra3_bitmap:Class;
 				main1.addChild(page_button_sprite);
 				
 		}
-		
+		/*
 		public function page_buttonOvernEvent(e:MouseEvent):void {
 			e.target.filters = [myBevel];
 		}
@@ -10661,7 +10663,7 @@ private var zebra3_bitmap:Class;
 		public function page_button_textOverEvent(e:MouseEvent):void {
 			page_button[e.currentTarget.id].filters = [myBevel];
 			
-		}
+		}*/
 		public function page_button_ClickEvent(e:MouseEvent):void {
 			getLeaders(e.currentTarget.id+1, current_new_tour);
 			
