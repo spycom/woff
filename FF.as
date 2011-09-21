@@ -6471,11 +6471,11 @@ private var zebra3_bitmap:Class;
 				loadedFiles += total;
 			}
 			
-			var PersentLoaded:Number = Math.round((loadedFiles/389000)*100); 
+			var PersentLoaded:Number = Math.round((loadedFiles/381000)*100); 
 			
 			//status.text = "Загрузка " + PersentLoaded + "% " + loadedFiles;
 			status.setText("Загрузка " + PersentLoaded + "% ");
-			//status.setTextFormat(textFormatBlack);
+			
 		}
 		
 		// обработчики таймеров
