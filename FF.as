@@ -652,6 +652,9 @@ private var zebra3_bitmap:Class;
 		
 		// загрузка первого кадра
 		
+		var myShadow_o = new DropShadowFilter();
+			myShadow_o.distance = 2;
+		
 		background = new Loader();
 		
 		background1 = new Loader();
@@ -729,6 +732,7 @@ private var zebra3_bitmap:Class;
 		block2.x = 220;
 		block2.y = 120;
 		block2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		block2.filters = [myShadow_o];
 		
 		// блок для страны х6
 		blocknation = new Loader();
@@ -782,6 +786,7 @@ private var zebra3_bitmap:Class;
 		liders.scaleY = 0.95;
 		liders.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		liders.addEventListener(MouseEvent.MOUSE_WHEEL, lidersWheelHandler);
+		liders.filters = [myShadow_o];
 		
 		// кнопки
 		
@@ -964,6 +969,7 @@ private var zebra3_bitmap:Class;
 		input.x = 425;
 		input.y = 240;
 		input.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		input.filters = [myShadow_o];
 		
 		// следующее сохранение заявки
 		input2 = new Loader();
@@ -971,6 +977,7 @@ private var zebra3_bitmap:Class;
 		input2.x = 425;
 		input2.y = 280;
 		input2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		input2.filters = [myShadow_o];
 		
 		select = new Loader();
 		select.load(new URLRequest(serv + "img3/select.png"));
@@ -978,6 +985,7 @@ private var zebra3_bitmap:Class;
 		select.y = 120;
 		select.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		select.addEventListener(MouseEvent.CLICK, dropdowm_menu);
+		select.filters = [myShadow_o];
 		
 		//выбор тура на 2-й странице
 		select2 = new Loader();
@@ -986,7 +994,7 @@ private var zebra3_bitmap:Class;
 		select2.y = 100;
 		select2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		select2.addEventListener(MouseEvent.CLICK, dropdowm_menu2);
-		
+		select2.filters = [myShadow_o];
 		
 		//выбор тура для списка лидеров
 		select_leaders = new Loader();
@@ -995,6 +1003,7 @@ private var zebra3_bitmap:Class;
 		select_leaders.y = 115;
 		select_leaders.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		select_leaders.addEventListener(MouseEvent.CLICK, dropdowm_menu_leaders);
+		select_leaders.filters = [myShadow_o];
 		
 		select_st = new Loader();
 		select_st.load(new URLRequest(serv + "img3/select.png"));
@@ -1002,6 +1011,7 @@ private var zebra3_bitmap:Class;
 		select_st.y = 100;
 		select_st.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		select_st.addEventListener(MouseEvent.CLICK, dropdowm_menu3);
+		select_st.filters = [myShadow_o];
 		
 		// кнопки страниц списка лидеров
 		page_button_sprite = new Sprite();
@@ -1038,7 +1048,13 @@ private var zebra3_bitmap:Class;
 		
 		myBevel = new BevelFilter();
 		myBevel.strength = 0.5;
+		
 		myShadow = new DropShadowFilter();
+		
+		
+		var myShadow_i = new DropShadowFilter();
+		myShadow_i.inner = true;
+		myShadow_i.distance = 2;
 		
 		scroll2.filters = [myBevel];
 		scroll2.scaleX = 1.6;
@@ -1143,24 +1159,28 @@ private var zebra3_bitmap:Class;
 		rating.x = 510;
 		rating.y = 123;
 		rating.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		rating.filters = [myShadow_o];
 		
 		rating2 = new Loader();
 		rating2.load(new URLRequest(serv + "img4/rating.png"));
 		rating2.x = 510;
 		rating2.y = 170;
 		rating2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		rating2.filters = [myShadow_o];
 		
 		points = new Loader();
 		points.load(new URLRequest(serv + "img4/points.png"));
 		points.x = 425;
 		points.y = 123;
 		points.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		points.filters = [myShadow_o];
 		
 		points2 = new Loader();
 		points2.load(new URLRequest(serv + "img4/points.png"));
 		points2.x = 425;
 		points2.y = 170;
 		points2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		points2.filters = [myShadow_o];
 		
 		search_form = new Loader();
 		search_form.load(new URLRequest(serv + "img4/points.png"));
@@ -1175,6 +1195,7 @@ private var zebra3_bitmap:Class;
 		budget.x = 425;
 		budget.y = 220;
 		budget.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		budget.filters = [myShadow_o];
 		
 		// трансферы
 		transfers = new Loader();
@@ -1182,6 +1203,7 @@ private var zebra3_bitmap:Class;
 		transfers.x = 425;
 		transfers.y = 318;
 		transfers.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		transfers.filters = [myShadow_o];
 		
 		// приз
 		prize = new Loader();
@@ -1189,6 +1211,7 @@ private var zebra3_bitmap:Class;
 		prize.x = 25;
 		prize.y = 440;
 		prize.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		prize.filters = [myShadow_o];
 		
 		// лиги
 		liga = new Loader();
@@ -1196,6 +1219,7 @@ private var zebra3_bitmap:Class;
 		liga.x = 425;
 		liga.y = 334;
 		liga.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		liga.filters = [myShadow_o];
 		
 		// второе окно
 			// кнопка "игроки"
@@ -1275,12 +1299,14 @@ private var zebra3_bitmap:Class;
 		liga2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		liga2.x = 217;
 		liga2.y = 299;
+		liga2.filters = [myShadow_o];
 		
 		profile = new Loader();
 		profile.load(new URLRequest(serv + "img5/profile.png"));
 		profile.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		profile.x = 217;
 		profile.y = 120;
+		profile.filters = [myShadow_o];
 		
 		ava_big = new Loader();
 		ava_big.load(new URLRequest(serv + "img5/ava-big.png"));
@@ -1323,6 +1349,7 @@ private var zebra3_bitmap:Class;
 		match.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		match.x = 495;
 		match.y = 120;
+		match.filters = [myShadow_o];
 		
 		table3 = new Loader();
 		table3.load(new URLRequest(serv + "img10/table3.png"));
@@ -1330,6 +1357,7 @@ private var zebra3_bitmap:Class;
 		table3.addEventListener(MouseEvent.MOUSE_WHEEL, transfersWheelHandler);
 		table3.x = 102;
 		table3.y = 125;
+		//table3.filters = [myShadow_o];
 		
 		transfers2 = new Loader();
 		transfers2.load(new URLRequest(serv + "img10/transfers2.png"));
@@ -1337,6 +1365,7 @@ private var zebra3_bitmap:Class;
 		transfers2.x = 12;
 		transfers2.y = 120;
 		transfers2.addEventListener(MouseEvent.MOUSE_WHEEL, transfersWheelHandler);
+		transfers2.filters = [myShadow_o];
 		
 		zebra3 = new Loader();
 		zebra3.load(new URLRequest(serv + "img10/zebra3.png"));
@@ -2526,6 +2555,14 @@ private var zebra3_bitmap:Class;
 		//main4_avatar.scaleX = 1;
 		//main4_avatar.scaleY = 1;
 		
+			stage.addEventListener(MouseEvent.MOUSE_OVER, function() {
+				MouseWheel.capture();
+			});
+		
+			stage.addEventListener(MouseEvent.MOUSE_OUT, function() {
+				MouseWheel.release();
+			});
+
 		//баннер с рекламой приложений
 		var game_movie_clip : MovieClip = new MovieClip(), // MovieClip в который будет вставляться баннер
      	 banner_pid : int = 176, // идентификатор приложения "World of Fantasy Football" в сети Appgrade
@@ -4007,36 +4044,12 @@ private var zebra3_bitmap:Class;
 			main1.addChild(scroll2);
 			main1.addChild(stat_hint);
 		}
+	
 	public function button2event(e:Event):void {
-		/*
-		if (window == "main1") {
-			removeChild(main1);
-		} 
-		if (window == "main3") {
-			removeChild(main3);
-		}
-		if (window == "main4") {
-			removeChild(main4);
-		} 
-		if (window == "help") {
-			removeChild(help);
-		}
-		if (window == "footman") {
-			removeChild(footman);
-		}
-		if (window == "team_sostav") {
-			removeChild(team_sostav);
-		}
-		if (window == "team_stat") {
-			removeChild(team_stat);
-		}
-		if (window == "transfer") {
-			removeChild(transfer);
-		}
-		*/
+		
 		closeCurrentWindow();
 		
-		window = "main2";
+			window = "main2";
 		
 		current_team_id = woff_uid;
 		
@@ -8817,7 +8830,7 @@ private var zebra3_bitmap:Class;
 			
 			private function lidersWheelHandler(e:MouseEvent):void {
 				//scrollTimerEvent(e);
-				MouseWheel.capture(); 
+				 
 				
 				if (scroll2.y >= 149 && scroll2.y <= 392) {
 				var rect:Rectangle = liders_list.scrollRect;
@@ -8934,7 +8947,7 @@ private var zebra3_bitmap:Class;
 			
 			private function transfersWheelHandler(e:MouseEvent):void {
 				//scrollTimerEvent(e);
-				MouseWheel.capture(); 
+				//MouseWheel.capture(); 
 				
 				if (scroll_tr.y >= 125 && scroll_tr.y <= 385) {
 					var rect:Rectangle = transfer_list.scrollRect;
