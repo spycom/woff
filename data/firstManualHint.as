@@ -17,6 +17,8 @@ package data {
 private var WelcomeMsgSprite:Sprite;	
 private var WelcomeMsgText:text;
 private var WelcomeMsgFon:Sprite;
+private var WelcomeMsgButtonSprite:Sprite;
+private var WelcomeMsgButton2Sprite:Sprite;
 private var WelcomeMsgClose:text;
 private var WelcomeMsgFAQ:text;
 private var myShadow:DropShadowFilter;
@@ -27,6 +29,8 @@ private var leftPanel:panel;
 		public function firstManualHint () {
 			
 			myShadow = new DropShadowFilter();
+			myShadow.inner = true;
+			myShadow.distance = 2;
 			
 			myBevel = new BevelFilter();
 			myBevel.angle = 90;
@@ -51,14 +55,14 @@ private var leftPanel:panel;
 			
 			WelcomeMsgText = new text(5, 26, "error", "first_hint");
 			
-			WelcomeMsgClose = new text(380, 130, " ЗАКРЫТЬ", "first_hint");
+			WelcomeMsgClose = new text(390, 129, "закрыть", "first_hint");
 			WelcomeMsgClose.addEventListener(MouseEvent.CLICK, WelcomeMsgCloseEvent);
 			WelcomeMsgClose.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgCloseOverEvent);
 			WelcomeMsgClose.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgCloseOutEvent);
 			//WelcomeMsgClose.buttonMode = true;
 			//WelcomeMsgClose.useHandCursor = true;
 			
-			WelcomeMsgFAQ = new text(80, 130, "группа приложения", "first_hint");
+			WelcomeMsgFAQ = new text(80, 129, "группа приложения", "first_hint");
 			WelcomeMsgFAQ.setColor("0x000033");
 			WelcomeMsgFAQ.addEventListener(MouseEvent.CLICK, WelcomeMsgFAQEvent);
 			WelcomeMsgFAQ.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgFAQOverEvent);
@@ -78,7 +82,26 @@ private var leftPanel:panel;
 			WelcomeMsgFon.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod); 
 			WelcomeMsgFon.graphics.lineStyle(2, 0x999999);
 			WelcomeMsgFon.graphics.drawRoundRect(0, 20, 565, 160, 50);
-			WelcomeMsgFon.filters = [myBevel];
+			WelcomeMsgFon.filters = [myBevel, myShadow];
+			
+			WelcomeMsgButtonSprite = new Sprite();
+			WelcomeMsgButtonSprite.graphics.beginFill(0x999999, 1);
+			//WelcomeMsgButtonSprite.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod); 
+			WelcomeMsgButtonSprite.graphics.lineStyle(2, 0x999999);
+			WelcomeMsgButtonSprite.graphics.drawRoundRect(65, 132, 220, 28, 30);
+			WelcomeMsgButtonSprite.filters = [myBevel, myShadow];
+			WelcomeMsgButtonSprite.alpha = 0.2;
+			
+			WelcomeMsgButton2Sprite = new Sprite();
+			
+			WelcomeMsgButton2Sprite.graphics.beginFill(0x999999, 1);
+			//WelcomeMsgButton2Sprite.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod); 
+			WelcomeMsgButton2Sprite.graphics.lineStyle(2, 0x999999);
+			WelcomeMsgButton2Sprite.graphics.drawRoundRect(370, 132, 120, 28, 30);
+			WelcomeMsgButton2Sprite.filters = [myBevel, myShadow];
+			WelcomeMsgButton2Sprite.alpha = 0.2;
+			
+			
 			
 			addChild(WelcomeMsgSprite);
 					WelcomeMsgText.setText("	" +
@@ -91,7 +114,9 @@ private var leftPanel:panel;
 					
 			WelcomeMsgSprite.addChild(WelcomeMsgBackground);		
 			WelcomeMsgSprite.addChild(WelcomeMsgFon);
-			WelcomeMsgSprite.addChild(WelcomeMsgText);	
+			WelcomeMsgSprite.addChild(WelcomeMsgText);
+			WelcomeMsgSprite.addChild(WelcomeMsgButtonSprite);
+			WelcomeMsgSprite.addChild(WelcomeMsgButton2Sprite);
 			WelcomeMsgSprite.addChild(WelcomeMsgFAQ);		
 			WelcomeMsgSprite.addChild(WelcomeMsgClose);		
 			
@@ -113,16 +138,20 @@ private var leftPanel:panel;
 		
 	}
 	public function WelcomeMsgFAQOverEvent(e:MouseEvent):void {
-		WelcomeMsgFAQ.setColor("0x006699");
+		WelcomeMsgFAQ.setColor("0x333333");
+		WelcomeMsgButtonSprite.alpha = 1;
 	}
 	public function WelcomeMsgFAQOutEvent(e:MouseEvent):void {
 		WelcomeMsgFAQ.setColor("0x003366");
+		WelcomeMsgButtonSprite.alpha = 0.2;
 	}
 	public function WelcomeMsgCloseOverEvent(e:MouseEvent):void {
-		WelcomeMsgClose.setColor("0x006699");
+		WelcomeMsgClose.setColor("0x333333");
+		WelcomeMsgButton2Sprite.alpha = 1;
 	}
 	public function WelcomeMsgCloseOutEvent(e:MouseEvent):void {
 		WelcomeMsgClose.setColor("0x003366");
+		WelcomeMsgButton2Sprite.alpha = 0.2;
 	}
 	
 	public function showMan():void {
