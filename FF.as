@@ -1084,8 +1084,9 @@ private var zebra3_bitmap:Class;
 		// скролл на странице трансферов
 		scroll_tr = new Loader();
 		scroll_tr.load(new URLRequest(serv + "img3/scroll2.png"));
-		scroll_tr.x = 476;
+		scroll_tr.x = 472;
 		scroll_tr.y = 135;
+		scroll_tr.scaleX = 1.6;
 		scroll_tr.filters = [myBevel];
 		scroll_tr.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		scroll_tr.addEventListener(MouseEvent.MOUSE_WHEEL, transfersWheelHandler);
@@ -1187,7 +1188,7 @@ private var zebra3_bitmap:Class;
 		search_form.x = 510;
 		search_form.y = 148;
 		search_form.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		
+		search_form.filters = [myShadow_i];
 		
 		// бюджет
 		budget = new Loader();
@@ -1264,8 +1265,7 @@ private var zebra3_bitmap:Class;
 		button_blue_long2.load(new URLRequest(serv + "img4/button-blue2.png"));
 		button_blue_long2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		button_blue_long2.x = 425;
-		button_blue_long2.y = 370;
-		//button_blue_long2.addEventListener(MouseEvent.CLICK, transferEvent);
+		button_blue_long2.y = 373;
 		
 		button_blue_long.addEventListener(MouseEvent.CLICK, buyBudget);
 		button_blue_long2.addEventListener(MouseEvent.CLICK, buyTransfers);
@@ -2009,7 +2009,7 @@ private var zebra3_bitmap:Class;
 		transfer_txt6.addEventListener(MouseEvent.CLICK, transferSortEff);
 		
 		
-		search_field = new text(520, 151, "", "5");
+		search_field = new text(520, 152, "", "search_query");
 		search_field.addEventListener(KeyboardEvent.KEY_DOWN, searchEvent);
 		
 		// индикация процесса загрузки
@@ -2555,14 +2555,11 @@ private var zebra3_bitmap:Class;
 		//main4_avatar.scaleX = 1;
 		//main4_avatar.scaleY = 1;
 		
-			stage.addEventListener(MouseEvent.MOUSE_OVER, function() {
+			this.addEventListener(MouseEvent.MOUSE_OVER, function() {
 				MouseWheel.capture();
 			});
 		
-			stage.addEventListener(MouseEvent.MOUSE_OUT, function() {
-				MouseWheel.release();
-			});
-
+			
 		//баннер с рекламой приложений
 		var game_movie_clip : MovieClip = new MovieClip(), // MovieClip в который будет вставляться баннер
      	 banner_pid : int = 176, // идентификатор приложения "World of Fantasy Football" в сети Appgrade
@@ -9736,13 +9733,7 @@ private var zebra3_bitmap:Class;
 			public function searchEvent(e:KeyboardEvent):void {
 				if( e.charCode == 13 ){
 					
-					//setTeamName(main1_txt8.txt());
-					
-				//var woff_teamName_loader:URLLoader = new URLLoader();
-				//woff_teamName_loader.addEventListener(Event.COMPLETE, button1event);
-				//woff_teamName_loader.load(woff_general_request);
-				
-					var footballers:XMLList = search_xml.*;
+				var footballers:XMLList = search_xml.*;
 					//var search_xml_res:XMLList = footballers.(name.toLowerCase() == search_field.txt() || name == search_field.txt() || club_title == search_field.txt());
 					
 				
@@ -9755,7 +9746,7 @@ private var zebra3_bitmap:Class;
 					}
 				}
 				
-				search_field.setText("готово");
+				search_field.setText("");
 				
 				fff = [];
 			for (var n:int=1; n < search_xml_res.length()+1; n++) {
@@ -9791,7 +9782,7 @@ private var zebra3_bitmap:Class;
 					var rect:Rectangle = transfer_list.scrollRect;
 					rect.y = 0;
 					transfer_list.scrollRect = rect;
-					scroll_tr.y = 135;
+					scroll_tr.y = 125;
 				}
 			}
 			

@@ -91,6 +91,18 @@ package data {
 			top.maxChars = 39;
 			top.restrict = "A-z,А-я,0-9, ";
 		}
+		
+		// строка ввода
+		if (type == "search_query") {
+			formatter.color = 0x666666;
+			formatter.size = 11;
+			top.type = TextFieldType.INPUT;
+			//top.
+			top.width = 70;
+			top.height = 20;
+			top.maxChars = 20;
+			top.restrict = "A-z,А-я,0-9, ";
+		}
 		// текст ошибок и на странице с лигами
 		if (type == "6") {
 			formatter.color = 0x666666;
