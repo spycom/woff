@@ -28,7 +28,7 @@ private var down_bitmap:Class;
 			var myShadow = new DropShadowFilter();
 			
 			var fillType:String = GradientType.RADIAL;
-			var colors:Array = [0xffffff, 0xE8E8E8];
+			var colors:Array = [0xE8E8E8, 0xCCCCCC];
 			//var colors_b:Array = [0xffffff, 0x000000];
 			var alphas:Array = [1, 1];
 			var ratios:Array = [0, 200];
@@ -47,7 +47,7 @@ private var down_bitmap:Class;
 			
 			var panel_fon:Sprite = new Sprite();
 			panel_fon.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod);
-			panel_fon.graphics.lineStyle(1, 0x999999);
+			panel_fon.graphics.lineStyle(0, 0xCCCCCC);
 			panel_fon.graphics.drawRoundRect(0, 0, 210, 300, 25);
 			
 			var panelText = new text(10, 20, "", "first_hint");

@@ -2193,7 +2193,7 @@ private var zebra3_bitmap:Class;
 			
 			if (z == 1) {
 				
-				footman_form_array[z].x = 20;
+				footman_form_array[z].x = 10;
 				footman_form_array[z].y = 80;
 				footman_name_form[z].x = 5;
 				footman_name_form[z].y = 115;
@@ -2212,7 +2212,7 @@ private var zebra3_bitmap:Class;
 			}
 			
 			if (z > 1 && z < 6) {
-				footman_form_array[z].x = 120;
+				footman_form_array[z].x = 110;
 				footman_form_array[z].y = freq4-60;
 				footman_name_form[z].x = 100;
 				footman_name_form[z].y = freq4-30;
@@ -2231,7 +2231,7 @@ private var zebra3_bitmap:Class;
 			}
 			
 			if (z > 5 && z < 10) {
-				footman_form_array[z].x = 210;
+				footman_form_array[z].x = 200;
 				footman_form_array[z].y = freq4-320;
 				footman_name_form[z].x = 200;
 				footman_name_form[z].y = freq4-290;
@@ -2251,7 +2251,7 @@ private var zebra3_bitmap:Class;
 			
 			if (z > 9 && z < 12) {
 				
-				footman_form_array[z].x = 320;
+				footman_form_array[z].x = 310;
 				footman_form_array[z].y = freq4-515;
 				footman_name_form[z].x = 300;
 				footman_name_form[z].y = freq4-480;
@@ -2271,7 +2271,7 @@ private var zebra3_bitmap:Class;
 			if (z == 12) {
 				footman_up[z] = new up_b(z);
 				
-				footman_form_array[z].x = 10;
+				footman_form_array[z].x = 0;
 				footman_form_array[z].y = 250;
 				footman_name_form[z].x = 0;
 				footman_name_form[z].y = 280;
@@ -2289,10 +2289,8 @@ private var zebra3_bitmap:Class;
 			}
 			if (z > 12 && z < 16) {
 				footman_up[z] = new up_b(z);
-				//footman_up[z].load(new URLRequest(serv + "img4/up.png"));
-				//footman_up[z].addEventListener(MouseEvent.CLICK, footmanUpEvent);
 				
-				footman_form_array[z].x = (z-12)*100+10;
+				footman_form_array[z].x = (z-12)*100;
 				footman_form_array[z].y = 250;
 				footman_name_form[z].x = (z-12)*100-10;
 				footman_name_form[z].y = 280;
@@ -4079,15 +4077,7 @@ private var zebra3_bitmap:Class;
 		var woff_MyTournamentScore_loader:URLLoader = new URLLoader();
 		woff_MyTournamentScore_loader.addEventListener(Event.COMPLETE, woffMyTournamentScoreLoadComplete);
 		woff_MyTournamentScore_loader.load(woff_general_request);
-		/*
-		for (var iiiiii:int=1; iiiiii<=15; iiiiii++){
-				footman_list.addChild(footman_form_array[iiiiii]);
-				footman_list.addChild(footman_name_form[iiiiii]);
-				footman_list.addChild(footman_name_txt[iiiiii]);
-				footman_list.addChild(footman_scores[iiiiii]);
-				}		 
-				 * 
-				 */
+		
 		
 		addChild(main2);
 			main2.addChild(background);
@@ -7568,7 +7558,7 @@ private var zebra3_bitmap:Class;
 					footman_down[num+2].y = (250/zope1)*num+15;
 					footman_replace[num+2].x = 170;
 					footman_replace[num+2].y = (250/zope1)*num+15;
-					footman_form_array[num+2].x = 110;
+					footman_form_array[num+2].x = 100;
 					footman_form_array[num+2].y = (250/zope1)*num;
 				}
 				for (var num:int=0; num < zope2; num++) {
@@ -7582,7 +7572,7 @@ private var zebra3_bitmap:Class;
 					footman_down[zope1+num+2].y = (250/zope2)*num+15;
 					footman_replace[zope1+num+2].x = 270;
 					footman_replace[zope1+num+2].y = (250/zope2)*num+15;
-					footman_form_array[zope1+2+num].x = 210;
+					footman_form_array[zope1+2+num].x = 200;
 					footman_form_array[zope1+2+num].y = (250/zope2)*num;
 				}
 				for (var num:int=0; num < zope3; num++) {
@@ -7596,7 +7586,7 @@ private var zebra3_bitmap:Class;
 					footman_down[zope1+zope2+num+2].y = (150/zope3)*num+75;
 					footman_replace[zope1+zope2+num+2].x = 370;
 					footman_replace[zope1+zope2+num+2].y = (150/zope3)*num+75;
-					footman_form_array[zope1+zope2+2+num].x = 310;
+					footman_form_array[zope1+zope2+2+num].x = 300;
 					footman_form_array[zope1+zope2+2+num].y = (150/zope3)*num+60;
 				}
 				
@@ -7939,7 +7929,7 @@ private var zebra3_bitmap:Class;
 					footman_down[num+2].y = (250/zope1)*num+15;
 					footman_replace[num+2].x = 170;
 					footman_replace[num+2].y = (250/zope1)*num+15;
-					footman_form_array[num+2].x = 110;
+					footman_form_array[num+2].x = 100;
 					footman_form_array[num+2].y = (250/zope1)*num;
 					down_arrows[num+2].y = footman_replace[num+2].y+90;
 					
@@ -7955,7 +7945,7 @@ private var zebra3_bitmap:Class;
 					footman_down[zope1+num+2].y = (250/zope2)*num+15;
 					footman_replace[zope1+num+2].x = 270;
 					footman_replace[zope1+num+2].y = (250/zope2)*num+15;
-					footman_form_array[zope1+2+num].x = 210;
+					footman_form_array[zope1+2+num].x = 200;
 					footman_form_array[zope1+2+num].y = (250/zope2)*num;
 					down_arrows[zope1+num+2].y = footman_replace[zope1+num+2].y+90;
 				}
@@ -7970,31 +7960,15 @@ private var zebra3_bitmap:Class;
 					footman_down[zope1+zope2+num+2].y = (150/zope3)*num+75;
 					footman_replace[zope1+zope2+num+2].x = 370;
 					footman_replace[zope1+zope2+num+2].y = (150/zope3)*num+75;
-					footman_form_array[zope1+zope2+2+num].x = 310;
+					footman_form_array[zope1+zope2+2+num].x = 300;
 					footman_form_array[zope1+zope2+2+num].y = (150/zope3)*num+60;
 					down_arrows[zope1+zope2+num+2].y = footman_replace[zope1+zope2+num+2].y+90;
 				}
-						/*			 
-					footman_name_form[12].x = 10;
-					footman_name_form[12].y = 280;
-					footman_name_txt[12].x = 25;
-					footman_name_txt[12].y = 255;
-					footman_scores[12].x = 80;
-					footman_scores[12].y = 255;
-					footman_down[12].x = 60;
-					footman_down[12].y = 264;
-					footman_replace[12].x = 80;
-					footman_replace[12].y = 264;
-					footman_form_array[12].x = 20;
-					footman_form_array[12].y = 250;
-					 * 
-					 */
+						
 	
 			}
-				//main2_txt12.setText("Остаток бюджета:			" + String((current_budget-total_team_cost)/10));
 				main2_txt13.setText("Стоимость футболистов:		" + total_team_cost/10);
-				//all_txt3.setText("EU: " + String((1000-total_team_cost)/10));
-			
+				
 				one.x = 100;
 				one.y = 270;
 				two.x = 200;
