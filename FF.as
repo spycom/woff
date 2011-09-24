@@ -19,6 +19,7 @@ package {
 	import data.hint;
 	import data.loadingProc;
 	import data.panel;
+	import data.panel_transfer;
 	import data.rules_s;
 	import data.sostav_b;
 	import data.team_role_pic;
@@ -576,7 +577,7 @@ private var down_arrows:Array;
 private var friends_league_avatar:UserAvatar;
 private var main4_avatar:Loader;
 private var tour_array:Array;
-
+private var panel_transfer_right:panel_transfer;
 private var lc:LoaderContext;
 [Embed(source='/Users/Art/Dropbox/FF/img3/razdelitel.png')]
 private var razdelitel_b:Class;
@@ -2559,6 +2560,8 @@ private var zebra3_bitmap:Class;
 				MouseWheel.capture();
 			});
 		
+		panel_transfer_right = new panel_transfer();
+		panel_transfer_right.addEventListener(MouseEvent.CLICK, function() { panel_transfer_right.panelHide() });
 			
 		//баннер с рекламой приложений
 		var game_movie_clip : MovieClip = new MovieClip(), // MovieClip в который будет вставляться баннер
@@ -3911,32 +3914,7 @@ private var zebra3_bitmap:Class;
 	// функции кнопок *****
 	
 	public function button1event(e:MouseEvent):void {
-		/*
-		if (window == "main2") {
-			removeChild(main2);
-		} 
-		if (window == "main3") {
-			removeChild(main3);
-		}
-		if (window == "main4") {
-			removeChild(main4);
-		} 
-		if (window == "help") {
-			removeChild(help);
-		}
-		if (window == "footman") {
-			removeChild(footman);
-		}
-		if (window == "team_sostav") {
-			removeChild(team_sostav);
-		}
-		if (window == "team_stat") {
-			removeChild(team_stat);
-		}
-		if (window == "transfer") {
-			removeChild(transfer);
-		}
-		*/
+		
 		closeCurrentWindow();
 		
 		setMethod("getProfile");
@@ -4211,9 +4189,7 @@ private var zebra3_bitmap:Class;
 		current_tournament = 5;
 		
 		down_arrows = new Array();
-		//down_arrows[0] = new down_arrow();
-		//down_arrows[0].x = 200;
-		//down_arrows[0].y = 200;
+		panel_transfer_right.trigger = 1;
 		
 		//обнуление команды
 		for (var zope___:int=1; zope___< 16; zope___++) {
@@ -4387,6 +4363,7 @@ private var zebra3_bitmap:Class;
 		//woff_general_request.url = woff_api1;
 		
 		down_arrows = new Array();
+		panel_transfer_right.trigger = 1;
 		
 		//обнуление команды
 		for (var zope___:int=1; zope___< 16; zope___++) {
@@ -4562,6 +4539,7 @@ private var zebra3_bitmap:Class;
 		woff_general_request.url = woff_api3;
 		
 		down_arrows = new Array();
+		panel_transfer_right.trigger = 1;
 		
 		//обнуление команды
 		for (var zope___:int=1; zope___< 16; zope___++) {
@@ -6071,37 +6049,10 @@ private var zebra3_bitmap:Class;
 		
 		// окно трансферов
 		public function transferEvent(e:Event):void {
-		/*
-			if (window == "main1") {
-			removeChild(main1);
-		} 	
-		if (window == "main2") {
-			removeChild(main2);
-		} 
-		if (window == "main3") {
-			removeChild(main3);
-		}
-		if (window == "main4") {
-			removeChild(main4);
-		} 
-		if (window == "help") {
-			removeChild(help);
-		}
-		if (window == "footman") {
-			removeChild(footman);
-		} 
-		if (window == "team_sostav") {
-			removeChild(team_sostav);
-		}
-		if (window == "team_stat") {
-			removeChild(team_stat);
-		}
-			*/
+		
 			closeCurrentWindow();	
 		
 		window = "transfer";
-		
-		
 		
 		current_id = (e.currentTarget.foot_id);
 		current_role = (e.currentTarget.amplua);
@@ -6189,12 +6140,14 @@ private var zebra3_bitmap:Class;
 			transfer.addChild(transfer_txt4);
 			transfer.addChild(transfer_txt5);
 			transfer.addChild(transfer_txt6);
-			//main1.addChild(hover);
-			
+			transfer.addChild(panel_transfer_right);
+				
+				
 		stage.addChild(loading_balls);
 		
 		var myBlur:BlurFilter = new BlurFilter();
 		transfer.filters = [myBlur];
+		
 		}
 		
 		// функция возврата к странице трансферов
@@ -8609,7 +8562,7 @@ private var zebra3_bitmap:Class;
 				transfer_get_array[nnnn].setId2("--");
 				}
 				
-			
+			panel_transfer_right.panelShow();
 			//dispatchEvent(new Event(Event.COMPLETE));	
 			
 			

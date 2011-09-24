@@ -1,30 +1,32 @@
 package data
 {
-	//import flash.display.Sprite;
+	import flash.display.*;
 	import flash.events.TimerEvent;
-	import flash.utils.Timer;
 	import flash.filters.DropShadowFilter;
 	import flash.geom.Matrix;
-	import flash.display.*;
+	import flash.utils.Timer;
 	//import flash.events.*;
 	//import flash.filters.*;
 	//import flash.geom.Matrix;
 	//import flash.net.*;
 	//import flash.utils.Timer;
 	
-	public class panel extends Sprite {
+	public class panel_transfer extends Sprite {
 		
-private var panel_sprite:Sprite;
-private var rollingTimer:Timer;
-private var vector:int;
-private var angle:int;
-[Embed(source='/Users/Art/Dropbox/FF/img4/replace.png')]
-private var replace_bitmap:Class;
-[Embed(source='/Users/Art/Dropbox/FF/img4/down.png')]
-private var down_bitmap:Class;
-
-		public function panel()
+		private var panel_sprite:Sprite;
+		private var rollingTimer:Timer;
+		private var vector:int;
+		private var angle:int;
+		[Embed(source='/Users/Art/Dropbox/FF/img4/replace.png')]
+		private var replace_bitmap:Class;
+		[Embed(source='/Users/Art/Dropbox/FF/img4/down.png')]
+		private var down_bitmap:Class;
+		public var trigger:int;
+		
+		public function panel_transfer()
 		{
+			trigger = 0;
+			
 			var myShadow = new DropShadowFilter();
 			
 			var fillType:String = GradientType.RADIAL;
@@ -35,30 +37,28 @@ private var down_bitmap:Class;
 			//var ratios_b:Array = [0, 200];
 			var matr:Matrix = new Matrix();
 			matr.createGradientBox(500, 300, 0, -150, 0);
-			//var matr_b:Matrix = new Matrix();
-			//matr_b.createGradientBox(400, 500, 0, 300, 50);
 			
 			var spreadMethod:String = SpreadMethod.PAD;
 			
 			panel_sprite = new Sprite();
 			panel_sprite.x = 640;
-			panel_sprite.y = 123;
+			panel_sprite.y = 121;
 			panel_sprite.filters = [myShadow];
 			
 			var panel_fon:Sprite = new Sprite();
 			panel_fon.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod);
 			panel_fon.graphics.lineStyle(0, 0xCCCCCC);
-			panel_fon.graphics.drawRoundRect(0, 0, 210, 300, 25);
+			panel_fon.graphics.drawRoundRect(0, 0, 160, 342, 20);
 			
 			var panelText = new text(10, 20, "", "first_hint");
-			panelText.setText("Для покупки или " +
-				"\nзамены" +
-				" нажимайте " +
-				"\nна кнопку " +
-				"\nтрансфера - " +
-				"\n\nХотите отправить" +
-				"\nфутболиста в запас?" +
-				"\nнажимайте -");
+			panelText.setText("Выбирайте " +
+				"\nлюбого" +
+				"\nигрока! " +
+				"\n " +
+				"\n" +
+				"\n\n" +
+				"\n" +
+				"\n");
 			
 			var replace = new replace_bitmap();
 			replace.x = 130;
@@ -72,11 +72,11 @@ private var down_bitmap:Class;
 			
 			panel_sprite.addChild(panel_fon);
 			panel_sprite.addChild(panelText);
-			panel_sprite.addChild(replace);
-			panel_sprite.addChild(down);
+			//panel_sprite.addChild(replace);
+			//panel_sprite.addChild(down);
 			addChild(panel_sprite);
 			
-			rollingTimer = new Timer(5, 45);
+			rollingTimer = new Timer(5, 30);
 			rollingTimer.addEventListener(TimerEvent.TIMER, rollingTimerEvent);
 			rollingTimer.addEventListener(TimerEvent.TIMER_COMPLETE, rollingTimerCompleteEvent);
 			
@@ -85,16 +85,19 @@ private var down_bitmap:Class;
 		}
 		
 		private function rollingTimerEvent(e:TimerEvent):void {
-			//panel_sprite.x += 5*vector;
-			panel_sprite.x = 650 - 230*Math.sin(angle*3.14/180);
-			angle += 2;
+			
+			panel_sprite.x = 725 - 230*Math.sin(angle*3.14/180);
+			angle += 3;
 		}
 		private function rollingTimerCompleteEvent(e:TimerEvent):void {
 			rollingTimer.reset(); 
+			trigger == 0;
 		}
 		public function panelShow():void {
+			if (trigger == 1 ) {
 			vector = -1;
 			rollingTimer.start();
+			}
 		}
 		public function panelHide():void {
 			rollingTimer.stop();
