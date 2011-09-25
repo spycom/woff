@@ -254,6 +254,13 @@ package data {
 			top.selectable = false;
 			top.autoSize = TextFieldAutoSize.LEFT;
 		}
+		if (type == "transfer_panel") {
+			formatter.color = 0x003366;
+			formatter.size = 18;
+			top.selectable = false;
+			top.autoSize = TextFieldAutoSize.LEFT;
+		}
+		
 		top.embedFonts = true;
 		formatter.font = "Calibri";
 		//top.antiAliasType = AntiAliasType.ADVANCED;
@@ -277,6 +284,7 @@ package data {
 		public function setText(texts:String):void {
 			top.text = texts;
 			top.setTextFormat(formatter);
+			text2 = texts;
 		}
 		public function txt():String {
 			return top.text;

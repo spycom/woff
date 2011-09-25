@@ -1016,6 +1016,8 @@ private var zebra3_bitmap:Class;
 		
 		// кнопки страниц списка лидеров
 		page_button_sprite = new Sprite();
+		page_button_sprite.filters = [myShadow_o];
+		
 		page_button = new Array();
 		for (var button=0; button < 6; button++) {
 			page_button[button] = new LeadersPartButton(button);
@@ -1024,7 +1026,6 @@ private var zebra3_bitmap:Class;
 			page_button[button].addEventListener(MouseEvent.CLICK, page_button_ClickEvent);
 			
 			page_button_sprite.addChild(page_button[button]);
-		//page1.addEventListener(MouseEvent.CLICK, dropdowm_menu3);
 		}
 		
 		// направляющая полоска скролла
