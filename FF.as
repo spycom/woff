@@ -10635,8 +10635,8 @@ private var zebra3_bitmap:Class;
 			
 		}*/
 		public function page_button_ClickEvent(e:MouseEvent):void {
-			getLeaders(e.currentTarget.id+1, current_new_tour);
-			
+			//getLeaders(e.currentTarget.id+1, current_new_tour);
+			getLeadersTournament(e.currentTarget.id+1);
 		}
 		
 		public function removeWinnerList(e:MouseEvent):void {
