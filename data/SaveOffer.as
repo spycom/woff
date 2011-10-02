@@ -51,11 +51,12 @@ public var wrapper: Object;
 			
 			myShadow = new DropShadowFilter();
 			myShadow.inner = true;
+			myShadow.distance = 2;
 			
 			myGlow = new GlowFilter();
-			myGlow.color = 0xFF0000;
-			//myGlow.inner = true;
-			myGlow.strength = 1;
+			myGlow.color = 0x339900;
+			myGlow.inner = true;
+			myGlow.strength = 8;
 			
 			myBevel = new BevelFilter();
 			myBevel.angle = 90;
@@ -99,7 +100,7 @@ public var wrapper: Object;
 		
 			//SaveToVklText.addEventListener(MouseEvent.CLICK, SaveOfferClose);
 			
-		
+		/*
 		SaveToLocalButton = new Sprite();
 		SaveToLocalButton.graphics.beginFill(0xFFFFFF,1);
 		SaveToLocalButton.graphics.lineStyle(1, 0x999999);
@@ -110,15 +111,19 @@ public var wrapper: Object;
 			SaveToLocalText.addEventListener(MouseEvent.CLICK, SaveToLocalClick);
 			SaveToLocalText.addEventListener(MouseEvent.MOUSE_OVER, SaveToLocalOver);
 			SaveToLocalText.addEventListener(MouseEvent.MOUSE_OUT, SaveToLocalOut);
+		*/
 		
 		SaveToVkButton = new Sprite();
 		SaveToVkButton.graphics.beginFill(0xFFFFFF,1);
 		SaveToVkButton.graphics.lineStyle(1, 0x999999);
 		//SaveToVkButton.graphics.drawRoundRect(130, 160, 185, 19, 20);
-		SaveToVkButton.graphics.drawRoundRect(72, 162, 300, 19, 20);
+		SaveToVkButton.graphics.drawRoundRect(72, 155, 300, 23, 23);
 			SaveToVkButton.filters = [myShadow];
+			SaveToVkButton.addEventListener(MouseEvent.CLICK, doIt);
+			SaveToVkButton.addEventListener(MouseEvent.MOUSE_OVER, SaveToVkOver);
+			SaveToVkButton.addEventListener(MouseEvent.MOUSE_OUT, SaveToVkOut);
 			
-		SaveToVklText = new text(220, 158, "Сохранить ВКонтакте", "save_offer");
+		SaveToVklText = new text(220, 154, "Сохранить ВКонтакте", "save_offer");
 			SaveToVklText.addEventListener(MouseEvent.CLICK, doIt);
 			SaveToVklText.addEventListener(MouseEvent.MOUSE_OVER, SaveToVkOver);
 			SaveToVklText.addEventListener(MouseEvent.MOUSE_OUT, SaveToVkOut);
@@ -132,8 +137,8 @@ public var wrapper: Object;
 		SaveOfferSprite.addChild(buyBudgetFon);
 		SaveOfferSprite.addChild(WelldoneText);
 		SaveOfferSprite.addChild(WelcomeText);
-		SaveOfferSprite.addChild(SaveToLocalButton);
-		SaveOfferSprite.addChild(SaveToLocalText);
+		//SaveOfferSprite.addChild(SaveToLocalButton);
+		//SaveOfferSprite.addChild(SaveToLocalText);
 		SaveOfferSprite.addChild(SaveToVkButton);
 		SaveOfferSprite.addChild(SaveToVklText);
 		SaveOfferSprite.addChild(SaveCloseText);
@@ -331,6 +336,7 @@ public var wrapper: Object;
 			loader.load(request);
 			//loader2.load(request2);
 			//SaveCloseText.setText('mouse clicked');
+			removeChild(SaveOfferSprite);
 		}
 		private function loadPhotoComplete(e:Event):void {
 			var json_data:Object=JSON.decode(e.target.data);

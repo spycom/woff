@@ -2794,8 +2794,9 @@ private var zebra3_bitmap:Class;
 		woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
 		woff_Team_loader.load(woff_general_request);
 		
-		getLeaders(1, current_new_tour);
-			
+		//getLeaders(1, current_new_tour);
+		getLeadersTournament(1);
+		
 		setMethod("getSaveDate");
 		
 		var woff_time_loader:URLLoader = new URLLoader();
@@ -2937,8 +2938,9 @@ private var zebra3_bitmap:Class;
 		//var woff_Leaders_loader:URLLoader = new URLLoader();
 		//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
 		//woff_Leaders_loader.load(woff_general_request);
-			getLeaders(1, current_new_tour);
-			
+			//getLeaders(1, current_new_tour);
+		getLeadersTournament(1);
+		
 		setMethod("getSaveDate");
 		
 		var woff_time_loader:URLLoader = new URLLoader();
@@ -3089,8 +3091,9 @@ private var zebra3_bitmap:Class;
 		//var woff_Leaders_loader:URLLoader = new URLLoader();
 		//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
 		//woff_Leaders_loader.load(woff_general_request);
-			getLeaders(1, current_new_tour);
-			
+			//getLeaders(1, current_new_tour);
+		getLeadersTournament(1);
+		
 		setMethod("getSaveDate");
 		
 		var woff_time_loader:URLLoader = new URLLoader();
@@ -3941,7 +3944,8 @@ private var zebra3_bitmap:Class;
 		//var woff_Leaders_loader:URLLoader = new URLLoader();
 		//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
 		//woff_Leaders_loader.load(woff_general_request);
-			getLeaders(1, current_new_tour);
+			//getLeaders(1, current_new_tour);
+		getLeadersTournament(1);
 		
 		setMethod("getMyLeagues");
 		
@@ -9215,7 +9219,41 @@ private var zebra3_bitmap:Class;
 				woff_Leaders_loader.load(woff_general_request);
 				
 			}
-			
+			// метод запроса списка лидеров турнира
+			public function getLeadersTournament(part:int):void {
+				//if (tour == current_tour)
+					//tour = 0;
+				var time:Date = new Date();
+				var params:Object = {method: "getLeaders", time:time, id_tm: current_tournament, part:part};
+				
+				var keys:Array = new Array();
+				for (var k:String in params)
+					keys.push(k);
+				keys.sort();
+				woff_sig = String(woff_uid);			
+				for (var i:int = 0; i < keys.length; i++)
+					woff_sig = woff_sig + keys[i] + "=" + params[keys[i]];
+				
+				woff_sig = woff_sig + "DuIP8H5HnE";
+				
+				//params.test = woff_sig;
+				
+				woff_sig = MD5.encrypt(woff_sig); // используем метод hash класса md5 и получаем сигнатуру
+				
+				params.sig = String(woff_sig);
+				params.uid = String(woff_uid);
+				
+				
+				woff_general_request.data = new URLVariables();
+				
+				for (var k:String in params)
+					woff_general_request.data[k] = params[k];
+				
+				var woff_Leaders_loader:URLLoader = new URLLoader();
+				woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
+				woff_Leaders_loader.load(woff_general_request);
+				
+			}
 			
 			// метод запроса списка лидеров в законченном чемпионате
 			public function getLeadersFinal():void {
