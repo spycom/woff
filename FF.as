@@ -1315,6 +1315,7 @@ private var zebra3_bitmap:Class;
 		ava_big.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		ava_big.x = 227;
 		ava_big.y = 130;
+		ava_big.filters = [myShadow_i];
 		
 		//файлы для окна футболиста
 		
@@ -8893,7 +8894,6 @@ private var zebra3_bitmap:Class;
 					var rect:Rectangle = dropdown_menu_sprite2.scrollRect;
 					rect.y = 0;
 					dropdown_menu_sprite2.scrollRect = rect;
-					
 					scroll_tou.y = 15;
 				}
 				
