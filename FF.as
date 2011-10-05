@@ -516,6 +516,7 @@ private var current_new_tour:int;
 private var loading_balls:loadingProc;
 public var user_photo:vk_photo;
 private var myGlow:GlowFilter;
+private var myGlow_green:GlowFilter;
 private var myGlow_blue:GlowFilter;
 private var innerGlow_red:GlowFilter;
 private var innerGlow:GlowFilter;
@@ -1286,6 +1287,8 @@ private var zebra3_bitmap:Class;
 		button_blue_invite.addEventListener(MouseEvent.CLICK, inviteFriends);
 		button_blue_invite.x = 420;
 		button_blue_invite.y = 260;
+		button_blue_invite.addEventListener(MouseEvent.MOUSE_OVER, overInviteEvent);
+		button_blue_invite.addEventListener(MouseEvent.MOUSE_OUT, outInviteEvent);
 		
 		// неактивная кнопка
 		button_blue_alpha = new Loader();
@@ -1472,45 +1475,10 @@ private var zebra3_bitmap:Class;
 		
 		buyBudgetTable = new buyBudgetTableClass(woff_uid);
 		
-		/*
 		
-		 = new Loader();
-		.load(new URLRequest(serv + "img/.png"));
-		.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		
-		 */
-		
-		
-		
-		// форматирование текста
-		/*
-		textFormat = new TextFormat();
-		textFormat.font = "calibri";
-		textFormat.italic = true;
-		//textFormat.bold = true;
-		textFormat.size = 10;
-		textFormat.color = 0xffffff;
-		//textFormat.
-		
-		textFormatBlack = new TextFormat();
-		textFormatBlack.font = "calibri";
-		textFormatBlack.italic = true;
-		//textFormatBlack.bold = true;
-		textFormatBlack.size = 9;
-		textFormatBlack.color = 0x696969;
-		 */
-		 
-		
-		 
-		 
 		// текстовая строка загрузчика
 		
 		status = new text(260, 200, "Загрузка..", "1");
-		//#status.text = "Загрузка...";
-		//#status.x = 260;
-		//#status.y = 230;
-		//#status.autoSize = TextFieldAutoSize.LEFT;
-		//status.setTextFormat(textFormatBlack);		
 		
 		// таймеры
 		
@@ -1529,7 +1497,6 @@ private var zebra3_bitmap:Class;
 		// текст
 		
 		version = new Version(285,55);
-		
 		
 		all_txt1 = new text(237, 5, "ТУРНИРЫ", "1");
 		all_txt1.setColor("0x666666");
@@ -1686,6 +1653,7 @@ private var zebra3_bitmap:Class;
 		main3_txt5.addEventListener(MouseEvent.CLICK, enterLeague);
 		main3_txt5_.addEventListener(MouseEvent.CLICK, leaveLeague);
 		main3_txt_inv.addEventListener(MouseEvent.CLICK, inviteFriends);
+		main3_txt_inv.addEventListener(MouseEvent.MOUSE_OVER, overInviteEvent);
 		
 		select_leaders_tour_txt.addEventListener(MouseEvent.CLICK, dropdowm_menu_leaders);
 		
@@ -2513,6 +2481,9 @@ private var zebra3_bitmap:Class;
 		 
 		
 		myGlow = new GlowFilter();
+		
+		myGlow_green = new GlowFilter();
+		myGlow_green.color = 0x66CC00;
 		
 		myGlow_blue = new GlowFilter();
 		myGlow_blue.color = 0x0389af;
@@ -5056,13 +5027,7 @@ private var zebra3_bitmap:Class;
 		var woff_AllLeagues_loader:URLLoader = new URLLoader();
 		woff_AllLeagues_loader.addEventListener(Event.COMPLETE, woffAllLeaguesLoadComplete);
 		woff_AllLeagues_loader.load(woff_general_request);
-		/*
-		setMethod("getLeaders");
-			var woff_Leaders_loader:URLLoader = new URLLoader();
-			woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
-			woff_Leaders_loader.load(woff_general_request);
-			 * 
-			 */
+		
 		getFriends();
 		
 		main3_txt1.setText("Лига друзей");
@@ -10529,6 +10494,14 @@ private var zebra3_bitmap:Class;
 			if (window == "transfer") {
 				removeChild(transfer);
 			}
+		}
+		
+		//
+		private function overInviteEvent(e:MouseEvent):void {
+			button_blue_invite.filters = [myGlow_green];
+		}
+		private function outInviteEvent(e:MouseEvent):void {
+			button_blue_invite.filters = [];
 		}
 }
 }
