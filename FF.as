@@ -48,7 +48,7 @@ public class FF extends Sprite{
 
 private var version:Version;
 private var status:text;
-public var serv:String;
+private var serv:String;
 private var loadedFiles:int;
 
 private var background:Loader;
@@ -175,9 +175,6 @@ private var captain:Loader;
 private var one:Loader;
 private var two:Loader;
 private var three:Loader;
-
-//private var woff_getTeam:URLLoader;
-//private var woff_getLidersList:URLLoader;
 
 private var all_txt1:text;
 private var all_txt3:text;
@@ -579,9 +576,11 @@ private var main4_avatar:Loader;
 private var tour_array:Array;
 private var panel_transfer_right:panel_transfer;
 private var lc:LoaderContext;
-[Embed(source='/Users/Art/Dropbox/FF/img3/razdelitel.png')]
+//[Embed(source='/Users/Art/Dropbox/FF/img3/razdelitel.png')]
+[Embed(source='C:/Users/artem.akinchits/Dev/images/razdelitel.png')]
 private var razdelitel_b:Class;
-[Embed(source='/Users/Art/Dropbox/FF/img10/zebra3.png')]
+//[Embed(source='/Users/Art/Dropbox/FF/img10/zebra3.png')]
+[Embed(source='C:/Users/artem.akinchits/Dev/images/zebra3.png')]
 private var zebra3_bitmap:Class;
 
 	public function FF() {
@@ -654,7 +653,7 @@ private var zebra3_bitmap:Class;
 		// загрузка первого кадра
 		
 		var myShadow_o = new DropShadowFilter();
-			myShadow_o.distance = 2;
+			myShadow_o.distance = 1;
 		
 		background = new Loader();
 		
@@ -3938,13 +3937,6 @@ private var zebra3_bitmap:Class;
 		woff_checkteam_loader.addEventListener(Event.COMPLETE, woffUniCheckTeamComplete);
 		woff_checkteam_loader.load(woff_general_request);
 		
-		
-		//setMethod("getLeaders");
-		
-		//var woff_Leaders_loader:URLLoader = new URLLoader();
-		//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
-		//woff_Leaders_loader.load(woff_general_request);
-			//getLeaders(1, current_new_tour);
 		getLeadersTournament(1);
 		
 		setMethod("getMyLeagues");
@@ -4877,16 +4869,7 @@ private var zebra3_bitmap:Class;
     			} else {
     			addChild(firstManual);
 					firstManual.showMan();
-    			/*
-			addChild(errorSprite);
-					errorText.setText("		Четыре шага успешного игрока: " +
-					"\n- Для начала Вам необходимо собрать команду из 15 футболистов. Нажимайте на стрелочки\n	рядом с серыми футболками и выбирайте игроков соответствующего амплуа."+
-					"\n- В закладке 'главная' Вы можете ввести название своей команды и выбрать любимый футбольный клуб." +
-					"\n- Возможно у Вас есть заносчивые друзья, которые считают что разбираются в футболе лучше чем Вы! \n	Пригласите их в игру из вкладки 'Лига друзей' и докажите что они жестоко ошибаются.    "+	
-					"\n- Ну и наконец самое приятное - следите за реальным развитием турниров. \n	Проводите замены в вашей команде, принимайте учатие в обсуждениях в группе приложения    \n и общайтесь с другими игроками."+
-					"\n   				 (клик чтобы закрыть)");
-					 * 
-					 */
+    			
     			}
 	}
 	
@@ -5063,32 +5046,7 @@ private var zebra3_bitmap:Class;
 	}
 	
 	public function button3event(e:MouseEvent):void {
-		/*
-		if (window == "main1") {
-			removeChild(main1);
-		} 
-		if (window == "main2") {
-			removeChild(main2);
-		}
-		if (window == "main4") {
-			removeChild(main4);
-		} 
-		if (window == "help") {
-			removeChild(help);
-		}
-		if (window == "footman") {
-			removeChild(footman);
-		}
-		if (window == "team_sostav") {
-			removeChild(team_sostav);
-		}
-		if (window == "team_stat") {
-			removeChild(team_stat);
-		}
-		if (window == "transfer") {
-			removeChild(transfer);
-		}
-		*/
+		
 		closeCurrentWindow();
 		
 		setMethod("getAllLeagues");
@@ -5168,38 +5126,9 @@ private var zebra3_bitmap:Class;
 		
 	
 	public function button4event(e:MouseEvent):void {
-		/*
-		if (window == "main1") {
-			removeChild(main1);
-		} 
-		if (window == "main3") {
-			removeChild(main3);
-		}
-		if (window == "main2") {
-			removeChild(main2);
-		} 
-		if (window == "help") {
-			removeChild(help);
-		}
-		if (window == "footman") {
-			removeChild(footman);
-		}
-		if (window == "team_sostav") {
-			removeChild(team_sostav);
-		} 
-		if (window == "team_stat") {
-			removeChild(team_stat);
-		}
-		if (window == "transfer") {
-			removeChild(transfer);
-		}
-		*/
-		closeCurrentWindow();
-		//setMethod("getLeaders");
 		
-			//var woff_Leaders_loader:URLLoader = new URLLoader();
-			//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
-			//woff_Leaders_loader.load(woff_general_request);
+		closeCurrentWindow();
+		
 		getLeaders(1, current_new_tour);
 		
 		setMethod("getAllLeagues");
@@ -5391,11 +5320,6 @@ private var zebra3_bitmap:Class;
 			removeChild(transfer);
 		}
 		
-		//setMethod("getLeaders");
-		
-			//var woff_Leaders_loader:URLLoader = new URLLoader();
-			//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
-			//woff_Leaders_loader.load(woff_general_request);
 		getLeaders(1, current_new_tour);
 		
 		setMethod("getAllLeagues");
@@ -5463,32 +5387,7 @@ private var zebra3_bitmap:Class;
 			
 			var test:String = new String(e.target.text);
 			var footman_txt__:text = new text(20, 142, test, "2");
-		/*	
-		if (window == "main1") {
-			removeChild(main1);
-		}
-		if (window == "main2") {
-			removeChild(main2);
-		} 
-		if (window == "main3") {
-			removeChild(main3);
-		}
-		if (window == "main4") {
-			removeChild(main4);
-		} 
-		if (window == "help") {
-			removeChild(help);
-		}
-		if (window == "team_sostav") {
-			removeChild(team_sostav);
-		}
-		if (window == "team_stat") {
-			removeChild(team_stat);
-		}
-		if (window == "transfer") {
-			removeChild(transfer);
-		}
-			*/
+		
 		closeCurrentWindow();
 		
 		window = "footman";
@@ -5569,32 +5468,7 @@ private var zebra3_bitmap:Class;
 			
 			var test:String = new String(e.target.text);
 			var footman_txt__:text = new text(20, 142, test, "2");
-		/*	
-		if (window == "main1") {
-			removeChild(main1);
-		}
-		if (window == "main2") {
-			removeChild(main2);
-		} 
-		if (window == "main3") {
-			removeChild(main3);
-		}
-		if (window == "main4") {
-			removeChild(main4);
-		} 
-		if (window == "help") {
-			removeChild(help);
-		}
-		if (window == "team_sostav") {
-			removeChild(team_sostav);
-		}
-		if (window == "team_stat") {
-			removeChild(team_stat);
-		}
-		if (window == "transfer") {
-			removeChild(transfer);
-		}
-			*/
+		
 			
 		window = "footman";
 		
@@ -5675,33 +5549,7 @@ private var zebra3_bitmap:Class;
 		// окно состава команды противника
 		
 		public function team_sostavEvent(e:MouseEvent):void {
-		/*
-			if (window == "main1") {
-			removeChild(main1);
-		} 	
-		if (window == "main2") {
-			removeChild(main2);
-		} 
-		if (window == "main3") {
-			removeChild(main3);
-		}
-		if (window == "main4") {
-			removeChild(main4);
-		} 
-		if (window == "help") {
-			removeChild(help);
-		}
-		if (window == "footman") {
-			removeChild(footman);
-		} 
 		
-		if (window == "team_stat") {
-			removeChild(team_stat);
-		}
-		if (window == "transfer") {
-			removeChild(transfer);
-		}
-		*/
 			closeCurrentWindow();
 			
 		window = "team_sostav";
@@ -5789,33 +5637,7 @@ private var zebra3_bitmap:Class;
 		// окно состава команды противника - вход со стены
 		
 		public function team_sostavEvent_wall(teamId:int):void {
-			/*
-			if (window == "main1") {
-				removeChild(main1);
-			} 	
-			if (window == "main2") {
-				removeChild(main2);
-			} 
-			if (window == "main3") {
-				removeChild(main3);
-			}
-			if (window == "main4") {
-				removeChild(main4);
-			} 
-			if (window == "help") {
-				removeChild(help);
-			}
-			if (window == "footman") {
-				removeChild(footman);
-			} 
 			
-			if (window == "team_stat") {
-				removeChild(team_stat);
-			}
-			if (window == "transfer") {
-				removeChild(transfer);
-			}
-			*/
 			closeCurrentWindow();
 			
 			window = "team_sostav";
@@ -5906,32 +5728,7 @@ private var zebra3_bitmap:Class;
 		// окно статистики команды
 		
 		public function team_statEvent(e:MouseEvent):void {
-		/*
-			if (window == "main1") {
-			removeChild(main1);
-		} 	
-		if (window == "main2") {
-			removeChild(main2);
-		} 
-		if (window == "main3") {
-			removeChild(main3);
-		}
-		if (window == "main4") {
-			removeChild(main4);
-		} 
-		if (window == "help") {
-			removeChild(help);
-		}
-		if (window == "footman") {
-			removeChild(footman);
-		} 
-		if (window == "team_sostav") {
-			removeChild(team_sostav);
-		}
-		if (window == "transfer") {
-			removeChild(transfer);
-		}
-		*/
+		
 			closeCurrentWindow();
 			
 		window = "team_stat";
@@ -6157,31 +5954,7 @@ private var zebra3_bitmap:Class;
 		
 		// функция возврата к странице трансферов
 		public function transferEvent2(e:MouseEvent):void {
-		/*if (window == "main1") {
-			removeChild(main1);
-		} 	
-		if (window == "main2") {
-			removeChild(main2);
-		} 
-		if (window == "main3") {
-			removeChild(main3);
-		}
-		if (window == "main4") {
-			removeChild(main4);
-		} 
-		if (window == "help") {
-			removeChild(help);
-		}
-		if (window == "footman") {
-			removeChild(footman);
-		} 
-		if (window == "team_sostav") {
-			removeChild(team_sostav);
-		}
-		if (window == "team_stat") {
-			removeChild(team_stat);
-		}
-		*/
+		
 			closeCurrentWindow();
 			
 		window = "transfer";
@@ -6260,36 +6033,8 @@ private var zebra3_bitmap:Class;
 		}
 		
 		// окно лиги
-		
 		public function ligaEvent(e:MouseEvent):void {
-		/*if (window == "main1") {
-			removeChild(main1);
-		} 	
-		if (window == "main2") {
-			removeChild(main2);
-		} 
-		if (window == "main3") {
-			removeChild(main3);
-		}
-		if (window == "main4") {
-			removeChild(main4);
-		} 
-		if (window == "help") {
-			removeChild(help);
-		}
-		if (window == "footman") {
-			removeChild(footman);
-		} 
-		if (window == "team_sostav") {
-			removeChild(team_sostav);
-		}
-		if (window == "team_stat") {
-			removeChild(team_stat);
-		}
-		if (window == "transfer") {
-			removeChild(transfer);
-		}
-		*/
+		
 			closeCurrentWindow();
 			
 		window = "player_liga";
@@ -10681,6 +10426,7 @@ private var zebra3_bitmap:Class;
 			top4 = new Bitmap(top.bitmapData);
 			top4.x = 550;
 		}
+		
 		//размножение картинки
 		private function blocknationLoadComplete(e:Event):void {
 			var blocknation_:Bitmap = e.target.content as Bitmap;
@@ -10713,6 +10459,8 @@ private var zebra3_bitmap:Class;
 		private function sostavOut(e:MouseEvent):void {
 			e.currentTarget.filters = [];
 		}
+		
+		// функция очистки экрана
 		private function closeCurrentWindow():void {
 			
 			if (window == "main") {

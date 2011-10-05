@@ -10,7 +10,8 @@ public var clubId:int;
 public var footman_form_loader:Loader;
 private var serv:String = "http://woff73.valuehost.ru/woff_images/";	
 public var champ:String;
-[Embed(source='/Users/Art/Dropbox/FF/img4/forms.png')]
+//[Embed(source='/Users/Art/Dropbox/FF/img4/forms.png')]
+[Embed(source='C:/Users/artem.akinchits/Dev/images/forms.png')]
 private var footman_form_bitmap:Class;
 
 	public function footman_form():void {

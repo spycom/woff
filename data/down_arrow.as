@@ -8,7 +8,7 @@ package data
 	import flash.net.URLRequest;
 	import flash.utils.Timer;
 	
-	import org.osmf.events.TimeEvent;
+	//import org.osmf.events.TimeEvent;
 	
 	public class down_arrow extends Sprite
 	{

@@ -12,7 +12,7 @@ public var foot_id:int;
 public var amplua:int;
 public var position:int;
 public var status:int;
-[Embed(source='/Users/Art/Dropbox/FF/img4/replace.png')]
+[Embed(source='C:/Users/artem.akinchits/Dev/images/replace.png')]
 private var footman_replace_bitmap:Class;
 
 		public function transfer_b(footballer_id:int, role:int, field_place:int) {

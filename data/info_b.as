@@ -11,7 +11,8 @@ public class info_b extends Sprite {
 	private var bevelFilter:BevelFilter;
 	private var info;
 	private var info_sprite:Sprite;
-	[Embed(source='/Users/Art/Dropbox/FF/img3/info.png')]
+	//[Embed(source='/Users/Art/Dropbox/FF/img3/info.png')]
+	[Embed(source='C:/Users/artem.akinchits/Dev/images/info.png')]
 	private var info_bitmap:Class;
 
 public function info_b(uid_:String) {

@@ -18,9 +18,11 @@ private var panel_sprite:Sprite;
 private var rollingTimer:Timer;
 private var vector:int;
 private var angle:int;
-[Embed(source='/Users/Art/Dropbox/FF/img4/replace.png')]
+//[Embed(source='/Users/Art/Dropbox/FF/img4/replace.png')]
+[Embed(source='C:/Users/artem.akinchits/Dev/images/replace.png')]
 private var replace_bitmap:Class;
-[Embed(source='/Users/Art/Dropbox/FF/img4/down.png')]
+//[Embed(source='/Users/Art/Dropbox/FF/img4/down.png')]
+[Embed(source='C:/Users/artem.akinchits/Dev/images/down.png')]
 private var down_bitmap:Class;
 
 		public function panel()

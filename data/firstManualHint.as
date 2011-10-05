@@ -10,7 +10,7 @@ package data {
 	import flash.net.*;
 	import flash.utils.Timer;
 	
-	import org.osmf.events.TimeEvent;
+	//import org.osmf.events.TimeEvent;
 
 	public class firstManualHint extends Sprite {
 
