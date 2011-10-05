@@ -1070,6 +1070,7 @@ private var zebra3_bitmap:Class;
 		scroll_tou.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		scroll_tou.addEventListener(MouseEvent.MOUSE_DOWN, scrolldownToursEvent);
 		scroll_tou.addEventListener(MouseEvent.MOUSE_UP, scrollupToursEvent);
+		scroll_tou.addEventListener(MouseEvent.MOUSE_WHEEL, toursWheelHandler);
 			this.addEventListener(MouseEvent.MOUSE_UP, scrollupToursEvent);
 			
 		// скролл на странице правил
@@ -7771,6 +7772,7 @@ private var zebra3_bitmap:Class;
 			tour_array = new Array();
 			
 			dropdown_menu_sprite2 = new Sprite();
+			dropdown_menu_sprite2.addEventListener(MouseEvent.MOUSE_WHEEL, toursWheelHandler);
 			
 			dropdownmenu_tours = new Sprite();
 			dropdownmenu_tours.graphics.beginFill(0xffffff, 1); 
@@ -8875,7 +8877,39 @@ private var zebra3_bitmap:Class;
 				scroll_timer_tours.stop();
 				
 			}
-			
+			// схема скролла списка туров колесом
+			public function toursWheelHandler(e:MouseEvent):void {
+				
+				if (scroll_tou.y >= 15 && scroll_tou.y <= 650) {
+					
+					var rect:Rectangle = dropdown_menu_sprite2.scrollRect;
+						rect.y -= e.delta*5;
+					dropdown_menu_sprite2.scrollRect = rect;
+					scroll_tou.y -= e.delta*10*260/500;
+				}
+				
+				if (scroll_tou.y < 15) {
+					
+					var rect:Rectangle = dropdown_menu_sprite2.scrollRect;
+					rect.y = 0;
+					dropdown_menu_sprite2.scrollRect = rect;
+					
+					scroll_tou.y = 15;
+				}
+				
+				if (scroll_tou.y > 650) {
+					
+					var rect:Rectangle = dropdown_menu_sprite2.scrollRect;
+						rect.y = 425;
+				
+					dropdown_menu_sprite2.scrollRect = rect;
+					
+					scroll_tou.y = 650;
+				}
+				
+				////////////////////////////
+			}
+			///////////
 			// схема скролла списка туров 
 			public function scrollToursTimerEvent(e:TimerEvent):void {
 				
@@ -8922,6 +8956,8 @@ private var zebra3_bitmap:Class;
 				
 				////////////////////////////
 			}
+			
+			
 			///////////
 			public function newRequest(method:String):void {
 				var time:Date = new Date();
