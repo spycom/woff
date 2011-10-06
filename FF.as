@@ -2718,7 +2718,7 @@ private var zebra3_bitmap:Class;
 	// переход к чемпионату россеи 
 	public function select1listener(e:MouseEvent):void {
 		removeChild(main);
-		window = "main1";
+		//window = "main1";
 		
 		champ = "rus";
 		//woff_general_request.url = woff_api3;
@@ -2796,6 +2796,8 @@ private var zebra3_bitmap:Class;
 		woff_checkteam_loader.addEventListener(Event.COMPLETE, woffUniCheckTeamComplete);
 		woff_checkteam_loader.load(woff_general_request);
 		
+		showMain1();
+		/*
 		addChild(main1);
 			main1.addChild(background);
 			main1.addChild(logo2);
@@ -2854,6 +2856,8 @@ private var zebra3_bitmap:Class;
 			main1.addChild(scroll);
 		main1.addChild(scroll2);
 		main1.addChild(stat_hint);
+		 * 
+		 */
 			//main1.addChild(winners_list);
 	}
 	
@@ -2871,7 +2875,7 @@ private var zebra3_bitmap:Class;
 		
 		background = background2;
 		
-		window = "main1";
+		//window = "main1";
 		
 		//обнуление команды
 			teamReset();
@@ -2938,6 +2942,8 @@ private var zebra3_bitmap:Class;
 		woff_checkteam_loader.addEventListener(Event.COMPLETE, woffUniCheckTeamComplete);
 		woff_checkteam_loader.load(woff_general_request);
 		
+		showMain1();
+		/*
 		addChild(main1);
 			main1.addChild(background);
 			main1.addChild(logo2);
@@ -2994,6 +3000,8 @@ private var zebra3_bitmap:Class;
 			main1.addChild(main1_txt24);
 			main1.addChild(scroll);
 			main1.addChild(scroll2);
+			 * 
+			 */
 			
 			/*
 			winners_list = new winners_list_sprite(woff_uid);
@@ -3002,7 +3010,7 @@ private var zebra3_bitmap:Class;
 			winners_list.setChamp("lch");
 				getLeadersFinal();
 			*/
-			main1.addChild(stat_hint);
+			//main1.addChild(stat_hint);
 				
 			
 	}
@@ -3010,7 +3018,7 @@ private var zebra3_bitmap:Class;
 	// переход к чемпионату англии
 	public function select2listener(e:MouseEvent):void {
 		removeChild(main);
-		window = "main1";
+		//window = "main1";
 		dropdown_menu_sprite.addChild(scroll_clubs);
 		champ = "eng";
 		woff_general_request.url = woff_api3;
@@ -3095,6 +3103,8 @@ private var zebra3_bitmap:Class;
 		woff_checkteam_loader.addEventListener(Event.COMPLETE, woffUniCheckTeamComplete);
 		woff_checkteam_loader.load(woff_general_request);
 		
+		showMain1();
+		/*
 		addChild(main1);
 			main1.addChild(background);
 			main1.addChild(logo2);
@@ -3152,18 +3162,20 @@ private var zebra3_bitmap:Class;
 			main1.addChild(main1_txt24);
 			main1.addChild(scroll);
 			main1.addChild(scroll2);
+			 * 
+			 */
 			
 			/*
 			winners_list = new winners_list_sprite(woff_uid);
 			winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
 			*/
 			
-			main1.addChild(stat_hint);
+			//main1.addChild(stat_hint);
 			
 			//main1.addChild(winners_list);
 			//winners_list.setChamp("eng");
 			//	getLeadersFinal();
-			
+			/*
 			if (woff_isAppUser !== 1) {
     		addChild(errorSprite);
 					errorText.setText("	Зря ты не добавил это приложение! " +
@@ -3171,11 +3183,13 @@ private var zebra3_bitmap:Class;
 					"и ты не можешь получать уведомления\n =(" +
 					"   				 (клик чтобы закрыть)");
     		}
+    		 * 
+    		 */
 	}
 	// переход к чемпионату Италии
 	public function select3listener(e:MouseEvent):void {
 		removeChild(main);
-		window = "main1";
+		//window = "main1";
 		dropdown_menu_sprite.addChild(scroll_clubs);
 		champ = "ita";
 		woff_general_request.url = woff_api3;
@@ -3256,6 +3270,8 @@ private var zebra3_bitmap:Class;
 		woff_checkteam_loader.addEventListener(Event.COMPLETE, woffUniCheckTeamComplete);
 		woff_checkteam_loader.load(woff_general_request);
 		
+		showMain1();
+		/*
 		addChild(main1);
 			main1.addChild(background);
 			main1.addChild(logo2);
@@ -3328,11 +3344,13 @@ private var zebra3_bitmap:Class;
 					"и ты не можешь получать уведомления\n =(" +
 					"   				 (клик чтобы закрыть)");
     		}
+    		 * 
+    		 */
 	}
 	// переход к чемпионату Испании
 	public function select5listener(e:MouseEvent):void {
 		removeChild(main);
-		window = "main1";
+		//window = "main1";
 		dropdown_menu_sprite.addChild(scroll_clubs);
 		champ = "isp";
 		//woff_general_request.url = woff_api3;
@@ -3413,6 +3431,8 @@ private var zebra3_bitmap:Class;
 		woff_checkteam_loader.addEventListener(Event.COMPLETE, woffUniCheckTeamComplete);
 		woff_checkteam_loader.load(woff_general_request);
 		
+		showMain1();
+		/*
 		addChild(main1);
 			main1.addChild(background);
 			main1.addChild(logo2);
@@ -3486,6 +3506,8 @@ private var zebra3_bitmap:Class;
 					"и ты не можешь получать уведомления\n =(" +
 					"   				 (клик чтобы закрыть)");
     		}
+    		 * 
+    		 */
 	}
 	
 	// выбор евротурнира
@@ -10585,8 +10607,72 @@ private var zebra3_bitmap:Class;
 				}
 		}
 		
+		// функция сборки 1-го окна
+		private function showMain1():void {
+			window = "main1";
+			
+			addChild(main1);
+			main1.addChild(background);
+			main1.addChild(logo2);
+			main1.addChild(top1);
+			main1.addChild(top2);
+			main1.addChild(top3);
+			main1.addChild(top4);
+			main1.addChild(version);
+			main1.addChild(mp);
+			main1.addChild(eu);
+			main1.addChild(all_txt1);
+			main1.addChild(all_txt3);
+			main1.addChild(all_txt4);
+			main1.addChild(main_button);
+			main1.addChild(block);
+			main1.addChild(block2);
+			main1.addChild(liders);
+			main1.addChild(help_buttontxt);
+			main1.addChild(help_button);
+			main1.addChild(active1);
+			main1.addChild(link2);
+			main1.addChild(link3);
+			main1.addChild(link4);
+			main1.addChild(button1txt);
+			main1.addChild(button2txt);
+			main1.addChild(button3txt);
+			main1.addChild(button4txt);
+				button1txt.setColor("0x696969");
+				button2txt.setColor("0xffffff");
+				button3txt.setColor("0xffffff");
+				button4txt.setColor("0xffffff");
+			main1.addChild(button2);
+			main1.addChild(button3);
+			main1.addChild(button4);
+			main1.addChild(input);
+			main1.addChild(input2);
+			main1.addChild(main1_txt1);
+			main1.addChild(main1_txt2);
+			main1.addChild(main1_txt3);
+			main1.addChild(main1_txt4);
+			main1.addChild(main1_txt4_1);
+			main1.addChild(main1_txt5);
+			main1.addChild(main1_txt6);
+			main1.addChild(main1_txt7);
+			main1.addChild(main1_txt8);
+			main1.addChild(main1_txt_note1);
+				addLeadersButtons();
+			main1.addChild(select);
+			main1.addChild(liga);
+			main1.addChild(liders_list);
+			main1.addChild(team_list);
+			main1.addChild(liga_list);
+			main1.addChild(main1_txt24);
+			main1.addChild(scroll);
+			main1.addChild(scroll2);
+			main1.addChild(stat_hint);
+		
+		}
+		
 		// функция сборки 2-го окна
 		private function showMain2():void {
+			window = "main2";
 			
 			addChild(main2);
 			main2.addChild(background);
