@@ -1055,7 +1055,7 @@ private var zebra3_bitmap:Class;
 		
 		var myShadow_i = new DropShadowFilter();
 		myShadow_i.inner = true;
-		myShadow_i.distance = 2;
+		myShadow_i.distance = 1;
 		
 		scroll2.filters = [myBevel];
 		scroll2.scaleX = 1.6;
@@ -2913,12 +2913,6 @@ private var zebra3_bitmap:Class;
 		woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
 		woff_Team_loader.load(woff_general_request);
 		
-		//setMethod("getLeaders");
-		
-		//var woff_Leaders_loader:URLLoader = new URLLoader();
-		//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
-		//woff_Leaders_loader.load(woff_general_request);
-			//getLeaders(1, current_new_tour);
 		getLeadersTournament(1);
 		
 		setMethod("getSaveDate");
@@ -4060,7 +4054,8 @@ private var zebra3_bitmap:Class;
 		woff_MyTournamentScore_loader.addEventListener(Event.COMPLETE, woffMyTournamentScoreLoadComplete);
 		woff_MyTournamentScore_loader.load(woff_general_request);
 		
-		
+		showMain2();
+		/*
 		addChild(main2);
 			main2.addChild(background);
 			main2.addChild(top1);
@@ -4148,6 +4143,8 @@ private var zebra3_bitmap:Class;
 			main2.addChild(camera);
 			
 			main2.addChild(stat_hint);
+			*/
+			main2_txt18.setText("Приобрести "+ current_transfers_mass +" трансферов за "+ current_tax +" MP");
 			
 			if (current_new_tour < current_tour) {
 				main2.removeChild(footman_list);
@@ -4254,7 +4251,8 @@ private var zebra3_bitmap:Class;
 		}
 		
 		
-		
+		showMain2();
+		/*
 		addChild(main2);
 			main2.addChild(background);
 			main2.addChild(top1);
@@ -4340,10 +4338,12 @@ private var zebra3_bitmap:Class;
 			main2.addChild(main2_txt24);
 				
 			main2.addChild(stat_hint);
-			
+				* 
+				*/
 			addChild(firstManual);
 				firstManual.showMan();
-			
+				 
+			main2_txt18.setText("Приобрести "+ current_transfers_mass +" трансферов за "+ current_tax +" MP");
 	}
 	
 	// окно набора команды для первого посещения чемпионата Англии
@@ -4424,7 +4424,8 @@ private var zebra3_bitmap:Class;
 			footman_replace[iiiiii].filters = [myGlow];
 		}
 		
-		
+		showMain2();
+		/*
 		addChild(main2);
 			main2.addChild(background);
 			main2.addChild(top1);
@@ -4498,7 +4499,7 @@ private var zebra3_bitmap:Class;
 			main2.addChild(main2_txt16);
 			main2.addChild(main2_txt26);
 			main2.addChild(main2_txt17);
-				main2_txt18.setText("Приобрести "+current_transfers_mass+" трансферов за "+ current_tax +" MP");
+				
 			main2.addChild(main2_txt18);
 			main2.addChild(main2_txt19);
 			main2.addChild(main2_txt19_);
@@ -4517,10 +4518,15 @@ private var zebra3_bitmap:Class;
 					" и ты не\n	можешь получать уведомления\n	=(" +
 					"   					 (клик чтобы закрыть)");
     			} else {
-    				addChild(firstManual);
-						firstManual.showMan();
+    				
     			
     			}
+    			 * 
+    			 */
+    			addChild(firstManual);
+						firstManual.showMan();
+						
+    			main2_txt18.setText("Приобрести "+current_transfers_mass+" трансферов за "+ current_tax +" MP");
 	}
 	
 	// окно набора команды для первого посещения чемпионата Лиги Чемпионов
@@ -4602,7 +4608,8 @@ private var zebra3_bitmap:Class;
 			footman_replace[iiiiii].filters = [myGlow];
 		}
 		
-		
+		showMain2();
+		/*
 		addChild(main2);
 			main2.addChild(background);
 			main2.addChild(top1);
@@ -4698,9 +4705,14 @@ private var zebra3_bitmap:Class;
 					" и ты не\n	можешь получать уведомления\n	=(" +
 					"   					 (клик чтобы закрыть)");
     			} else {
-    				addChild(firstManual);
-						firstManual.showMan();
+    				
     			}
+    			 * 
+    			 */
+    			 addChild(firstManual);
+						firstManual.showMan();
+    			 
+    			 main2_txt18.setText("Приобрести "+current_transfers_mass+" трансферов за "+ current_tax +" MP");
 	}
 	
 	// окно набора команды для первого посещения чемпионата Италии
@@ -4780,7 +4792,8 @@ private var zebra3_bitmap:Class;
 			footman_replace[iiiiii].filters = [myGlow];
 		}
 		
-		
+		showMain2();
+		/*
 		addChild(main2);
 			main2.addChild(background);
 			main2.addChild(top1);
@@ -4870,10 +4883,15 @@ private var zebra3_bitmap:Class;
 					" и ты не\n	можешь получать уведомления\n	=(" +
 					"   					 (клик чтобы закрыть)");
     			} else {
-    			addChild(firstManual);
-					firstManual.showMan();
+    			
     			
     			}
+    			 * 
+    			 */
+    			 addChild(firstManual);
+					firstManual.showMan();
+    			 
+    			 main2_txt18.setText("Приобрести "+current_transfers_mass+" трансферов за "+ current_tax +" MP");
 	}
 	
 	// окно набора команды для первого посещения чемпионата Испании
@@ -4953,7 +4971,8 @@ private var zebra3_bitmap:Class;
 			footman_replace[iiiiii].filters = [myGlow];
 		}
 		
-		
+		showMain2();
+		/*
 		addChild(main2);
 			main2.addChild(background);
 			main2.addChild(top1);
@@ -5044,9 +5063,14 @@ private var zebra3_bitmap:Class;
 					" и ты не\n	можешь получать уведомления\n	=(" +
 					"   					 (клик чтобы закрыть)");
     			} else {
-    			addChild(firstManual);
-					firstManual.showMan();
+    			
     			}
+    			 * 
+    			 */
+    			 addChild(firstManual);
+					firstManual.showMan();
+    			 
+    			 main2_txt18.setText("Приобрести "+current_transfers_mass+" трансферов за "+ current_tax +" MP");
 	}
 	
 	public function button3event(e:MouseEvent):void {
@@ -10559,6 +10583,97 @@ private var zebra3_bitmap:Class;
 					team_stat_array[zope___].setText("---");
 					team_eu_cost[zope___].setText("-");
 				}
+		}
+		
+		// функция сборки 2-го окна
+		private function showMain2():void {
+			
+			addChild(main2);
+			main2.addChild(background);
+			main2.addChild(top1);
+			main2.addChild(top2);
+			main2.addChild(top3);
+			main2.addChild(top4);
+			main2.addChild(version);
+			main2.addChild(mp);
+			main2.addChild(eu);
+			main2.addChild(all_txt1);
+			main2.addChild(all_txt3);
+			main2.addChild(all_txt4);
+			main2.addChild(block);
+			main2.addChild(logo2);
+			main2.addChild(field);
+			main2.addChild(help_buttontxt);
+			main2.addChild(help_button);
+			main2.addChild(main_button);
+			main2.addChild(link1);
+			main2.addChild(active2);
+			main2.addChild(link3);
+			main2.addChild(link4);
+			main2.addChild(button1txt);
+			main2.addChild(button2txt);
+			main2.addChild(button3txt);
+			main2.addChild(button4txt);
+				button1txt.setColor("0xffffff");
+				button2txt.setColor("0x696969");
+				button3txt.setColor("0xffffff");
+				button4txt.setColor("0xffffff");
+			main2.addChild(button1);
+			main2.addChild(button3);
+			main2.addChild(button4);
+			
+			main2.addChild(main2_txt1);
+			main2.addChild(main2_txt2);
+			main2.addChild(main2_txt3);
+			main2.addChild(main2_txt4);
+			main2.addChild(main2_txt5);
+			
+			main2.addChild(select2);
+			main2.addChild(rating);
+			main2.addChild(rating2);
+			main2.addChild(points);
+			main2.addChild(points2);
+			main2.addChild(budget);
+			main2.addChild(transfers);
+			main2.addChild(prize);
+			main2.addChild(button_blue);
+			main2.addChild(button_blue2);
+			main2.addChild(button_blue3);
+			main2.addChild(button_blue_long);
+			main2.addChild(button_blue_long2);
+			main2.addChild(button_blue_long3);
+			main2.addChild(button_blue_alpha);
+			main2.addChild(footman_list);
+			main2.addChild(main2_txt6);
+			main2.addChild(main2_txt7);
+			main2.addChild(main2_txt8);
+			main2.addChild(main2_txt9);
+			main2.addChild(main2_txt8_);
+			main2.addChild(main2_txt9_);
+			main2.addChild(main2_txt10);
+			main2.addChild(main2_txt11);
+			main2.addChild(main2_txt10_);
+			main2.addChild(main2_txt11_);
+			main2.addChild(main2_txt12);
+			main2.addChild(main2_txt13);
+			main2.addChild(main2_txt14);
+			main2.addChild(main2_txt15);
+			main2.addChild(main2_txt16);
+			main2.addChild(main2_txt26);
+			main2.addChild(main2_txt17);
+			main2.addChild(main2_txt18);
+			main2.addChild(main2_txt19);
+			main2.addChild(main2_txt19_);
+			main2.addChild(main2_txt20);
+			main2.addChild(main2_txt21);
+			main2.addChild(main2_txt22);
+			main2.addChild(main2_txt23);
+			main2.addChild(main2_txt24);
+				
+			main2.addChild(stat_hint);
+			
+			//addChild(firstManual);
+			//	firstManual.showMan();
 		}
 }
 }
