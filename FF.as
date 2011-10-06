@@ -630,7 +630,6 @@ private var zebra3_bitmap:Class;
 		post_id = stage.loaderInfo.parameters.post_id;
 
 		/*
-		//woff_general_request.url = woff_api;
 		current_tournament = 5;
 		setMethod("getTournament");
 		
@@ -638,7 +637,6 @@ private var zebra3_bitmap:Class;
 		woff_Tournament_loader.addEventListener(Event.COMPLETE, woffTornamentLoadComplete);
 		woff_Tournament_loader.load(woff_general_request);
 		
-		//woff_general_request.url = woff_api1;
 		current_tournament = 6;
 		setMethod("getTournament");
 		
@@ -717,8 +715,6 @@ private var zebra3_bitmap:Class;
 		star.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		star.contentLoaderInfo.addEventListener(Event.COMPLETE, starLoadComplete);
 		
-		
-		
 		// белый большой блок
 		
 		block = new Loader();
@@ -790,7 +786,7 @@ private var zebra3_bitmap:Class;
 		
 		// кнопки
 		
-		var y:int = 72;
+		var y:int = 71;
 		
 		// серая
 		click = new Loader();
@@ -873,25 +869,24 @@ private var zebra3_bitmap:Class;
 		active.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		
 		active1 = new Loader();
-		//var active132423:Bitmap = active.content();
 		active1.load(new URLRequest(serv + "img2/active.png"));
 		active1.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		active1.x = 80;
-		active1.y = y;
+		active1.y = y+1;
 		active2 = new Loader();
 		active2.load(new URLRequest(serv + "img2/active.png"));
 		active2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		active2.x = 220;
-		active2.y = y;
+		active2.y = y+1;
 		active3 = new Loader();
 		active3.load(new URLRequest(serv + "img2/active.png"));
 		active3.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		active3.x = 360;
-		active3.y = y;
+		active3.y = y+1;
 		active4 = new Loader();
 		active4.load(new URLRequest(serv + "img2/active.png"));
 		active4.x = 500;
-		active4.y = y;
+		active4.y = y+1;
 		active4.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		
 		// игровое футбольное поле
@@ -3192,7 +3187,7 @@ private var zebra3_bitmap:Class;
 		//window = "main1";
 		dropdown_menu_sprite.addChild(scroll_clubs);
 		champ = "ita";
-		woff_general_request.url = woff_api3;
+		//woff_general_request.url = woff_api3;
 		current_tax = 250;
 		current_transfers_mass = 20;
 		current_tournament = 2;
@@ -3517,7 +3512,7 @@ private var zebra3_bitmap:Class;
 		dropdown_menu_sprite.addChild(scroll_clubs);
 		
 		champ = "euro";
-		woff_general_request.url = woff_api3;
+		//woff_general_request.url = woff_api3;
 		current_tax = 150;
 		current_transfers_mass = 15;
 		current_tournament = 5;
