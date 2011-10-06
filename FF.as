@@ -1,8 +1,6 @@
 package {
 	import adobe.PNGEncoder;
-	
 	import api.MD5;
-	
 	import com.bit.apps.banerrotator.AppgradeBannerRotator;
 	
 	import data.Ads;
@@ -46,10 +44,10 @@ package {
 
 public class FF extends Sprite{
 
-private var version:Version;
-private var status:text;
-private var serv:String;
-private var loadedFiles:int;
+	private var version:Version;
+	private var status:text;
+	private var serv:String;
+	private var loadedFiles:int;
 
 private var background:Loader;
 private var background1:Loader;
@@ -2206,7 +2204,7 @@ private var zebra3_bitmap:Class;
 				//
 				
 				footman_name_txt[z] =  new text( 10, 117,"--", "2");
-				footman_scores[z] = new text(80, 117, "00", "2");
+				footman_scores[z] = new text(85, 117, "00", "scores");
 				footman_list.addChild(footman_down[z]);
 				footman_form_array[z].addEventListener(MouseEvent.CLICK, captainEvent);
 			}
@@ -2224,7 +2222,7 @@ private var zebra3_bitmap:Class;
 				footman_replace[z].y = freq4-45;
 				
 				footman_name_txt[z] = new text(0, 0,"--", "2");
-				footman_scores[z] = new text(0, 0,"00", "13");
+				footman_scores[z] = new text(0, 0,"00", "scores");
 				footman_list.addChild(footman_down[z]);
 				footman_form_array[z].addEventListener(MouseEvent.CLICK, captainEvent);
 				
@@ -2243,7 +2241,7 @@ private var zebra3_bitmap:Class;
 				footman_replace[z].y = freq4-310;
 				
 				footman_name_txt[z] = new text(0, 0,"--", "2");
-				footman_scores[z] = new text( 0, 0,"00", "13");
+				footman_scores[z] = new text( 0, 0,"00", "scores");
 				footman_list.addChild(footman_down[z]);
 				footman_form_array[z].addEventListener(MouseEvent.CLICK, captainEvent);
 				
@@ -2263,7 +2261,7 @@ private var zebra3_bitmap:Class;
 				footman_replace[z].y = freq4-500;
 				
 				footman_name_txt[z] = new text(0, 0,"--", "2");
-				footman_scores[z] = new text(0, 0,"00", "13");
+				footman_scores[z] = new text(0, 0,"00", "scores");
 				footman_list.addChild(footman_down[z]);
 				footman_form_array[z].addEventListener(MouseEvent.CLICK, captainEvent);
 			}
@@ -2284,7 +2282,7 @@ private var zebra3_bitmap:Class;
 				footman_replace[z].setStatus(2);
 				
 				footman_name_txt[z] = new text( 0, 0,"ВР", "2");
-				footman_scores[z] = new text(0, 0,"00", "13");
+				footman_scores[z] = new text(0, 0,"00", "scores");
 				footman_list.addChild(footman_up[z]);
 			}
 			if (z > 12 && z < 16) {
@@ -2303,7 +2301,7 @@ private var zebra3_bitmap:Class;
 				footman_replace[z].setStatus(z-10);
 				
 				footman_name_txt[z] = new text( (z-12)*100-5, 281,"Замена", "2");
-				footman_scores[z] = new text( (z-12)*100+72, 281,"00", "13");
+				footman_scores[z] = new text( (z-12)*100+72, 281,"00", "scores");
 				footman_list.addChild(footman_up[z]);
 			}
 			
@@ -7232,7 +7230,7 @@ private var zebra3_bitmap:Class;
 					footman_name_form[num+2].y = (250/zope1)*num+30;
 					footman_name_txt[num+2].x = 105;
 					footman_name_txt[num+2].y = (250/zope1)*num+33;
-					footman_scores[num+2].x = 177;
+					footman_scores[num+2].x = 182;
 					footman_scores[num+2].y = (250/zope1)*num+33;
 					footman_down[num+2].x = 150;
 					footman_down[num+2].y = (250/zope1)*num+15;
@@ -7246,7 +7244,7 @@ private var zebra3_bitmap:Class;
 					footman_name_form[zope1+num+2].y = (250/zope2)*num+30;
 					footman_name_txt[zope1+num+2].x = 205;
 					footman_name_txt[zope1+num+2].y = (250/zope2)*num+33;
-					footman_scores[zope1+num+2].x = 275;
+					footman_scores[zope1+num+2].x = 280;
 					footman_scores[zope1+num+2].y = (250/zope2)*num+33;
 					footman_down[zope1+num+2].x = 250;
 					footman_down[zope1+num+2].y = (250/zope2)*num+15;
@@ -7260,7 +7258,7 @@ private var zebra3_bitmap:Class;
 					footman_name_form[zope1+zope2+num+2].y = (150/zope3)*num+90;
 					footman_name_txt[zope1+zope2+num+2].x = 305;
 					footman_name_txt[zope1+zope2+num+2].y = (150/zope3)*num+93;
-					footman_scores[zope1+zope2+num+2].x = 377;
+					footman_scores[zope1+zope2+num+2].x = 382;
 					footman_scores[zope1+zope2+num+2].y = (150/zope3)*num+93;
 					footman_down[zope1+zope2+num+2].x = 350;
 					footman_down[zope1+zope2+num+2].y = (150/zope3)*num+75;
@@ -7603,7 +7601,7 @@ private var zebra3_bitmap:Class;
 					footman_name_form[num+2].y = (250/zope1)*num+30;
 					footman_name_txt[num+2].x = 105;
 					footman_name_txt[num+2].y = (250/zope1)*num+33;
-					footman_scores[num+2].x = 177;
+					footman_scores[num+2].x = 182;
 					footman_scores[num+2].y = (250/zope1)*num+33;
 					footman_down[num+2].x = 150;
 					footman_down[num+2].y = (250/zope1)*num+15;
@@ -7619,7 +7617,7 @@ private var zebra3_bitmap:Class;
 					footman_name_form[zope1+num+2].y = (250/zope2)*num+30;
 					footman_name_txt[zope1+num+2].x = 205;
 					footman_name_txt[zope1+num+2].y = (250/zope2)*num+33;
-					footman_scores[zope1+num+2].x = 275;
+					footman_scores[zope1+num+2].x = 280;
 					footman_scores[zope1+num+2].y = (250/zope2)*num+33;
 					footman_down[zope1+num+2].x = 250;
 					footman_down[zope1+num+2].y = (250/zope2)*num+15;
@@ -7634,7 +7632,7 @@ private var zebra3_bitmap:Class;
 					footman_name_form[zope1+zope2+num+2].y = (150/zope3)*num+90;
 					footman_name_txt[zope1+zope2+num+2].x = 305;
 					footman_name_txt[zope1+zope2+num+2].y = (150/zope3)*num+93;
-					footman_scores[zope1+zope2+num+2].x = 377;
+					footman_scores[zope1+zope2+num+2].x = 382;
 					footman_scores[zope1+zope2+num+2].y = (150/zope3)*num+93;
 					footman_down[zope1+zope2+num+2].x = 350;
 					footman_down[zope1+zope2+num+2].y = (150/zope3)*num+75;
@@ -7664,7 +7662,7 @@ private var zebra3_bitmap:Class;
 					footman_name_form[12].y = 280;
 					footman_name_txt[12].x = 0;
 					footman_name_txt[12].y = 281;
-					footman_scores[12].x = 68;
+					footman_scores[12].x = 72;
 					footman_scores[12].y = 281;
 					footman_up[12].x = 45;
 					footman_up[12].y = 264;

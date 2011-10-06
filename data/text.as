@@ -41,7 +41,13 @@ package data {
 			top.selectable = false;
 			top.autoSize = TextFieldAutoSize.LEFT;
 		}
-		
+		// текст очков, по центру
+		if (type == "scores") {
+			formatter.color = 0x666666;
+			formatter.size = 11;
+			top.selectable = false;
+			top.autoSize = TextFieldAutoSize.CENTER;
+		}
 		
 		// текст приветствия
 		if (type == "welcome") {
