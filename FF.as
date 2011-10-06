@@ -2355,7 +2355,9 @@ private var zebra3_bitmap:Class;
 			club_array[club] = new text(7,freq_club, "--", "3");
 						
 			club_array[club].addEventListener(MouseEvent.CLICK, favClubEvent);
-			club_array[club].addEventListener(MouseEvent.CLICK, enterLeague);
+			//club_array[club].addEventListener(MouseEvent.CLICK, enterLeague);
+			club_array[club].addEventListener(MouseEvent.MOUSE_OVER, overTextEvent);
+			club_array[club].addEventListener(MouseEvent.MOUSE_OUT, outTextEvent);
 			club_array[club].id = club;
 			dropdown_menu_sprite.addChild(club_array[club]);
 		}
