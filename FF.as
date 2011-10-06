@@ -2729,6 +2729,8 @@ private var zebra3_bitmap:Class;
 		//dropdown_menu_sprite2.addChild(scroll_tou);
 		
 		//обнуление команды
+			teamReset();
+		/*
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
 					footman_array[zope___].setId(0);
@@ -2745,6 +2747,8 @@ private var zebra3_bitmap:Class;
 					team_stat_array[zope___].setText("---");
 					team_eu_cost[zope___].setText("-");
 				}
+				 * 
+				 */
 				
 		setMethod("getProfile");
 		
@@ -2868,6 +2872,8 @@ private var zebra3_bitmap:Class;
 		window = "main1";
 		
 		//обнуление команды
+			teamReset();
+		/*	
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
 					footman_array[zope___].setId(0);
@@ -2884,6 +2890,8 @@ private var zebra3_bitmap:Class;
 					team_stat_array[zope___].setText("---");
 					team_eu_cost[zope___].setText("-");
 				}
+				 * 
+				 */
 		
 		setMethod("getProfile");
 		
@@ -3019,6 +3027,8 @@ private var zebra3_bitmap:Class;
 		//dropdown_menu_sprite2.addChild(scroll_tou);
 		
 		//обнуление команды
+		teamReset();
+		/*
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
 					footman_array[zope___].setId(0);
@@ -3035,6 +3045,8 @@ private var zebra3_bitmap:Class;
 					team_stat_array[zope___].setText("---");
 					team_eu_cost[zope___].setText("-");
 				}
+				 * 
+				 */
 		
 		
     			
@@ -3177,6 +3189,8 @@ private var zebra3_bitmap:Class;
 		
 		background = background3;
 		//обнуление команды
+		teamReset();
+		/*
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
 					footman_array[zope___].setId(0);
@@ -3193,6 +3207,8 @@ private var zebra3_bitmap:Class;
 					team_stat_array[zope___].setText("---");
 					team_eu_cost[zope___].setText("-");
 				}
+				 * 
+				 */
 		
 		
     			
@@ -3323,13 +3339,15 @@ private var zebra3_bitmap:Class;
 		window = "main1";
 		dropdown_menu_sprite.addChild(scroll_clubs);
 		champ = "isp";
-		woff_general_request.url = woff_api3;
+		//woff_general_request.url = woff_api3;
 		current_tax = 250;
 		current_transfers_mass = 20;
 		current_tournament = 1;
 		
 		background = background3;
 		//обнуление команды
+		teamReset();
+		/*
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
 					footman_array[zope___].setId(0);
@@ -3346,6 +3364,8 @@ private var zebra3_bitmap:Class;
 					team_stat_array[zope___].setText("---");
 					team_eu_cost[zope___].setText("-");
 				}
+				 * 
+				 */
 		
 		
     			
@@ -3489,6 +3509,8 @@ private var zebra3_bitmap:Class;
 		window = "main3";
 		
 		//обнуление команды
+		teamReset();
+		/*
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
 					footman_array[zope___].setId(0);
@@ -3505,6 +3527,8 @@ private var zebra3_bitmap:Class;
 					team_stat_array[zope___].setText("---");
 					team_eu_cost[zope___].setText("-");
 				}
+				 * 
+				 */
 		
 		setMethod("getAllLeagues");
 		
@@ -4160,6 +4184,7 @@ private var zebra3_bitmap:Class;
 		panel_transfer_right.trigger = 1;
 		
 		//обнуление команды
+		
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
 					footman_array[zope___].setId(0);
@@ -10500,6 +10525,27 @@ private var zebra3_bitmap:Class;
 		}
 		private function outInviteEvent(e:MouseEvent):void {
 			button_blue_invite.filters = [];
+		}
+		
+		//обнуление команды
+		private function teamReset():void {
+			
+			for (var zope___:int=1; zope___< 16; zope___++) {
+					footman_array[zope___].setText("null");
+					footman_array[zope___].setId(0);
+					footman_club[zope___].setText("club null");
+					footman_name_txt[zope___].setText("ooo");
+					footman_pic[zope___].setRole("4");
+					if (footman_form_array[zope___].clubId != 0)
+						footman_form_array[zope___].setClub(0);
+					footman_form_array[zope___].champ = champ;
+					footman_replace[zope___].setId(0);
+					footman_replace[zope___].filters = [myGlow];
+					footman_scores[zope___].setText("0");
+					team_role[zope___].setText("--");
+					team_stat_array[zope___].setText("---");
+					team_eu_cost[zope___].setText("-");
+				}
 		}
 }
 }
