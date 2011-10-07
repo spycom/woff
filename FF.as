@@ -27,6 +27,7 @@ package {
 	import data.up_b;
 	import data.vk_photo;
 	import data.winners_list_sprite;
+	import data.Schedule;
 	
 	import flash.display.*;
 	import flash.events.*;
@@ -1550,7 +1551,7 @@ private var zebra3_bitmap:Class;
 		
 		main_txt621 = new text(410, 360, "РАСПИСАНИЕ МАТЧЕЙ", "1");
 		main_txt622 = new text(410, 375, "", "2");
-		main_txt623 = new text(410, 385, "", "2");
+		main_txt623 = new text(410, 385, "Ближайшие 10 игр", "2");
 		main_txt624 = new text(410, 395, "", "2");
 		main_txt625 = new text(410, 405, "", "2");
 		main_txt6255 = new text(410, 415, "", "2");
@@ -3510,6 +3511,7 @@ private var zebra3_bitmap:Class;
 	public function select6listener(e:MouseEvent):void {
 		removeChild(main);
 		
+		var Schedule1:Schedule = new Schedule();
 		
 		/*
 		dropdown_menu_sprite.addChild(scroll_clubs);
@@ -3585,6 +3587,7 @@ private var zebra3_bitmap:Class;
 			//main3.addChild(help_button);
 			main3.addChild(main_button);
 			main3.addChild(block);
+			main3.addChild(Schedule1);
 			//main3.addChild(link1);
 			//main3.addChild(link2);
 			//main3.addChild(active3);
