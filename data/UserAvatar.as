@@ -4,6 +4,7 @@ package data
 	import flash.events.*;
 	import flash.net.*;
 	import data.text;
+	import flash.system.LoaderContext;
 	
 	public class UserAvatar extends Sprite
 	{
@@ -56,13 +57,10 @@ package data
 			
 			answer= new XML(e.target.data);
 			//answer.ignoreWhite = true;
-			var user_photo = new Loader();
-			user_photo.load(new URLRequest(answer.user[0].photo_medium_rec.text()));
-			user_photo.x = 232;
-			user_photo.y = 136;
-			user_photo.scaleX = 0.8;
-			user_photo.scaleY = 0.8;
-			addChild(user_photo);
+			var user_photo_loader = new Loader();
+			user_photo_loader.load(new URLRequest(answer.user[0].photo_medium_rec.text()), new LoaderContext(true));
+			user_photo_loader.contentLoaderInfo.addEventListener(Event.COMPLETE, photoComplete);
+			
 			
 			//for (var i:int=0; i<answer.user.length(); i++) {
 				
@@ -89,6 +87,17 @@ package data
 				//addChild(info);
 				
 				
+			}
+			
+			private function photoComplete(e:Event):void {
+				var user_photo = new Bitmap();
+				user_photo = Bitmap(e.currentTarget.content);
+				user_photo.smoothing = true;
+				user_photo.x = 232;
+				user_photo.y = 136;
+				user_photo.scaleX = 0.8;
+				user_photo.scaleY = 0.8;
+				addChild(user_photo);
 			}
 		
 		}

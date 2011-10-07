@@ -1548,12 +1548,12 @@ private var zebra3_bitmap:Class;
 		main_txt555 = new text(100, 415, "Название команды: --", "2");
 		main_txt56 = new text(55, 430, "", "2");
 		
-		main_txt621 = new text(410, 360, "ЕВРОТУРНИР - ОКОНЧЕН", "1");
-		main_txt622 = new text(410, 375, "Любимый клуб: --", "2");
-		main_txt623 = new text(410, 385, "Участие в платном турнире: --", "2");
-		main_txt624 = new text(410, 395, "Лучшая игра: --", "2");
-		main_txt625 = new text(410, 405, "Статус допуска: --", "2");
-		main_txt6255 = new text(410, 415, "Название команды: --", "2");
+		main_txt621 = new text(410, 360, "РАСПИСАНИЕ МАТЧЕЙ", "1");
+		main_txt622 = new text(410, 375, "", "2");
+		main_txt623 = new text(410, 385, "", "2");
+		main_txt624 = new text(410, 395, "", "2");
+		main_txt625 = new text(410, 405, "", "2");
+		main_txt6255 = new text(410, 415, "", "2");
 		main_txt626 = new text(363, 430, "", "2");
 		
 // -----------------------------
@@ -1856,7 +1856,7 @@ private var zebra3_bitmap:Class;
 		select6.graphics.lineStyle(1);
 		select6.graphics.drawRoundRect(327, 343, 300, 115, 10);
 		select6.alpha = 0;
-		//select6.addEventListener(MouseEvent.CLICK, select6listener);
+		select6.addEventListener(MouseEvent.CLICK, select6listener);
 		select6.addEventListener(MouseEvent.MOUSE_OVER, select6over);
 		select6.addEventListener(MouseEvent.MOUSE_OUT, select6out);
 		select6.buttonMode = true;
@@ -2523,8 +2523,7 @@ private var zebra3_bitmap:Class;
 		main4_avatar.load(new URLRequest("http://cs4571.vkontakte.ru/u64416/d_dcd73d6f.jpg"));
 		main4_avatar.x = 235;
 		main4_avatar.y = 139;
-		//main4_avatar.scaleX = 1;
-		//main4_avatar.scaleY = 1;
+		
 		
 			this.addEventListener(MouseEvent.MOUSE_OVER, function() {
 				MouseWheel.capture();
@@ -3507,10 +3506,12 @@ private var zebra3_bitmap:Class;
     		 */
 	}
 	
-	// выбор евротурнира
+	// выбор расписания матчей
 	public function select6listener(e:MouseEvent):void {
 		removeChild(main);
 		
+		
+		/*
 		dropdown_menu_sprite.addChild(scroll_clubs);
 		
 		champ = "euro";
@@ -3544,7 +3545,7 @@ private var zebra3_bitmap:Class;
 				}
 				 * 
 				 */
-		
+		/*
 		setMethod("getAllLeagues");
 		
 		var woff_AllLeagues_loader:URLLoader = new URLLoader();
@@ -3557,15 +3558,20 @@ private var zebra3_bitmap:Class;
 			woff_Leaders_loader.load(woff_general_request);
 			 * 
 			 */
+			 /*
 		getFriends();
 		
 		main3_txt1.setText("Лига друзей");
 		
-		window = "main3";
+		
+		 * 
+		 */
+		 window = "main3";
+		 
 		addChild(main3);
 			main3.addChild(background);
 			main3.addChild(top1);
-			main3.addChild(top2);
+			//main3.addChild(top2);
 			main3.addChild(top3);
 			main3.addChild(top4);
 			main3.addChild(version);
@@ -3575,25 +3581,26 @@ private var zebra3_bitmap:Class;
 			main3.addChild(all_txt3);
 			main3.addChild(all_txt4);
 			main3.addChild(logo2);
-			main3.addChild(help_buttontxt);
-			main3.addChild(help_button);
+			//main3.addChild(help_buttontxt);
+			//main3.addChild(help_button);
 			main3.addChild(main_button);
 			main3.addChild(block);
 			//main3.addChild(link1);
 			//main3.addChild(link2);
-			main3.addChild(active3);
-			main3.addChild(link4);
+			//main3.addChild(active3);
+			//main3.addChild(link4);
 			//main3.addChild(button1txt);
 			//main3.addChild(button2txt);
-			main3.addChild(button3txt);
-			main3.addChild(button4txt);
+			//main3.addChild(button3txt);
+			//main3.addChild(button4txt);
 				//button1txt.setColor("0xffffff");
-				button3txt.setColor("0x696969");
+				//button3txt.setColor("0x696969");
 				//button2txt.setColor("0xffffff");
-				button4txt.setColor("0xffffff");
+				//button4txt.setColor("0xffffff");
 			//main3.addChild(button1);
 			//main3.addChild(button2);
 			
+			/*
 			main3.addChild(button4_euro);
 			//main3.addChild(select_leaders);
 			//main3.addChild(select_leaders_tour_txt);
@@ -3624,10 +3631,12 @@ private var zebra3_bitmap:Class;
 					"и ты не можешь получать уведомления\n =(" +
 					"   				 (клик чтобы закрыть)");
     		}
+    		*/
 	}
 	
 	// возврат к окну с выбором турнира
 	public function mainButton(e:MouseEvent):void{
+		/*
 		if (window == "main1") {
 			removeChild(main1);
 		} 
@@ -3655,6 +3664,9 @@ private var zebra3_bitmap:Class;
 		if (window == "transfer") {
 			removeChild(transfer);
 		}
+		 * 
+		 */
+		closeCurrentWindow();
 		
 		window = "main";
 		
@@ -3787,6 +3799,7 @@ private var zebra3_bitmap:Class;
 	
 	// окно с праивлами
 	public function helpButton(e:MouseEvent):void{
+		/*
 		if (window == "main1") {
 			removeChild(main1);
 		} 
@@ -3811,6 +3824,9 @@ private var zebra3_bitmap:Class;
 		if (window == "transfer") {
 			removeChild(transfer);
 		}
+		 * 
+		 */
+		closeCurrentWindow();
 		
 		window = "help";
 		addChild(help);
@@ -10360,7 +10376,7 @@ private var zebra3_bitmap:Class;
 			blocknation3.filters = [];
 		}
 		private function select6over(e:MouseEvent):void {
-			blocknation6.filters = [myGlow_blue, myBevel, innerGlow_red];
+			blocknation6.filters = [myGlow_blue, myBevel, innerGlow];
 		}
 		private function select6out(e:MouseEvent):void {
 			blocknation6.filters = [];
