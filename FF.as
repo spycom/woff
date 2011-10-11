@@ -579,6 +579,9 @@ private var tour_array:Array;
 private var panel_transfer_right:panel_transfer;
 private var lc:LoaderContext;
 private var select1smart:smartButton;
+private var select2smart:smartButton;
+private var select3smart:smartButton;
+private var select4smart:smartButton;
 
 //[Embed(source='/Users/Art/Dropbox/FF/img3/razdelitel.png')]
 [Embed(source='C:/Users/artem.akinchits/Dev/images/razdelitel.png')]
@@ -1868,7 +1871,12 @@ private var zebra3_bitmap:Class;
 		select6.useHandCursor = true;
 		
 		// умные кнопки\
-		select1smart = new smartButton();
+		select1smart = new smartButton(woff_uid, 5);
+		//select2smart = new smartButton(woff_uid, 5);
+		//select3smart = new smartButton(woff_uid, 5);
+		
+		select4smart = new smartButton(woff_uid, 7);
+		select4smart.x = 315;
 		
 		// детали окна с футболистом
 		
@@ -10367,16 +10375,30 @@ private var zebra3_bitmap:Class;
 		}
 		private function select1out(e:MouseEvent):void {
 			blocknation.filters = [];
-			select1.alpha = 0;
+			//select1.alpha = 0;
 			select1smart.hide();
 		}
 		private function select4over(e:MouseEvent):void {
 			blocknation4.filters = [myGlow_blue, myBevel, innerGlow];
-			//select4.alpha = 0.2;
+			
+			main.addChild(select4smart);
+			main.addChild(blocknation4);
+			main.addChild(world);
+			main.addChild(main_txt21);
+			main.addChild(main_txt22);
+			main.addChild(main_txt23);
+			main.addChild(main_txt24);
+			main.addChild(main_txt25);
+			main.addChild(main_txt255);
+			main.addChild(main_txt26);
+			main.addChild(select4);
+			
+			select4smart.show();
 		}
 		private function select4out(e:MouseEvent):void {
 			blocknation4.filters = [];
-			select4.alpha = 0;
+			//select4.alpha = 0;
+			select4smart.hide();
 		}
 		
 		private function select2over(e:MouseEvent):void {
