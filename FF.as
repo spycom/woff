@@ -28,6 +28,7 @@ package {
 	import data.vk_photo;
 	import data.winners_list_sprite;
 	import data.Schedule;
+	import data.smartButton;
 	
 	import flash.display.*;
 	import flash.events.*;
@@ -577,6 +578,8 @@ private var main4_avatar:Loader;
 private var tour_array:Array;
 private var panel_transfer_right:panel_transfer;
 private var lc:LoaderContext;
+private var select1smart:smartButton;
+
 //[Embed(source='/Users/Art/Dropbox/FF/img3/razdelitel.png')]
 [Embed(source='C:/Users/artem.akinchits/Dev/images/razdelitel.png')]
 private var razdelitel_b:Class;
@@ -1796,7 +1799,8 @@ private var zebra3_bitmap:Class;
 		team_sostav = new Sprite();
 		transfer = new Sprite();
 		player_liga = new Sprite();	
-				
+		
+		// кнопки выбора чемпионата		
 		select1 = new Sprite();
 		select1.graphics.beginFill(0x000000,1);
 		select1.graphics.lineStyle(1);
@@ -1862,6 +1866,9 @@ private var zebra3_bitmap:Class;
 		select6.addEventListener(MouseEvent.MOUSE_OUT, select6out);
 		select6.buttonMode = true;
 		select6.useHandCursor = true;
+		
+		// умные кнопки\
+		select1smart = new smartButton();
 		
 		// детали окна с футболистом
 		
@@ -2688,7 +2695,8 @@ private var zebra3_bitmap:Class;
 			main.addChild(main_txt6255);
 			main.addChild(main_txt626);
 			main.addChild(version);
-		
+			
+			//main.addChild(select1smart);
 			main.addChild(select1);
 			main.addChild(select4);
 			main.addChild(select2_);
@@ -10342,13 +10350,25 @@ private var zebra3_bitmap:Class;
 		
 		private function select1over(e:MouseEvent):void {
 			blocknation.filters = [myGlow_blue, myBevel, innerGlow];
-			//select1.alpha = 0.2;
-			//Mouse.cursor = HAND;
+			
+			main.addChild(select1smart);
+			main.addChild(blocknation);
+			main.addChild(russia);
+			main.addChild(main_txt1);
+			main.addChild(main_txt2);
+			main.addChild(main_txt3);
+			main.addChild(main_txt4);
+			main.addChild(main_txt5);
+			main.addChild(main_txt55);
+			main.addChild(main_txt6);
+			main.addChild(select1);
+			
+			select1smart.show();
 		}
 		private function select1out(e:MouseEvent):void {
 			blocknation.filters = [];
 			select1.alpha = 0;
-			//Mouse.cursor = MouseCursor
+			select1smart.hide();
 		}
 		private function select4over(e:MouseEvent):void {
 			blocknation4.filters = [myGlow_blue, myBevel, innerGlow];
