@@ -1872,7 +1872,8 @@ private var zebra3_bitmap:Class;
 		
 		// умные кнопки\
 		select1smart = new smartButton(woff_uid, 5);
-		//select2smart = new smartButton(woff_uid, 5);
+		select2smart = new smartButton(woff_uid, 6);
+		select2smart.y = 120;
 		//select3smart = new smartButton(woff_uid, 5);
 		
 		select4smart = new smartButton(woff_uid, 7);
@@ -10403,9 +10404,24 @@ private var zebra3_bitmap:Class;
 		
 		private function select2over(e:MouseEvent):void {
 			blocknation2.filters = [myGlow_blue, myBevel, innerGlow];
+			
+			main.addChild(select2smart);
+			main.addChild(blocknation2);
+			main.addChild(england);
+			main.addChild(main_txt31);
+			main.addChild(main_txt32);
+			main.addChild(main_txt33);
+			main.addChild(main_txt34);
+			main.addChild(main_txt35);
+			main.addChild(main_txt355);
+			main.addChild(main_txt36);
+			main.addChild(select2_);
+			
+			select2smart.show();
 		}
 		private function select2out(e:MouseEvent):void {
 			blocknation2.filters = [];
+			select2smart.hide();
 		}
 		private function select5over(e:MouseEvent):void {
 			blocknation5.filters = [myGlow_blue, myBevel, innerGlow_red];

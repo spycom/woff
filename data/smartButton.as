@@ -24,12 +24,10 @@ package data{
 			main = new Sprite();
 			
 			var select1 = new Sprite();
-			select1.graphics.beginFill(0xffffff,1);
-			select1.graphics.lineStyle(1, 0xcccccc);
-			select1.graphics.drawRoundRect(10, 105, 300, 114, 10);
+			select1.graphics.beginFill(0xe8e8e8,1);
+			select1.graphics.lineStyle(2, 0xcccccc);
+			select1.graphics.drawRoundRect(20, 105, 285, 112, 20);
 			
-			
-			//new_text = new text(30, 155, "Расписание?!", "1");
 			
 			timer = new Timer(5, 45);
 			timer.addEventListener(TimerEvent.TIMER, timerEvent);
@@ -39,11 +37,10 @@ package data{
 			direction = 2;
 			
 			main.addChild(select1);
-			//main.addChild(new_text);
 			
 			table = new Array();
 			for (var i:int=0; i<10; i++) {
-				table[i] = new text(30, 110+i*10, "--", "2");
+				table[i] = new text(50, 110+i*10, "--", "2");
 				main.addChild(table[i]);
 			}
 			
