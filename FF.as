@@ -9429,7 +9429,7 @@ private var zebra3_bitmap:Class;
 			// генерация запроса на список трансферов
 			public function getTransfer(ii:int, iii:int, iiii:int):void {
 				
-				var params:Object = {method: "getFootballers", role: iii, id_f: ii, id_c:iiii, id_tm: current_tournament};
+				var params:Object = {method: "getFootballers2", role: iii, id_f: ii, id_c:iiii, id_tm: current_tournament};
 				
 				var keys:Array = new Array();
 				for (var k:String in params)

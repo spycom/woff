@@ -5,7 +5,8 @@ package data{
 	import flash.events.TimerEvent;
 	import flash.net.*;
 	import flash.events.Event;
-
+	import flash.geom.Matrix;
+	
 	import data.text;
 	
 	
@@ -23,9 +24,21 @@ package data{
 			
 			main = new Sprite();
 			
+			var fillType:String = GradientType.RADIAL;
+			var colors:Array = [0xcccccc, 0xe8e8e8];
+			var alphas:Array = [1, 1];
+			var ratios:Array = [0, 200];
+			var matr:Matrix = new Matrix();
+			matr.createGradientBox(450, 450, 0, -50, 0);
+			
+			var spreadMethod:String = SpreadMethod.PAD;
+			
+			
+			
 			var select1 = new Sprite();
-			select1.graphics.beginFill(0xe8e8e8,1);
-			select1.graphics.lineStyle(2, 0xcccccc);
+			//select1.graphics.beginFill(0xe8e8e8,1);
+			select1.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod);
+			select1.graphics.lineStyle(1, 0xcccccc);
 			select1.graphics.drawRoundRect(20, 105, 285, 112, 20);
 			
 			
