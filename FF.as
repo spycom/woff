@@ -2746,25 +2746,6 @@ private var zebra3_bitmap:Class;
 		
 		//обнуление команды
 			teamReset();
-		/*
-		for (var zope___:int=1; zope___< 16; zope___++) {
-					footman_array[zope___].setText("null");
-					footman_array[zope___].setId(0);
-					footman_club[zope___].setText("club null");
-					footman_name_txt[zope___].setText("ooo");
-					footman_pic[zope___].setRole("4");
-					if (footman_form_array[zope___].clubId != 0)
-						footman_form_array[zope___].setClub(0);
-					footman_form_array[zope___].champ = champ;
-					footman_replace[zope___].setId(0);
-					footman_replace[zope___].filters = [myGlow];
-					footman_scores[zope___].setText("0");
-					team_role[zope___].setText("--");
-					team_stat_array[zope___].setText("---");
-					team_eu_cost[zope___].setText("-");
-				}
-				 * 
-				 */
 				
 		setMethod("getProfile");
 		
@@ -2811,67 +2792,7 @@ private var zebra3_bitmap:Class;
 		woff_checkteam_loader.load(woff_general_request);
 		
 		showMain1();
-		/*
-		addChild(main1);
-			main1.addChild(background);
-			main1.addChild(logo2);
-			main1.addChild(top1);
-			main1.addChild(top2);
-			main1.addChild(top3);
-			main1.addChild(top4);
-			main1.addChild(version);
-			main1.addChild(mp);
-			main1.addChild(eu);
-			main1.addChild(all_txt1);
-			main1.addChild(all_txt3);
-			main1.addChild(all_txt4);
-			main1.addChild(main_button);
-			//main1.addChild(help_button);
-			main1.addChild(block);
-			main1.addChild(block2);
-			main1.addChild(liders);
-			main1.addChild(help_buttontxt);
-			main1.addChild(help_button);
-			main1.addChild(active1);
-			main1.addChild(link2);
-			main1.addChild(link3);
-			main1.addChild(link4);
-			main1.addChild(button1txt);
-			main1.addChild(button2txt);
-			main1.addChild(button3txt);
-			main1.addChild(button4txt);
-				button1txt.setColor("0x696969");
-				button2txt.setColor("0xffffff");
-				button3txt.setColor("0xffffff");
-				button4txt.setColor("0xffffff");
-			main1.addChild(button2);
-			main1.addChild(button3);
-			main1.addChild(button4);
-			main1.addChild(input);
-			main1.addChild(input2);
-		//	main1.addChild(test);
-			main1.addChild(main1_txt1);
-			main1.addChild(main1_txt2);
-			main1.addChild(main1_txt3);
-			main1.addChild(main1_txt4);
-			main1.addChild(main1_txt4_1);
-			main1.addChild(main1_txt5);
-			main1.addChild(main1_txt6);
-			main1.addChild(main1_txt7);
-			main1.addChild(main1_txt8);
-			main1.addChild(main1_txt_note1);
-				addLeadersButtons();
-			main1.addChild(select);
-			main1.addChild(liga);
-			main1.addChild(liders_list);
-			main1.addChild(team_list);
-			main1.addChild(liga_list);
-			main1.addChild(main1_txt24);
-			main1.addChild(scroll);
-		main1.addChild(scroll2);
-		main1.addChild(stat_hint);
-		 * 
-		 */
+		
 			//main1.addChild(winners_list);
 	}
 	
@@ -2893,25 +2814,6 @@ private var zebra3_bitmap:Class;
 		
 		//обнуление команды
 			teamReset();
-		/*	
-		for (var zope___:int=1; zope___< 16; zope___++) {
-					footman_array[zope___].setText("null");
-					footman_array[zope___].setId(0);
-					footman_club[zope___].setText("club null");
-					footman_name_txt[zope___].setText("ooo");
-					footman_pic[zope___].setRole("4");
-					if (footman_form_array[zope___].clubId != 0)
-						footman_form_array[zope___].setClub(0);
-					footman_form_array[zope___].champ = champ;
-					footman_replace[zope___].setId(0);
-					footman_replace[zope___].filters = [myGlow];
-					footman_scores[zope___].setText("0");
-					team_role[zope___].setText("--");
-					team_stat_array[zope___].setText("---");
-					team_eu_cost[zope___].setText("-");
-				}
-				 * 
-				 */
 		
 		setMethod("getProfile");
 		
@@ -2957,66 +2859,7 @@ private var zebra3_bitmap:Class;
 		woff_checkteam_loader.load(woff_general_request);
 		
 		showMain1();
-		/*
-		addChild(main1);
-			main1.addChild(background);
-			main1.addChild(logo2);
-			main1.addChild(top1);
-			main1.addChild(top2);
-			main1.addChild(top3);
-			main1.addChild(top4);
-			main1.addChild(version);
-			main1.addChild(mp);
-			main1.addChild(eu);
-			main1.addChild(all_txt1);
-			main1.addChild(all_txt3);
-			main1.addChild(all_txt4);
-			main1.addChild(main_button);
-			main1.addChild(block);
-			main1.addChild(block2);
-			main1.addChild(liders);
-			main1.addChild(help_buttontxt);
-			main1.addChild(help_button);
-			main1.addChild(active1);
-			main1.addChild(link2);
-			main1.addChild(link3);
-			main1.addChild(link4);
-			main1.addChild(button1txt);
-			main1.addChild(button2txt);
-			main1.addChild(button3txt);
-			main1.addChild(button4txt);
-				button1txt.setColor("0x696969");
-				button2txt.setColor("0xffffff");
-				button3txt.setColor("0xffffff");
-				button4txt.setColor("0xffffff");
-			main1.addChild(button2);
-			main1.addChild(button3);
-			main1.addChild(button4);
-			main1.addChild(input);
-			main1.addChild(input2);
-			main1.addChild(test);
-			main1.addChild(main1_txt1);
-			main1.addChild(main1_txt2);
-			main1.addChild(main1_txt3);
-			main1.addChild(main1_txt4);
-			main1.addChild(main1_txt4_1);
-			main1.addChild(main1_txt5);
-			main1.addChild(main1_txt6);
-			main1.addChild(main1_txt7);
-			main1.addChild(main1_txt8);
-			main1.addChild(main1_txt_note1);
-				addLeadersButtons();
-			main1.addChild(select);
-			main1.addChild(liga);
-			main1.addChild(liders_list);
-			main1.addChild(team_list);
-			main1.addChild(liga_list);
-			main1.addChild(main1_txt24);
-			main1.addChild(scroll);
-			main1.addChild(scroll2);
-			 * 
-			 */
-			
+		
 			/*
 			winners_list = new winners_list_sprite(woff_uid);
 			winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
@@ -3046,28 +2889,7 @@ private var zebra3_bitmap:Class;
 		
 		//обнуление команды
 		teamReset();
-		/*
-		for (var zope___:int=1; zope___< 16; zope___++) {
-					footman_array[zope___].setText("null");
-					footman_array[zope___].setId(0);
-					footman_club[zope___].setText("club null");
-					footman_name_txt[zope___].setText("ooo");
-					footman_pic[zope___].setRole("4");
-					if (footman_form_array[zope___].clubId != 0)
-						footman_form_array[zope___].setClub(0);
-					footman_form_array[zope___].champ = champ;
-					footman_replace[zope___].setId(0);
-					footman_replace[zope___].filters = [myGlow];
-					footman_scores[zope___].setText("0");
-					team_role[zope___].setText("--");
-					team_stat_array[zope___].setText("---");
-					team_eu_cost[zope___].setText("-");
-				}
-				 * 
-				 */
-		
-		
-    			
+			
 		setMethod("getProfile");
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
@@ -3086,12 +2908,6 @@ private var zebra3_bitmap:Class;
 		woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
 		woff_Team_loader.load(woff_general_request);
 		
-		//setMethod("getLeaders");
-		
-		//var woff_Leaders_loader:URLLoader = new URLLoader();
-		//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
-		//woff_Leaders_loader.load(woff_general_request);
-			//getLeaders(1, current_new_tour);
 		getLeadersTournament(1);
 		
 		setMethod("getSaveDate");
@@ -3118,67 +2934,7 @@ private var zebra3_bitmap:Class;
 		woff_checkteam_loader.load(woff_general_request);
 		
 		showMain1();
-		/*
-		addChild(main1);
-			main1.addChild(background);
-			main1.addChild(logo2);
-			main1.addChild(top1);
-			main1.addChild(top2);
-			main1.addChild(top3);
-			main1.addChild(top4);
-			main1.addChild(version);
-			main1.addChild(mp);
-			main1.addChild(eu);
-			main1.addChild(all_txt1);
-			main1.addChild(all_txt3);
-			main1.addChild(all_txt4);
-			main1.addChild(main_button);
-			//main1.addChild(help_button);
-			main1.addChild(block);
-			main1.addChild(block2);
-			main1.addChild(liders);
-			main1.addChild(help_buttontxt);
-			main1.addChild(help_button);
-			main1.addChild(active1);
-			main1.addChild(link2);
-			main1.addChild(link3);
-			main1.addChild(link4);
-			main1.addChild(button1txt);
-			main1.addChild(button2txt);
-			main1.addChild(button3txt);
-			main1.addChild(button4txt);
-				button1txt.setColor("0x696969");
-				button2txt.setColor("0xffffff");
-				button3txt.setColor("0xffffff");
-				button4txt.setColor("0xffffff");
-			main1.addChild(button2);
-			main1.addChild(button3);
-			main1.addChild(button4);
-			main1.addChild(input);
-			main1.addChild(input2);
-			main1.addChild(test);
-			main1.addChild(main1_txt1);
-			main1.addChild(main1_txt2);
-			main1.addChild(main1_txt3);
-			main1.addChild(main1_txt4);
-			main1.addChild(main1_txt4_1);
-			main1.addChild(main1_txt5);
-			main1.addChild(main1_txt6);
-			main1.addChild(main1_txt7);
-			main1.addChild(main1_txt8);
-			main1.addChild(main1_txt_note1);
-				addLeadersButtons();
-			main1.addChild(select);
-			main1.addChild(liga);
-			main1.addChild(liders_list);
-			main1.addChild(team_list);
-			main1.addChild(liga_list);
-			main1.addChild(main1_txt24);
-			main1.addChild(scroll);
-			main1.addChild(scroll2);
-			 * 
-			 */
-			
+		
 			/*
 			winners_list = new winners_list_sprite(woff_uid);
 			winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
@@ -3189,16 +2945,7 @@ private var zebra3_bitmap:Class;
 			//main1.addChild(winners_list);
 			//winners_list.setChamp("eng");
 			//	getLeadersFinal();
-			/*
-			if (woff_isAppUser !== 1) {
-    		addChild(errorSprite);
-					errorText.setText("	Зря ты не добавил это приложение! " +
-					"\nТеперь у тебя отсутствует доступ к лиге друзей"+
-					"и ты не можешь получать уведомления\n =(" +
-					"   				 (клик чтобы закрыть)");
-    		}
-    		 * 
-    		 */
+			
 	}
 	// переход к чемпионату Италии
 	public function select3listener(e:MouseEvent):void {
@@ -3212,30 +2959,10 @@ private var zebra3_bitmap:Class;
 		current_tournament = 2;
 		
 		background = background3;
+		
 		//обнуление команды
 		teamReset();
-		/*
-		for (var zope___:int=1; zope___< 16; zope___++) {
-					footman_array[zope___].setText("null");
-					footman_array[zope___].setId(0);
-					footman_club[zope___].setText("club null");
-					footman_name_txt[zope___].setText("ooo");
-					footman_pic[zope___].setRole("4");
-					if (footman_form_array[zope___].clubId != 0)
-						footman_form_array[zope___].setClub(0);
-					footman_form_array[zope___].champ = champ;
-					footman_replace[zope___].setId(0);
-					footman_replace[zope___].filters = [myGlow];
-					footman_scores[zope___].setText("0");
-					team_role[zope___].setText("--");
-					team_stat_array[zope___].setText("---");
-					team_eu_cost[zope___].setText("-");
-				}
-				 * 
-				 */
-		
-		
-    			
+			
 		setMethod("getProfile");
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
@@ -3285,81 +3012,7 @@ private var zebra3_bitmap:Class;
 		woff_checkteam_loader.load(woff_general_request);
 		
 		showMain1();
-		/*
-		addChild(main1);
-			main1.addChild(background);
-			main1.addChild(logo2);
-			main1.addChild(top1);
-			main1.addChild(top2);
-			main1.addChild(top3);
-			main1.addChild(top4);
-			main1.addChild(version);
-			main1.addChild(mp);
-			main1.addChild(eu);
-			main1.addChild(all_txt1);
-			main1.addChild(all_txt3);
-			main1.addChild(all_txt4);
-			main1.addChild(main_button);
-			//main1.addChild(help_button);
-			main1.addChild(block);
-			main1.addChild(block2);
-			main1.addChild(liders);
-			main1.addChild(help_buttontxt);
-			main1.addChild(help_button);
-			main1.addChild(active1);
-			main1.addChild(link2);
-			main1.addChild(link3);
-			main1.addChild(link4);
-			main1.addChild(button1txt);
-			main1.addChild(button2txt);
-			main1.addChild(button3txt);
-			main1.addChild(button4txt);
-				button1txt.setColor("0x696969");
-				button2txt.setColor("0xffffff");
-				button3txt.setColor("0xffffff");
-				button4txt.setColor("0xffffff");
-			main1.addChild(button2);
-			main1.addChild(button3);
-			main1.addChild(button4);
-			main1.addChild(input);
-			main1.addChild(input2);
-			main1.addChild(test);
-			main1.addChild(main1_txt1);
-			main1.addChild(main1_txt2);
-			main1.addChild(main1_txt3);
-			main1.addChild(main1_txt4);
-			main1.addChild(main1_txt4_1);
-			main1.addChild(main1_txt5);
-			main1.addChild(main1_txt6);
-			main1.addChild(main1_txt7);
-			main1.addChild(main1_txt8);
-			main1.addChild(main1_txt_note1);
-				addLeadersButtons();
-			main1.addChild(select);
-			main1.addChild(liga);
-			main1.addChild(liders_list);
-			main1.addChild(team_list);
-			main1.addChild(liga_list);
-			main1.addChild(main1_txt24);
-			main1.addChild(scroll);
-			main1.addChild(scroll2);
-			//main1.addChild(camera);
-			
-			winners_list = new winners_list_sprite(woff_uid);
-			winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
-			main1.addChild(winners_list);
-			winners_list.setChamp("ita");
-				getLeadersFinal();
-			
-    		if (woff_isAppUser !== 1) {
-    		addChild(errorSprite);
-					errorText.setText("	Зря ты не добавил это приложение! " +
-					"\nТеперь у тебя отсутствует доступ к лиге друзей"+
-					"и ты не можешь получать уведомления\n =(" +
-					"   				 (клик чтобы закрыть)");
-    		}
-    		 * 
-    		 */
+		
 	}
 	// переход к чемпионату Испании
 	public function select5listener(e:MouseEvent):void {
@@ -3375,26 +3028,6 @@ private var zebra3_bitmap:Class;
 		background = background3;
 		//обнуление команды
 		teamReset();
-		/*
-		for (var zope___:int=1; zope___< 16; zope___++) {
-					footman_array[zope___].setText("null");
-					footman_array[zope___].setId(0);
-					footman_club[zope___].setText("club null");
-					footman_name_txt[zope___].setText("ooo");
-					footman_pic[zope___].setRole("4");
-					if (footman_form_array[zope___].clubId != 0)
-						footman_form_array[zope___].setClub(0);
-					footman_form_array[zope___].champ = champ;
-					footman_replace[zope___].setId(0);
-					footman_replace[zope___].filters = [myGlow];
-					footman_scores[zope___].setText("0");
-					team_role[zope___].setText("--");
-					team_stat_array[zope___].setText("---");
-					team_eu_cost[zope___].setText("-");
-				}
-				 * 
-				 */
-		
 		
     			
 		setMethod("getProfile");
@@ -3415,11 +3048,7 @@ private var zebra3_bitmap:Class;
 		woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
 		woff_Team_loader.load(woff_general_request);
 		
-		//setMethod("getLeaders");
 		
-		//var woff_Leaders_loader:URLLoader = new URLLoader();
-		//woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
-		//woff_Leaders_loader.load(woff_general_request);
 			getLeaders(1, current_new_tour);
 			
 		setMethod("getSaveDate");
@@ -3446,82 +3075,7 @@ private var zebra3_bitmap:Class;
 		woff_checkteam_loader.load(woff_general_request);
 		
 		showMain1();
-		/*
-		addChild(main1);
-			main1.addChild(background);
-			main1.addChild(logo2);
-			main1.addChild(top1);
-			main1.addChild(top2);
-			main1.addChild(top3);
-			main1.addChild(top4);
-			main1.addChild(version);
-			main1.addChild(mp);
-			main1.addChild(eu);
-			main1.addChild(all_txt1);
-			main1.addChild(all_txt3);
-			main1.addChild(all_txt4);
-			main1.addChild(main_button);
-			//main1.addChild(help_button);
-			main1.addChild(block);
-			main1.addChild(block2);
-			main1.addChild(liders);
-			main1.addChild(help_buttontxt);
-			main1.addChild(help_button);
-			main1.addChild(active1);
-			main1.addChild(link2);
-			main1.addChild(link3);
-			main1.addChild(link4);
-			main1.addChild(button1txt);
-			main1.addChild(button2txt);
-			main1.addChild(button3txt);
-			main1.addChild(button4txt);
-				button1txt.setColor("0x696969");
-				button2txt.setColor("0xffffff");
-				button3txt.setColor("0xffffff");
-				button4txt.setColor("0xffffff");
-			main1.addChild(button2);
-			main1.addChild(button3);
-			main1.addChild(button4);
-			main1.addChild(input);
-			main1.addChild(input2);
-			main1.addChild(test);
-			main1.addChild(main1_txt1);
-			main1.addChild(main1_txt2);
-			main1.addChild(main1_txt3);
-			main1.addChild(main1_txt4);
-			main1.addChild(main1_txt4_1);
-			main1.addChild(main1_txt5);
-			main1.addChild(main1_txt6);
-			main1.addChild(main1_txt7);
-			main1.addChild(main1_txt8);
-			main1.addChild(main1_txt_note1);
-				addLeadersButtons();
-			main1.addChild(select);
-			main1.addChild(liga);
-			main1.addChild(liders_list);
-			main1.addChild(team_list);
-			main1.addChild(liga_list);
-			main1.addChild(main1_txt24);
-			main1.addChild(scroll);
-			main1.addChild(scroll2);
-			
-			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
-    		
-			winners_list = new winners_list_sprite(woff_uid);
-			winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
-			main1.addChild(winners_list);
-			winners_list.setChamp("isp");
-				getLeadersFinal();
-			
-    		if (woff_isAppUser !== 1) {
-    		addChild(errorSprite);
-					errorText.setText("	Зря ты не добавил это приложение! " +
-					"\nТеперь у тебя отсутствует доступ к лиге друзей"+
-					"и ты не можешь получать уведомления\n =(" +
-					"   				 (клик чтобы закрыть)");
-    		}
-    		 * 
-    		 */
+		
 	}
 	
 	// выбор расписания матчей
@@ -3530,61 +3084,7 @@ private var zebra3_bitmap:Class;
 		
 		var Schedule1:Schedule = new Schedule();
 		
-		/*
-		dropdown_menu_sprite.addChild(scroll_clubs);
 		
-		champ = "euro";
-		//woff_general_request.url = woff_api3;
-		current_tax = 150;
-		current_transfers_mass = 15;
-		current_tournament = 5;
-		
-		background = background2;
-		
-		window = "main3";
-		
-		//обнуление команды
-		teamReset();
-		/*
-		for (var zope___:int=1; zope___< 16; zope___++) {
-					footman_array[zope___].setText("null");
-					footman_array[zope___].setId(0);
-					footman_club[zope___].setText("club null");
-					footman_name_txt[zope___].setText("ooo");
-					footman_pic[zope___].setRole("4");
-					if (footman_form_array[zope___].clubId != 0)
-						footman_form_array[zope___].setClub(0);
-					footman_form_array[zope___].champ = champ;
-					footman_replace[zope___].setId(0);
-					footman_replace[zope___].filters = [myGlow];
-					footman_scores[zope___].setText("0");
-					team_role[zope___].setText("--");
-					team_stat_array[zope___].setText("---");
-					team_eu_cost[zope___].setText("-");
-				}
-				 * 
-				 */
-		/*
-		setMethod("getAllLeagues");
-		
-		var woff_AllLeagues_loader:URLLoader = new URLLoader();
-		woff_AllLeagues_loader.addEventListener(Event.COMPLETE, woffAllLeaguesLoadComplete);
-		woff_AllLeagues_loader.load(woff_general_request);
-		/*
-		setMethod("getLeaders");
-			var woff_Leaders_loader:URLLoader = new URLLoader();
-			woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
-			woff_Leaders_loader.load(woff_general_request);
-			 * 
-			 */
-			 /*
-		getFriends();
-		
-		main3_txt1.setText("Лига друзей");
-		
-		
-		 * 
-		 */
 		 window = "main3";
 		 
 		addChild(main3);
@@ -3644,48 +3144,13 @@ private var zebra3_bitmap:Class;
 			main3.addChild(main3_txt_inv);
 			main3.addChild(scroll_lig);
 			
-			if (woff_isAppUser !== 1) {
-    		addChild(errorSprite);
-					errorText.setText("	Зря ты не добавил это приложение! " +
-					"\nТеперь у тебя отсутствует доступ к лиге друзей"+
-					"и ты не можешь получать уведомления\n =(" +
-					"   				 (клик чтобы закрыть)");
-    		}
+			
     		*/
 	}
 	
 	// возврат к окну с выбором турнира
 	public function mainButton(e:MouseEvent):void{
-		/*
-		if (window == "main1") {
-			removeChild(main1);
-		} 
-		if (window == "main2") {
-			removeChild(main2);
-		} 
-		if (window == "main3") {
-			removeChild(main3);
-		}
-		if (window == "main4") {
-			removeChild(main4);
-		} 
-		if (window == "help") {
-			removeChild(help);
-		}
-		if (window == "footman") {
-			removeChild(footman);
-		}
-		if (window == "team_sostav") {
-			removeChild(team_sostav);
-		}
-		if (window == "team_stat") {
-			removeChild(team_stat);
-		}
-		if (window == "transfer") {
-			removeChild(transfer);
-		}
-		 * 
-		 */
+		
 		closeCurrentWindow();
 		
 		window = "main";
@@ -3819,33 +3284,7 @@ private var zebra3_bitmap:Class;
 	
 	// окно с праивлами
 	public function helpButton(e:MouseEvent):void{
-		/*
-		if (window == "main1") {
-			removeChild(main1);
-		} 
-		if (window == "main2") {
-			removeChild(main2);
-		} 
-		if (window == "main3") {
-			removeChild(main3);
-		}
-		if (window == "main4") {
-			removeChild(main4);
-		} 
-		if (window == "footman") {
-			removeChild(footman);
-		}
-		if (window == "team_sostav") {
-			removeChild(team_sostav);
-		}
-		if (window == "team_stat") {
-			removeChild(team_stat);
-		}
-		if (window == "transfer") {
-			removeChild(transfer);
-		}
-		 * 
-		 */
+		
 		closeCurrentWindow();
 		
 		window = "help";
@@ -3879,14 +3318,7 @@ private var zebra3_bitmap:Class;
 				button2txt.setColor("0xffffff");
 				button3txt.setColor("0xffffff");
 				button4txt.setColor("0xffffff");
-		/*
-		help_exit = new Sprite();
-		help_exit.graphics.beginFill(0x000000,1);
-		help_exit.graphics.lineStyle(1);
-		help_exit.graphics.drawRoundRect(12, 95, 290, 110, 10);
-		help_exit.alpha = 0.5;
-		help_exit.addEventListener(MouseEvent.CLICK, helpExitButton);
-		*/
+		
 			//help.addChild(help_exit);
 			help.addChild(button1);
 			help.addChild(button2);
@@ -4110,95 +3542,7 @@ private var zebra3_bitmap:Class;
 		woff_MyTournamentScore_loader.load(woff_general_request);
 		
 		showMain2();
-		/*
-		addChild(main2);
-			main2.addChild(background);
-			main2.addChild(top1);
-			main2.addChild(top2);
-			main2.addChild(top3);
-			main2.addChild(top4);
-			main2.addChild(version);
-			main2.addChild(mp);
-			main2.addChild(eu);
-			main2.addChild(all_txt1);
-			main2.addChild(all_txt3);
-			main2.addChild(all_txt4);
-			main2.addChild(block);
-			main2.addChild(logo2);
-			main2.addChild(field);
-			main2.addChild(help_buttontxt);
-			main2.addChild(help_button);
-			main2.addChild(main_button);
-			main2.addChild(link1);
-			main2.addChild(active2);
-			main2.addChild(link3);
-			main2.addChild(link4);
-			main2.addChild(button1txt);
-			main2.addChild(button2txt);
-			main2.addChild(button3txt);
-			main2.addChild(button4txt);
-				button1txt.setColor("0xffffff");
-				button2txt.setColor("0x696969");
-				button3txt.setColor("0xffffff");
-				button4txt.setColor("0xffffff");
-			main2.addChild(button1);
-			main2.addChild(button3);
-			main2.addChild(button4);
-			main2.addChild(main2_txt1);
-			main2.addChild(main2_txt2);
-			main2.addChild(main2_txt3);
-			main2.addChild(main2_txt4);
-			main2.addChild(main2_txt5);
-			
-			main2.addChild(select2);
-			main2.addChild(rating);
-			main2.addChild(rating2);
-			main2.addChild(points);
-			main2.addChild(points2);
-			main2.addChild(budget);
-			main2.addChild(transfers);
-			main2.addChild(prize);
-			main2.addChild(button_blue);
-			main2.addChild(button_blue2);
-			main2.addChild(button_blue3);
-			main2.addChild(button_blue_long);
-			main2.addChild(button_blue_long2);
-			main2.addChild(button_blue_long3);
-			main2.addChild(button_blue_alpha);
-			
-			
-				
-			main2.addChild(footman_list);
-			main2.addChild(main2_txt6);
-			main2.addChild(main2_txt7);
-			main2.addChild(main2_txt8);
-			main2.addChild(main2_txt9);
-			main2.addChild(main2_txt8_);
-			main2.addChild(main2_txt9_);
-			main2.addChild(main2_txt10);
-			main2.addChild(main2_txt11);
-			main2.addChild(main2_txt10_);
-			main2.addChild(main2_txt11_);
-			main2.addChild(main2_txt12);
-			main2.addChild(main2_txt13);
-			main2.addChild(main2_txt14);
-			main2.addChild(main2_txt15);
-			main2.addChild(main2_txt16);
-			main2.addChild(main2_txt26);
-			main2.addChild(main2_txt17);
-				main2_txt18.setText("Приобрести "+ current_transfers_mass +" трансферов за "+ current_tax +" MP");
-			main2.addChild(main2_txt18);
-			main2.addChild(main2_txt19);
-			main2.addChild(main2_txt19_);
-			main2.addChild(main2_txt20);
-			main2.addChild(main2_txt21);
-			main2.addChild(main2_txt22);
-			main2.addChild(main2_txt23);
-			main2.addChild(main2_txt24);
-			main2.addChild(camera);
-			
-			main2.addChild(stat_hint);
-			*/
+		
 			main2_txt18.setText("Приобрести "+ current_transfers_mass +" трансферов за "+ current_tax +" MP");
 			
 			if (current_new_tour < current_tour) {
@@ -4307,94 +3651,7 @@ private var zebra3_bitmap:Class;
 		
 		
 		showMain2();
-		/*
-		addChild(main2);
-			main2.addChild(background);
-			main2.addChild(top1);
-			main2.addChild(top2);
-			main2.addChild(top3);
-			main2.addChild(top4);
-			main2.addChild(version);
-			main2.addChild(mp);
-			main2.addChild(eu);
-			main2.addChild(all_txt1);
-			main2.addChild(all_txt3);
-			main2.addChild(all_txt4);
-			main2.addChild(block);
-			main2.addChild(logo2);
-			main2.addChild(field);
-			main2.addChild(help_buttontxt);
-			main2.addChild(help_button);
-			main2.addChild(main_button);
-			main2.addChild(link1);
-			main2.addChild(active2);
-			main2.addChild(link3);
-			main2.addChild(link4);
-			main2.addChild(button1txt);
-			main2.addChild(button2txt);
-			main2.addChild(button3txt);
-			main2.addChild(button4txt);
-				button1txt.setColor("0xffffff");
-				button2txt.setColor("0x696969");
-				button3txt.setColor("0xffffff");
-				button4txt.setColor("0xffffff");
-			main2.addChild(button1);
-			main2.addChild(button3);
-			main2.addChild(button4);
-			
-			main2.addChild(main2_txt1);
-			main2.addChild(main2_txt2);
-			main2.addChild(main2_txt3);
-			main2.addChild(main2_txt4);
-			main2.addChild(main2_txt5);
-			
-			main2.addChild(select2);
-			main2.addChild(rating);
-			main2.addChild(rating2);
-			main2.addChild(points);
-			main2.addChild(points2);
-			main2.addChild(budget);
-			main2.addChild(transfers);
-			main2.addChild(prize);
-			main2.addChild(button_blue);
-			main2.addChild(button_blue2);
-			main2.addChild(button_blue3);
-			main2.addChild(button_blue_long);
-			main2.addChild(button_blue_long2);
-			main2.addChild(button_blue_long3);
-			main2.addChild(button_blue_alpha);
-			main2.addChild(footman_list);
-			main2.addChild(main2_txt6);
-			main2.addChild(main2_txt7);
-			main2.addChild(main2_txt8);
-			main2.addChild(main2_txt9);
-			main2.addChild(main2_txt8_);
-			main2.addChild(main2_txt9_);
-			main2.addChild(main2_txt10);
-			main2.addChild(main2_txt11);
-			main2.addChild(main2_txt10_);
-			main2.addChild(main2_txt11_);
-			main2.addChild(main2_txt12);
-			main2.addChild(main2_txt13);
-				//main2_txt14.setText("Приобрести 10`000`000 EU за "+ current_tax +" MP");
-			main2.addChild(main2_txt14);
-			main2.addChild(main2_txt15);
-			main2.addChild(main2_txt16);
-			main2.addChild(main2_txt26);
-			main2.addChild(main2_txt17);
-				main2_txt18.setText("Приобрести "+ current_transfers_mass +" трансферов за "+ current_tax +" MP");
-			main2.addChild(main2_txt18);
-			main2.addChild(main2_txt19);
-			main2.addChild(main2_txt19_);
-			main2.addChild(main2_txt20);
-			main2.addChild(main2_txt21);
-			main2.addChild(main2_txt22);
-			main2.addChild(main2_txt23);
-			main2.addChild(main2_txt24);
-				
-			main2.addChild(stat_hint);
-				* 
-				*/
+		
 			addChild(firstManual);
 				firstManual.showMan();
 				 
@@ -4480,104 +3737,7 @@ private var zebra3_bitmap:Class;
 		}
 		
 		showMain2();
-		/*
-		addChild(main2);
-			main2.addChild(background);
-			main2.addChild(top1);
-			main2.addChild(top2);
-			main2.addChild(top3);
-			main2.addChild(top4);
-			main2.addChild(version);
-			main2.addChild(mp);
-			main2.addChild(eu);
-			main2.addChild(all_txt1);
-			main2.addChild(all_txt3);
-			main2.addChild(all_txt4);
-			main2.addChild(block);
-			main2.addChild(logo2);
-			main2.addChild(field);
-			main2.addChild(help_buttontxt);
-			main2.addChild(help_button);
-			main2.addChild(main_button);
-			main2.addChild(link1);
-			main2.addChild(active2);
-			main2.addChild(link3);
-			main2.addChild(link4);
-			main2.addChild(button1txt);
-			main2.addChild(button2txt);
-			main2.addChild(button3txt);
-			main2.addChild(button4txt);
-				button1txt.setColor("0xffffff");
-				button2txt.setColor("0x696969");
-				button3txt.setColor("0xffffff");
-				button4txt.setColor("0xffffff");
-			main2.addChild(button1);
-			main2.addChild(button3);
-			main2.addChild(button4);
-			main2.addChild(main2_txt1);
-			main2.addChild(main2_txt2);
-			main2.addChild(main2_txt3);
-			main2.addChild(main2_txt4);
-			main2.addChild(main2_txt5);
-			
-			main2.addChild(select2);
-			main2.addChild(rating);
-			main2.addChild(rating2);
-			main2.addChild(points);
-			main2.addChild(points2);
-			main2.addChild(budget);
-			main2.addChild(transfers);
-			main2.addChild(prize);
-			main2.addChild(button_blue);
-			main2.addChild(button_blue2);
-			main2.addChild(button_blue3);
-			main2.addChild(button_blue_long);
-			main2.addChild(button_blue_long2);
-			main2.addChild(button_blue_long3);
-			main2.addChild(button_blue_alpha);
-			main2.addChild(footman_list);
-			main2.addChild(main2_txt6);
-			main2.addChild(main2_txt7);
-			main2.addChild(main2_txt8);
-			main2.addChild(main2_txt9);
-			main2.addChild(main2_txt8_);
-			main2.addChild(main2_txt9_);
-			main2.addChild(main2_txt10);
-			main2.addChild(main2_txt11);
-			main2.addChild(main2_txt10_);
-			main2.addChild(main2_txt11_);
-			main2.addChild(main2_txt12);
-			main2.addChild(main2_txt13);
-				//main2_txt14.setText("Приобрести 10`000`000 EU за "+ current_tax +" MP");
-			main2.addChild(main2_txt14);
-			main2.addChild(main2_txt15);
-			main2.addChild(main2_txt16);
-			main2.addChild(main2_txt26);
-			main2.addChild(main2_txt17);
-				
-			main2.addChild(main2_txt18);
-			main2.addChild(main2_txt19);
-			main2.addChild(main2_txt19_);
-			main2.addChild(main2_txt20);
-			main2.addChild(main2_txt21);
-			main2.addChild(main2_txt22);
-			main2.addChild(main2_txt23);
-			main2.addChild(main2_txt24);
-			
-			main2.addChild(stat_hint);
-    	
-    			if (woff_isAppUser !== 1) {
-    			addChild(errorSprite);
-					errorText.setText("			Зря ты не добавил это приложение! " +
-					"\n	Теперь у тебя отсутствует доступ к лиге друзей"+
-					" и ты не\n	можешь получать уведомления\n	=(" +
-					"   					 (клик чтобы закрыть)");
-    			} else {
-    				
-    			
-    			}
-    			 * 
-    			 */
+		
     			addChild(firstManual);
 						firstManual.showMan();
 						
@@ -4664,106 +3824,7 @@ private var zebra3_bitmap:Class;
 		}
 		
 		showMain2();
-		/*
-		addChild(main2);
-			main2.addChild(background);
-			main2.addChild(top1);
-			main2.addChild(top2);
-			main2.addChild(top3);
-			main2.addChild(top4);
-			main2.addChild(version);
-			main2.addChild(mp);
-			main2.addChild(eu);
-			main2.addChild(all_txt1);
-			main2.addChild(all_txt3);
-			main2.addChild(all_txt4);
-			main2.addChild(block);
-			main2.addChild(logo2);
-			main2.addChild(field);
-			main2.addChild(help_buttontxt);
-			main2.addChild(help_button);
-			main2.addChild(main_button);
-			main2.addChild(link1);
-			main2.addChild(active2);
-			main2.addChild(link3);
-			main2.addChild(link4);
-			main2.addChild(button1txt);
-			main2.addChild(button2txt);
-			main2.addChild(button3txt);
-			main2.addChild(button4txt);
-				button1txt.setColor("0xffffff");
-				button2txt.setColor("0x696969");
-				button3txt.setColor("0xffffff");
-				button4txt.setColor("0xffffff");
-			
-			main2.addChild(button1);
-			main2.addChild(button3);
-			main2.addChild(button4);	
-			main2.addChild(main2_txt1);
-			main2.addChild(main2_txt2);
-			main2.addChild(main2_txt3);
-			main2.addChild(main2_txt4);
-			main2.addChild(main2_txt5);
-			
-			main2.addChild(select2);
-			main2.addChild(rating);
-			main2.addChild(rating2);
-			main2.addChild(points);
-			main2.addChild(points2);
-			main2.addChild(budget);
-			main2.addChild(transfers);
-			main2.addChild(prize);
-			main2.addChild(button_blue);
-			main2.addChild(button_blue2);
-			main2.addChild(button_blue3);
-			main2.addChild(button_blue_long);
-			main2.addChild(button_blue_long2);
-			main2.addChild(button_blue_long3);
-			main2.addChild(button_blue_alpha);
-			main2.addChild(footman_list);
-			main2.addChild(main2_txt6);
-			main2.addChild(main2_txt7);
-			main2.addChild(main2_txt8);
-			main2.addChild(main2_txt9);
-			main2.addChild(main2_txt8_);
-			main2.addChild(main2_txt9_);
-			main2.addChild(main2_txt10);
-			main2.addChild(main2_txt11);
-			main2.addChild(main2_txt10_);
-			main2.addChild(main2_txt11_);
-			main2.addChild(main2_txt12);
-			main2.addChild(main2_txt13);
-			main2.addChild(main2_txt14);
-			main2.addChild(main2_txt15);
-			main2.addChild(main2_txt16);
-			main2.addChild(main2_txt26);
-			main2.addChild(main2_txt17);
-				main2_txt18.setText("Приобрести "+current_transfers_mass+" трансферов за "+ current_tax +" MP");
-			main2.addChild(main2_txt18);
-			main2.addChild(main2_txt19);
-			main2.addChild(main2_txt19_);
-			main2.addChild(main2_txt20);
-			main2.addChild(main2_txt21);
-			main2.addChild(main2_txt22);
-			main2.addChild(main2_txt23);
-			main2.addChild(main2_txt24);
-			
-			main2.addChild(stat_hint);
-			
-			//main2.addChild(leftPanel);
-				//leftPanel.panelShow();
-    	
-    			if (woff_isAppUser !== 1) {
-    			addChild(errorSprite);
-					errorText.setText("			Зря ты не добавил это приложение! " +
-					"\n	Теперь у тебя отсутствует доступ к лиге друзей"+
-					" и ты не\n	можешь получать уведомления\n	=(" +
-					"   					 (клик чтобы закрыть)");
-    			} else {
-    				
-    			}
-    			 * 
-    			 */
+		
     			 addChild(firstManual);
 						firstManual.showMan();
     			 
@@ -4848,101 +3909,7 @@ private var zebra3_bitmap:Class;
 		}
 		
 		showMain2();
-		/*
-		addChild(main2);
-			main2.addChild(background);
-			main2.addChild(top1);
-			main2.addChild(top2);
-			main2.addChild(top3);
-			main2.addChild(top4);
-			main2.addChild(version);
-			main2.addChild(mp);
-			main2.addChild(eu);
-			main2.addChild(all_txt1);
-			main2.addChild(all_txt3);
-			main2.addChild(all_txt4);
-			main2.addChild(block);
-			main2.addChild(logo2);
-			main2.addChild(field);
-			main2.addChild(help_buttontxt);
-			main2.addChild(help_button);
-			main2.addChild(main_button);
-			main2.addChild(link1);
-			main2.addChild(active2);
-			main2.addChild(link3);
-			main2.addChild(link4);
-			main2.addChild(button1txt);
-			main2.addChild(button2txt);
-			main2.addChild(button3txt);
-			main2.addChild(button4txt);
-				button1txt.setColor("0xffffff");
-				button2txt.setColor("0x696969");
-				button3txt.setColor("0xffffff");
-				button4txt.setColor("0xffffff");
-			main2.addChild(main2_txt1);
-			main2.addChild(main2_txt2);
-			main2.addChild(main2_txt3);
-			main2.addChild(main2_txt4);
-			main2.addChild(main2_txt5);
-			
-			main2.addChild(select2);
-			main2.addChild(rating);
-			main2.addChild(rating2);
-			main2.addChild(points);
-			main2.addChild(points2);
-			main2.addChild(budget);
-			main2.addChild(transfers);
-			main2.addChild(prize);
-			main2.addChild(button_blue);
-			main2.addChild(button_blue2);
-			main2.addChild(button_blue3);
-			main2.addChild(button_blue_long);
-			main2.addChild(button_blue_long2);
-			main2.addChild(button_blue_long3);
-			main2.addChild(button_blue_alpha);
-			main2.addChild(footman_list);
-			main2.addChild(main2_txt6);
-			main2.addChild(main2_txt7);
-			main2.addChild(main2_txt8);
-			main2.addChild(main2_txt9);
-			main2.addChild(main2_txt8_);
-			main2.addChild(main2_txt9_);
-			main2.addChild(main2_txt10);
-			main2.addChild(main2_txt11);
-			main2.addChild(main2_txt10_);
-			main2.addChild(main2_txt11_);
-			main2.addChild(main2_txt12);
-			main2.addChild(main2_txt13);
-				//main2_txt14.setText("Приобрести 10`000`000 EU за "+ current_tax +" MP");
-			main2.addChild(main2_txt14);
-			main2.addChild(main2_txt15);
-			main2.addChild(main2_txt16);
-			main2.addChild(main2_txt26);
-			main2.addChild(main2_txt17);
-				main2_txt18.setText("Приобрести "+current_transfers_mass+" трансферов за "+ current_tax +" MP");
-			main2.addChild(main2_txt18);
-			main2.addChild(main2_txt19);
-			main2.addChild(main2_txt19_);
-			main2.addChild(main2_txt20);
-			main2.addChild(main2_txt21);
-			main2.addChild(main2_txt22);
-			main2.addChild(main2_txt23);
-			main2.addChild(main2_txt24);
-			
-			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
-    	
-    			if (woff_isAppUser !== 1) {
-    			addChild(errorSprite);
-					errorText.setText("			Зря ты не добавил это приложение! " +
-					"\n	Теперь у тебя отсутствует доступ к лиге друзей"+
-					" и ты не\n	можешь получать уведомления\n	=(" +
-					"   					 (клик чтобы закрыть)");
-    			} else {
-    			
-    			
-    			}
-    			 * 
-    			 */
+		
     			 addChild(firstManual);
 					firstManual.showMan();
     			 
@@ -5027,101 +3994,7 @@ private var zebra3_bitmap:Class;
 		}
 		
 		showMain2();
-		/*
-		addChild(main2);
-			main2.addChild(background);
-			main2.addChild(top1);
-			main2.addChild(top2);
-			main2.addChild(top3);
-			main2.addChild(top4);
-			main2.addChild(version);
-			main2.addChild(mp);
-			main2.addChild(eu);
-			main2.addChild(all_txt1);
-			main2.addChild(all_txt3);
-			main2.addChild(all_txt4);
-			main2.addChild(block);
-			main2.addChild(logo2);
-			main2.addChild(field);
-			main2.addChild(help_buttontxt);
-			main2.addChild(help_button);
-			main2.addChild(main_button);
-			main2.addChild(link1);
-			main2.addChild(active2);
-			main2.addChild(link3);
-			main2.addChild(link4);
-			main2.addChild(button1txt);
-			main2.addChild(button2txt);
-			main2.addChild(button3txt);
-			main2.addChild(button4txt);
-				button1txt.setColor("0xffffff");
-				button2txt.setColor("0x696969");
-				button3txt.setColor("0xffffff");
-				button4txt.setColor("0xffffff");
-			main2.addChild(main2_txt1);
-			main2.addChild(main2_txt2);
-			main2.addChild(main2_txt3);
-			main2.addChild(main2_txt4);
-			main2.addChild(main2_txt5);
-			
-			main2.addChild(select2);
-			main2.addChild(rating);
-			main2.addChild(rating2);
-			main2.addChild(points);
-			main2.addChild(points2);
-			main2.addChild(budget);
-			main2.addChild(transfers);
-			main2.addChild(prize);
-			main2.addChild(button_blue);
-			main2.addChild(button_blue2);
-			main2.addChild(button_blue3);
-			main2.addChild(button_blue_long);
-			main2.addChild(button_blue_long2);
-			main2.addChild(button_blue_long3);
-			main2.addChild(button_blue_alpha);
-			main2.addChild(footman_list);
-			main2.addChild(main2_txt6);
-			main2.addChild(main2_txt7);
-			main2.addChild(main2_txt8);
-			main2.addChild(main2_txt9);
-			main2.addChild(main2_txt8_);
-			main2.addChild(main2_txt9_);
-			main2.addChild(main2_txt10);
-			main2.addChild(main2_txt11);
-			main2.addChild(main2_txt10_);
-			main2.addChild(main2_txt11_);
-			main2.addChild(main2_txt12);
-			main2.addChild(main2_txt13);
-				//main2_txt14.setText("Приобрести 10`000`000 EU за "+ current_tax +" MP");
-				
-			main2.addChild(main2_txt14);
-			main2.addChild(main2_txt15);
-			main2.addChild(main2_txt16);
-			main2.addChild(main2_txt26);
-			main2.addChild(main2_txt17);
-				main2_txt18.setText("Приобрести "+current_transfers_mass+" трансферов за "+ current_tax +" MP");
-			main2.addChild(main2_txt18);
-			main2.addChild(main2_txt19);
-			main2.addChild(main2_txt19_);
-			main2.addChild(main2_txt20);
-			main2.addChild(main2_txt21);
-			main2.addChild(main2_txt22);
-			main2.addChild(main2_txt23);
-			main2.addChild(main2_txt24);
-			
-			//woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
-    	
-    			if (woff_isAppUser !== 1) {
-    			addChild(errorSprite);
-					errorText.setText("			Зря ты не добавил это приложение! " +
-					"\n	Теперь у тебя отсутствует доступ к лиге друзей"+
-					" и ты не\n	можешь получать уведомления\n	=(" +
-					"   					 (клик чтобы закрыть)");
-    			} else {
-    			
-    			}
-    			 * 
-    			 */
+		
     			 addChild(firstManual);
 					firstManual.showMan();
     			 
@@ -5303,13 +4176,7 @@ private var zebra3_bitmap:Class;
 		var woff_AllLeagues_loader:URLLoader = new URLLoader();
 		woff_AllLeagues_loader.addEventListener(Event.COMPLETE, woffAllLeaguesLoadComplete);
 		woff_AllLeagues_loader.load(woff_general_request);
-		/*
-		setMethod("getLeaders");
-			var woff_Leaders_loader:URLLoader = new URLLoader();
-			woff_Leaders_loader.addEventListener(Event.COMPLETE, woffLeadersLoadComplete);
-			woff_Leaders_loader.load(woff_general_request);
-			 * 
-			 */
+		
 		getFriends();
 		
 		main3_txt1.setText("Лига друзей");
@@ -5458,6 +4325,7 @@ private var zebra3_bitmap:Class;
 			main4.addChild(all_lig_list);
 			main4.addChild(scroll_lig);
 		}
+		
 		// окно футболиста 
 		
 		public function footmanEvent(e:MouseEvent):void {
