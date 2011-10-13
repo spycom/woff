@@ -949,7 +949,7 @@ private var zebra3_bitmap:Class;
 		
 		transfer_list = new Sprite();
 		transfer_list.x = 10; 
-		transfer_list.y = 145;
+		transfer_list.y = 160;
 		transfer_list.scrollRect = new Rectangle(0, 0, 470, 300);
 		transfer_list.addEventListener(MouseEvent.MOUSE_WHEEL, transfersWheelHandler);
 		
@@ -1980,7 +1980,7 @@ private var zebra3_bitmap:Class;
 		transfer_txt5 = new text(309, 125, "ПОПУЛ.", "2");
 		transfer_txt6 = new text(355, 125, "ЭФФЕКТ.", "2");
 		transfer_txt7 = new text(413, 125, "ПОКУПКА", "2");
-		transfer_txt8 = new text(37, 0, "0.0", "2");
+		transfer_txt8 = new text(47, 140, "0.0", "2");
 		transfer_txt9 = new text(564, 125, "ГОСТЕВЫЕ", "2");
 		transfer_txt10 = new text(260, 105, "* Дисквалифицирован", "7");
 		transfer_txt11 = new text(376, 105, "* Участие под вопросом", "8");
@@ -2108,9 +2108,9 @@ private var zebra3_bitmap:Class;
 		// генерация списка трансферов
 		var transfer_row:Array = new Array();
 		
-		transfer_footman = new text(120, 0, "current footman", "2");
-			transfer_list.addChild(transfer_footman);
-			transfer_list.addChild(transfer_txt8);
+		transfer_footman = new text(120, 140, "current footman", "2");
+			//transfer_list.addChild(transfer_footman);
+			//transfer_list.addChild(transfer_txt8);
 			
 		transfer_array = new Array();
 		transfer_club_array = new Array();
@@ -2126,7 +2126,7 @@ private var zebra3_bitmap:Class;
 		 
 		for (n=1; n<350; n++) {
 				
-				var trstat_freq:int = new int(23*n);
+				var trstat_freq:int = new int(23*n-23);
 				
 				number = 2;
 				
@@ -2159,7 +2159,7 @@ private var zebra3_bitmap:Class;
 				number = 2;
 				
 				
-			if ((n & 1) == 0) {
+			if ((n & 1) !== 0) {
 				var zebra_tr = new zebra3_bitmap();
 				//zebra_tr.load(new URLRequest(serv + "img10/zebra3.png"));
 				//zebra_tr.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
@@ -4816,8 +4816,8 @@ private var zebra3_bitmap:Class;
 		woff_Transfer_loader.load(woff_general_request);
 		
 		if (current_id !== 0) {
-			var blabla:String = footman_name_txt[current_position].txt();
-			transfer_footman.setText(blabla);
+			//var blabla:String = footman_name_txt[current_position].txt();
+			transfer_footman.setText(footman_name_txt[current_position].txt());
 			} else {
 			transfer_footman.setText("новый игрок");
 			}
@@ -4825,7 +4825,6 @@ private var zebra3_bitmap:Class;
 		for (var tb:int=1; tb<300; tb++) {
 			transfer_get_array[tb].setId1(current_id); 
 			transfer_get_array[tb].setStatus(current_status);
-			
 		}
 		
 		addChild(transfer);
@@ -4877,6 +4876,9 @@ private var zebra3_bitmap:Class;
 			transfer.addChild(transfer_txt10);
 			transfer.addChild(transfer_txt11);
 			transfer.addChild(table3);
+			transfer.addChild(transfer_footman);
+			transfer.addChild(transfer_txt8);
+			
 			transfer.addChild(transfer_list);
 			transfer.addChild(transfer_txt1);
 			transfer.addChild(search_form);
@@ -4933,8 +4935,6 @@ private var zebra3_bitmap:Class;
 			transfer.addChild(help_button);
 			transfer.addChild(main_button);
 			transfer.addChild(block);
-			//team_sostav.addChild(block2);
-			//team_sostav.addChild(liders);
 			transfer.addChild(link1);
 			transfer.addChild(link2);
 			transfer.addChild(link3);
@@ -4954,23 +4954,22 @@ private var zebra3_bitmap:Class;
 			
 			transfer.addChild(transfer_txt);
 			
-			
 			transfer.addChild(transfers2);
 			transfer.addChild(match);
-			
 			
 			transfer.addChild(transfer_txt4);
 			transfer.addChild(transfer_txt5);
 			transfer.addChild(transfer_txt6);
 			transfer.addChild(transfer_txt7);
-			//transfer.addChild(transfer_txt8);
-			//transfer.addChild(transfer_txt9);
 			transfer.addChild(transfer_txt10);
 			transfer.addChild(transfer_txt11);
 			transfer.addChild(transfer_txt1);
 			transfer.addChild(search_form);
 			transfer.addChild(search_field);
 			transfer.addChild(table3);
+			transfer.addChild(transfer_footman);
+			transfer.addChild(transfer_txt8);
+			
 			transfer.addChild(transfer_list);
 			transfer.addChild(scroll_tr);
 			transfer.addChild(transfer_txt2);
@@ -7602,9 +7601,9 @@ private var zebra3_bitmap:Class;
 				
 				if (scroll_tr.y >= 125 && scroll_tr.y <= 385) {
 					var rect:Rectangle = transfer_list.scrollRect;
-					rect.y -= e.delta;
+					rect.y -= e.delta*5;
 					transfer_list.scrollRect = rect;
-					scroll_tr.y -= e.delta*260/7000;
+					scroll_tr.y -= e.delta*5*260/7000;
 				}	
 				if (scroll_tr.y < 125) {
 					
