@@ -2108,9 +2108,8 @@ private var zebra3_bitmap:Class;
 		// генерация списка трансферов
 		var transfer_row:Array = new Array();
 		
-		transfer_footman = new text(120, 140, "current footman", "2");
-			//transfer_list.addChild(transfer_footman);
-			//transfer_list.addChild(transfer_txt8);
+		transfer_footman = new text(115, 140, "current footman", "2");
+			
 			
 		transfer_array = new Array();
 		transfer_club_array = new Array();
@@ -2726,16 +2725,15 @@ private var zebra3_bitmap:Class;
 			
 			main.addChild(stat_hint);
 			
+			current_team_id = woff_uid;
 		}
 	}
 	
 	// переход к чемпионату россеи 
 	public function select1listener(e:MouseEvent):void {
 		removeChild(main);
-		//window = "main1";
 		
 		champ = "rus";
-		//woff_general_request.url = woff_api3;
 		current_tax = 250;
 		current_transfers_mass = 60;
 		current_tournament = 5;
@@ -7414,33 +7412,34 @@ private var zebra3_bitmap:Class;
 				
 				if (current_team_id == woff_uid) {
 					
-				getTeam("getTeam", e.currentTarget.id);
-		
-				var woff_Team_loader:URLLoader = new URLLoader();
-				woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
-				woff_Team_loader.load(woff_general_request);
+					getTeam("getTeam", e.currentTarget.id);
+			
+					var woff_Team_loader:URLLoader = new URLLoader();
+					woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
+					woff_Team_loader.load(woff_general_request);
 				
-				if (window == "player_liga") {
-					//getLeaders(1, current_new_tour);
-				} else {
-					getLeaders(1, current_new_tour);
-				}
-				getTeamStats(e.currentTarget.id);
-				
-				getMyTourScore(e.currentTarget.id);
-				
-				if (current_new_tour < current_tour) {
-					main2.addChild(footman_list);
-					main2.removeChild(footman_list);
-					main2.addChild(safe_team_list);
-				
-					for (var iiiiii:int=1; iiiiii<=15; iiiiii++){
-						safe_team_list.addChild(footman_form_array[iiiiii]);
-						safe_team_list.addChild(footman_name_form[iiiiii]);
-						safe_team_list.addChild(footman_name_txt[iiiiii]);
-						safe_team_list.addChild(footman_scores[iiiiii]);
+					if (window == "player_liga") {
+						getLeaders(1, current_new_tour);
+						
+					} else {
+						getLeaders(1, current_new_tour);
 					}
-					safe_team_list.addChild(captain);
+					getTeamStats(e.currentTarget.id);
+				
+					getMyTourScore(e.currentTarget.id);
+				
+					if (current_new_tour < current_tour) {
+						main2.addChild(footman_list);
+						main2.removeChild(footman_list);
+						main2.addChild(safe_team_list);
+					
+						for (var iiiiii:int=1; iiiiii<=15; iiiiii++){
+							safe_team_list.addChild(footman_form_array[iiiiii]);
+							safe_team_list.addChild(footman_name_form[iiiiii]);
+							safe_team_list.addChild(footman_name_txt[iiiiii]);
+							safe_team_list.addChild(footman_scores[iiiiii]);
+						}
+						safe_team_list.addChild(captain);
 		
 					} else {
 						main2.addChild(safe_team_list);
