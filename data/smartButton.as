@@ -19,27 +19,27 @@ package data{
 	private var woff_general_request:URLRequest;
 	private var new_text:text;
 	private var table:Array;
+	private var select1:Sprite;
 	
 		public function smartButton(woff_uid:int, this_tournament:int)  {
 			
 			main = new Sprite();
 			
 			var fillType:String = GradientType.RADIAL;
-			var colors:Array = [0xcccccc, 0xe8e8e8];
+			var colors:Array = [0xffffff, 0xe8e8e8];
 			var alphas:Array = [1, 1];
-			var ratios:Array = [0, 200];
+			var ratios:Array = [0, 150];
 			var matr:Matrix = new Matrix();
-			matr.createGradientBox(450, 450, 0, -50, 0);
+			matr.createGradientBox(550, 450, 0, -100, 0);
 			
 			var spreadMethod:String = SpreadMethod.PAD;
 			
 			
 			
-			var select1 = new Sprite();
-			//select1.graphics.beginFill(0xe8e8e8,1);
+			select1 = new Sprite();
 			select1.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod);
-			select1.graphics.lineStyle(1, 0xcccccc);
-			select1.graphics.drawRoundRect(20, 105, 285, 112, 20);
+			select1.graphics.lineStyle(0, 0xffffff);
+			select1.graphics.drawRoundRectComplex(10, 105, 304, 112, 0, 0, 30, 30);
 			
 			
 			timer = new Timer(5, 45);
@@ -53,7 +53,7 @@ package data{
 			
 			table = new Array();
 			for (var i:int=0; i<10; i++) {
-				table[i] = new text(50, 110+i*10, "--", "2");
+				table[i] = new text(50, 105+i*10, "--", "2");
 				main.addChild(table[i]);
 			}
 			
@@ -90,8 +90,16 @@ package data{
 			var woff_answer:XML = new XML(e.target.data);
 			
 			for (var i:int=0; i<woff_answer.match.length(); i++) {
-				table[i].setText(woff_answer.match[i].starts_at.text() + " - " + woff_answer.match[i].title_owner.text() + " - " + woff_answer.match[i].title_guest.text());
+				if ( i == 0) {
+				table[i].setText(woff_answer.match[i].no.text() + " тур : " + woff_answer.match[i].starts_at.text() + " - " + woff_answer.match[i].title_owner.text() + " - " + woff_answer.match[i].title_guest.text());
+				} else {
+					if ( woff_answer.match[i].no.text() == woff_answer.match[i-1].no.text()) {
+					table[i].setText("             " + woff_answer.match[i].starts_at.text() + " - " + woff_answer.match[i].title_owner.text() + " - " + woff_answer.match[i].title_guest.text());
+					} else {
+						table[i].setText(woff_answer.match[i].no.text() + " тур : " + woff_answer.match[i].starts_at.text() + " - " + woff_answer.match[i].title_owner.text() + " - " + woff_answer.match[i].title_guest.text());
 				
+					}
+				}
 			}
 		}
 		
@@ -113,6 +121,7 @@ package data{
 		
 		private function timerEvent(e:TimerEvent):void {
 			main.y = 110*Math.sin(angle*3.14/180);
+			main.scaleY =  1 + Math.sin(angle*3.14/180)/20;
 			angle += direction;
 			if ( angle <= 0) {
 				timer.stop();

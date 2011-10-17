@@ -2470,7 +2470,7 @@ private var zebra3_bitmap:Class;
 			//uids_array.push(woff_answer.footballer[i].id_vk.text());
 			
 			nazvanie[i] = new text(21, freq+3, "...", "9");
-			points_[i] = new text(100, 34+freq, ".", "2");
+			points_[i] = new text(90, 34+freq, ".", "2");
 						
 			sostav[i] = new sostav_b();
 			sostav[i].x = 52;
@@ -5886,21 +5886,16 @@ private var zebra3_bitmap:Class;
 			}
 			
 			points_[i].setText(int(woff_answer.footballer[i].score.text())/10);
+			
 			if (champ=="euro") {
 				sostav[i].x = -20;
-			} else {	
+				} else {	
 				sostav[i].x = 52;
 				sostav[i].setId(woff_answer.footballer[i].id_vk.text());
-			}
-				
-				/*
-			if (woff_answer.footballer[i].id_vk.text() == String(woff_uid)) {
-				main2_txt11.setText("Место:        	 "+ String(i+1));
 				}
-				 * 
-				 */
 			
 			}
+			
 			user_photo = new vk_photo(woff_uid, uids_array);
 			user_photo.x = 0;
 			user_photo.y = 5;
@@ -7419,7 +7414,7 @@ private var zebra3_bitmap:Class;
 					woff_Team_loader.load(woff_general_request);
 				
 					if (window == "player_liga") {
-						getLeaders(1, current_new_tour);
+						//getLeaders(1, current_new_tour);
 						
 					} else {
 						getLeaders(1, current_new_tour);
