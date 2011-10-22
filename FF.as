@@ -20,6 +20,7 @@ package {
 	import data.panel_transfer;
 	import data.rules_s;
 	import data.sostav_b;
+	import data.trophy_b;
 	import data.team_role_pic;
 	import data.text;
 	import data.transfer_b;
@@ -29,6 +30,7 @@ package {
 	import data.winners_list_sprite;
 	import data.Schedule;
 	import data.smartButton;
+	import data.gamesList;
 	
 	import flash.display.*;
 	import flash.events.*;
@@ -435,6 +437,7 @@ private var number:int;
 		private var points_:Array;
 //		private var info:Loader;
 		private var sostav:Array;
+		private var trophy:Array;
 		private var liders_list:Sprite;
 		
 private var ticket_status:text;
@@ -582,6 +585,7 @@ private var select1smart:smartButton;
 private var select2smart:smartButton;
 private var select3smart:smartButton;
 private var select4smart:smartButton;
+private var gamesListTransfers:gamesList;
 
 //[Embed(source='/Users/Art/Dropbox/FF/img3/razdelitel.png')]
 [Embed(source='C:/Users/artem.akinchits/Dev/images/razdelitel.png')]
@@ -2457,6 +2461,7 @@ private var zebra3_bitmap:Class;
 		// генерация списка лидеров
 		
 		sostav = new Array();
+		trophy = new Array();
 		nazvanie = new Array();
 		points_ = new Array();
 		
@@ -2473,16 +2478,24 @@ private var zebra3_bitmap:Class;
 			points_[i] = new text(90, 34+freq, ".", "2");
 						
 			sostav[i] = new sostav_b();
-			sostav[i].x = 52;
+			sostav[i].x = 42;
 			sostav[i].y = 35+freq;
 			sostav[i].addEventListener(MouseEvent.MOUSE_OVER, sostavOver);
 			sostav[i].addEventListener(MouseEvent.MOUSE_OUT, sostavOut);
 			sostav[i].addEventListener(MouseEvent.CLICK, team_sostavEvent);
 			
+			trophy[i] = new trophy_b();
+			trophy[i].x = 62;
+			trophy[i].y = 35+freq;
+			trophy[i].addEventListener(MouseEvent.MOUSE_OVER, sostavOver);
+			trophy[i].addEventListener(MouseEvent.MOUSE_OUT, sostavOut);
+			//trophy[i].addEventListener(MouseEvent.CLICK, team_sostavEvent);
+			
 			liders_list.addChild(number_txt);
 			liders_list.addChild(nazvanie[i]);
 			liders_list.addChild(points_[i]);
 			liders_list.addChild(sostav[i]);
+			liders_list.addChild(trophy[i]);
 		}
 			
 			var blablabla:Array = new Array();
@@ -2540,6 +2553,7 @@ private var zebra3_bitmap:Class;
 		main4_avatar.x = 235;
 		main4_avatar.y = 139;
 		
+		gamesListTransfers = new gamesList(woff_uid);
 		
 			this.addEventListener(MouseEvent.MOUSE_OVER, function() {
 				MouseWheel.capture();
@@ -4887,8 +4901,11 @@ private var zebra3_bitmap:Class;
 			transfer.addChild(transfer_txt4);
 			transfer.addChild(transfer_txt5);
 			transfer.addChild(transfer_txt6);
-			transfer.addChild(panel_transfer_right);
+			
+			transfer.addChild(gamesListTransfers);	
+				gamesListTransfers.request(current_tournament);
 				
+			transfer.addChild(panel_transfer_right);
 				
 		stage.addChild(loading_balls);
 		
@@ -5890,7 +5907,7 @@ private var zebra3_bitmap:Class;
 			if (champ=="euro") {
 				sostav[i].x = -20;
 				} else {	
-				sostav[i].x = 52;
+				sostav[i].x = 42;
 				sostav[i].setId(woff_answer.footballer[i].id_vk.text());
 				}
 			
@@ -5944,7 +5961,7 @@ private var zebra3_bitmap:Class;
 			if (champ=="euro") {
 				sostav[i].x = -20;
 			} else {	
-				sostav[i].x = 52;
+				sostav[i].x = 42;
 				sostav[i].setId(woff_answer.league_member[i].id_vk.text());
 			}
 			
@@ -9114,7 +9131,7 @@ private var zebra3_bitmap:Class;
 			if (champ=="euro") {
 				sostav[i].x = -20;
 			} else {	
-				sostav[i].x = 52;
+				sostav[i].x = 42;
 				sostav[i].setId(answer.player[i].id_vk.text());
 			}
 			
