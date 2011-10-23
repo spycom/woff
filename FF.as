@@ -391,6 +391,13 @@ private var select3:Sprite;
 private var select5:Sprite;
 private var select6:Sprite;
 
+private var select1sprite:Sprite;
+private var select2sprite:Sprite;
+private var select3sprite:Sprite;
+private var select4sprite:Sprite;
+private var select5sprite:Sprite;
+private var select6sprite:Sprite;
+
 private var button1:Sprite;
 private var button2:Sprite;
 private var button3:Sprite;
@@ -1789,6 +1796,7 @@ private var zebra3_bitmap:Class;
 		button4_euro.buttonMode = true;
 		button4_euro.useHandCursor = true;
 		
+		
 		load = new Sprite();
 		load.alpha = 0;
 		
@@ -1807,6 +1815,15 @@ private var zebra3_bitmap:Class;
 		transfer = new Sprite();
 		player_liga = new Sprite();	
 		
+		// контейнеры чемпионатов
+		select1sprite = new Sprite();
+		select2sprite = new Sprite();
+		select3sprite = new Sprite();
+		select4sprite = new Sprite();
+		select5sprite = new Sprite();
+		select6sprite = new Sprite();
+		
+			
 		// кнопки выбора чемпионата		
 		select1 = new Sprite();
 		select1.graphics.beginFill(0x000000,1);
@@ -2661,64 +2678,17 @@ private var zebra3_bitmap:Class;
 			
 			main.addChild(all_txt4);
 			main.addChild(block);
-			main.addChild(blocknation);
-			main.addChild(blocknation2);
-			main.addChild(blocknation3);
-			main.addChild(blocknation4);
-			main.addChild(blocknation5);
-			main.addChild(blocknation6);
-			main.addChild(russia);
-			main.addChild(world);
-			main.addChild(england);
-			main.addChild(spain);
-			main.addChild(italia);
-			main.addChild(chempions);
-			//main.addChild(star);
-			main.addChild(main_txt1);
-			main.addChild(main_txt2);
-			main.addChild(main_txt3);
-			main.addChild(main_txt4);
-			main.addChild(main_txt5);
-			main.addChild(main_txt55);
-			main.addChild(main_txt6);
-			main.addChild(main_txt21);
-			main.addChild(main_txt22);
-			main.addChild(main_txt23);
-			main.addChild(main_txt24);
-			main.addChild(main_txt25);
-			main.addChild(main_txt255);
-			main.addChild(main_txt26);
-			main.addChild(main_txt31);
-			main.addChild(main_txt32);
-			main.addChild(main_txt33);
-			main.addChild(main_txt34);
-			main.addChild(main_txt35);
-			main.addChild(main_txt355);
-			main.addChild(main_txt36);
-			main.addChild(main_txt421);
-			main.addChild(main_txt422);
-			main.addChild(main_txt423);
-			main.addChild(main_txt424);
-			main.addChild(main_txt425);
-			main.addChild(main_txt4255);
-			main.addChild(main_txt426);
-			main.addChild(main_txt51);
-			main.addChild(main_txt52);
-			main.addChild(main_txt53);
-			main.addChild(main_txt54);
-			main.addChild(main_txt55_);
-			main.addChild(main_txt555);
-			main.addChild(main_txt56);
-			main.addChild(main_txt621);
-			main.addChild(main_txt622);
-			main.addChild(main_txt623);
-			main.addChild(main_txt624);
-			main.addChild(main_txt625);
-			main.addChild(main_txt6255);
-			main.addChild(main_txt626);
+			
+			main.addChild(select1sprite);
+			main.addChild(select2sprite);
+			main.addChild(select3sprite);
+			main.addChild(select4sprite);
+			main.addChild(select5sprite);
+			main.addChild(select6sprite);
+			
 			main.addChild(version);
 			
-			//main.addChild(select1smart);
+			
 			main.addChild(select1);
 			main.addChild(select4);
 			main.addChild(select2_);
@@ -3226,6 +3196,14 @@ private var zebra3_bitmap:Class;
 			main.addChild(mp);
 			//main.addChild(eu);
 			main.addChild(block);
+			
+			main.addChild(select1sprite);
+			main.addChild(select2sprite);
+			main.addChild(select3sprite);
+			main.addChild(select4sprite);
+			main.addChild(select5sprite);
+			main.addChild(select6sprite);
+			/*
 			main.addChild(blocknation);
 			main.addChild(blocknation2);
 			main.addChild(blocknation3);
@@ -3281,6 +3259,8 @@ private var zebra3_bitmap:Class;
 			main.addChild(main_txt625);
 			main.addChild(main_txt6255);
 			main.addChild(main_txt626);
+			 * 
+			 */
 			main.addChild(select1);
 			main.addChild(select4);
 			main.addChild(select2_);
@@ -5549,7 +5529,7 @@ private var zebra3_bitmap:Class;
 				
 				if ( woff_answer.profile.is_expert.text() == 1) {
 					//main.removeChild(main_txt6);
-					main.addChild(star);
+					select1sprite.addChild(star);
 					main_txt6.setText("Эксперт");
 				}
 			
@@ -5558,7 +5538,6 @@ private var zebra3_bitmap:Class;
 			
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
-			//woff_general_request.url = woff_api3;
 			current_tournament = 5;
 			
 			setMethod("checkTeam");
@@ -5609,7 +5588,7 @@ private var zebra3_bitmap:Class;
 				
 				if ( woff_answer.profile.is_expert.text() == 1) {
 					//main.removeChild(main_txt6);
-					main.addChild(star3);
+					select2sprite.addChild(star3);
 					main_txt36.setText("Эксперт");
 				}
 			
@@ -5661,8 +5640,7 @@ private var zebra3_bitmap:Class;
 				main_txt24.setText("Кол-во очков: " + int(woff_answer.profile.tournament_score.text())/10);
 				
 				if ( woff_answer.profile.is_expert.text() == 1) {
-					//main.removeChild(main_txt6);
-					main.addChild(star2);
+					select4sprite.addChild(star2);
 					main_txt26.setText("Эксперт");
 				}
 			
@@ -5670,7 +5648,6 @@ private var zebra3_bitmap:Class;
 			transfers_left4 = int(woff_answer.profile.transfers_left.text());
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
-			//woff_general_request.url = woff_api3;
 			current_tournament = 7;
 			
 			setMethod("checkTeam");
@@ -5681,7 +5658,6 @@ private var zebra3_bitmap:Class;
 			
 			}  else {
 			
-				//woff_general_request.url = woff_api3;
 				current_tournament = 7;
 			
 				setMethod("registerNewPlayer");
@@ -5719,7 +5695,7 @@ private var zebra3_bitmap:Class;
 				
 				if ( woff_answer.profile.is_expert.text() == 1) {
 					//main.removeChild(main_txt6);
-					main.addChild(star5);
+					select3sprite.addChild(star5);
 					main_txt56.setText("Эксперт");
 				}
 			
@@ -5777,7 +5753,7 @@ private var zebra3_bitmap:Class;
 				
 				if ( woff_answer.profile.is_expert.text() == 1) {
 					//main.removeChild(main_txt6);
-					main.addChild(star4);
+					select5sprite.addChild(star4);
 					main_txt426.setText("Эксперт");
 				}
 			
@@ -9239,6 +9215,7 @@ private var zebra3_bitmap:Class;
 			blocknation.filters = [myGlow_blue, myBevel, innerGlow];
 			
 			main.addChild(select1smart);
+			/*
 			main.addChild(blocknation);
 			main.addChild(russia);
 			main.addChild(main_txt1);
@@ -9248,6 +9225,9 @@ private var zebra3_bitmap:Class;
 			main.addChild(main_txt5);
 			main.addChild(main_txt55);
 			main.addChild(main_txt6);
+			 * 
+			 */
+			main.addChild(select1sprite);
 			main.addChild(select1);
 			
 			select1smart.show();
@@ -9261,6 +9241,7 @@ private var zebra3_bitmap:Class;
 			blocknation4.filters = [myGlow_blue, myBevel, innerGlow];
 			
 			main.addChild(select4smart);
+			/*
 			main.addChild(blocknation4);
 			main.addChild(world);
 			main.addChild(main_txt21);
@@ -9270,6 +9251,9 @@ private var zebra3_bitmap:Class;
 			main.addChild(main_txt25);
 			main.addChild(main_txt255);
 			main.addChild(main_txt26);
+			 * 
+			 */
+			main.addChild(select4sprite);
 			main.addChild(select4);
 			
 			select4smart.show();
@@ -9284,6 +9268,7 @@ private var zebra3_bitmap:Class;
 			blocknation2.filters = [myGlow_blue, myBevel, innerGlow];
 			
 			main.addChild(select2smart);
+			/*
 			main.addChild(blocknation2);
 			main.addChild(england);
 			main.addChild(main_txt31);
@@ -9293,6 +9278,9 @@ private var zebra3_bitmap:Class;
 			main.addChild(main_txt35);
 			main.addChild(main_txt355);
 			main.addChild(main_txt36);
+			 * 
+			 */
+			main.addChild(select2sprite);
 			main.addChild(select2_);
 			
 			select2smart.show();
@@ -9485,6 +9473,66 @@ private var zebra3_bitmap:Class;
 			blocknation6 = new Bitmap(blocknation_.bitmapData);
 			blocknation6.x = 325;
 			blocknation6.y = 345;
+			
+			select1sprite.addChild(blocknation);
+			select2sprite.addChild(blocknation2);
+			select3sprite.addChild(blocknation3);
+			select4sprite.addChild(blocknation4);
+			select5sprite.addChild(blocknation5);
+			select6sprite.addChild(blocknation6);
+			
+			select1sprite.addChild(russia);
+			select4sprite.addChild(world);
+			select2sprite.addChild(england);
+			select5sprite.addChild(spain);
+			select3sprite.addChild(italia);
+			select6sprite.addChild(chempions);
+			
+			select1sprite.addChild(main_txt1);
+			select1sprite.addChild(main_txt2);
+			select1sprite.addChild(main_txt3);
+			select1sprite.addChild(main_txt4);
+			select1sprite.addChild(main_txt5);
+			select1sprite.addChild(main_txt55);
+			select1sprite.addChild(main_txt6);
+			select4sprite.addChild(main_txt21);
+			select4sprite.addChild(main_txt22);
+			select4sprite.addChild(main_txt23);
+			select4sprite.addChild(main_txt24);
+			select4sprite.addChild(main_txt25);
+			select4sprite.addChild(main_txt255);
+			select4sprite.addChild(main_txt26);
+			select2sprite.addChild(main_txt31);
+			select2sprite.addChild(main_txt32);
+			select2sprite.addChild(main_txt33);
+			select2sprite.addChild(main_txt34);
+			select2sprite.addChild(main_txt35);
+			select2sprite.addChild(main_txt355);
+			select2sprite.addChild(main_txt36);
+			select5sprite.addChild(main_txt421);
+			select5sprite.addChild(main_txt422);
+			select5sprite.addChild(main_txt423);
+			select5sprite.addChild(main_txt424);
+			select5sprite.addChild(main_txt425);
+			select5sprite.addChild(main_txt4255);
+			select5sprite.addChild(main_txt426);
+			select3sprite.addChild(main_txt51);
+			select3sprite.addChild(main_txt52);
+			select3sprite.addChild(main_txt53);
+			select3sprite.addChild(main_txt54);
+			select3sprite.addChild(main_txt55_);
+			select3sprite.addChild(main_txt555);
+			select3sprite.addChild(main_txt56);
+			select6sprite.addChild(main_txt621);
+			select6sprite.addChild(main_txt622);
+			select6sprite.addChild(main_txt623);
+			select6sprite.addChild(main_txt624);
+			select6sprite.addChild(main_txt625);
+			select6sprite.addChild(main_txt6255);
+			select6sprite.addChild(main_txt626);
+			
+			
+			
 			
 		}
 		
