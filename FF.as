@@ -2044,6 +2044,13 @@ private var zebra3_bitmap:Class;
 				var stat_freq:int = new int(22*n);
 			number = n;
 			
+			if ((n & 1) !== 0) {
+				var zebra_stats = new zebra3_bitmap();
+				zebra_stats.scaleX = 1.34;
+				zebra_stats.x = 2;
+				zebra_stats.y = stat_freq-1;
+					team_stat_list.addChild(zebra_stats);
+				}
 			
 			team_role[n] = new text(8, stat_freq, "--", "2");
 			team_stat_array[n] = new text(45, stat_freq, "--", "3");
@@ -4719,7 +4726,7 @@ private var zebra3_bitmap:Class;
 			team_sostav.addChild(main1_txt6);			 
 			 */
 			team_stat.addChild(statistics);
-			team_stat.addChild(zebra);
+			//team_stat.addChild(zebra);
 			team_stat.addChild(table2);
 			team_stat.addChild(select_st);
 			team_stat.addChild(button_blue_alpha_);
@@ -8182,20 +8189,20 @@ private var zebra3_bitmap:Class;
 			
 				for (var n:int=1; n <= 15; n++) {
 					
-					full_matches[n].setText("-");
-					partial_matches[n].setText("-");
-					goals[n].setText("-");
-					penalties[n].setText("-");
-					autogoals[n].setText("-");
-					hat_tricks[n].setText("-");
-					assists[n].setText("-");
-					failed_penatlies[n].setText("-");
-					reflected_penalties[n].setText("-");
-					reflected_goals[n].setText("-");
-					yellow_cards[n].setText("-");
-					red_cards[n].setText("-");
-					ko[n].setText("-");
-					summary[n].setText("-");
+					full_matches[n].setText("");
+					partial_matches[n].setText("");
+					goals[n].setText("");
+					penalties[n].setText("");
+					autogoals[n].setText("");
+					hat_tricks[n].setText("");
+					assists[n].setText("");
+					failed_penatlies[n].setText("");
+					reflected_penalties[n].setText("");
+					reflected_goals[n].setText("");
+					yellow_cards[n].setText("");
+					red_cards[n].setText("");
+					ko[n].setText("");
+					summary[n].setText("");
 				}
 					// парсинг статистики
 				for (var n:int=1; n <= woff_answer.footballer_stats.length(); n++) {
