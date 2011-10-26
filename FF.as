@@ -8290,7 +8290,7 @@ private var zebra3_bitmap:Class;
 			// генерация запроса на список трансферов
 			public function getTransfer(ii:int, iii:int, iiii:int):void {
 				
-				var params:Object = {method: "getFootballers2", role: iii, id_f: ii, id_c:iiii, id_tm: current_tournament};
+				var params:Object = {method: "getFootballers", role: iii, id_f: ii, id_c:iiii, id_tm: current_tournament};
 				
 				var keys:Array = new Array();
 				for (var k:String in params)
@@ -8726,10 +8726,7 @@ private var zebra3_bitmap:Class;
 				}
 				footman_txt13.setText(woff_answer.footballer_info.club_title.text());
 				footman_txt14.setText(int(woff_answer.footballer_info.cost.text())/10 + " EU");
-				//footman_txt15.setText(int(woff_answer.footballer_info.rating.text())/int(woff_answer.footballer_info.cost.text()) + " %");
-				//footman_txt15.setText(Math.round(int(woff_answer.footballer_info.rating.text())/ 0.01) * 0.01) + " %");
-			  	
-			  	footman_txt15.setText(woff_answer.footballer_info.rating.text() + " %");
+				footman_txt15.setText(woff_answer.footballer_info.rating.text() + " %");
 			 
 			 for (var i:int=1; i<=woff_answer.tour_stat.length(); i++) {
 			 	footman_stat_tour[i].setText(woff_answer.tour_stat[i-1].tour_no.text());
