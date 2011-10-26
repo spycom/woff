@@ -6,7 +6,8 @@ package data{
 	import flash.net.*;
 	import flash.events.Event;
 	import flash.geom.Matrix;
-	
+	import flash.filters.BevelFilter;
+
 	import data.text;
 	
 	
@@ -23,6 +24,11 @@ package data{
 	
 		public function smartButton(woff_uid:int, this_tournament:int)  {
 			
+			var myBevel = new BevelFilter();
+			myBevel.angle = 90;
+			//myBevel.distanse = 2;
+			myBevel.strength = 0.2;
+			
 			main = new Sprite();
 			
 			var fillType:String = GradientType.RADIAL;
@@ -30,7 +36,7 @@ package data{
 			var alphas:Array = [1, 1];
 			var ratios:Array = [0, 150];
 			var matr:Matrix = new Matrix();
-			matr.createGradientBox(550, 450, 0, -100, 0);
+			matr.createGradientBox(550, 400, 0, -100, -50);
 			
 			var spreadMethod:String = SpreadMethod.PAD;
 			
@@ -39,8 +45,8 @@ package data{
 			select1 = new Sprite();
 			select1.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod);
 			select1.graphics.lineStyle(0, 0xffffff);
-			select1.graphics.drawRoundRectComplex(10, 105, 304, 112, 0, 0, 30, 30);
-			
+			select1.graphics.drawRoundRectComplex(10, 105, 304, 112, 0, 0, 40, 40);
+			select1.filters = [myBevel];
 			
 			timer = new Timer(5, 45);
 			timer.addEventListener(TimerEvent.TIMER, timerEvent);
