@@ -913,8 +913,6 @@ private var zebra3_bitmap:Class;
 		field.x = 20;
 		field.y = 130;
 		field.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		//field.contentLoaderInfo.addEventListener(Event.COMPLETE, backgroundComplete);
-		//field.addEventListener(MouseEvent.CLICK, drawFieldEvent);
 		
 		camera = new Loader();
 		camera.load(new URLRequest("http://dl.dropbox.com/u/6044249/camera.png"));
@@ -2613,7 +2611,7 @@ private var zebra3_bitmap:Class;
 			load.addChild(logo);
 			load.addChild(loader3);
 		
-		begin_timer.start();
+		//begin_timer.start();
 		preload_timer.start();
 		loadStatus_timer.start();
 		
@@ -5124,7 +5122,10 @@ private var zebra3_bitmap:Class;
 			
 			//status.text = "Загрузка " + PersentLoaded + "% " + loadedFiles;
 			status.setText("Загрузка " + PersentLoaded + "% ");
-			
+				if (PersentLoaded == 100) {
+					begin_timer.start();
+					postload_timer.start();
+				}
 		}
 		
 		// обработчики таймеров
@@ -5136,7 +5137,7 @@ private var zebra3_bitmap:Class;
 		}
 		public function loadStatusComplete (e:TimerEvent):void {
 			//!!!
-			postload_timer.start();
+			//postload_timer.start();
 			//load.removeChild(status);
 		}
 		public function postloadTimerHandler (e:TimerEvent):void {
