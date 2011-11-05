@@ -3539,6 +3539,7 @@ private var zebra3_bitmap:Class;
 		woff_MyTournamentScore_loader.load(woff_general_request);
 		
 		showMain2();
+		main2.addChild(camera);
 		
 			main2_txt18.setText("Приобрести "+ current_transfers_mass +" трансферов за "+ current_tax +" MP");
 			
