@@ -19,8 +19,8 @@ public var trophy_:Class;
 			//sostav.addEventListener(MouseEvent.MOUSE_OVER, sostavOver);
 			//sostav.addEventListener(MouseEvent.MOUSE_OUT, sostavOut);
 			
-			//sostav.load(new URLRequest("http://woff73.valuehost.ru/woff_images/" + "img3/sostav.png"));
-			addChild(trophy);
+			// временно закомменчено
+			//addChild(trophy);
 			
 			//bevelFilter = new BevelFilter();
 			//bevelFilter.distance = 2;
