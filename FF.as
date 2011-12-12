@@ -698,6 +698,7 @@ private var zebra3_bitmap:Class;
 		logo2.x = 25;
 		logo2.y = 10;
 		logo2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		logo2.addEventListener(MouseEvent.CLICK, logoClickHandler);
 		      	
 		loader3 = new Loader();
 		loader3.load(new URLRequest(serv + "img/loader3.png"));
@@ -1883,14 +1884,14 @@ private var zebra3_bitmap:Class;
 		select6.graphics.lineStyle(1);
 		select6.graphics.drawRoundRect(327, 343, 300, 115, 10);
 		select6.alpha = 0;
-		select6.addEventListener(MouseEvent.CLICK, select6listener);
+		//select6.addEventListener(MouseEvent.CLICK, select6listener);
 		select6.addEventListener(MouseEvent.MOUSE_OVER, select6over);
 		select6.addEventListener(MouseEvent.MOUSE_OUT, select6out);
 		select6.buttonMode = true;
 		select6.useHandCursor = true;
 		
 		// умные кнопки\
-		select1smart = new smartButton(woff_uid, 5);
+		select1smart = new smartButton(woff_uid, 0);
 		select2smart = new smartButton(woff_uid, 6);
 		select2smart.y = 120;
 		//select3smart = new smartButton(woff_uid, 5);
@@ -2781,6 +2782,11 @@ private var zebra3_bitmap:Class;
 		showMain1();
 		
 			//main1.addChild(winners_list);
+			//winners_list = new winners_list_sprite(woff_uid);
+			//winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
+			main1.addChild(winners_list);
+			winners_list.setChamp("rus");
+				getLeadersFinal();
 	}
 	
 	// выбор лиги чемпионов
@@ -7416,7 +7422,7 @@ private var zebra3_bitmap:Class;
 					woff_Team_loader.load(woff_general_request);
 				
 					if (window == "player_liga") {
-						//getLeaders(1, current_new_tour);
+						getLeaders(1, current_new_tour);
 						
 					} else {
 						getLeaders(1, current_new_tour);
@@ -7984,7 +7990,7 @@ private var zebra3_bitmap:Class;
 				//if (tour == current_tour)
 					//tour = 0;
 				var time:Date = new Date();
-				var params:Object = {method: "getLeaders", time:time, id_tm: current_tournament, part:"1", tour:"0"};
+				var params:Object = {method: "getLeaders", time:time, id_tm: current_tournament, part:"1"};
 				
 				var keys:Array = new Array();
 				for (var k:String in params)
@@ -9766,6 +9772,11 @@ private var zebra3_bitmap:Class;
 			
 			//addChild(firstManual);
 			//	firstManual.showMan();
+		}
+		
+		private function logoClickHandler(e:MouseEvent):void {
+			
+			wrapper.external.callMethod("showLeadsPaymentBox");
 		}
 }
 }

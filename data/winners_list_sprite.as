@@ -23,7 +23,7 @@ private var viewer_id:int;
 		block.x = 5;
 		block.y = 95;
 		
-		logo = new text(240, 110, "ПОБЕДИТЕЛИ Чемпионата Испании", "3");
+		logo = new text(240, 110, "ПОБЕДИТЕЛИ", "3");
 		
 		text_array = new Array();
 		
@@ -40,7 +40,7 @@ private var viewer_id:int;
 		
 		text_array[7] = new text(170, 430, "8.", "ads_well");
 		text_array[8] = new text(320, 430, "9.", "ads_well");
-		text_array[9] = new text(470, 430, "10/", "ads_well");
+		text_array[9] = new text(470, 430, "10.", "ads_well");
 		
 		addChild(block);
 		addChild(logo);

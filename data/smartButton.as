@@ -59,11 +59,12 @@ package data{
 			
 			table = new Array();
 			for (var i:int=0; i<10; i++) {
-				table[i] = new text(50, 105+i*10, "--", "2");
+				table[i] = new text(30, 105+i*10, "", "2");
 				main.addChild(table[i]);
 			}
 			
 			// request
+			if (this_tournament !== 0) {
 			var woff_general_request = new URLRequest("http://woff73.valuehost.ru/tapi.php");
 			
 			var params:Object = {method: "getMatchList", id_tm: this_tournament};
@@ -90,6 +91,10 @@ package data{
 				var woff_loader:URLLoader = new URLLoader();
 				woff_loader.addEventListener(Event.COMPLETE, completeEvent);
 				woff_loader.load(woff_general_request);
+			
+			} else {
+				table[4].setText("                ТУРНИР ЗАКОНЧЕН  ");
+			}
 		}
 		
 		private function completeEvent(e:Event):void {
