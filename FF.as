@@ -145,7 +145,6 @@ private var button_blue_invite:Loader;
 private var liga2:Loader;
 private var profile:Loader;
 private var ava_big:Loader;
-//private var footman_form:Loader;
 private var footman_form_array:Array;
 private var footman_scores:Array;
 
@@ -231,7 +230,6 @@ private var main_txt6255:text;
 private var main_txt626:text;
 
 private var rules_txt1:text;
-//private var rules_txt2:text;
 
 private var main1_txt1:text;
 private var main1_txt2:text;
@@ -276,6 +274,7 @@ private var main2_txt23:text;
 private var main2_txt24:text;
 private var main2_txt25:text;
 private var main2_txt26:text;
+private var main2_betfair:text;
 
 private var main3_txt1:text;
 private var main3_txt2:text;
@@ -424,6 +423,7 @@ private var team_sostav:Sprite;
 private var transfer:Sprite;
 private var team_stat:Sprite;
 private var player_liga:Sprite;
+private var bet_fair:Sprite;
 
 private var help_button:Sprite;
 private var main_button:Sprite; 
@@ -1630,6 +1630,7 @@ private var zebra3_bitmap:Class;
 		main2_txt23 = new text(528, 443, "На сезон: 80 MP", "4");
 		main2_txt24 = new text(20, 105, "Выбор тура", "2");
 		main2_txt25 = new text(5, 5, "Выбор тура", "2");
+		main2_betfair = new text(430, 405, "BetFair Extrapoints", "2");
 		
 		main2_txt14.addEventListener(MouseEvent.CLICK, buyBudget);
 		main2_txt18.addEventListener(MouseEvent.CLICK, buyTransfers);
@@ -1642,6 +1643,10 @@ private var zebra3_bitmap:Class;
 		main2_txt21.addEventListener(MouseEvent.CLICK, CashLiga);
 		main2_txt21.addEventListener(MouseEvent.MOUSE_OVER, overCashLiga);
 		main2_txt21.addEventListener(MouseEvent.MOUSE_OUT, outCashLiga);
+		
+		main2_betfair.addEventListener(MouseEvent.CLICK, betFair);
+		main2_betfair.addEventListener(MouseEvent.MOUSE_OVER, mouseOver);
+		main2_betfair.addEventListener(MouseEvent.MOUSE_OUT,mouseOut);
 		
 		main3_txt1 = new text( 320, 130, "Лига друзей", "2");
 		main3_txt2 = new text( 560, 130, "Место:  00", "2");
@@ -1813,6 +1818,7 @@ private var zebra3_bitmap:Class;
 		team_sostav = new Sprite();
 		transfer = new Sprite();
 		player_liga = new Sprite();	
+		bet_fair = new Sprite();
 		
 		// контейнеры чемпионатов
 		select1sprite = new Sprite();
@@ -2368,19 +2374,19 @@ private var zebra3_bitmap:Class;
 		// цифры замены
 		one = new Loader();
 		one.load(new URLRequest(serv + "img4/01.png"));
-		one.x = 100;
+		one.x = 90;
 		one.y = 270;
 		one.addEventListener(MouseEvent.CLICK, zamenaUp1Event);
 		
 		two = new Loader();
 		two.load(new URLRequest(serv + "img4/02.png"));
-		two.x = 200;
+		two.x = 190;
 		two.y = 270;
 		two.addEventListener(MouseEvent.CLICK, zamenaUp2Event);
 		
 		three = new Loader();
 		three.load(new URLRequest(serv + "img4/03.png"));
-		three.x = 300;
+		three.x = 290;
 		three.y = 270;
 		three.addEventListener(MouseEvent.CLICK, zamenaUp3Event);
 		
@@ -2587,12 +2593,12 @@ private var zebra3_bitmap:Class;
 			
 		//баннер с рекламой приложений
 		var game_movie_clip : MovieClip = new MovieClip(), // MovieClip в который будет вставляться баннер
-     	 banner_pid : int = 176, // идентификатор приложения "World of Fantasy Football" в сети Appgrade
+     	  banner_pid : int = 176, // идентификатор приложения "World of Fantasy Football" в сети Appgrade
     	  banner_x : int = 0, // координата X панели с баннерами
     	  banner_y : int = 485, // координата Y панели с баннерами
     	  banner_width : int = 640; // ширина панели
 
-   	 AppgradeBannerRotator.init_rotator(game_movie_clip, banner_pid, banner_x, banner_y, banner_width);
+   		 AppgradeBannerRotator.init_rotator(game_movie_clip, banner_pid, banner_x, banner_y, banner_width);
 		
 		addChild(game_movie_clip);
 		
@@ -5108,8 +5114,55 @@ private var zebra3_bitmap:Class;
 				}
 		}
 		
+		public function betFair(e:MouseEvent):void {
 		
-	
+			closeCurrentWindow();
+			
+		window = "BetFair";
+		
+		addChild(bet_fair);
+			
+			bet_fair.addChild(background);
+			bet_fair.addChild(top1);
+			bet_fair.addChild(top2);
+			bet_fair.addChild(top3);
+			bet_fair.addChild(top4);
+			bet_fair.addChild(version);
+			bet_fair.addChild(mp);
+			bet_fair.addChild(eu);
+			bet_fair.addChild(all_txt1);
+			bet_fair.addChild(all_txt3);
+			bet_fair.addChild(all_txt4);
+			bet_fair.addChild(logo2);
+			bet_fair.addChild(help_buttontxt);
+			bet_fair.addChild(help_button);
+			bet_fair.addChild(main_button);
+			bet_fair.addChild(block);
+			bet_fair.addChild(link1);
+			bet_fair.addChild(link2);
+			bet_fair.addChild(link3);
+			bet_fair.addChild(link4);
+			bet_fair.addChild(button1txt);
+			bet_fair.addChild(button2txt);
+			bet_fair.addChild(button3txt);
+			bet_fair.addChild(button4txt);
+				button1txt.setColor("0xffffff");
+				button2txt.setColor("0xffffff");
+				button3txt.setColor("0xffffff");
+				button4txt.setColor("0xffffff");
+			bet_fair.addChild(button1);
+			bet_fair.addChild(button2);
+			bet_fair.addChild(button3);
+			bet_fair.addChild(button4);
+			
+			for(var lines:int=0; lines<10; lines++) {
+				var new_line:text = new text(200, 200+lines*19, "название команды", "2");
+				var new_line2:text = new text(350, 200+lines*19, "название команды", "2");
+				
+				bet_fair.addChild(new_line);
+				bet_fair.addChild(new_line2);
+			}
+		}
 	
 	
 		// загрузчик
@@ -6627,11 +6680,11 @@ private var zebra3_bitmap:Class;
 			}
 				main2_txt13.setText("Стоимость футболистов:		" + total_team_cost/10);
 				
-				one.x = 100;
+				one.x = 90;
 				one.y = 270;
-				two.x = 200;
+				two.x = 190;
 				two.y = 270;
-				three.x = 300;
+				three.x = 290;
 				three.y = 270;
 				
 				zamena_first = 13;
@@ -9557,7 +9610,43 @@ private var zebra3_bitmap:Class;
 		
 		// функция очистки экрана
 		private function closeCurrentWindow():void {
-			
+			switch(window) {
+				case "main":
+					removeChild(main);
+					break;	
+				case "main1":
+					removeChild(main1);
+					break;
+				case "main2":
+					removeChild(main2);
+					break;
+				case "main3":
+					removeChild(main3);
+					break;
+				case "main4":
+					removeChild(main4);
+					break;
+				case "help":
+					removeChild(help);
+					break;
+				case "footman":
+					removeChild(footman);
+					break;
+				case "team_sostav":
+					removeChild(team_sostav);
+					break;
+				case "team_stat":
+					removeChild(team_stat);
+					break;
+				case "transfer":
+					removeChild(transfer);
+					break;
+				case "bet_fair":
+					removeChild(bet_fair);
+					break;
+				
+			}
+			/*
 			if (window == "main") {
 				removeChild(main);
 			}
@@ -9573,6 +9662,7 @@ private var zebra3_bitmap:Class;
 			if (window == "main4") {
 				removeChild(main4);
 			} 
+			 
 			if (window == "help") {
 				removeChild(help);
 			}
@@ -9588,6 +9678,11 @@ private var zebra3_bitmap:Class;
 			if (window == "transfer") {
 				removeChild(transfer);
 			}
+			if (window == "BetFair") {
+				removeChild(bet_fair);
+			}
+			 * 
+			 */
 		}
 		
 		//
@@ -9767,12 +9862,15 @@ private var zebra3_bitmap:Class;
 			main2.addChild(main2_txt22);
 			main2.addChild(main2_txt23);
 			main2.addChild(main2_txt24);
-				
+			
+			main2.addChild(main2_betfair);	
 			main2.addChild(stat_hint);
 			
 			//addChild(firstManual);
 			//	firstManual.showMan();
 		}
+		
+		
 		
 		private function logoClickHandler(e:MouseEvent):void {
 			
