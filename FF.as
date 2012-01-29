@@ -31,7 +31,7 @@ package {
 	import data.Schedule;
 	import data.smartButton;
 	import data.gamesList;
-	
+	import data.BetFair;
 	import flash.display.*;
 	import flash.events.*;
 	import flash.filters.*;
@@ -5155,13 +5155,30 @@ private var zebra3_bitmap:Class;
 			bet_fair.addChild(button3);
 			bet_fair.addChild(button4);
 			
-			for(var lines:int=0; lines<10; lines++) {
-				var new_line:text = new text(200, 200+lines*19, "название команды", "2");
-				var new_line2:text = new text(350, 200+lines*19, "название команды", "2");
+			
+			var betfair_logo:Loader = new Loader();
+			betfair_logo.x = 10;
+			betfair_logo.y = 105;
+			betfair_logo.load(new URLRequest("http://cache.cdnbf.net/sports/ALL_BRANDS/GBR/ru/prospect/images/logo/logo_www.gif"));
+			
+			bet_fair.addChild(betfair_logo);
+			
+			for(var lines:int=0; lines<7; lines++) {
+				var new_line:text = new text(290, 110+lines*48, "название команды -", "11");
+				var new_line2:text = new text(375, 110+lines*48, " - название команды", "2");
 				
+				
+				var new_insert:BetFair = new BetFair();
+					new_insert.x = 200;
+					new_insert.y = 108+lines*48;
+				
+				bet_fair.addChild(new_insert);
 				bet_fair.addChild(new_line);
 				bet_fair.addChild(new_line2);
+				
 			}
+			
+			//bet_fair.addChild(stat_hint);
 		}
 	
 	

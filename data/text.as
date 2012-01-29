@@ -110,6 +110,17 @@ package data {
 			top.maxChars = 20;
 			top.restrict = "A-z,А-я,0-9, ";
 		}
+		
+		// строка ввода betFair
+		if (type == "search_query") {
+			formatter.color = 0x666666;
+			formatter.size = 11;
+			top.type = TextFieldType.INPUT;
+			top.width = 15;
+			//top.height = 20;
+			top.maxChars = 1;
+			top.restrict = "0-9";
+		}
 		// текст ошибок и на странице с лигами
 		if (type == "6") {
 			formatter.color = 0x666666;
