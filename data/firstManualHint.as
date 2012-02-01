@@ -49,7 +49,7 @@ private var leftPanel:panel;
 			WelcomeMsgSprite.alpha = 0;
 			
 			var WelcomeMsgBackground:Loader = new Loader();
-			WelcomeMsgBackground.load(new URLRequest("http://dl.dropbox.com/u/6044249/football_girls_team2_widescreen_small.jpg"));
+			WelcomeMsgBackground.load(new URLRequest("http://62.76.177.54/woff_images/tits.jpg"));
 			WelcomeMsgBackground.x = -18;
 			WelcomeMsgBackground.y = -110;
 			

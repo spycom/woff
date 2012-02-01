@@ -709,7 +709,7 @@ private var zebra3_bitmap:Class;
 		
 		// верхнее поле x4
 		top1 = new Loader();
-		top1.load(new URLRequest(serv + "img2/top1.png"));
+		top1.load(new URLRequest(serv + "img2/top1.png"), lc);
 		top1.x = 220;
 		top1.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		top1.contentLoaderInfo.addEventListener(Event.COMPLETE, topCompleteEvent);
@@ -5196,9 +5196,10 @@ private var zebra3_bitmap:Class;
 				loadedFiles += total;
 			}
 			
-			var PersentLoaded:Number = Math.round((loadedFiles/381000)*100); 
+			//var PersentLoaded:Number = Math.round((loadedFiles/381962)*100); 
+			var PersentLoaded:Number = (loadedFiles/381962)*100; 
 			
-			//status.text = "Загрузка " + PersentLoaded + "% " + loadedFiles;
+			//status.setText("Загрузка " + PersentLoaded + "% " + loadedFiles);
 			status.setText("Загрузка " + PersentLoaded + "% ");
 				if (PersentLoaded == 100) {
 					begin_timer.start();
