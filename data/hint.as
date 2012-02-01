@@ -16,7 +16,7 @@ private var timer:Timer;
 		public function hint():void {
 			
 			hint_form = new Loader();
-			hint_form.load(new URLRequest("http://woff73.valuehost.ru/woff_images/" + "img4/points.png"));
+			hint_form.load(new URLRequest("http://62.76.177.54/woff_images/" + "img4/points.png"));
 			hint_form.scaleX = 1.3;
 			
 			hint_text = new text(0, 0, "подсказка", "12");

@@ -68,7 +68,7 @@ public var wrapper: Object;
 			//SaveOfferSprite.filters = [myShadow___, myBevel];
 		
 			var SaveBackground:Loader = new Loader();
-			SaveBackground.load(new URLRequest("http://dl.dropbox.com/u/6044249/tits2.jpg"));
+			SaveBackground.load(new URLRequest("http://62.76.177.54/woff_images/tits2.jpg"));
 			SaveBackground.x = -70;
 			SaveBackground.y = -180;
 			
@@ -461,7 +461,7 @@ public var wrapper: Object;
 			if (champ == "chlig")
 				wall_message = "Лиге Чемпионов";
 			
-			var message:String = new String("собрал команду в World of Fantasy Fooball в " + wall_message + " http://vkontakte.ru/app1848099");
+			var message:String = new String("собрал команду в World of Fantasy Fooball в " + wall_message + " http://vkontakte.ru/fantasyfootball");
 			var attachment:String = new String(answer.photo.id.text());
 			
 			//save_text.setText(answer);

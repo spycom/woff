@@ -664,7 +664,8 @@ private var zebra3_bitmap:Class;
 		*/
 		
 		//serv = new String("");
-		serv = new String("http://woff73.valuehost.ru/woff_images/");
+		//serv = new String("http://woff73.valuehost.ru/woff_images/");
+		serv = new String("http://62.76.177.54/woff_images/");
 		
 		// загрузка первого кадра
 		
@@ -708,7 +709,7 @@ private var zebra3_bitmap:Class;
 		
 		// верхнее поле x4
 		top1 = new Loader();
-		top1.load(new URLRequest(serv + "img2/top1.png"), lc);
+		top1.load(new URLRequest(serv + "img2/top1.png"));
 		top1.x = 220;
 		top1.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		top1.contentLoaderInfo.addEventListener(Event.COMPLETE, topCompleteEvent);

@@ -22,7 +22,7 @@ package data
 			var myGlow:GlowFilter = new GlowFilter();
 			
 			loader = new Loader();
-			loader.load(new URLRequest("http://woff73.valuehost.ru/woff_images/img/down_arrow.png"));
+			loader.load(new URLRequest("http://62.76.177.54/woff_images/img/down_arrow.png"));
 			//.addEventListener(
 			addChild(loader);
 			loader.alpha = 0.8;

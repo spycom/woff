@@ -22,7 +22,7 @@ public var footId_:int;
 			//amplua = role;
 			//position = field_place;
 			down = new Loader();
-			down.load(new URLRequest("http://woff73.valuehost.ru/woff_images/" + "img4/down.png"));
+			down.load(new URLRequest("http://62.76.177.54/woff_images/" + "img4/down.png"));
 			down.addEventListener(MouseEvent.MOUSE_OVER, downOverEvent);
 			down.addEventListener(MouseEvent.MOUSE_OUT, downOutEvent);
 			

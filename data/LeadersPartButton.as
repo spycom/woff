@@ -18,7 +18,7 @@ package data {
 			myBevel = new BevelFilter();
 			myBevel.strength = 0.5;
 			
-			var serv:String = "http://woff73.valuehost.ru/woff_images/";
+			var serv:String = "http://62.76.177.54/woff_images/";
 			id = number;
 			page_button_sprite = new Sprite();
 			page_button = new Loader();
