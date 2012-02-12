@@ -12,7 +12,7 @@ package data {
 		
 		// -------------------ВЕРСИЯ----------------------
 		
-					top.setText("v0.7.5.4-7-0-newServer-preFinal");
+					top.setText("v0.7.5.4-7-0-newServer-preFinal-1");
 		
 		// -----------------------------------------------
 		

@@ -626,7 +626,7 @@ private var zebra3_bitmap:Class;
     		
     		
 		// --- своя библиотека (request) --------------------------------------
-		woff_api1 = "http://woff73.valuehost.ru/tapi.php";
+		woff_api1 = "http://62.76.177.54/api.php";
 		woff_api3 = "http://woff73.valuehost.ru/tapi.php";
 		current_woff_api = woff_api1;
 		
