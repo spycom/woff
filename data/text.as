@@ -323,5 +323,6 @@ package data {
 		public function setFull(new_full:String):void {
 			full = new_full;
 		}
+		
 	}
 }

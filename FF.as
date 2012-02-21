@@ -32,6 +32,8 @@ package {
 	import data.smartButton;
 	import data.gamesList;
 	import data.BetFair;
+	import data.autoTeam;
+	
 	import flash.display.*;
 	import flash.events.*;
 	import flash.filters.*;
@@ -169,7 +171,7 @@ private var zebra:Loader;
 private var button_blue_:Loader;
 private var button_blue_alpha_:Loader;
 
-private var dropdowmmenu_png:Loader;
+//private var dropdowmmenu_png:Loader;
 private var dropdowmmenu_png2:Loader;
 private var dropdownmenu_tours:Sprite;
 private var captain:Loader;
@@ -1438,15 +1440,15 @@ private var zebra3_bitmap:Class;
 		//button_blue_alpha_.buttonMode = true;
 		//button_blue_alpha_.useHandCursor = true;
 		
-		dropdowmmenu_png = new Loader();
-		dropdowmmenu_png.load(new URLRequest(serv + "img3/liga.png"));
-		dropdowmmenu_png.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		dropdowmmenu_png.scaleY = 5.1;
+		var dropdowmmenu_fon = new Sprite();
+		dropdowmmenu_fon.graphics.beginFill(0xffffff);
+		dropdowmmenu_fon.graphics.lineStyle(0, 0x999999);
+		dropdowmmenu_fon.graphics.drawRoundRect(0, 0, 204, 650, 15);
 		//dropdowmmenu_png.addEventListener(MouseEvent.MOUSE_OUT, dropdowm_menu_out);
-		dropdowmmenu_png.addEventListener(MouseEvent.CLICK, dropdowm_menu_out);
+		dropdowmmenu_fon.addEventListener(MouseEvent.CLICK, dropdowm_menu_out);
 		
-		dropdown_menu_sprite.addChild(dropdowmmenu_png);
-		dropdown_menu_sprite.scrollRect = new Rectangle(0, 0, 225, 300);
+		dropdown_menu_sprite.addChild(dropdowmmenu_fon);
+		dropdown_menu_sprite.scrollRect = new Rectangle(0, 0, 205, 395);
 		
 		/*
 		dropdowmmenu_png2 = new Loader();
@@ -5197,10 +5199,10 @@ private var zebra3_bitmap:Class;
 			}
 			
 			//var PersentLoaded:Number = Math.round((loadedFiles/381962)*100); 
-			var PersentLoaded:Number = (loadedFiles/381962)*100; 
+			var PersentLoaded:Number = (loadedFiles/381279)*100; 
 			
 			//status.setText("Загрузка " + PersentLoaded + "% " + loadedFiles);
-			status.setText("Загрузка " + PersentLoaded + "% ");
+			status.setText("Загрузка " + Math.round(PersentLoaded) + "% ");
 				if (PersentLoaded == 100) {
 					begin_timer.start();
 					postload_timer.start();

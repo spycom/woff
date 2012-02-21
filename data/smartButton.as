@@ -93,7 +93,8 @@ package data{
 				woff_loader.load(woff_general_request);
 			
 			} else {
-				table[4].setText("                ТУРНИР ЗАКОНЧЕН  ");
+				table[4].setText("               Скоро стартует...");
+				
 			}
 		}
 		

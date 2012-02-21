@@ -115,7 +115,7 @@ private var myShadow:DropShadowFilter;
 		myGlow_i.inner = true;
 		
 		scroll = new Loader();
-		scroll.load(new URLRequest("http://woff73.valuehost.ru/woff_images/" + "img5/page.png"));
+		scroll.load(new URLRequest("http://62.76.177.54/woff_images/" + "img5/page.png"));
 		scroll.addEventListener(MouseEvent.MOUSE_DOWN, scrollDown);
 		scroll.addEventListener(MouseEvent.MOUSE_UP, scrollUp);
 			this.addEventListener(MouseEvent.MOUSE_UP, scrollUp);
