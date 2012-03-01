@@ -19,7 +19,7 @@ private var viewer_id:int;
 		
 			viewer_id = viewer_id_;
 		block = new Loader();
-		block.load(new URLRequest("http://woff73.valuehost.ru/woff_images/img2/block.png"));
+		block.load(new URLRequest("http://62.76.177.54/woff_images/img2/block.png"));
 		block.x = 5;
 		block.y = 95;
 		

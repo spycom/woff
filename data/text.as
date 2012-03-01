@@ -278,6 +278,13 @@ package data {
 			top.selectable = false;
 			top.autoSize = TextFieldAutoSize.LEFT;
 		}
+		if (type == "autoTeam") {
+			formatter.color = 0xffffff;
+			formatter.size = 18;
+			//formatter.italic = true;
+			top.selectable = false;
+			top.autoSize = TextFieldAutoSize.CENTER;
+		}
 		
 		top.embedFonts = true;
 		formatter.font = "Calibri";
@@ -303,6 +310,10 @@ package data {
 			top.text = texts;
 			top.setTextFormat(formatter);
 			text2 = texts;
+		}
+		public function setSize(new_size:int):void {
+			formatter.size = new_size;
+			top.setTextFormat(formatter);
 		}
 		public function txt():String {
 			return top.text;

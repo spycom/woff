@@ -628,8 +628,12 @@ private var zebra3_bitmap:Class;
     		
     		
 		// --- своя библиотека (request) --------------------------------------
-		woff_api1 = "http://62.76.177.54/api.php";
-		woff_api3 = "http://62.76.177.54/api.php";
+		//woff_api1 = "http://62.76.177.54/api.php";
+		//woff_api3 = "http://62.76.177.54/api.php";
+		//woff_api1 = "http://woff73.valuehost.ru/tapi.php";
+		//woff_api3 = "http://woff73.valuehost.ru/tapi.php";
+		woff_api1 = "http://62.76.177.54/old";
+		woff_api3 = "http://62.76.177.54/old";
 		current_woff_api = woff_api1;
 		
 		lc = new LoaderContext(true);
@@ -1633,7 +1637,7 @@ private var zebra3_bitmap:Class;
 		main2_txt23 = new text(528, 443, "На сезон: 80 MP", "4");
 		main2_txt24 = new text(20, 105, "Выбор тура", "2");
 		main2_txt25 = new text(5, 5, "Выбор тура", "2");
-		main2_betfair = new text(430, 405, "BetFair Extrapoints", "2");
+		//main2_betfair = new text(430, 405, "BetFair Extrapoints", "2");
 		
 		main2_txt14.addEventListener(MouseEvent.CLICK, buyBudget);
 		main2_txt18.addEventListener(MouseEvent.CLICK, buyTransfers);
@@ -1647,9 +1651,9 @@ private var zebra3_bitmap:Class;
 		main2_txt21.addEventListener(MouseEvent.MOUSE_OVER, overCashLiga);
 		main2_txt21.addEventListener(MouseEvent.MOUSE_OUT, outCashLiga);
 		
-		main2_betfair.addEventListener(MouseEvent.CLICK, betFair);
-		main2_betfair.addEventListener(MouseEvent.MOUSE_OVER, mouseOver);
-		main2_betfair.addEventListener(MouseEvent.MOUSE_OUT,mouseOut);
+		//main2_betfair.addEventListener(MouseEvent.CLICK, betFair);
+		//main2_betfair.addEventListener(MouseEvent.MOUSE_OVER, mouseOver);
+		//main2_betfair.addEventListener(MouseEvent.MOUSE_OUT,mouseOut);
 		
 		main3_txt1 = new text( 320, 130, "Лига друзей", "2");
 		main3_txt2 = new text( 560, 130, "Место:  00", "2");
@@ -1900,7 +1904,7 @@ private var zebra3_bitmap:Class;
 		select6.useHandCursor = true;
 		
 		// умные кнопки\
-		select1smart = new smartButton(woff_uid, 0);
+		select1smart = new smartButton(woff_uid, 5);
 		select2smart = new smartButton(woff_uid, 6);
 		select2smart.y = 120;
 		//select3smart = new smartButton(woff_uid, 5);
@@ -2793,9 +2797,10 @@ private var zebra3_bitmap:Class;
 			//main1.addChild(winners_list);
 			//winners_list = new winners_list_sprite(woff_uid);
 			//winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
-			main1.addChild(winners_list);
-			winners_list.setChamp("rus");
-				getLeadersFinal();
+			
+			//main1.addChild(winners_list);
+			//winners_list.setChamp("rus");
+				//getLeadersFinal();
 	}
 	
 	// выбор лиги чемпионов
@@ -5117,6 +5122,7 @@ private var zebra3_bitmap:Class;
 				}
 		}
 		
+		/*
 		public function betFair(e:MouseEvent):void {
 		
 			closeCurrentWindow();
@@ -5183,7 +5189,7 @@ private var zebra3_bitmap:Class;
 			
 			//bet_fair.addChild(stat_hint);
 		}
-	
+		*/
 	
 		// загрузчик
 		
@@ -9389,7 +9395,7 @@ private var zebra3_bitmap:Class;
 			blocknation3.filters = [];
 		}
 		private function select6over(e:MouseEvent):void {
-			blocknation6.filters = [myGlow_blue, myBevel, innerGlow];
+			blocknation6.filters = [myGlow_blue, myBevel, innerGlow_red];
 		}
 		private function select6out(e:MouseEvent):void {
 			blocknation6.filters = [];
@@ -9884,7 +9890,7 @@ private var zebra3_bitmap:Class;
 			main2.addChild(main2_txt23);
 			main2.addChild(main2_txt24);
 			
-			main2.addChild(main2_betfair);	
+			//main2.addChild(main2_betfair);	
 			main2.addChild(stat_hint);
 			
 			//addChild(firstManual);

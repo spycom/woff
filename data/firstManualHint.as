@@ -1,6 +1,7 @@
 package data {
 	import data.panel;
 	import data.text;
+	import data.autoTeam;
 	
 	import flash.display.*;
 	import flash.events.*;
@@ -19,12 +20,15 @@ private var WelcomeMsgText:text;
 private var WelcomeMsgFon:Sprite;
 private var WelcomeMsgButtonSprite:Sprite;
 private var WelcomeMsgButton2Sprite:Sprite;
+private var WelcomeMsgButton3Sprite:Sprite;
 private var WelcomeMsgClose:text;
 private var WelcomeMsgFAQ:text;
+private var WelcomeMsgAuto:text;
 private var myShadow:DropShadowFilter;
 private var myBevel:BevelFilter;
 private var myTimer:Timer;
 private var leftPanel:panel;
+private var autoTeamHelper:autoTeam;
 
 		public function firstManualHint () {
 			
@@ -55,18 +59,20 @@ private var leftPanel:panel;
 			
 			WelcomeMsgText = new text(5, 26, "error", "first_hint");
 			
-			WelcomeMsgClose = new text(390, 129, "закрыть", "first_hint");
+			WelcomeMsgClose = new text(420, 129, "закрыть", "first_hint");
 			WelcomeMsgClose.addEventListener(MouseEvent.CLICK, WelcomeMsgCloseEvent);
 			WelcomeMsgClose.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgCloseOverEvent);
 			WelcomeMsgClose.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgCloseOutEvent);
-			//WelcomeMsgClose.buttonMode = true;
-			//WelcomeMsgClose.useHandCursor = true;
 			
-			WelcomeMsgFAQ = new text(80, 129, "группа приложения", "first_hint");
-			WelcomeMsgFAQ.setColor("0x000033");
+			WelcomeMsgFAQ = new text(50, 129, "группа", "first_hint");
 			WelcomeMsgFAQ.addEventListener(MouseEvent.CLICK, WelcomeMsgFAQEvent);
 			WelcomeMsgFAQ.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgFAQOverEvent);
 			WelcomeMsgFAQ.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgFAQOutEvent);
+			
+			WelcomeMsgAuto = new text(220, 129, "автонабор", "first_hint");
+			WelcomeMsgAuto.addEventListener(MouseEvent.CLICK, WelcomeMsgAutoEvent);
+			WelcomeMsgAuto.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgAutoOverEvent);
+			WelcomeMsgAuto.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgAutoOutEvent);
 			
 			var fillType:String = GradientType.RADIAL;
 			var colors:Array = [0xffffff, 0xE8E8E8];
@@ -86,22 +92,26 @@ private var leftPanel:panel;
 			
 			WelcomeMsgButtonSprite = new Sprite();
 			WelcomeMsgButtonSprite.graphics.beginFill(0x999999, 1);
-			//WelcomeMsgButtonSprite.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod); 
 			WelcomeMsgButtonSprite.graphics.lineStyle(2, 0x999999);
-			WelcomeMsgButtonSprite.graphics.drawRoundRect(65, 132, 220, 28, 30);
+			WelcomeMsgButtonSprite.graphics.drawRoundRect(25, 132, 120, 28, 30);
 			WelcomeMsgButtonSprite.filters = [myBevel, myShadow];
 			WelcomeMsgButtonSprite.alpha = 0.2;
 			
 			WelcomeMsgButton2Sprite = new Sprite();
 			
 			WelcomeMsgButton2Sprite.graphics.beginFill(0x999999, 1);
-			//WelcomeMsgButton2Sprite.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod); 
 			WelcomeMsgButton2Sprite.graphics.lineStyle(2, 0x999999);
-			WelcomeMsgButton2Sprite.graphics.drawRoundRect(370, 132, 120, 28, 30);
+			WelcomeMsgButton2Sprite.graphics.drawRoundRect(400, 132, 120, 28, 30);
 			WelcomeMsgButton2Sprite.filters = [myBevel, myShadow];
 			WelcomeMsgButton2Sprite.alpha = 0.2;
 			
+			WelcomeMsgButton3Sprite = new Sprite();
 			
+			WelcomeMsgButton3Sprite.graphics.beginFill(0x999999, 1);
+			WelcomeMsgButton3Sprite.graphics.lineStyle(2, 0x999999);
+			WelcomeMsgButton3Sprite.graphics.drawRoundRect(200, 132, 150, 28, 30);
+			WelcomeMsgButton3Sprite.filters = [myBevel, myShadow];
+			WelcomeMsgButton3Sprite.alpha = 0.2;
 			
 			addChild(WelcomeMsgSprite);
 					WelcomeMsgText.setText("	" +
@@ -117,12 +127,17 @@ private var leftPanel:panel;
 			WelcomeMsgSprite.addChild(WelcomeMsgText);
 			WelcomeMsgSprite.addChild(WelcomeMsgButtonSprite);
 			WelcomeMsgSprite.addChild(WelcomeMsgButton2Sprite);
+			//WelcomeMsgSprite.addChild(WelcomeMsgButton3Sprite);
 			WelcomeMsgSprite.addChild(WelcomeMsgFAQ);		
 			WelcomeMsgSprite.addChild(WelcomeMsgClose);		
+			//WelcomeMsgSprite.addChild(WelcomeMsgAuto);	
 			
 			leftPanel = new panel();
 			leftPanel.addEventListener(MouseEvent.CLICK, leftPanelClick);
 			addChild(leftPanel);
+			
+			autoTeamHelper = new autoTeam();
+			addChild(autoTeamHelper);
 		}
 		
 	public function WelcomeMsgCloseEvent(e:MouseEvent):void {
@@ -137,6 +152,10 @@ private var leftPanel:panel;
 		navigateToURL(new URLRequest("http://vkontakte.ru/club16470824"), "_blank");
 		
 	}
+	public function WelcomeMsgAutoEvent(e:MouseEvent):void {
+		removeChild(WelcomeMsgSprite);
+		autoTeamHelper.start();
+	}
 	public function WelcomeMsgFAQOverEvent(e:MouseEvent):void {
 		WelcomeMsgFAQ.setColor("0x333333");
 		WelcomeMsgButtonSprite.alpha = 1;
@@ -144,6 +163,14 @@ private var leftPanel:panel;
 	public function WelcomeMsgFAQOutEvent(e:MouseEvent):void {
 		WelcomeMsgFAQ.setColor("0x003366");
 		WelcomeMsgButtonSprite.alpha = 0.2;
+	}
+	public function WelcomeMsgAutoOverEvent(e:MouseEvent):void {
+		WelcomeMsgAuto.setColor("0x333333");
+		WelcomeMsgButton3Sprite.alpha = 1;
+	}
+	public function WelcomeMsgAutoOutEvent(e:MouseEvent):void {
+		WelcomeMsgAuto.setColor("0x003366");
+		WelcomeMsgButton3Sprite.alpha = 0.2;
 	}
 	public function WelcomeMsgCloseOverEvent(e:MouseEvent):void {
 		WelcomeMsgClose.setColor("0x333333");
