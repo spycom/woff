@@ -69,7 +69,7 @@ private var autoTeamHelper:autoTeam;
 			WelcomeMsgFAQ.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgFAQOverEvent);
 			WelcomeMsgFAQ.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgFAQOutEvent);
 			
-			WelcomeMsgAuto = new text(220, 129, "автонабор", "first_hint");
+			WelcomeMsgAuto = new text(50, 239, "автонабор", "first_hint");
 			WelcomeMsgAuto.addEventListener(MouseEvent.CLICK, WelcomeMsgAutoEvent);
 			WelcomeMsgAuto.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgAutoOverEvent);
 			WelcomeMsgAuto.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgAutoOutEvent);
@@ -109,7 +109,7 @@ private var autoTeamHelper:autoTeam;
 			
 			WelcomeMsgButton3Sprite.graphics.beginFill(0x999999, 1);
 			WelcomeMsgButton3Sprite.graphics.lineStyle(2, 0x999999);
-			WelcomeMsgButton3Sprite.graphics.drawRoundRect(200, 132, 150, 28, 30);
+			WelcomeMsgButton3Sprite.graphics.drawRoundRect(30, 242, 150, 28, 30);
 			WelcomeMsgButton3Sprite.filters = [myBevel, myShadow];
 			WelcomeMsgButton3Sprite.alpha = 0.2;
 			
@@ -127,14 +127,17 @@ private var autoTeamHelper:autoTeam;
 			WelcomeMsgSprite.addChild(WelcomeMsgText);
 			WelcomeMsgSprite.addChild(WelcomeMsgButtonSprite);
 			WelcomeMsgSprite.addChild(WelcomeMsgButton2Sprite);
-			//WelcomeMsgSprite.addChild(WelcomeMsgButton3Sprite);
+			
 			WelcomeMsgSprite.addChild(WelcomeMsgFAQ);		
 			WelcomeMsgSprite.addChild(WelcomeMsgClose);		
-			//WelcomeMsgSprite.addChild(WelcomeMsgAuto);	
+			
 			
 			leftPanel = new panel();
 			leftPanel.addEventListener(MouseEvent.CLICK, leftPanelClick);
 			addChild(leftPanel);
+			
+			leftPanel.panel_sprite.addChild(WelcomeMsgButton3Sprite);
+			leftPanel.panel_sprite.addChild(WelcomeMsgAuto);
 			
 			autoTeamHelper = new autoTeam();
 			addChild(autoTeamHelper);
@@ -153,7 +156,7 @@ private var autoTeamHelper:autoTeam;
 		
 	}
 	public function WelcomeMsgAutoEvent(e:MouseEvent):void {
-		removeChild(WelcomeMsgSprite);
+		//removeChild(WelcomeMsgSprite);
 		autoTeamHelper.start();
 	}
 	public function WelcomeMsgFAQOverEvent(e:MouseEvent):void {

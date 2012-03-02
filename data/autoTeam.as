@@ -339,13 +339,15 @@ package data{
 				case 1:
 					message.setText("Режим набора");
 					fon.removeChild(t_switcher_fon);
-					fon.removeChild(t_bottom_text);
+					//fon.removeChild(t_bottom_text);
+					t_bottom_text.setText("?");
 					fon.addChild(m_switcher_fon);
 					
 					break;
 				case 2:
 					message.setText("Любимые клубы");
 					fon.removeChild(m_switcher_fon);
+					fon.removeChild(t_bottom_text);
 					fon.addEventListener(MouseEvent.CLICK, fon_click);
 					break;
 				case 3:
@@ -407,12 +409,18 @@ package data{
 		}
 		private function over0m(e:MouseEvent):void {
 			m_switcher_button.x = 0;
+			
+			t_bottom_text.setText("15 равносильных");
 		}
 		private function over1m(e:MouseEvent):void {
 			m_switcher_button.x = 50;
+			
+			t_bottom_text.setText("?");
 		}
 		private function over2m(e:MouseEvent):void {
 			m_switcher_button.x = 100;
+			
+			t_bottom_text.setText("11 сильных и 4 слабых");
 		}
 	}
 }

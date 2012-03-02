@@ -14,7 +14,7 @@ package data
 	
 	public class panel extends Sprite {
 		
-private var panel_sprite:Sprite;
+public var panel_sprite:Sprite;
 private var rollingTimer:Timer;
 private var vector:int;
 private var angle:int;
