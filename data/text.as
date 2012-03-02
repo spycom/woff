@@ -92,7 +92,6 @@ package data {
 			formatter.color = 0x666666;
 			formatter.size = 11;
 			top.type = TextFieldType.INPUT;
-			//top.
 			top.width = 187;
 			top.height = 20;
 			top.maxChars = 39;
@@ -104,7 +103,6 @@ package data {
 			formatter.color = 0x666666;
 			formatter.size = 11;
 			top.type = TextFieldType.INPUT;
-			//top.
 			top.width = 70;
 			top.height = 20;
 			top.maxChars = 20;
@@ -112,7 +110,7 @@ package data {
 		}
 		
 		// строка ввода betFair
-		if (type == "search_query") {
+		if (type == "betFair") {
 			formatter.color = 0x666666;
 			formatter.size = 11;
 			top.type = TextFieldType.INPUT;
