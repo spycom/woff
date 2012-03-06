@@ -190,6 +190,9 @@ private var autoTeamHelper:autoTeam;
 	private function timerEvent(e:TimerEvent):void {
 		WelcomeMsgSprite.alpha += 0.07;
 	}
+	public function setFavClubs(clubs_array:Array): void {
+		autoTeamHelper.setFavClubs(clubs_array);
+	}
 	}
 	
 }

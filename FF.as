@@ -595,6 +595,7 @@ private var select2smart:smartButton;
 private var select3smart:smartButton;
 private var select4smart:smartButton;
 private var gamesListTransfers:gamesList;
+private var favClubs:Array;
 
 //[Embed(source='/Users/Art/Dropbox/FF/img3/razdelitel.png')]
 [Embed(source='C:/Users/artem.akinchits/Dev/images/razdelitel.png')]
@@ -2589,6 +2590,8 @@ private var zebra3_bitmap:Class;
 		main4_avatar.x = 235;
 		main4_avatar.y = 139;
 		
+		favClubs = new Array();
+		
 		gamesListTransfers = new gamesList(woff_uid);
 		
 			this.addEventListener(MouseEvent.MOUSE_OVER, function() {
@@ -3674,6 +3677,8 @@ private var zebra3_bitmap:Class;
 				firstManual.showMan();
 				 
 			main2_txt18.setText("Приобрести "+ current_transfers_mass +" трансферов за "+ current_tax +" MP");
+			
+		getFavClubs();
 	}
 	
 	// окно набора команды для первого посещения чемпионата Англии
@@ -7092,13 +7097,37 @@ private var zebra3_bitmap:Class;
 			var woff_answer:XML = new XML(e.target.data);		
 			//var iii:int;
 			
+			favClubs = [];
+			
 			for (var ii:int=0; ii<woff_answer.club.length(); ii++) {			
 					club_array[ii].setText(woff_answer.club[ii].club_title.text());	
 					club_array[ii].id = woff_answer.club[ii].id.text();
+					
+					favClubs.push({title:woff_answer.club[ii].club_title.text(), 
+								id:woff_answer.club[ii].id.text()});
+					
 				}
 			for (var ii:int=woff_answer.club.length(); ii<=32; ii++) {			
 					club_array[ii].setText("  ---");	
 				}
+				
+		}
+		
+		// функция окончания загрузки списка всех клубов для автонабора
+		public function woffAllClubsComplete2(e:Event):void {
+			
+			var woff_answer:XML = new XML(e.target.data);		
+			
+			favClubs = [];
+			
+			for (var ii:int=0; ii<woff_answer.club.length(); ii++) {			
+					
+					favClubs.push({title:woff_answer.club[ii].club_title.text(), 
+								id:woff_answer.club[ii].id.text()});
+					
+				}
+				
+			firstManual.setFavClubs(favClubs);
 		}
 		
 		// функция завершения проверки команды на доступность
@@ -9902,6 +9931,15 @@ private var zebra3_bitmap:Class;
 		private function logoClickHandler(e:MouseEvent):void {
 			
 			wrapper.external.callMethod("showLeadsPaymentBox");
+		}
+		
+		private function getFavClubs():void {
+			
+			setMethod("getAllClubs");
+		
+			var woff_AllClubs_loader:URLLoader = new URLLoader();
+			woff_AllClubs_loader.addEventListener(Event.COMPLETE, woffAllClubsComplete2);
+			woff_AllClubs_loader.load(woff_general_request);
 		}
 }
 }

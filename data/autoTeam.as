@@ -1,10 +1,12 @@
 package data{
 	import data.text;
+	import data.autoTeamClubs;
 	
 	import flash.display.*;
 	import flash.events.*;
 	import flash.filters.BevelFilter;
 	import flash.filters.DropShadowFilter;
+	import flash.filters.GlowFilter;
 	import flash.utils.Timer;
 	
 	public class autoTeam extends Sprite {
@@ -12,6 +14,7 @@ package data{
 		private var rollingTimer:Timer;
 		private var angle:int;
 		private var fon:Sprite;
+		private var fon_clubs:Sprite;
 		private var dir:int;
 		private var message:text;
 		private var trigger:int;
@@ -35,7 +38,11 @@ package data{
 		private var m:int;
 		private var myShadow_i:DropShadowFilter;
 		private var myBevel:BevelFilter;
+		private var myGlow:GlowFilter;
 		private var t_bottom_text:text;
+		private var f_switcher_fon:Sprite;
+		private var f_clubs:Array;
+		//private var f_clubs_dev:Array;
 		
 		public function autoTeam() {
 			
@@ -45,7 +52,15 @@ package data{
 			
 			myBevel = new BevelFilter();
 			myBevel.strength = 0.5;
-				
+			myBevel.angle = 90;
+			
+			myGlow = new GlowFilter();
+			myGlow.inner = true;
+			myGlow.color = 0x99CCFF;
+			myGlow.strength = 3;
+			myGlow.blurX = 0;
+			myGlow.blurY = 20;
+			
 			fon = new Sprite();
 			fon.graphics.beginFill(0x666666);
 			//fon.graphics.lineStyle(0, 0x999999);
@@ -54,15 +69,23 @@ package data{
 			fon.x = 680;
 			fon.y = 200;
 			
+			fon_clubs = new Sprite();
+			fon_clubs.graphics.beginFill(0x666666);
+			//fon.graphics.lineStyle(0, 0x999999);
+			fon_clubs.graphics.drawRoundRect(-90, 0, 360, 250, 55);
+			fon_clubs.addEventListener(MouseEvent.CLICK, fon_click);
+			//fon_clubs.x = 680;
+			//fon_clubs.y = 200;
+			
 			t_switcher_fon = new Sprite();
 			t_switcher_fon.graphics.beginFill(0xCCCCCC);
 			t_switcher_fon.graphics.lineStyle(3, 0xCCCCCC);
-			t_switcher_fon.graphics.drawRoundRect(0, 0, 150, 30, 20);
+			t_switcher_fon.graphics.drawRoundRect(-5, -5, 160, 40, 25);
 			//dropdowmmenu_png.addEventListener(MouseEvent.MOUSE_OUT, dropdowm_menu_out);
 			//t_switcher_fon.addEventListener(MouseEvent.CLICK, fon_click);
 			t_switcher_fon.x = 15;
 			t_switcher_fon.y = 65;
-			t_switcher_fon.filters = [];
+			t_switcher_fon.filters = [myShadow_i];
 			
 			t_switcher_div0 = new Sprite();
 			t_switcher_div0.graphics.beginFill(0x33CC00, 1);
@@ -144,7 +167,7 @@ package data{
 			t_pic_array = new Array();
 			t_pic_array[0] = new Sprite();
 			t_pic_array[0].graphics.beginFill(0xffffff, 1);
-			t_pic_array[0].graphics.drawRoundRectComplex(15, 5, 20, 20, 0 , 0, 0, 0);
+			t_pic_array[0].graphics.drawRoundRectComplex(15, 5, 20, 20, 3 , 3, 3, 3);
 			//t_pic_array[0].addEventListener(MouseEvent.MOUSE_OVER, over2);
 			
 			
@@ -175,7 +198,7 @@ package data{
 			m_switcher_button = new Sprite();
 			m_switcher_button.graphics.beginFill(0x33CC00);
 			m_switcher_button.graphics.lineStyle(1, 0x999999);
-			m_switcher_button.graphics.drawRoundRect(0, 0, 50, 30, 15);
+			m_switcher_button.graphics.drawRoundRect(0, 0, 75, 30, 15);
 			//dropdowmmenu_png.addEventListener(MouseEvent.MOUSE_OUT, dropdowm_menu_out);
 			m_switcher_button.addEventListener(MouseEvent.CLICK, fon_click);
 			m_switcher_button.x = 0;
@@ -184,7 +207,7 @@ package data{
 			m_switcher_0 = new Sprite();
 			m_switcher_0.graphics.beginFill(0x33CC00, 0);
 			m_switcher_0.graphics.lineStyle(0, 0x666666);
-			m_switcher_0.graphics.drawRoundRectComplex(0, 0, 50, 30, 10, 0, 10, 0);
+			m_switcher_0.graphics.drawRoundRectComplex(0, 0, 75, 30, 10, 0, 10, 0);
 			m_switcher_0.addEventListener(MouseEvent.MOUSE_OVER, over0m);
 			//dropdowmmenu_png.addEventListener(MouseEvent.MOUSE_OUT, dropdowm_menu_out);
 			m_switcher_0.addEventListener(MouseEvent.CLICK, sm0_click);
@@ -204,17 +227,17 @@ package data{
 			m_switcher_2 = new Sprite();
 			m_switcher_2.graphics.beginFill(0xFF0000, 0);
 			m_switcher_2.graphics.lineStyle(0, 0x666666);
-			m_switcher_2.graphics.drawRoundRectComplex(0, 0, 50, 30, 0 , 10, 0, 10);
+			m_switcher_2.graphics.drawRoundRectComplex(0, 0, 75, 30, 0 , 10, 0, 10);
 			m_switcher_2.addEventListener(MouseEvent.MOUSE_OVER, over2m);
 			//dropdowmmenu_png.addEventListener(MouseEvent.MOUSE_OUT, dropdowm_menu_out);
 			m_switcher_2.addEventListener(MouseEvent.CLICK, sm2_click);
-			m_switcher_2.x = 100;
+			m_switcher_2.x = 75;
 			m_switcher_2.y = 0;
 			
 			m_array = new Array();
-			m_array[0] = new text(2,5, "0", "3");
-			m_array[1] = new text(55,5, "1", "3");
-			m_array[2] = new text(107,5, "2", "3");
+			m_array[0] = new text(2,5, "", "3");
+			m_array[1] = new text(55,5, "", "3");
+			m_array[2] = new text(107,5, "", "3");
 			
 			t_switcher_fon.addChild(t_switcher_div0);
 			t_switcher_fon.addChild(t_switcher_div1);
@@ -235,12 +258,52 @@ package data{
 			m_switcher_fon.addChild(m_array[2]);
 			
 			m_switcher_fon.addChild(m_switcher_0);
-			m_switcher_fon.addChild(m_switcher_1);
+			//m_switcher_fon.addChild(m_switcher_1);
 			m_switcher_fon.addChild(m_switcher_2);
 			
-			message = new text(85, 10, "	Для успешного старта\n" +
+			// выбор любимых клубов
+			f_switcher_fon = new Sprite();
+			f_switcher_fon.graphics.beginFill(0xCCCCCC);
+			f_switcher_fon.graphics.lineStyle(3, 0xCCCCCC);
+			f_switcher_fon.graphics.drawRoundRect(0, 0, 340, 140, 20);
+			//dropdowmmenu_png.addEventListener(MouseEvent.MOUSE_OUT, dropdowm_menu_out);
+			//t_switcher_fon.addEventListener(MouseEvent.CLICK, fon_click);
+			f_switcher_fon.x = -80;
+			f_switcher_fon.y = 65;
+			f_switcher_fon.filters = [myShadow_i];
+			
+			f_clubs = new Array();
+			//f_clubs_dev = new Array();
+			
+			for (var i:int=0; i < 4; i++) {
+				for (var ii:int=0; ii < 4; ii++) {
+					
+					f_clubs[int(i*4+ii)] = new autoTeamClubs();
+					f_clubs[int(i*4+ii)].x = 85*ii + 10;
+					f_clubs[int(i*4+ii)].y = 35*i + 10;
+					
+					//f_clubs[int(i*4+ii)].setClubTitle(int(i*4+ii));
+					
+					f_switcher_fon.addChild(f_clubs[int(i*4+ii)]);
+					//f_clubs[i+ii] = new text(32, 0, "клуб" + i+ii, "autoTeam_clubs");
+					/*
+					f_clubs_dev[i+ii] = new Sprite();
+					f_clubs_dev[i+ii].graphics.beginFill(0xffffff);
+					f_clubs_dev[i+ii].graphics.drawRoundRect(0, 0, 70, 20, 16);
+					f_clubs_dev[i+ii].x = 85*ii + 10;
+					f_clubs_dev[i+ii].y = 35*i + 10;
+					f_clubs_dev[i+ii].addEventListener(MouseEvent.CLICK, club_fon_click);
+					
+					f_switcher_fon.addChild(f_clubs_dev[i+ii]);
+					f_clubs_dev[i+ii].addChild(f_clubs[i+ii]);
+					 * 
+					 */
+				}
+			}
+			
+			message = new text(85, 10, "   Для успешного старта\n" +
 										"мы поможем Вам подобрать" +
-										"\nподходящую команду", "autoTeam");
+										"\n подходящую команду!", "autoTeam");
 			
 			rollingTimer = new Timer(5, 30);
 			rollingTimer.addEventListener(TimerEvent.TIMER, rollingTimerEvent);
@@ -254,6 +317,7 @@ package data{
 			
 			addChild(fon);
 			fon.addChild(message);
+			
 			
 			//rollingTimer.start();
 		}
@@ -348,9 +412,18 @@ package data{
 					message.setText("Любимые клубы");
 					fon.removeChild(m_switcher_fon);
 					fon.removeChild(t_bottom_text);
-					fon.addEventListener(MouseEvent.CLICK, fon_click);
+					//fon.width = 400;
+					//fon.height = 400;
+						//fon.scaleX = 2;
+						//fon.scaleY = 2;
+					fon.addChild(fon_clubs);
+					fon.addChild(message);
+					fon.addChild(f_switcher_fon);
 					break;
 				case 3:
+					fon.removeChild(f_switcher_fon);
+					fon.removeChild(fon_clubs);
+					fon.addEventListener(MouseEvent.CLICK, fon_click);
 					message.setText("Вот Ваша личная команда!" + "\nТактика: " + t + "\nРежим: " + m);
 					break;
 				default:
@@ -413,14 +486,33 @@ package data{
 			t_bottom_text.setText("15 равносильных");
 		}
 		private function over1m(e:MouseEvent):void {
-			m_switcher_button.x = 50;
+			//m_switcher_button.x = 50;
 			
-			t_bottom_text.setText("?");
+			//t_bottom_text.setText("?");
 		}
 		private function over2m(e:MouseEvent):void {
-			m_switcher_button.x = 100;
+			m_switcher_button.x = 75;
 			
 			t_bottom_text.setText("11 сильных и 4 слабых");
+		}
+		
+		/*
+		private function club_fon_click(e:MouseEvent):void {
+			if (e.currentTarget.filters == "[object GlowFilter]") {
+				e.currentTarget.filters = [];
+			} else {
+				e.currentTarget.filters = [myGlow];
+				//f_clubs[0].setText(e.currentTarget.filters);
+				message.setText(e.currentTarget.f_clubs.text2);
+			}
+		}
+		 * 
+		 */
+		public function setFavClubs(clubs_array:Array): void {
+			for (var lol:int=0; lol < clubs_array.length; lol++) {
+								
+					f_clubs[lol].setClubTitle(clubs_array[lol+1].title);
+			}
 		}
 	}
 }

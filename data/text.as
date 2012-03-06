@@ -284,6 +284,13 @@ package data {
 			top.autoSize = TextFieldAutoSize.CENTER;
 		}
 		
+		if (type == "autoTeam_clubs") {
+			formatter.color = 0x666666;
+			formatter.size = 12;
+			//formatter.italic = true;
+			top.selectable = false;
+			top.autoSize = TextFieldAutoSize.CENTER;
+		}
 		top.embedFonts = true;
 		formatter.font = "Calibri";
 		//top.antiAliasType = AntiAliasType.ADVANCED;
