@@ -7,7 +7,7 @@ package data {
 	import data.text;
 	
 
-	public class autoTeamClubs extends Sprite {
+	public class autoTeamMan extends Sprite {
 		
 		private var club_name:text;
 		private var club_id:int;
@@ -16,27 +16,27 @@ package data {
 		private var myGlow:GlowFilter;
 		private var myBevel:BevelFilter;
 		
-		public function autoTeamClubs() {
+		public function autoTeamMan(name:String) {
 			
 			myGlow = new GlowFilter();
 			myGlow.inner = true;
 			myGlow.color = 0x99CCFF;
 			myGlow.strength = 2;
 			myGlow.blurX = 0;
-			myGlow.blurY = 12;
+			myGlow.blurY = 18;
 			
 			myBevel = new BevelFilter();
 			myBevel.angle = 90;
 			myBevel.distance = 2;
 			myBevel.strength = 0.5;
 			
-			club_name = new text(43, -1, "клуб", "autoTeam_clubs");
+			club_name = new text(142, 0, name, "autoTeam_clubs");
 			club_id = 0;
 			
 			club_div = new Sprite();
 			club_div.graphics.beginFill(0xffffff);
-			club_div.graphics.drawRoundRect(0, 0, 90, 15, 20);
-			club_div.addEventListener(MouseEvent.CLICK, club_click);
+			club_div.graphics.drawRoundRect(-5, 0, 280, 15, 20);
+			//club_div.addEventListener(MouseEvent.CLICK, club_click);
 			club_div.addEventListener(MouseEvent.MOUSE_OVER, club_over);
 			club_div.addEventListener(MouseEvent.MOUSE_OUT, club_out);
 			

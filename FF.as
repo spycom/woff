@@ -648,7 +648,7 @@ private var zebra3_bitmap:Class;
 		//woff_uid = 64416;
 		//woff_uid = 20757; // Илья
 		//woff_uid = 35756; // Дима
-		//woff_uid = 16671933;
+		//woff_uid = 49849194;
 		
 		referrer = stage.loaderInfo.parameters.referrer;
 		poster_id = stage.loaderInfo.parameters.poster_id;
@@ -691,8 +691,8 @@ private var zebra3_bitmap:Class;
 		
 		background3 = new Loader();
 		background3.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);	
-		//background3.load(new URLRequest(serv + "img/fon-3.jpg"));
-		background3.load(new URLRequest("http://dl.dropbox.com/u/6044249/fon-3.jpg"));
+		background3.load(new URLRequest(serv + "img/fon-3.jpg"));
+		//background3.load(new URLRequest("http://dl.dropbox.com/u/6044249/fon-3.jpg"));
 		background3.contentLoaderInfo.addEventListener(Event.COMPLETE, backgroundComplete);
 		
 		logo = new Loader();
@@ -924,7 +924,8 @@ private var zebra3_bitmap:Class;
 		field.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		
 		camera = new Loader();
-		camera.load(new URLRequest("http://dl.dropbox.com/u/6044249/camera.png"));
+		//camera.load(new URLRequest("http://dl.dropbox.com/u/6044249/camera.png"));
+		camera.load(new URLRequest(serv + "img/camera.png"));
 		camera.x = 30;
 		camera.y = 350;
 		camera.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
