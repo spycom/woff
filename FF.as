@@ -3598,7 +3598,7 @@ private var zebra3_bitmap:Class;
 		removeChild(main);
 		window = "main2";
 		champ = "rus";
-		//woff_general_request.url = woff_api3;
+		
 		current_tax = 250;
 		current_tournament = 5;
 		
@@ -9960,14 +9960,21 @@ private var zebra3_bitmap:Class;
 				//woff_setTransfer_loader.addEventListener(Event.COMPLETE, button2event);
 				woff_setTransfer_loader.addEventListener(Event.COMPLETE, errorEvent);
 				woff_setTransfer_loader.load(woff_general_request);
+				
+				if ( guys == (newAutoTeam.length-1)) {
+					woff_setTransfer_loader.addEventListener(Event.COMPLETE, button2event);
+				}
 			}
 			
 			//showMain2();
+			/*
 			getTeam("getTeam", current_new_tour);
 		
 			var woff_Team_loader:URLLoader = new URLLoader();
 			woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
 			woff_Team_loader.load(woff_general_request);
+			 * 
+			 */
 		}
 }
 }

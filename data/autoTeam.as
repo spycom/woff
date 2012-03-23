@@ -619,18 +619,17 @@ package data{
 		public function setFavClubs(clubs_array:Array): void {
 			
 			// rows
-			for (var i:int=0; i < clubs_array.length/4; i++) {
+			for (var i:int=0; i < (clubs_array.length-1)/4; i++) {
 			//for (var i:int=0; i < 8; i++) {
 				//columns
 				for (var ii:int=0; ii < 4; ii++) {
-					
-					f_clubs[int(i*4+ii)] = new autoTeamClubs();
-					f_clubs[int(i*4+ii)].x = 90*ii + 5;
-					f_clubs[int(i*4+ii)].y = 21*i + 5;
-					
-					
-					f_switcher_fon.addChild(f_clubs[int(i*4+ii)]);
-					
+					if (clubs_array[i+1].title != "") {
+						f_clubs[int(i*4+ii)] = new autoTeamClubs();
+						f_clubs[int(i*4+ii)].x = 90*ii + 5;
+						f_clubs[int(i*4+ii)].y = 21*i + 5;
+						
+						f_switcher_fon.addChild(f_clubs[int(i*4+ii)]);
+					}
 				}
 			}
 			//---------------------------------------------------------
