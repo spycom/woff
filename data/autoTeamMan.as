@@ -9,6 +9,9 @@ package data {
 
 	public class autoTeamMan extends Sprite {
 		
+		private var man_name:text
+		private var man_number:text;
+		public var man_id:int;
 		private var club_name:text;
 		private var club_id:int;
 		private var club_div:Sprite;
@@ -23,19 +26,24 @@ package data {
 			myGlow.color = 0x99CCFF;
 			myGlow.strength = 2;
 			myGlow.blurX = 0;
-			myGlow.blurY = 18;
+			myGlow.blurY = 10;
 			
 			myBevel = new BevelFilter();
 			myBevel.angle = 90;
 			myBevel.distance = 2;
 			myBevel.strength = 0.5;
 			
-			club_name = new text(142, 0, name, "autoTeam_clubs");
+			man_number  = new text(20, 0, "", "autoTeam_clubs");
+				man_id = 0;
+			
+			man_name  = new text(95, 0, "", "autoTeam_clubs");
+			
+			club_name = new text(210, 0, "", "autoTeam_clubs");
 			club_id = 0;
 			
 			club_div = new Sprite();
 			club_div.graphics.beginFill(0xffffff);
-			club_div.graphics.drawRoundRect(-5, 0, 280, 15, 20);
+			club_div.graphics.drawRoundRect(-15, 0, 295, 15, 20);
 			//club_div.addEventListener(MouseEvent.CLICK, club_click);
 			club_div.addEventListener(MouseEvent.MOUSE_OVER, club_over);
 			club_div.addEventListener(MouseEvent.MOUSE_OUT, club_out);
@@ -43,6 +51,8 @@ package data {
 			pressed = 0;
 				
 			addChild(club_div);
+				club_div.addChild(man_number);
+				club_div.addChild(man_name);
 				club_div.addChild(club_name);
 			
 			
@@ -77,6 +87,14 @@ package data {
 		}
 		public function getId():int {
 			return club_id;
+		}
+		
+		public function setName(new_name:String, new_club:String, new_number:String, new_id:String):void {
+			club_name.setText(new_club);
+			man_name.setText(new_name);
+			man_number.setText(new_number);
+			man_id = int(new_id);
+			
 		}
 	}
 	

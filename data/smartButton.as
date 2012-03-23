@@ -66,7 +66,7 @@ package data{
 			// request
 			if (this_tournament !== 0) {
 			//var woff_general_request = new URLRequest("http://woff73.valuehost.ru/tapi.php");
-			var woff_general_request = new URLRequest("http://62.76.177.54/old");
+			var woff_general_request = new URLRequest("http://62.76.177.54/api.php");
 			
 			var params:Object = {method: "getMatchList", id_tm: this_tournament};
 				
@@ -94,7 +94,7 @@ package data{
 				woff_loader.load(woff_general_request);
 			
 			} else {
-				table[4].setText("         Начало 1-го марта! ");
+				table[4].setText("         Начало скоро! ");
 				table[4].setSize(20);
 				
 			}

@@ -21,7 +21,7 @@ public var role:int;
 			//amplua = role;
 			//position = field_place;
 			up = new Loader();
-			up.load(new URLRequest("http://woff73.valuehost.ru/woff_images/" + "img4/up.png"));
+			up.load(new URLRequest("http://62.76.177.54/woff_images/" + "img4/up.png"));
 			addChild(up);
 		}
 		public function setId(id_:int):void {

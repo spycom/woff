@@ -28,7 +28,7 @@ private var myShadow:DropShadowFilter;
 private var myBevel:BevelFilter;
 private var myTimer:Timer;
 private var leftPanel:panel;
-private var autoTeamHelper:autoTeam;
+public var autoTeamHelper:autoTeam;
 
 		public function firstManualHint () {
 			
@@ -136,6 +136,7 @@ private var autoTeamHelper:autoTeam;
 			leftPanel.addEventListener(MouseEvent.CLICK, leftPanelClick);
 			addChild(leftPanel);
 			
+			// ---- кнопка автонабора ----
 			leftPanel.panel_sprite.addChild(WelcomeMsgButton3Sprite);
 			leftPanel.panel_sprite.addChild(WelcomeMsgAuto);
 			
@@ -186,6 +187,9 @@ private var autoTeamHelper:autoTeam;
 	
 	public function showMan():void {
 		myTimer.start();
+	}
+	public function closeMan():void {
+		removeChild(autoTeamHelper);
 	}
 	private function timerEvent(e:TimerEvent):void {
 		WelcomeMsgSprite.alpha += 0.07;

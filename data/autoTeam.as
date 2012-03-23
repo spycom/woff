@@ -9,14 +9,17 @@ package data{
 	import flash.filters.DropShadowFilter;
 	import flash.filters.GlowFilter;
 	import flash.utils.Timer;
+	import flash.net.*;
+	//import flash.net.URLRequest;
+	//import flash.net.URLVariables;
 	
 	public class autoTeam extends Sprite {
 		
 		private var rollingTimer:Timer;
 		private var angle:int;
-		private var fon:Sprite;
+		public var fon:Sprite;
 		private var fon_clubs:Sprite;
-		private var fon_team:Sprite;
+		public var fon_team:Sprite;
 		private var dir:int;
 		private var message:text;
 		private var trigger:int;
@@ -47,9 +50,12 @@ package data{
 		private var f_clubs_last:Array;
 		private var new_team_fon:Sprite;
 		private var next_fon:Sprite;
+		private var buy_fon:Sprite;
 		private var next_button:Sprite;
 		private var next_text:text;
 		//private var f_clubs_dev:Array;
+		private var team_table:Array;
+		public var auto_team_last:Array;
 		
 		public function autoTeam() {
 			
@@ -66,7 +72,7 @@ package data{
 			myGlow.color = 0x99CCFF;
 			myGlow.strength = 3;
 			myGlow.blurX = 0;
-			myGlow.blurY = 20;
+			myGlow.blurY = 16;
 			
 			fon = new Sprite();
 			fon.graphics.beginFill(0x666666);
@@ -86,8 +92,21 @@ package data{
 			
 			fon_team = new Sprite();
 			fon_team.graphics.beginFill(0x666666);
-			fon_team.graphics.drawRoundRect(-100, -10, 370, 290, 55);
+			fon_team.graphics.drawRoundRect(-95, -10, 370, 320, 55);
 			//fon_team.addEventListener(MouseEvent.CLICK, fon_click);
+			
+			
+			buy_fon = new Sprite();
+			buy_fon.graphics.beginFill(0x999999);
+			buy_fon.graphics.drawRoundRect(0, 0, 100, 30, 30);
+			//buy_fon.addEventListener(MouseEvent.CLICK, fon_click);
+			//buy_fon.addEventListener(MouseEvent.MOUSE_OVER, next_over);
+			//buy_fon.addEventListener(MouseEvent.MOUSE_OUT, next_out);
+			buy_fon.x = 50;
+			buy_fon.y = 275;
+			buy_fon.filters = [myShadow_i];
+			
+			fon_team.addChild(buy_fon);
 			
 			next_fon = new Sprite();
 			next_fon.graphics.beginFill(0x999999);
@@ -339,7 +358,8 @@ package data{
 			new_team_fon.y = 0;
 			new_team_fon.filters = [myShadow_i];
 			
-			var team_table:Array = new Array();
+			team_table = new Array();
+			auto_team_last = new Array();
 			
 			for (var row:int=0; row < 15; row++) {
 				team_table[row] = new autoTeamMan("" + row );
@@ -356,6 +376,53 @@ package data{
 		private function fon_click(e:MouseEvent):void {
 			rollingTimer.start();
 		}
+		
+		private function getTeam():void {
+			var request = new URLRequest("http://62.76.177.54/dev_api.php?method=getAutoTeam&fc[]="+f_clubs_last.toString()+"&t="+t+"&tm=5&m="+m);
+				//request.method = URLRequestMethod.POST;
+  				//request.data = new URLVariables();
+  			
+  			//var params:Object = {method: "getAutoTeam", fc%5B%5D:f_clubs_last.toString(), t: t, m:m, tm:"5"};
+			
+			/*
+			for (var k:String in params)
+					request.data[k] = params[k];
+					
+  			 
+  			var v:URLVariables = new URLVariables();
+  			v.method = "getAutoTeam";
+			//v.v = "2.0"; // Версия АПИ
+			v.fc%5b%5d = f_clubs_last.toString();
+			v.uid = 64416;
+			v.t = t;
+			v.m = m;
+			//v.p = p;
+			 
+   				//request.data = v;
+          */
+			var loader:URLLoader = new URLLoader();
+			loader.addEventListener(Event.COMPLETE, getTeamComplete);
+			loader.load(request);
+			
+		}
+		
+		private function getTeamComplete(e:Event):void {
+			var answer:XML = new XML(e.target.data);
+			//team_table[0].setClubTitle(answer);
+			
+			for (var man:int=0; man < answer.info.footballer.length(); man++) {
+				//team_table[man].setClubTitle(answer.info.footballer[man].number.text()+ " 	"+answer.info.footballer[man].name.text() + " 	"+ answer.info.footballer[man].club_title.text());
+				team_table[man].setName(answer.info.footballer[man].name.text(), answer.info.footballer[man].club_title.text(), answer.info.footballer[man].number.text(), answer.info.footballer[man].id.text());
+				
+				// добавляем в массив ВСЕХ предложенных игроков
+				//auto_team_last.push(answer.info.footballer[man].id.text());
+				auto_team_last.push({id:answer.info.footballer[man].id.text(), 
+								status:answer.info.footballer[man].status.text()});
+			}
+			
+			
+		}
+		
 		private function s0_click(e:MouseEvent):void {
 			rollingTimer.start();
 			remove_sw_over_listener();
@@ -459,6 +526,7 @@ package data{
 					fon.removeChild(fon_clubs);
 					//fon.addEventListener(MouseEvent.CLICK, fon_click);
 					getFavClubs();
+					getTeam();
 					//message.setText("Вот Ваша личная команда!" + "\nТактика: " + t + "\nРежим: " + m + "\nФавориты: " + f_clubs_last.toString());
 					fon.addChild(fon_team);
 					fon.addChild(new_team_fon);
@@ -588,6 +656,9 @@ package data{
 		private function next_out(e:MouseEvent):void {
 			//next_fon.filters = [myShadow_i];
 			next_button.filters = [myBevel];
+		}
+		public function getAutoTeam():Array {
+			return auto_team_last;
 		}
 	}
 }

@@ -629,12 +629,8 @@ private var zebra3_bitmap:Class;
     		
     		
 		// --- своя библиотека (request) --------------------------------------
-		//woff_api1 = "http://62.76.177.54/api.php";
-		//woff_api3 = "http://62.76.177.54/api.php";
-		//woff_api1 = "http://woff73.valuehost.ru/tapi.php";
-		//woff_api3 = "http://woff73.valuehost.ru/tapi.php";
-		woff_api1 = "http://62.76.177.54/old";
-		woff_api3 = "http://62.76.177.54/old";
+		woff_api1 = "http://62.76.177.54/api.php";
+		woff_api3 = "http://62.76.177.54/api.php";
 		current_woff_api = woff_api1;
 		
 		lc = new LoaderContext(true);
@@ -2580,6 +2576,11 @@ private var zebra3_bitmap:Class;
 		stat_hint = new hint();
 		
 		firstManual = new firstManualHint();
+		
+		var buy_auto_team:text = new text(100, 275, "Это успех", "autoTeam");
+		buy_auto_team.addEventListener(MouseEvent.CLICK, buyAutoTeamClick);
+		firstManual.autoTeamHelper.fon_team.addChild(buy_auto_team);
+		
 		
 		winners_list = new winners_list_sprite(woff_uid);
 		winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
@@ -9941,6 +9942,32 @@ private var zebra3_bitmap:Class;
 			var woff_AllClubs_loader:URLLoader = new URLLoader();
 			woff_AllClubs_loader.addEventListener(Event.COMPLETE, woffAllClubsComplete2);
 			woff_AllClubs_loader.load(woff_general_request);
+		}
+		
+		private function buyAutoTeamClick(e:MouseEvent):void {
+			
+			//removeChild(firstManual);
+			firstManual.closeMan();
+			
+			//version.setText(firstManual.autoTeamHelper.getAutoTeam());
+			var newAutoTeam:Array = firstManual.autoTeamHelper.getAutoTeam();
+			
+			for (var guys:int = 0; guys < newAutoTeam.length; guys++) {
+			
+				setNewTransfer(newAutoTeam[guys].id, newAutoTeam[guys].status);
+				
+				var woff_setTransfer_loader:URLLoader = new URLLoader();
+				//woff_setTransfer_loader.addEventListener(Event.COMPLETE, button2event);
+				woff_setTransfer_loader.addEventListener(Event.COMPLETE, errorEvent);
+				woff_setTransfer_loader.load(woff_general_request);
+			}
+			
+			//showMain2();
+			getTeam("getTeam", current_new_tour);
+		
+			var woff_Team_loader:URLLoader = new URLLoader();
+			woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
+			woff_Team_loader.load(woff_general_request);
 		}
 }
 }
