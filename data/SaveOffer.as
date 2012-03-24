@@ -339,9 +339,9 @@ public var wrapper: Object;
 			removeChild(SaveOfferSprite);
 		}
 		private function loadPhotoComplete(e:Event):void {
-			var json_data:Object=JSON.decode(e.target.data);
 			
-			//SaveCloseText.setText("loadPhotoComplete");
+			var json_data:Object = com.adobe.serialization.json.JSON.decode(e.target.data);
+			//var json_data:Object = JSON.parse(e.target.data);
 			
 			var test_mode:Number = 0;
 		

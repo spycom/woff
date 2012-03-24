@@ -9,8 +9,8 @@ package data {
 public var sostav:Bitmap;		
 public var teamId:int;
 //private var bevelFilter:BevelFilter;
-//[Embed(source='/Users/Art/Dropbox/FF/img3/sostav.png')]
-[Embed(source='C:/Users/artem.akinchits/Dev/images/sostav.png')]
+[Embed(source='/Users/spycom/dev/FF/images/sostav.png')]
+//[Embed(source='C:/Users/artem.akinchits/Dev/images/sostav.png')]
 public var sostav_:Class;
 
 		public function sostav_b() {

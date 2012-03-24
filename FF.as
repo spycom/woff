@@ -1,7 +1,7 @@
 package {
 	import adobe.PNGEncoder;
 	import api.MD5;
-	import com.bit.apps.banerrotator.AppgradeBannerRotator;
+	import com.bitapps.appgrade.installer.AppGradeInstaller;
 	
 	import data.Ads;
 	import data.LeadersPartButton;
@@ -597,11 +597,11 @@ private var select4smart:smartButton;
 private var gamesListTransfers:gamesList;
 private var favClubs:Array;
 
-//[Embed(source='/Users/Art/Dropbox/FF/img3/razdelitel.png')]
-[Embed(source='C:/Users/artem.akinchits/Dev/images/razdelitel.png')]
+[Embed(source='/Users/spycom/dev/FF/images/razdelitel.png')]
+//[Embed(source='C:/Users/artem.akinchits/Dev/images/razdelitel.png')]
 private var razdelitel_b:Class;
-//[Embed(source='/Users/Art/Dropbox/FF/img10/zebra3.png')]
-[Embed(source='C:/Users/artem.akinchits/Dev/images/zebra3.png')]
+[Embed(source='/Users/spycom/dev/FF/images/zebra3.png')]
+//[Embed(source='C:/Users/artem.akinchits/Dev/images/zebra3.png')]
 private var zebra3_bitmap:Class;
 
 	public function FF() {
@@ -2604,13 +2604,29 @@ private var zebra3_bitmap:Class;
 		panel_transfer_right.addEventListener(MouseEvent.CLICK, function() { panel_transfer_right.panelHide() });
 			
 		//баннер с рекламой приложений
-		var game_movie_clip : MovieClip = new MovieClip(), // MovieClip в который будет вставляться баннер
-     	  banner_pid : int = 176, // идентификатор приложения "World of Fantasy Football" в сети Appgrade
-    	  banner_x : int = 0, // координата X панели с баннерами
-    	  banner_y : int = 485, // координата Y панели с баннерами
-    	  banner_width : int = 640; // ширина панели
+		
+		var 
+		game_movie_clip : Sprite  = this, // Sprite в который будет вставляться баннер
+			banner_pid : int = 176, // идентификатор приложения "World of Fantasy Football" в сети Appgrade
+			banner_x : int = 0, // координата X панели с баннерами
+			banner_y : int = 485, // координата Y панели с баннерами
+			banner_width : int = 640, // ширина панели
+			appgrade : AppGradeInstaller;
+		
+		appgrade = new AppGradeInstaller(banner_pid);
+		appgrade.y = banner_y;
+		appgrade.x = banner_x;
+		appgrade.width = banner_width;
+		this.addChild(appgrade);
+		appgrade.loadBanners();
+		
+		//var game_movie_clip : MovieClip = new MovieClip(), // MovieClip в который будет вставляться баннер
+     	  //banner_pid : int = 176, // идентификатор приложения "World of Fantasy Football" в сети Appgrade
+    	  //banner_x : int = 0, // координата X панели с баннерами
+    	 // banner_y : int = 485, // координата Y панели с баннерами
+    	 // banner_width : int = 640; // ширина панели
 
-   		 AppgradeBannerRotator.init_rotator(game_movie_clip, banner_pid, banner_x, banner_y, banner_width);
+   		 //AppgradeBannerRotator.init_rotator(game_movie_clip, banner_pid, banner_x, banner_y, banner_width);
 		
 		addChild(game_movie_clip);
 		
@@ -7232,14 +7248,20 @@ private var zebra3_bitmap:Class;
 			
 			if (woff_answer.text() == "ok") {
 				if (check_team_trigger == 0) {
+					ticket_status.setText("Команда допущена!");
+					ticket_status.setColor("0x22b573");
+					
+					check_team_trigger = 1;
+
 					drawFieldEvent_offer();
 				}
-				check_team_trigger = 1;
+				
 				//!!!!!
 				//drawFieldEvent_offer();
 				//!!!!
-				ticket_status.setText("Команда допущена!");
-				ticket_status.setColor("0x22b573");
+				
+				
+				
 			} else {
 				check_team_trigger = 0;
 				ticket_status.setText("Команда не допущена!");

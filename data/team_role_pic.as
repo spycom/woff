@@ -11,15 +11,15 @@ public var style:text;
 public var amplua:int;
 public var serv:String;
 //public var status:int;
-[Embed(source='C:/Users/artem.akinchits/Dev/images/vrat.png')]
+[Embed(source='/Users/spycom/dev/FF/images/vrat.png')]
 private var vrat_bitmap:Class;
-[Embed(source='C:/Users/artem.akinchits/Dev/images/zaschit.png')]
+[Embed(source='/Users/spycom/dev/FF/images/zaschit.png')]
 private var zaschit_bitmap:Class;
-[Embed(source='C:/Users/artem.akinchits/Dev/images/poluzasch.png')]
+[Embed(source='/Users/spycom/dev/FF/images/poluzasch.png')]
 private var poluzasch_bitmap:Class;
-[Embed(source='C:/Users/artem.akinchits/Dev/images/napad.png')]
+[Embed(source='/Users/spycom/dev/FF/images/napad.png')]
 private var napad_bitmap:Class;
-[Embed(source='C:/Users/artem.akinchits/Dev/images/star.png')]
+[Embed(source='/Users/spycom/dev/FF/images/star.png')]
 private var star_bitmap:Class;
 
 		public function team_role_pic(role:int) {

@@ -10,8 +10,8 @@ public var footman_buy;
 public var id1:int;
 public var id2:int;
 public var status:int;
-//[Embed(source='/Users/Art/Dropbox/FF/img10/buy.png')]
-[Embed(source='C:/Users/artem.akinchits/Dev/images/buy.png')]
+[Embed(source='/Users/spycom/dev/FF/images/buy.png')]
+//[Embed(source='C:/Users/artem.akinchits/Dev/images/buy.png')]
 private var footman_buy_bitmap:Class;
 
 		public function transfer_get() {
