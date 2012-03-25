@@ -2577,8 +2577,11 @@ private var zebra3_bitmap:Class;
 		
 		firstManual = new firstManualHint();
 		
-		var buy_auto_team:text = new text(100, 275, "Это успех", "autoTeam");
+		var buy_auto_team:text = new text(99, 276, "Это успех", "autoTeam");
 		buy_auto_team.addEventListener(MouseEvent.CLICK, buyAutoTeamClick);
+		buy_auto_team.addEventListener(MouseEvent.MOUSE_OVER, overTextEvent);
+		buy_auto_team.addEventListener(MouseEvent.MOUSE_OUT, outTextEvent);
+		
 		firstManual.autoTeamHelper.fon_team.addChild(buy_auto_team);
 		
 		
@@ -3693,10 +3696,12 @@ private var zebra3_bitmap:Class;
 		
 			addChild(firstManual);
 				firstManual.showMan();
-				 
+				firstManual.setChamp(current_tournament);
+				getFavClubs();
+				
 			main2_txt18.setText("Приобрести "+ current_transfers_mass +" трансферов за "+ current_tax +" MP");
 			
-		getFavClubs();
+		
 	}
 	
 	// окно набора команды для первого посещения чемпионата Англии
@@ -3781,6 +3786,8 @@ private var zebra3_bitmap:Class;
 		
     			addChild(firstManual);
 						firstManual.showMan();
+						firstManual.setChamp(current_tournament);
+						getFavClubs();
 						
     			main2_txt18.setText("Приобрести "+current_transfers_mass+" трансферов за "+ current_tax +" MP");
 	}
@@ -3868,7 +3875,9 @@ private var zebra3_bitmap:Class;
 		
     			 addChild(firstManual);
 						firstManual.showMan();
-    			 
+						firstManual.setChamp(current_tournament);
+						getFavClubs();
+						
     			 main2_txt18.setText("Приобрести "+current_transfers_mass+" трансферов за "+ current_tax +" MP");
 	}
 	

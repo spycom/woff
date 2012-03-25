@@ -33,12 +33,12 @@ package data {
 			myBevel.distance = 2;
 			myBevel.strength = 0.5;
 			
-			man_number  = new text(20, 0, "", "autoTeam_clubs");
+			man_number  = new text(20, -2, "", "autoTeam_clubs");
 				man_id = 0;
 			
-			man_name  = new text(95, 0, "", "autoTeam_clubs");
+			man_name  = new text(95, -2, "", "autoTeam_clubs");
 			
-			club_name = new text(210, 0, "", "autoTeam_clubs");
+			club_name = new text(210, -2, "", "autoTeam_clubs");
 			club_id = 0;
 			
 			club_div = new Sprite();

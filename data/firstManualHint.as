@@ -1,7 +1,7 @@
 package data {
+	import data.autoTeam;
 	import data.panel;
 	import data.text;
-	import data.autoTeam;
 	
 	import flash.display.*;
 	import flash.events.*;
@@ -196,6 +196,9 @@ public var autoTeamHelper:autoTeam;
 	}
 	public function setFavClubs(clubs_array:Array): void {
 		autoTeamHelper.setFavClubs(clubs_array);
+	}
+	public function setChamp(new_champ:int):void {
+		autoTeamHelper.setChamp(new_champ);
 	}
 	}
 	

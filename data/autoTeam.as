@@ -1,15 +1,15 @@
 package data{
-	import data.text;
 	import data.autoTeamClubs;
 	import data.autoTeamMan;
+	import data.text;
 	
 	import flash.display.*;
 	import flash.events.*;
 	import flash.filters.BevelFilter;
 	import flash.filters.DropShadowFilter;
 	import flash.filters.GlowFilter;
-	import flash.utils.Timer;
 	import flash.net.*;
+	import flash.utils.Timer;
 	//import flash.net.URLRequest;
 	//import flash.net.URLVariables;
 	
@@ -56,6 +56,7 @@ package data{
 		//private var f_clubs_dev:Array;
 		private var team_table:Array;
 		public var auto_team_last:Array;
+		private var current_champ:int;
 		
 		public function autoTeam() {
 			
@@ -343,6 +344,7 @@ package data{
 			trigger = new int(0);
 			t = new int();
 			m = new int();
+			current_champ = new int(0);
 			
 			addChild(fon);
 			fon.addChild(message);
@@ -363,7 +365,7 @@ package data{
 			
 			for (var row:int=0; row < 15; row++) {
 				team_table[row] = new autoTeamMan("" + row );
-				team_table[row].x = 40;
+				team_table[row].x = 38;
 				team_table[row].y = row * 17 + 10;
 				
 				new_team_fon.addChild(team_table[row]);
@@ -378,7 +380,7 @@ package data{
 		}
 		
 		private function getTeam():void {
-			var request = new URLRequest("http://62.76.177.54/dev_api.php?method=getAutoTeam&fc[]="+f_clubs_last.toString()+"&t="+t+"&tm=5&m="+m);
+			var request = new URLRequest("http://62.76.177.54/dev_api.php?method=getAutoTeam&fc[]="+f_clubs_last.toString()+"&t="+t+"&tm="+current_champ+"&m="+m);
 				//request.method = URLRequestMethod.POST;
   				//request.data = new URLVariables();
   			
@@ -467,7 +469,7 @@ package data{
 		private function rollingTimerEvent(e:TimerEvent):void {
 			
 			//fon.x = 250 + 250*(Math.sin(angle * Math.PI/180));
-			fon.x = 640 + (1-dir)*dir*410 - 410*dir*(Math.sin(angle * Math.PI/180));
+			fon.x = 730 + (1-dir)*dir*500 - 500*dir*(Math.sin(angle * Math.PI/180));
 			
 			//angle += 2;
 			if(dir == 1) {
@@ -658,6 +660,9 @@ package data{
 		}
 		public function getAutoTeam():Array {
 			return auto_team_last;
+		}
+		public function setChamp(new_champ:int):void {
+			current_champ = new_champ;
 		}
 	}
 }
