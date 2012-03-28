@@ -1,38 +1,40 @@
 package {
 	import adobe.PNGEncoder;
+	
 	import api.MD5;
+	
 	import com.bitapps.appgrade.installer.AppGradeInstaller;
 	
 	import data.Ads;
+	import data.BetFair;
 	import data.LeadersPartButton;
 	import data.SaveOffer;
+	import data.Schedule;
 	import data.UserAvatar;
 	import data.Version;
 	import data.WelcomeMsg;
+	import data.autoTeam;
 	import data.buyBudgetTableClass;
 	import data.down_arrow;
 	import data.down_b;
 	import data.firstManualHint;
 	import data.footman_form;
+	import data.gamesList;
 	import data.hint;
 	import data.loadingProc;
 	import data.panel;
 	import data.panel_transfer;
 	import data.rules_s;
+	import data.smartButton;
 	import data.sostav_b;
-	import data.trophy_b;
 	import data.team_role_pic;
 	import data.text;
 	import data.transfer_b;
 	import data.transfer_get;
+	import data.trophy_b;
 	import data.up_b;
 	import data.vk_photo;
 	import data.winners_list_sprite;
-	import data.Schedule;
-	import data.smartButton;
-	import data.gamesList;
-	import data.BetFair;
-	import data.autoTeam;
 	
 	import flash.display.*;
 	import flash.events.*;
@@ -41,6 +43,7 @@ package {
 	import flash.geom.Rectangle;
 	import flash.net.*;
 	import flash.system.LoaderContext;
+	import flash.system.Security;
 	import flash.text.*;
 	import flash.ui.Mouse;
 	import flash.utils.*;
@@ -616,8 +619,10 @@ private var zebra3_bitmap:Class;
 		
 		public function onAddedToStage(e: Event): void {
     			wrapper = Object(this.parent.parent);
-    			
-    		//woff_isAppUser = 1;	  
+				Security.allowDomain("vk.com", "vkontakte.ru");
+				stage.dispatchEvent(new Event(Event.DEACTIVATE));
+				stage.dispatchEvent(new Event(Event.ACTIVATE));
+				
     	woff_isAppUser = stage.loaderInfo.parameters.is_app_user;
     	
     	if (woff_isAppUser !== 1) {
@@ -1671,6 +1676,7 @@ private var zebra3_bitmap:Class;
 		main2_txt7.addEventListener(MouseEvent.CLICK, team_statEvent);
 		//main1_txt24.addEventListener(MouseEvent.CLICK, dropdowm_menu);
 		main1_txt8.addEventListener(KeyboardEvent.KEY_DOWN, textInputEvent);
+		main1_txt8.addEventListener(FocusEvent.FOCUS_IN, inputFocuse);
 		main2_txt24.addEventListener(MouseEvent.CLICK, dropdowm_menu2);
 		main3_txt5.addEventListener(MouseEvent.CLICK, enterLeague);
 		main3_txt5_.addEventListener(MouseEvent.CLICK, leaveLeague);
@@ -10006,6 +10012,10 @@ private var zebra3_bitmap:Class;
 			woff_Team_loader.load(woff_general_request);
 			 * 
 			 */
+		}
+		private function inputFocuse(e:FocusEvent):void {
+			if (main1_txt8.txt() == "no team title")
+				main1_txt8.setText("");
 		}
 }
 }

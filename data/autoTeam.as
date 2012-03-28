@@ -120,7 +120,7 @@ package data{
 			next_fon.filters = [myShadow_i];
 			
 			next_button = new Sprite();
-			next_button.graphics.beginFill(0x339900);
+			next_button.graphics.beginFill(0x0099FF);
 			next_button.graphics.drawRoundRect(8, 5, 84, 20, 20);
 			//next_fon.addEventListener(MouseEvent.CLICK, fon_click);
 			next_button.filters = [myBevel];
@@ -130,7 +130,7 @@ package data{
 			t_switcher_fon = new Sprite();
 			t_switcher_fon.graphics.beginFill(0xCCCCCC);
 			t_switcher_fon.graphics.lineStyle(3, 0xCCCCCC);
-			t_switcher_fon.graphics.drawRoundRect(-5, -5, 160, 40, 25);
+			t_switcher_fon.graphics.drawRoundRect(-6, -6, 160, 40, 26);
 			//dropdowmmenu_png.addEventListener(MouseEvent.MOUSE_OUT, dropdowm_menu_out);
 			//t_switcher_fon.addEventListener(MouseEvent.CLICK, fon_click);
 			t_switcher_fon.x = 15;
@@ -247,8 +247,8 @@ package data{
 			m_switcher_fon.y = 55;
 			
 			m_switcher_button = new Sprite();
-			m_switcher_button.graphics.beginFill(0x33CC00);
-			m_switcher_button.graphics.lineStyle(1, 0x999999);
+			m_switcher_button.graphics.beginFill(0x0099FF);
+			m_switcher_button.graphics.lineStyle(0, 0x999999);
 			m_switcher_button.graphics.drawRoundRect(0, 0, 75, 30, 25);
 			//dropdowmmenu_png.addEventListener(MouseEvent.MOUSE_OUT, dropdowm_menu_out);
 			m_switcher_button.addEventListener(MouseEvent.CLICK, fon_click);
@@ -259,7 +259,7 @@ package data{
 			m_switcher_0 = new Sprite();
 			m_switcher_0.graphics.beginFill(0x33CC00, 0);
 			m_switcher_0.graphics.lineStyle(0, 0x999999);
-			m_switcher_0.graphics.drawRoundRectComplex(0, 0, 75, 30, 15, 0, 15, 0);
+			m_switcher_0.graphics.drawRoundRectComplex(0, 0, 75, 30, 25, 0, 25, 0);
 			m_switcher_0.addEventListener(MouseEvent.MOUSE_OVER, over0m);
 			//dropdowmmenu_png.addEventListener(MouseEvent.MOUSE_OUT, dropdowm_menu_out);
 			m_switcher_0.addEventListener(MouseEvent.CLICK, sm0_click);
@@ -279,7 +279,7 @@ package data{
 			m_switcher_2 = new Sprite();
 			m_switcher_2.graphics.beginFill(0xFF0000, 0);
 			m_switcher_2.graphics.lineStyle(0, 0x999999);
-			m_switcher_2.graphics.drawRoundRectComplex(0, 0, 75, 30, 0 , 15, 0, 15);
+			m_switcher_2.graphics.drawRoundRectComplex(0, 0, 75, 30, 0 , 25, 0, 25);
 			m_switcher_2.addEventListener(MouseEvent.MOUSE_OVER, over2m);
 			//dropdowmmenu_png.addEventListener(MouseEvent.MOUSE_OUT, dropdowm_menu_out);
 			m_switcher_2.addEventListener(MouseEvent.CLICK, sm2_click);
