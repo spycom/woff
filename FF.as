@@ -1841,6 +1841,7 @@ private var zebra3_bitmap:Class;
 		
 			
 		// кнопки выбора чемпионата		
+			//чемпионат России
 		select1 = new Sprite();
 		select1.graphics.beginFill(0x000000,1);
 		select1.graphics.lineStyle(1);
@@ -1852,6 +1853,7 @@ private var zebra3_bitmap:Class;
 		select1.buttonMode = true;
 		select1.useHandCursor = true;
 		
+			// лига Чемипонов
 		select4 = new Sprite();
 		select4.graphics.beginFill(0x000000,1);
 		select4.graphics.lineStyle(1);
@@ -7168,12 +7170,9 @@ private var zebra3_bitmap:Class;
 			var woff_answer:XML = new XML(e.target.data);	
 			
 			if (woff_answer.text() == "ok") {
-				//if (ticket_status.text2 == "Команда не допущена!") {
-				//	drawFieldEvent_offer();
-				//}
-				//drawFieldEvent_offer();
+				
 				main_txt5.setText("Статус допуска: команда допущена");
-				//ticket_status.setColor("0x22b573");
+				//main_txt5.setColor("0x22b573");
 				ticket_status.setText("Команда допущена!");
 				ticket_status.setColor("0x22b573");
 			} else {
@@ -7262,9 +7261,11 @@ private var zebra3_bitmap:Class;
 			///drawFieldEvent_offer();
 			
 			if (woff_answer.text() == "ok") {
+				
+				ticket_status.setText("Команда допущена!");
+				ticket_status.setColor("0x22b573");
+				
 				if (check_team_trigger == 0) {
-					ticket_status.setText("Команда допущена!");
-					ticket_status.setColor("0x22b573");
 					
 					check_team_trigger = 1;
 
@@ -7274,8 +7275,6 @@ private var zebra3_bitmap:Class;
 				//!!!!!
 				//drawFieldEvent_offer();
 				//!!!!
-				
-				
 				
 			} else {
 				check_team_trigger = 0;

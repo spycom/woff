@@ -43,7 +43,7 @@ public var autoTeamHelper:autoTeam;
 			myBevel.distance = 15;
 			
 			
-			myTimer = new Timer(20, 50);
+			myTimer = new Timer(25, 50);
 			myTimer.addEventListener(TimerEvent.TIMER, timerEvent);
 			
 			WelcomeMsgSprite = new Sprite();
@@ -69,7 +69,7 @@ public var autoTeamHelper:autoTeam;
 			WelcomeMsgFAQ.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgFAQOverEvent);
 			WelcomeMsgFAQ.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgFAQOutEvent);
 			
-			WelcomeMsgAuto = new text(50, 239, "автонабор", "first_hint");
+			WelcomeMsgAuto = new text(50, 249, "автонабор", "first_hint");
 			WelcomeMsgAuto.addEventListener(MouseEvent.CLICK, WelcomeMsgAutoEvent);
 			WelcomeMsgAuto.addEventListener(MouseEvent.MOUSE_OVER, WelcomeMsgAutoOverEvent);
 			WelcomeMsgAuto.addEventListener(MouseEvent.MOUSE_OUT, WelcomeMsgAutoOutEvent);
@@ -109,7 +109,7 @@ public var autoTeamHelper:autoTeam;
 			
 			WelcomeMsgButton3Sprite.graphics.beginFill(0x999999, 1);
 			WelcomeMsgButton3Sprite.graphics.lineStyle(2, 0x999999);
-			WelcomeMsgButton3Sprite.graphics.drawRoundRect(30, 242, 150, 28, 30);
+			WelcomeMsgButton3Sprite.graphics.drawRoundRect(30, 252, 150, 28, 30);
 			WelcomeMsgButton3Sprite.filters = [myBevel, myShadow];
 			WelcomeMsgButton3Sprite.alpha = 0.2;
 			

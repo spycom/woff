@@ -94,7 +94,7 @@ package data {
 			top.type = TextFieldType.INPUT;
 			top.width = 187;
 			top.height = 20;
-			top.maxChars = 39;
+			top.maxChars = 20;
 			top.restrict = "A-z,А-я,0-9, ";
 		}
 		
