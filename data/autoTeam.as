@@ -402,6 +402,8 @@ package data{
 			 
    				//request.data = v;
           */
+			
+			
 			var loader:URLLoader = new URLLoader();
 			loader.addEventListener(Event.COMPLETE, getTeamComplete);
 			loader.load(request);
