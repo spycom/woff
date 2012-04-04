@@ -6,7 +6,8 @@ public var trophy:Bitmap;
 public var teamId:int;
 //private var bevelFilter:BevelFilter;
 //[Embed(source='/Users/Art/Dropbox/FF/img3/sostav.png')]
-[Embed(source='/Users/spycom/dev/FF/images/p.png')]
+//// ---!!!!!!! закоментил чтобы не ебать мозг, не помню зачем нужно 
+[Embed(source='/Users/spycom/dev/FF/images/razdelitel.png')] // p.png
 public var trophy_:Class;
 
 		public function trophy_b() {
