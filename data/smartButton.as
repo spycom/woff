@@ -48,12 +48,12 @@ package data{
 			select1.graphics.drawRoundRectComplex(10, 105, 304, 112, 0, 0, 40, 40);
 			select1.filters = [myBevel];
 			
-			timer = new Timer(15, 15);
+			timer = new Timer(25, 10);
 			timer.addEventListener(TimerEvent.TIMER, timerEvent);
 			timer.addEventListener(TimerEvent.TIMER_COMPLETE, timerCompleteEvent);
 			
 			angle = 0;
-			direction = 6;
+			direction = 9;
 			
 			main.addChild(select1);
 			
@@ -120,7 +120,7 @@ package data{
 		public function show():void {
 			addChild(main);
 			angle = 0;
-			direction = 6;
+			direction = 9;
 			timer.stop();
 			timer.reset();	
 			timer.start();		
@@ -129,18 +129,21 @@ package data{
 		public function hide():void {
 			timer.stop();
 			timer.reset();	
-			direction = -6;
+			direction = -18;
 			timer.start();			
 		}
 		
 		private function timerEvent(e:TimerEvent):void {
+			
+			
 			angle += direction;
-			var sin = Math.sin(angle*3.14/180);
-			main.y = 110*sin;
-			main.scaleY =  1 + sin/20;
+			//var sin = Math.sin(angle*Math.PI/180);
+			main.y = 115*Math.sin(angle*Math.PI/180);
+			//main.scaleY =  1 + sin/20;
 			
 			if ( angle <= 0) {
 				timer.stop();
+				main.y = 0;
 			}
 		}
 		
