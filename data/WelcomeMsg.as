@@ -41,7 +41,7 @@ private var button_tr:int;
 			myGlow.blurX = 32;
 			myGlow.blurY = 0;
 			
-			showTimer = new Timer(35, 25);
+			showTimer = new Timer(35, 10);
 			showTimer.addEventListener(TimerEvent.TIMER, showTimerEvent);
 			
 			buttonTimer = new Timer(25, 10);
@@ -157,7 +157,7 @@ private var button_tr:int;
 	}
 	
 	public function showTimerEvent(e:TimerEvent):void {
-		WelcomeMsgSprite.alpha += 0.05;
+		WelcomeMsgSprite.alpha += 0.1;
 	}
 	
 	public function buttonTimerEvent(e:TimerEvent):void {
