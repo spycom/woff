@@ -9935,6 +9935,7 @@ private var zebra3_bitmap:Class;
 			woff_AllClubs_loader.load(woff_general_request);
 		}
 		
+		// покупка авто-команды 
 		private function buyAutoTeamClick(e:MouseEvent):void {
 			
 			//removeChild(firstManual);
@@ -9944,8 +9945,15 @@ private var zebra3_bitmap:Class;
 			var newAutoTeam:Array = firstManual.autoTeamHelper.getAutoTeam();
 			
 			for (var guys:int = 0; guys < newAutoTeam.length; guys++) {
-			
-				setNewTransfer(newAutoTeam[guys].id, newAutoTeam[guys].status);
+				
+				if (footman_array[guys+1].id != 0) {
+					
+					setTransfer(footman_array[guys+1].id, newAutoTeam[guys].id);
+				
+				} else {
+				
+					setNewTransfer(newAutoTeam[guys].id, newAutoTeam[guys].status);
+				}
 				
 				var woff_setTransfer_loader:URLLoader = new URLLoader();
 				//woff_setTransfer_loader.addEventListener(Event.COMPLETE, button2event);
@@ -9957,16 +9965,9 @@ private var zebra3_bitmap:Class;
 				}
 			}
 			
-			//showMain2();
-			/*
-			getTeam("getTeam", current_new_tour);
-		
-			var woff_Team_loader:URLLoader = new URLLoader();
-			woff_Team_loader.addEventListener(Event.COMPLETE, woffTeamLoadComplete);
-			woff_Team_loader.load(woff_general_request);
-			 * 
-			 */
 		}
+		
+		// функция очистки окна ввода названия команды
 		private function inputFocuse(e:FocusEvent):void {
 			if (main1_txt8.txt() == "no team title")
 				main1_txt8.setText("");
