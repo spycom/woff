@@ -49,7 +49,7 @@ package {
 	import flash.utils.*;
 	
 	import ru.etcs.ui.MouseWheel;
-	
+	//import ads.CMBlockVk;
 
 public class FF extends Sprite{
 
@@ -181,6 +181,7 @@ private var captain:Loader;
 private var one:Loader;
 private var two:Loader;
 private var three:Loader;
+private var offer_button:Sprite;
 
 private var all_txt1:text;
 private var all_txt3:text;
@@ -362,6 +363,7 @@ private var transfer_txt8:text;
 private var transfer_txt9:text;
 private var transfer_txt10:text;
 private var transfer_txt11:text;
+private var transfer_txt12:text;
 
 private var scroll_timer:Timer;
 private var scroll_timer2:Timer;
@@ -2033,6 +2035,7 @@ private var zebra3_bitmap:Class;
 		transfer_txt9 = new text(564, 125, "ГОСТЕВЫЕ", "2");
 		transfer_txt10 = new text(260, 105, "* Дисквалифицирован", "7");
 		transfer_txt11 = new text(376, 105, "* Участие под вопросом", "8");
+		transfer_txt12 = new text(535, 380, "ОФФЕРЫ", "1");
 		
 		transfer_txt2.addEventListener(MouseEvent.CLICK, transferSortCost);
 		transfer_txt3.addEventListener(MouseEvent.CLICK, transferSortName);
@@ -2040,9 +2043,22 @@ private var zebra3_bitmap:Class;
 		transfer_txt5.addEventListener(MouseEvent.CLICK, transferSortRating);
 		transfer_txt6.addEventListener(MouseEvent.CLICK, transferSortEff);
 		
+		transfer_txt12.addEventListener(MouseEvent.CLICK, logoClickHandler);
+		transfer_txt12.addEventListener(MouseEvent.MOUSE_OVER, overTextEvent);
+		transfer_txt12.addEventListener(MouseEvent.MOUSE_OUT, outTextEvent);
 		
 		search_field = new text(520, 152, "", "search_query");
 		search_field.addEventListener(KeyboardEvent.KEY_DOWN, searchEvent);
+		
+		offer_button = new Sprite();
+		offer_button.graphics.beginFill(0xCCCCCC);
+		offer_button.graphics.drawRoundRect(0, 0, 100, 20, 20);
+		offer_button.addEventListener(MouseEvent.CLICK, logoClickHandler);
+		//offer_button.addEventListener(MouseEvent.MOUSE_OVER, overTextEvent);
+		//offer_button.addEventListener(MouseEvent.MOUSE_OUT, outTextEvent);
+		offer_button.x = 510;
+		offer_button.y = 379;
+		offer_button.filters = [myShadow_i];
 		
 		// индикация процесса загрузки
 		loading_balls = new loadingProc();
@@ -2626,6 +2642,16 @@ private var zebra3_bitmap:Class;
 			
 		//баннер с рекламой приложений
 		
+		// реклама creara-media
+		var cmBlock:CMBlockVk = new CMBlockVk(19026);
+		//cmBlock.setBackgroundAlpha(1);
+		cmBlock.initCreara(wrapper.application.parameters);
+			addChild(cmBlock);
+		
+		cmBlock.y = 540;
+		
+		
+		// реклама uppgrade
 		var 
 		game_movie_clip : Sprite  = this, // Sprite в который будет вставляться баннер
 			banner_pid : int = 176, // идентификатор приложения "World of Fantasy Football" в сети Appgrade
@@ -2652,6 +2678,7 @@ private var zebra3_bitmap:Class;
 		addChild(game_movie_clip);
 		
 		check_team_trigger = 2;
+		
 		
 	}
 	
@@ -4860,6 +4887,8 @@ private var zebra3_bitmap:Class;
 			transfer.addChild(transfer_txt4);
 			transfer.addChild(transfer_txt5);
 			transfer.addChild(transfer_txt6);
+			transfer.addChild(offer_button);
+			transfer.addChild(transfer_txt12);
 			
 			transfer.addChild(gamesListTransfers);	
 				gamesListTransfers.request(current_tournament);
@@ -4943,6 +4972,8 @@ private var zebra3_bitmap:Class;
 			transfer.addChild(table3);
 			transfer.addChild(transfer_footman);
 			transfer.addChild(transfer_txt8);
+			transfer.addChild(offer_button);
+			transfer.addChild(transfer_txt12);
 			
 			transfer.addChild(transfer_list);
 			transfer.addChild(scroll_tr);
