@@ -45,7 +45,7 @@ package data{
 			select1 = new Sprite();
 			select1.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod);
 			select1.graphics.lineStyle(0, 0xffffff);
-			select1.graphics.drawRoundRectComplex(10, 105, 304, 112, 0, 0, 40, 40);
+			select1.graphics.drawRoundRectComplex(10, 105, 304, 112, 0, 0, 32, 32);
 			select1.filters = [myBevel];
 			
 			timer = new Timer(25, 10);

@@ -14,6 +14,7 @@ package {
 	import data.Version;
 	import data.WelcomeMsg;
 	import data.autoTeam;
+	import data.blocknation;
 	import data.buyBudgetTableClass;
 	import data.down_arrow;
 	import data.down_b;
@@ -49,6 +50,7 @@ package {
 	import flash.utils.*;
 	
 	import ru.etcs.ui.MouseWheel;
+
 	//import ads.CMBlockVk;
 
 public class FF extends Sprite{
@@ -80,12 +82,12 @@ private var star5:Bitmap;
 private var star6:Bitmap;
 private var block:Loader;
 private var block2:Loader;
-private var blocknation:Loader;
-private var blocknation2:Bitmap;
-private var blocknation3:Bitmap;
-private var blocknation4:Bitmap;
-private var blocknation5:Bitmap;
-private var blocknation6:Bitmap;
+private var blocknation1:blocknation;
+private var blocknation2:blocknation;
+private var blocknation3:blocknation;
+private var blocknation4:blocknation;
+private var blocknation5:blocknation;
+private var blocknation6:blocknation;
 private var russia:Loader;
 private var world:Loader;
 private var england:Loader;
@@ -482,6 +484,7 @@ private var woff_general_request:URLRequest;
 public var woffLoadComplete2:Function;
 public var woff_sig:String;
 private var woff_uid:int;
+private var woff_api_id:int;
 private var woff_secret:String;
 private var footman_array:Array;
 private var team_stat_array:Array;
@@ -604,8 +607,10 @@ private var select1smart:smartButton;
 private var select2smart:smartButton;
 private var select3smart:smartButton;
 private var select4smart:smartButton;
+private var select5smart:smartButton;
 private var gamesListTransfers:gamesList;
 private var favClubs:Array;
+private var myShadow_o:DropShadowFilter;
 
 [Embed(source='/Users/spycom/dev/FF/images/razdelitel.png')]
 //[Embed(source='C:/Users/artem.akinchits/Dev/images/razdelitel.png')]
@@ -657,6 +662,7 @@ private var zebra3_bitmap:Class;
 		//woff_uid = 20757; // Илья
 		//woff_uid = 35756; // Дима
 		//woff_uid = 49849194;
+		woff_api_id = stage.loaderInfo.parameters.api_id;
 		
 		referrer = stage.loaderInfo.parameters.referrer;
 		poster_id = stage.loaderInfo.parameters.poster_id;
@@ -684,9 +690,19 @@ private var zebra3_bitmap:Class;
 		
 		// загрузка первого кадра
 		
-		var myShadow_o:DropShadowFilter = new DropShadowFilter();
+		myShadow_o = new DropShadowFilter();
 			myShadow_o.distance = 1;
 		
+		myBevel = new BevelFilter();
+		myBevel.strength = 0.5;
+			
+		myShadow = new DropShadowFilter();
+			
+			
+		var myShadow_i:DropShadowFilter = new DropShadowFilter();
+			myShadow_i.inner = true;
+			myShadow_i.distance = 1;
+			
 		background = new Loader();
 		
 		background1 = new Loader();
@@ -765,13 +781,40 @@ private var zebra3_bitmap:Class;
 		block2.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		block2.filters = [myShadow_o];
 		
-		// блок для страны х6
-		blocknation = new Loader();
-		blocknation.load(new URLRequest(serv + "img2/block-nation.png"), lc);
-		blocknation.x = 10;
-		blocknation.y =105;
-		blocknation.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
-		blocknation.contentLoaderInfo.addEventListener(Event.COMPLETE, blocknationLoadComplete);
+		// блок для страны х6 на главном экране
+		blocknation1 = new blocknation();
+		//blocknation1.load(new URLRequest(serv + "img2/block-nation.png"), lc);
+		blocknation1.x = 10;
+		blocknation1.y = 105;
+		//blocknation1.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+		//blocknation1.contentLoaderInfo.addEventListener(Event.COMPLETE, blocknationLoadComplete);
+		blocknation1.filters = [myShadow_o];
+		
+		blocknation2 = new blocknation();
+		blocknation2.x = 10;
+		blocknation2.y =225;
+		blocknation2.filters = [myShadow_o];
+		
+		blocknation3 = new blocknation();
+		blocknation3.x = 10;
+		blocknation3.y =345;
+		blocknation3.filters = [myShadow_o];
+		
+		blocknation4 = new blocknation();
+		blocknation4.filters = [myShadow_o];
+		blocknation4.x = 325;
+		blocknation4.y =105;
+		
+		blocknation5 = new blocknation();
+		blocknation5.filters = [myShadow_o];
+		blocknation5.x = 325;
+		blocknation5.y =225;
+		
+		blocknation6 = new blocknation();
+		blocknation6.filters = [myShadow_o];
+		blocknation6.x = 325;
+		blocknation6.y = 345;
+		
 		
 		//
 		russia = new Loader();
@@ -799,7 +842,7 @@ private var zebra3_bitmap:Class;
 		italia.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		
 		spain = new Loader();
-		spain.load(new URLRequest(serv + "img2/spain.png"));
+		spain.load(new URLRequest(serv + "euro2012.png"));
 		spain.x = 335;
 		spain.y = 230;
 		spain.contentLoaderInfo.addEventListener(ProgressEvent.PROGRESS, progressHandler);
@@ -1076,15 +1119,7 @@ private var zebra3_bitmap:Class;
 		scroll2.addEventListener(MouseEvent.MOUSE_WHEEL, lidersWheelHandler);
 			this.addEventListener(MouseEvent.MOUSE_UP, scrollupEvent);
 		
-		myBevel = new BevelFilter();
-		myBevel.strength = 0.5;
 		
-		myShadow = new DropShadowFilter();
-		
-		
-		var myShadow_i:DropShadowFilter = new DropShadowFilter();
-		myShadow_i.inner = true;
-		myShadow_i.distance = 1;
 		
 		scroll2.filters = [myBevel];
 		scroll2.scaleX = 1.6;
@@ -1569,7 +1604,7 @@ private var zebra3_bitmap:Class;
 		main_txt36 = new text(55, 310, "", "2");
 		main_txt37 = new text(100, 305, "Место: -", "2");
 		
-		main_txt421 = new text(410, 240, "ЧЕМПИОНАТ ИСПАНИИ - ОКОНЧЕН", "1");
+		main_txt421 = new text(410, 240, "ЧЕМПИОНАТ ЕВРОПЫ", "1");
 		main_txt422 = new text(410, 255, "Любимый клуб: --", "2");
 		main_txt423 = new text(410, 265, "Участие в платном турнире: --", "2");
 		main_txt424 = new text(410, 275, "Лучшая игра: --", "2");
@@ -1851,7 +1886,8 @@ private var zebra3_bitmap:Class;
 		select5sprite = new Sprite();
 		select6sprite = new Sprite();
 		
-			
+		blocknationLoadComplete();
+		
 		// кнопки выбора чемпионата		
 			//чемпионат России
 		select1 = new Sprite();
@@ -1893,7 +1929,7 @@ private var zebra3_bitmap:Class;
 		select5.graphics.lineStyle(1);
 		select5.graphics.drawRoundRect(327, 223, 300, 115, 10);
 		select5.alpha = 0;
-		//select5.addEventListener(MouseEvent.CLICK, select5listener);
+		select5.addEventListener(MouseEvent.CLICK, select5listener);
 		select5.addEventListener(MouseEvent.MOUSE_OVER, select5over);
 		select5.addEventListener(MouseEvent.MOUSE_OUT, select5out);
 		select5.buttonMode = true;
@@ -1929,6 +1965,10 @@ private var zebra3_bitmap:Class;
 		
 		select4smart = new smartButton(woff_uid, 7);
 		select4smart.x = 315;
+		
+		select5smart = new smartButton(woff_uid, 1);
+		select5smart.x = 315;
+		select5smart.y = 120;
 		
 		// детали окна с футболистом
 		
@@ -2568,7 +2608,7 @@ private var zebra3_bitmap:Class;
 			
 			var blablabla:Array = new Array();
 			blablabla.push(0);
-			user_photo = new vk_photo(woff_uid, blablabla);
+			user_photo = new vk_photo(woff_uid, blablabla, woff_api_id);
 			liders_list.addChild(user_photo);
 			
 			
@@ -2586,14 +2626,14 @@ private var zebra3_bitmap:Class;
 		
 		innerGlow = new GlowFilter();
 		innerGlow.inner = true;
-		innerGlow.blurX = 8;
+		innerGlow.blurX = 0;
 		innerGlow.blurY = 32;
 		innerGlow.alpha = 0.5;
 		innerGlow.color = 0x66CC00;
 		
 		innerGlow_red = new GlowFilter();
 		innerGlow_red.inner = true;
-		innerGlow_red.blurX = 8;
+		innerGlow_red.blurX = 0;
 		innerGlow_red.blurY = 32;
 		innerGlow_red.alpha = 0.5;
 		//innerGlow.color = 0x66CC00;
@@ -3029,7 +3069,6 @@ private var zebra3_bitmap:Class;
 		//window = "main1";
 		dropdown_menu_sprite.addChild(scroll_clubs);
 		champ = "ita";
-		//woff_general_request.url = woff_api3;
 		current_tax = 250;
 		current_transfers_mass = 20;
 		current_tournament = 2;
@@ -3090,13 +3129,12 @@ private var zebra3_bitmap:Class;
 		showMain1();
 		
 	}
-	// переход к чемпионату Испании
+	// переход к чемпионату Испании, Европы
 	public function select5listener(e:MouseEvent):void {
 		removeChild(main);
 		//window = "main1";
 		dropdown_menu_sprite.addChild(scroll_clubs);
-		champ = "isp";
-		//woff_general_request.url = woff_api3;
+		champ = "euro";
 		current_tax = 250;
 		current_transfers_mass = 20;
 		current_tournament = 1;
@@ -5189,10 +5227,11 @@ private var zebra3_bitmap:Class;
 			}
 			
 			//var PersentLoaded:Number = Math.round((loadedFiles/381962)*100); 
-			var PersentLoaded:Number = (loadedFiles/381279)*100; 
+			var PersentLoaded:Number = (loadedFiles/389218)*100; 
 			
-			//status.setText("Загрузка " + PersentLoaded + "% " + loadedFiles);
+			
 			status.setText("Загрузка " + Math.round(PersentLoaded) + "% ");
+			//status.setText("Загрузка "  + "% " + loadedFiles);
 				if (PersentLoaded == 100) {
 					begin_timer.start();
 					postload_timer.start();
@@ -5815,7 +5854,7 @@ private var zebra3_bitmap:Class;
 		}
 		
 		
-		// функция окончания загрузки профиля игрока для чемпионата Испании !!     
+		// функция окончания загрузки профиля игрока для чемпионата Европы !!     
 		public function woffLoadSpainComplete(e:Event):void {
 			
 			var woff_answer:XML = new XML(e.target.data);
@@ -5845,7 +5884,6 @@ private var zebra3_bitmap:Class;
 			transfers_left2 = int(woff_answer.profile.transfers_left.text());
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
-			//woff_general_request.url = woff_api3;
 			current_tournament = 1;
 			
 			setMethod("checkTeam");
@@ -5857,7 +5895,6 @@ private var zebra3_bitmap:Class;
 		
 			}  else {
 				current_tournament = 1;
-				//woff_general_request.url = woff_api3;
 				
 				setMethod("registerNewPlayer");
 				
@@ -5973,7 +6010,7 @@ private var zebra3_bitmap:Class;
 			
 			}
 			
-			user_photo = new vk_photo(woff_uid, uids_array);
+			user_photo = new vk_photo(woff_uid, uids_array, woff_api_id);
 			user_photo.x = 0;
 			user_photo.y = 5;
 			liders_list.addChild(user_photo);
@@ -6032,7 +6069,7 @@ private var zebra3_bitmap:Class;
 		
 			}
 			//user_photo.clear();
-			user_photo = new vk_photo(woff_uid, uids_array);
+			user_photo = new vk_photo(woff_uid, uids_array, woff_api_id);
 			user_photo.x = 0;
 			user_photo.y = 5;
 			liders_list.addChild(user_photo);
@@ -9116,10 +9153,10 @@ private var zebra3_bitmap:Class;
 			
 			private function getFriends():void {
 				
-				var api_id:String = "1848099";
+				var api_id:int = woff_api_id;
 				
 				var api_secret:String = 'DuIP8H5HnE';
-				var test_mode:Number = 1;
+				var test_mode:Number = 0;
 	
 				var methodFromAPI = "getAppFriends";
 		
@@ -9229,7 +9266,7 @@ private var zebra3_bitmap:Class;
 			
 			
 			
-			user_photo = new vk_photo(woff_uid, uids_array);
+			user_photo = new vk_photo(woff_uid, uids_array, woff_api_id);
 			user_photo.x = 0;
 			user_photo.y = 5;
 			liders_list.addChild(user_photo);
@@ -9321,7 +9358,7 @@ private var zebra3_bitmap:Class;
 		}
 		
 		private function select1over(e:MouseEvent):void {
-			blocknation.filters = [myGlow_blue, myBevel, innerGlow];
+			blocknation1.filters = [myGlow_blue, myBevel, innerGlow,myShadow_o];
 			
 			main.addChild(select1smart);
 			/*
@@ -9342,80 +9379,66 @@ private var zebra3_bitmap:Class;
 			select1smart.show();
 		}
 		private function select1out(e:MouseEvent):void {
-			blocknation.filters = [];
+			blocknation1.filters = [myShadow_o];
 			//select1.alpha = 0;
 			select1smart.hide();
 		}
 		private function select4over(e:MouseEvent):void {
-			blocknation4.filters = [myGlow_blue, myBevel, innerGlow];
+			blocknation4.filters = [myGlow_blue, myBevel, innerGlow,myShadow_o];
 			
 			main.addChild(select4smart);
-			/*
-			main.addChild(blocknation4);
-			main.addChild(world);
-			main.addChild(main_txt21);
-			main.addChild(main_txt22);
-			main.addChild(main_txt23);
-			main.addChild(main_txt24);
-			main.addChild(main_txt25);
-			main.addChild(main_txt255);
-			main.addChild(main_txt26);
-			 * 
-			 */
+			
 			main.addChild(select4sprite);
 			main.addChild(select4);
 			
 			select4smart.show();
 		}
 		private function select4out(e:MouseEvent):void {
-			blocknation4.filters = [];
+			blocknation4.filters = [myShadow_o];
 			//select4.alpha = 0;
 			select4smart.hide();
 		}
 		
 		private function select2over(e:MouseEvent):void {
-			blocknation2.filters = [myGlow_blue, myBevel, innerGlow];
+			blocknation2.filters = [myGlow_blue, myBevel, innerGlow,myShadow_o];
 			
 			main.addChild(select2smart);
-			/*
-			main.addChild(blocknation2);
-			main.addChild(england);
-			main.addChild(main_txt31);
-			main.addChild(main_txt32);
-			main.addChild(main_txt33);
-			main.addChild(main_txt34);
-			main.addChild(main_txt35);
-			main.addChild(main_txt355);
-			main.addChild(main_txt36);
-			 * 
-			 */
+			
 			main.addChild(select2sprite);
 			main.addChild(select2_);
 			
 			select2smart.show();
 		}
 		private function select2out(e:MouseEvent):void {
-			blocknation2.filters = [];
+			blocknation2.filters = [myShadow_o];
 			select2smart.hide();
 		}
 		private function select5over(e:MouseEvent):void {
-			blocknation5.filters = [myGlow_blue, myBevel, innerGlow_red];
+			blocknation5.filters = [myGlow_blue, myBevel, innerGlow,myShadow_o];
+			
+			main.addChild(select5smart);
+			
+			main.addChild(select5sprite);
+			main.addChild(select5);
+			
+			select5smart.show();
 		}
 		private function select5out(e:MouseEvent):void {
-			blocknation5.filters = [];
+			blocknation5.filters = [myShadow_o];
+			select5smart.hide();
 		}
 		
 		private function select3over(e:MouseEvent):void {
-			blocknation3.filters = [myGlow_blue, myBevel, innerGlow_red];
+			blocknation3.filters = [myGlow_blue, myBevel, innerGlow_red,myShadow_o];
 		}
 		private function select3out(e:MouseEvent):void {
-			blocknation3.filters = [];
+			blocknation3.filters = [myShadow_o];
 		}
 		private function select6over(e:MouseEvent):void {
-			blocknation6.filters = [myGlow_blue, myBevel, innerGlow_red];
+			blocknation6.filters = [myGlow_blue, myBevel, innerGlow_red,myShadow_o];
 		}
 		private function select6out(e:MouseEvent):void {
-			blocknation6.filters = [];
+			blocknation6.filters = [myShadow_o];
 		}
 		
 		private function overTeamButton(e:MouseEvent):void {
@@ -9560,30 +9583,10 @@ private var zebra3_bitmap:Class;
 		}
 		
 		//размножение картинки
-		private function blocknationLoadComplete(e:Event):void {
-			var blocknation_:Bitmap = e.target.content as Bitmap;
+		private function blocknationLoadComplete():void {
+			//var blocknation_:Bitmap = e.target.content as Bitmap;
 			
-			blocknation2 = new Bitmap(blocknation_.bitmapData);
-			blocknation2.x = 10;
-			blocknation2.y =225;
-			
-			blocknation3 = new Bitmap(blocknation_.bitmapData);
-			blocknation3.x = 10;
-			blocknation3.y =345;
-			
-			blocknation4 = new Bitmap(blocknation_.bitmapData);
-			blocknation4.x = 325;
-			blocknation4.y =105;
-			
-			blocknation5 = new Bitmap(blocknation_.bitmapData);
-			blocknation5.x = 325;
-			blocknation5.y =225;
-			
-			blocknation6 = new Bitmap(blocknation_.bitmapData);
-			blocknation6.x = 325;
-			blocknation6.y = 345;
-			
-			select1sprite.addChild(blocknation);
+			select1sprite.addChild(blocknation1);
 			select2sprite.addChild(blocknation2);
 			select3sprite.addChild(blocknation3);
 			select4sprite.addChild(blocknation4);
@@ -9644,8 +9647,6 @@ private var zebra3_bitmap:Class;
 			select6sprite.addChild(main_txt625);
 			select6sprite.addChild(main_txt6255);
 			select6sprite.addChild(main_txt626);
-			
-			
 			
 			
 		}

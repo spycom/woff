@@ -16,10 +16,10 @@ private var answer:XML;
 private var user_photo:Loader;
 public var user_name:Array;
 
-		public function vk_photo(viewer_id:int, uid:Array) {
+		public function vk_photo(viewer_id:int, uid:Array, woff_api_id:int) {
 			uid_ = uid;
 			//var api_id:String = stage.loaderInfo.parameters.api_id;
-		var api_id:String = "1848099";
+		var api_id:int = woff_api_id;
 		//var userID:String = stage.loaderInfo.parameters.user_id;
 		//var viewer_id:String = stage.loaderInfo.parameters.viewer_id;
 				
@@ -29,7 +29,7 @@ public var user_name:Array;
 						uids = uids + ","+ uid[ii] ;
 						
 		var api_secret:String = 'DuIP8H5HnE';
-		var test_mode:Number = 1;
+		var test_mode:Number = 0;
 	
 		var methodFromAPI = "getProfiles";
 		
