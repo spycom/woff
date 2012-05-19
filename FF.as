@@ -1578,7 +1578,7 @@ private var zebra3_bitmap:Class;
 		all_txt4.addEventListener(MouseEvent.CLICK, showPaymentBox);
 			
 		main_txt1 = new text(100, 120, "ЧЕМПИОНАТ РОССИИ", "1");
-		main_txt2 = new text(100, 135, "Любимый клуб: --", "2");
+		main_txt2 = new text(100, 135, "Любимый клуб: --", "2");//
 		main_txt3 = new text(100, 145, "Участие в платном турнире: --", "2");
 		main_txt4 = new text(100, 155, "Лучшая игра: --", "2");
 		main_txt5 = new text(100, 165, "Статус допуска: --", "2");
@@ -1586,14 +1586,14 @@ private var zebra3_bitmap:Class;
 		main_txt6 = new text(55, 190, "", "2");
 		main_txt7 = new text(100, 185, "Место: -", "2");
 		
-		main_txt21 = new text(410, 120, "ЛИГА ЧЕМПИОНОВ", "1");
-		main_txt22 = new text(410, 135, "Любимый клуб: --", "2");
-		main_txt23 = new text(410, 145, "Участие в платном турнире: --", "2");
-		main_txt24 = new text(410, 155, "Лучшая игра: --", "2");
-		main_txt25 = new text(410, 165, "Статус допуска: --", "2");
-		main_txt255 = new text(410, 175, "Название команды: --", "2");
+		main_txt21 = new text(415, 120, "ЛИГА ЧЕМПИОНОВ", "1");
+		main_txt22 = new text(415, 135, "Любимый клуб: --", "2");//
+		main_txt23 = new text(415, 145, "Участие в платном турнире: --", "2");
+		main_txt24 = new text(415, 155, "Лучшая игра: --", "2");
+		main_txt25 = new text(415, 165, "Статус допуска: --", "2");
+		main_txt255 = new text(415, 175, "Название команды: --", "2");
 		main_txt26 = new text(363, 190, "", "2");
-		main_txt27 = new text(410, 185, "Место: -", "2");
+		main_txt27 = new text(415, 185, "Место: -", "2");
 		
 		main_txt31 = new text(100, 240, "ЧЕМПИОНАТ АНГЛИИ", "1");
 		main_txt32 = new text(100, 255, "Любимый клуб: --", "2");
@@ -1604,14 +1604,14 @@ private var zebra3_bitmap:Class;
 		main_txt36 = new text(55, 310, "", "2");
 		main_txt37 = new text(100, 305, "Место: -", "2");
 		
-		main_txt421 = new text(410, 240, "ЧЕМПИОНАТ ЕВРОПЫ", "1");
-		main_txt422 = new text(410, 255, "Любимый клуб: --", "2");
-		main_txt423 = new text(410, 265, "Участие в платном турнире: --", "2");
-		main_txt424 = new text(410, 275, "Лучшая игра: --", "2");
-		main_txt425 = new text(410, 285, "Статус допуска: --", "2");
-		main_txt4255 = new text(410, 295, "Название команды: --", "2");
+		main_txt421 = new text(415, 240, "ЧЕМПИОНАТ ЕВРОПЫ", "1");
+		main_txt422 = new text(415, 255, "Любимый клуб: --", "2");
+		main_txt423 = new text(415, 265, "Участие в платном турнире: --", "2");
+		main_txt424 = new text(415, 275, "Лучшая игра: --", "2");
+		main_txt425 = new text(415, 285, "Статус допуска: --", "2");
+		main_txt4255 = new text(415, 295, "Название команды: --", "2");
 		main_txt426 = new text(363, 310, "", "2");
-		main_txt47 = new text(410, 305, "Место: -", "2");
+		main_txt47 = new text(415, 305, "Место: -", "2");
 		
 		main_txt51 = new text(100, 360, "ЧЕМПИОНАТ ИТАЛИИ - ОКОНЧЕН", "1");
 		main_txt52 = new text(100, 375, "Любимый клуб: --", "2");
@@ -1622,9 +1622,9 @@ private var zebra3_bitmap:Class;
 		main_txt56 = new text(55, 430, "", "2");
 		main_txt57 = new text(100, 425, "Место: -", "2");
 		
-		main_txt621 = new text(410, 360, "РАСПИСАНИЕ МАТЧЕЙ", "1");
+		main_txt621 = new text(415, 360, "РАСПИСАНИЕ МАТЧЕЙ", "1");
 		main_txt622 = new text(410, 375, "", "2");
-		main_txt623 = new text(410, 385, "Ближайшие 10 игр", "2");
+		main_txt623 = new text(415, 385, "Ближайшие 10 игр", "2");
 		main_txt624 = new text(410, 395, "", "2");
 		main_txt625 = new text(410, 405, "", "2");
 		main_txt6255 = new text(410, 415, "", "2");
@@ -3952,7 +3952,7 @@ private var zebra3_bitmap:Class;
     			 main2_txt18.setText("Приобрести "+current_transfers_mass+" трансферов за "+ current_tax +" MP");
 	}
 	
-	// окно набора команды для первого посещения чемпионата Испании
+	// окно набора команды для первого посещения чемпионата Испании, Европы
 	public function button2event5(e:Event):void {
 		removeChild(main);
 		
@@ -3962,8 +3962,8 @@ private var zebra3_bitmap:Class;
 		current_tournament = 1;
 		
 		background = background3;
-		champ = "isp";
-		woff_general_request.url = woff_api3;
+		champ = "euro";
+		//woff_general_request.url = woff_api3;
 		
 		down_arrows = new Array();
 		
@@ -9601,7 +9601,7 @@ private var zebra3_bitmap:Class;
 			select6sprite.addChild(chempions);
 			
 			select1sprite.addChild(main_txt1);
-			select1sprite.addChild(main_txt2);
+			//select1sprite.addChild(main_txt2);
 			select1sprite.addChild(main_txt3);
 			select1sprite.addChild(main_txt4);
 			select1sprite.addChild(main_txt5);
@@ -9609,7 +9609,7 @@ private var zebra3_bitmap:Class;
 			select1sprite.addChild(main_txt6);
 			select1sprite.addChild(main_txt7);
 			select4sprite.addChild(main_txt21);
-			select4sprite.addChild(main_txt22);
+			//select4sprite.addChild(main_txt22);
 			select4sprite.addChild(main_txt23);
 			select4sprite.addChild(main_txt24);
 			select4sprite.addChild(main_txt25);
@@ -9617,7 +9617,7 @@ private var zebra3_bitmap:Class;
 			select4sprite.addChild(main_txt26);
 			select4sprite.addChild(main_txt27);
 			select2sprite.addChild(main_txt31);
-			select2sprite.addChild(main_txt32);
+			//select2sprite.addChild(main_txt32);
 			select2sprite.addChild(main_txt33);
 			select2sprite.addChild(main_txt34);
 			select2sprite.addChild(main_txt35);
@@ -9625,7 +9625,7 @@ private var zebra3_bitmap:Class;
 			select2sprite.addChild(main_txt36);
 			select2sprite.addChild(main_txt37);
 			select5sprite.addChild(main_txt421);
-			select5sprite.addChild(main_txt422);
+			//select5sprite.addChild(main_txt422);
 			select5sprite.addChild(main_txt423);
 			select5sprite.addChild(main_txt424);
 			select5sprite.addChild(main_txt425);
@@ -9633,7 +9633,7 @@ private var zebra3_bitmap:Class;
 			select5sprite.addChild(main_txt426);
 			select5sprite.addChild(main_txt47);
 			select3sprite.addChild(main_txt51);
-			select3sprite.addChild(main_txt52);
+			//select3sprite.addChild(main_txt52);
 			select3sprite.addChild(main_txt53);
 			select3sprite.addChild(main_txt54);
 			select3sprite.addChild(main_txt55_);
@@ -9641,13 +9641,12 @@ private var zebra3_bitmap:Class;
 			select3sprite.addChild(main_txt56);
 			select3sprite.addChild(main_txt57);
 			select6sprite.addChild(main_txt621);
-			select6sprite.addChild(main_txt622);
+			//select6sprite.addChild(main_txt622);
 			select6sprite.addChild(main_txt623);
-			select6sprite.addChild(main_txt624);
-			select6sprite.addChild(main_txt625);
-			select6sprite.addChild(main_txt6255);
-			select6sprite.addChild(main_txt626);
-			
+			//select6sprite.addChild(main_txt624);
+			//select6sprite.addChild(main_txt625);
+			//select6sprite.addChild(main_txt6255);
+			//select6sprite.addChild(main_txt626);
 			
 		}
 		
