@@ -13,8 +13,9 @@ package data
 		private var rating:text;
 		private var rating_up:Sprite;
 		private var rating_down:Sprite;
+		private var title:text;
 		
-		public function blocknation()
+		public function blocknation(name:String, is_clear:int=0)
 		{
 			var myBevel:BevelFilter = new BevelFilter();
 			myBevel.angle = 90;
@@ -42,37 +43,43 @@ package data
 			block.graphics.beginGradientFill(fillType, colors, alphas, ratios, matr, spreadMethod);
 			block.graphics.lineStyle(0, 0xCCCCCC);
 			block.graphics.drawRoundRectComplex(0, 0, 304, 116, 12, 12, 12, 12);
-			//block.filters = [myBevel];
 			
-			addChild(block);
+			 addChild(block);
 			
-			rating = new text(90, 30, "Рейтинг:", "2");
-			 addChild(rating);
+			title = new text(90, 15, name, "1");
+			 addChild(title);
+			
+			
+			if (is_clear == 0 ) {
+				rating = new text(90, 30, "Рейтинг:", "2");
+				 addChild(rating);
+				 
+				rating_up = new Sprite();
+				rating_up.x = 140;
+				rating_up.y = 35;
+				rating_up.graphics.beginFill(0x66CC00, 1);
+				rating_up.graphics.moveTo(0, 10);
+				rating_up.graphics.lineTo(5, 0);
+				rating_up.graphics.lineTo(10, 10);
+				rating_up.graphics.lineTo(5, 8);
+				rating_up.graphics.lineTo(0, 10);
+				rating_up.filters = [myBevel, myGlow];
+				 addChild(rating_up);
+				 
+				rating_down = new Sprite();
+				rating_down.x = 150;
+				rating_down.y = 35;
+				rating_down.graphics.beginFill(0xFF3300, 1);
+				rating_down.graphics.moveTo(0, 0);
+				rating_down.graphics.lineTo(5, 10);
+				rating_down.graphics.lineTo(10, 0);
+				rating_down.graphics.lineTo(5, 2);
+				rating_down.graphics.lineTo(0, 0);
+				rating_down.filters = [myBevel, myGlow];
+				 addChild(rating_down);
 			 
-			rating_up = new Sprite();
-			rating_up.x = 140;
-			rating_up.y = 35;
-			rating_up.graphics.beginFill(0x66CC00, 1);
-			rating_up.graphics.moveTo(0, 10);
-			rating_up.graphics.lineTo(5, 0);
-			rating_up.graphics.lineTo(10, 10);
-			rating_up.graphics.lineTo(5, 8);
-			rating_up.graphics.lineTo(0, 10);
-			rating_up.filters = [myBevel, myGlow];
-			 addChild(rating_up);
-			 
-			rating_down = new Sprite();
-			rating_down.x = 150;
-			rating_down.y = 35;
-			rating_down.graphics.beginFill(0xFF3300, 1);
-			rating_down.graphics.moveTo(0, 0);
-			rating_down.graphics.lineTo(5, 10);
-			rating_down.graphics.lineTo(10, 0);
-			rating_down.graphics.lineTo(5, 2);
-			rating_down.graphics.lineTo(0, 0);
-			rating_down.filters = [myBevel, myGlow];
-			//rating_down.rotation = 180;
-			 addChild(rating_down);
+			 } 
+			
 		}
 	}
 }
