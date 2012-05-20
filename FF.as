@@ -806,7 +806,7 @@ private var zebra3_bitmap:Class;
 		blocknation5.x = 325;
 		blocknation5.y =225;
 		
-		blocknation6 = new blocknation("РАСПИСАНИЕ МАТЧЕЙ", 1);
+		blocknation6 = new blocknation("", 1);
 		blocknation6.filters = [myShadow_o];
 		blocknation6.x = 325;
 		blocknation6.y = 345;
@@ -1537,7 +1537,7 @@ private var zebra3_bitmap:Class;
 		
 		// текстовая строка загрузчика
 		
-		status = new text(260, 200, "Загрузка..", "1");
+		status = new text(260, 200, "Загрузка...", "1");
 		
 		// таймеры
 		
@@ -1620,7 +1620,7 @@ private var zebra3_bitmap:Class;
 		
 		//main_txt621 = new text(415, 360, "РАСПИСАНИЕ МАТЧЕЙ", "1");
 		//main_txt622 = new text(410, 375, "", "2");
-		main_txt623 = new text(415, 385, "Ближайшие 10 игр", "2");
+		main_txt623 = new text(415, 385, "", "2");
 		main_txt624 = new text(410, 395, "", "2");
 		main_txt625 = new text(410, 405, "", "2");
 		main_txt6255 = new text(410, 415, "", "2");
@@ -1955,14 +1955,16 @@ private var zebra3_bitmap:Class;
 		
 		// умные кнопки\
 		select1smart = new smartButton(woff_uid, 5);
+		
 		select2smart = new smartButton(woff_uid, 6);
 		select2smart.y = 120;
+		
 		//select3smart = new smartButton(woff_uid, 5);
 		
 		select4smart = new smartButton(woff_uid, 7);
 		select4smart.x = 315;
 		
-		select5smart = new smartButton(woff_uid, 1);
+		select5smart = new smartButton(woff_uid, 0);
 		select5smart.x = 315;
 		select5smart.y = 120;
 		
@@ -2783,8 +2785,7 @@ private var zebra3_bitmap:Class;
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadChampComplete);
 		woff_Profile_loader.load(woff_general_request);
 		
-	//-----------------------------------------------------// загрузка 5-го профиля в ЧИспании
-		//woff_general_request.url = woff_api3;
+	//-----------------------------------------------------// загрузка 5-го профиля в Ч Испании
 		/*current_tournament = 1;
 		setMethod("getProfile"); 
 		
@@ -2854,7 +2855,7 @@ private var zebra3_bitmap:Class;
 		//обнуление команды
 			teamReset();
 				
-		setMethod("getProfile");
+		setMethod("getProfile", 5);
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffProfileLoadComplete);
@@ -2916,7 +2917,7 @@ private var zebra3_bitmap:Class;
 		dropdown_menu_sprite.addChild(scroll_clubs);
 		
 		champ = "chlig";
-		woff_general_request.url = woff_api3;
+		//woff_general_request.url = woff_api3;
 		current_tax = 150;
 		current_transfers_mass = 15;
 		current_tournament = 7;
@@ -2991,7 +2992,7 @@ private var zebra3_bitmap:Class;
 		//window = "main1";
 		dropdown_menu_sprite.addChild(scroll_clubs);
 		champ = "eng";
-		woff_general_request.url = woff_api3;
+		//woff_general_request.url = woff_api3;
 		current_tax = 250;
 		current_transfers_mass = 20;
 		current_tournament = 6;
@@ -3227,9 +3228,9 @@ private var zebra3_bitmap:Class;
 		window = "main";
 		
 		//-------------------------------// 
-		woff_general_request.url = woff_api3;
-		current_tournament = 5;
-		setMethod("getProfile");// загрузка 1-го профиля в ЧР
+		//woff_general_request.url = woff_api3;
+		//current_tournament = 5;
+		setMethod("getProfile", 5);// загрузка 1-го профиля в ЧР
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadComplete);
@@ -3237,8 +3238,8 @@ private var zebra3_bitmap:Class;
 		
 		//-------------------------------// 
 		//woff_general_request.url = woff_api3;
-		current_tournament = 6;
-		setMethod("getProfile"); // загрузка 2-го профиля в Ч-Англии
+		//current_tournament = 6;
+		setMethod("getProfile" , 6); // загрузка 2-го профиля в Ч-Англии
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadEnglandComplete);
@@ -3264,8 +3265,8 @@ private var zebra3_bitmap:Class;
 		
 		//-------------------------------// 
 		//woff_general_request.url = woff_api3;
-		current_tournament = 7;
-		setMethod("getProfile"); // загрузка 4-го профиля в Лиге Чемпионов
+		//current_tournament = 7;
+		setMethod("getProfile", 7); // загрузка 4-го профиля в Лиге Чемпионов
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadChampComplete);
@@ -3395,7 +3396,7 @@ private var zebra3_bitmap:Class;
 	public function mouseOutMain(e:MouseEvent):void {
 		top1.filters = [];
 	}
-	
+	/*
 	public function helpExitButton(e:MouseEvent):void {
 		removeChild(help);
 		if (window == "main") {
@@ -3415,6 +3416,7 @@ private var zebra3_bitmap:Class;
 		} 
 		
 	}
+	*/
 	
 	// функции кнопок *****
 	
