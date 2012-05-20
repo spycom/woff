@@ -4,6 +4,7 @@ package data
 	
 	import flash.display.*;
 	import flash.filters.BevelFilter;
+	import flash.filters.DropShadowFilter;
 	import flash.filters.GlowFilter;
 	import flash.geom.Matrix;
 	
@@ -18,14 +19,17 @@ package data
 		public function blocknation(name:String, is_clear:int=0)
 		{
 			var myBevel:BevelFilter = new BevelFilter();
-			myBevel.angle = 90;
-			myBevel.distance = 2;
-			myBevel.strength = 0.8;
+				myBevel.angle = 90;
+				myBevel.distance = 2;
+				myBevel.strength = 0.8;
 			
 			var myGlow:GlowFilter = new GlowFilter();
 				myGlow.strength = 0.8;
 				myGlow.color = 0x3366FF;
-				
+			
+			var myShadow:DropShadowFilter = new DropShadowFilter();
+				myShadow.distance = 1;
+			
 			//main = new Sprite();
 			
 			var fillType:String = GradientType.RADIAL;
@@ -45,6 +49,8 @@ package data
 			block.graphics.drawRoundRectComplex(0, 0, 304, 116, 12, 12, 12, 12);
 			
 			 addChild(block);
+			 
+			this.filters = [myShadow];
 			
 			title = new text(90, 15, name, "1");
 			 addChild(title);

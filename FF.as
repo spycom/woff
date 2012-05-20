@@ -784,30 +784,30 @@ private var zebra3_bitmap:Class;
 		blocknation1 = new blocknation("ЧЕМПИОНАТ РОССИИ");
 		blocknation1.x = 10;
 		blocknation1.y = 105;
-		blocknation1.filters = [myShadow_o];
+		//blocknation1.filters = [myShadow_o];
 		
 		blocknation2 = new blocknation("ЧЕМПИОНАТ АНГЛИИ");
 		blocknation2.x = 10;
 		blocknation2.y =225;
-		blocknation2.filters = [myShadow_o];
+		//blocknation2.filters = [myShadow_o];
 		
 		blocknation3 = new blocknation("ЧЕМПИОНАТ ИТАЛИИ - ОКОНЧЕН");
 		blocknation3.x = 10;
 		blocknation3.y =345;
-		blocknation3.filters = [myShadow_o];
+		//blocknation3.filters = [myShadow_o];
 		
 		blocknation4 = new blocknation("ЛИГА ЧЕМПИОНОВ");
-		blocknation4.filters = [myShadow_o];
+		//blocknation4.filters = [myShadow_o];
 		blocknation4.x = 325;
 		blocknation4.y =105;
 		
 		blocknation5 = new blocknation("ЧЕМПИОНАТ ЕВРОПЫ");
-		blocknation5.filters = [myShadow_o];
+		//blocknation5.filters = [myShadow_o];
 		blocknation5.x = 325;
 		blocknation5.y =225;
 		
 		blocknation6 = new blocknation("", 1);
-		blocknation6.filters = [myShadow_o];
+		//blocknation6.filters = [myShadow_o];
 		blocknation6.x = 325;
 		blocknation6.y = 345;
 		
@@ -9360,7 +9360,7 @@ private var zebra3_bitmap:Class;
 		}
 		
 		private function select1over(e:MouseEvent):void {
-			blocknation1.filters = [myGlow_blue, myBevel, innerGlow,myShadow_o];
+			blocknation1.filters = [myGlow_blue, myBevel, innerGlow];
 			
 			main.addChild(select1smart);
 			
