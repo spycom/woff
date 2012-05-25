@@ -5226,7 +5226,7 @@ private var zebra3_bitmap:Class;
 			}
 			
 			//var PersentLoaded:Number = Math.round((loadedFiles/381962)*100); 
-			var PersentLoaded:Number = (loadedFiles/389218)*100; 
+			var PersentLoaded:Number = (loadedFiles/385934)*100; 
 			
 			
 			status.setText("Загрузка " + Math.round(PersentLoaded) + "% ");
@@ -9360,7 +9360,7 @@ private var zebra3_bitmap:Class;
 		}
 		
 		private function select1over(e:MouseEvent):void {
-			blocknation1.filters = [myGlow_blue, myBevel, innerGlow];
+			blocknation1.filters = [myGlow_blue, myBevel, innerGlow,myShadow_o];
 			
 			main.addChild(select1smart);
 			
