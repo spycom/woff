@@ -2769,14 +2769,13 @@ private var zebra3_bitmap:Class;
 		woff_Profile_loader.load(woff_general_request);
 		
 		//-------------------------------// 
-		/*
-		current_tournament = 2;
-		setMethod("getProfile"); // загрузка 3-го профиля в Ч Италии
+		
+		setMethod("getProfile", 3); // загрузка 3-го профиля в Ч euro 2012
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
-		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadItalyComplete);
+		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadSpainComplete);
 		woff_Profile_loader.load(woff_general_request);
-		*/
+		
 	//-------------------------------// загрузка 4-го профиля в Лиге чемпионов
 		//current_tournament = 7;
 		setMethod("getProfile", 7); 
@@ -3066,10 +3065,10 @@ private var zebra3_bitmap:Class;
 		removeChild(main);
 		//window = "main1";
 		dropdown_menu_sprite.addChild(scroll_clubs);
-		champ = "ita";
+		champ = "euro";
 		current_tax = 250;
 		current_transfers_mass = 20;
-		current_tournament = 2;
+		current_tournament = 3;
 		
 		background = background3;
 		
@@ -3135,7 +3134,7 @@ private var zebra3_bitmap:Class;
 		champ = "euro";
 		current_tax = 250;
 		current_transfers_mass = 20;
-		current_tournament = 1;
+		current_tournament = 3;
 		
 		background = background3;
 		//обнуление команды
@@ -3877,7 +3876,7 @@ private var zebra3_bitmap:Class;
 		
 		background = background3;
 		champ = "ita";
-		woff_general_request.url = woff_api3;
+		//woff_general_request.url = woff_api3;
 		
 		down_arrows = new Array();
 		
@@ -3956,13 +3955,12 @@ private var zebra3_bitmap:Class;
 		removeChild(main);
 		
 		dropdown_menu_sprite.addChild(scroll_clubs);
-		window = "main2";
+		//window = "main2";
 		current_tax = 150;
-		current_tournament = 1;
+		current_tournament = 3;
 		
 		background = background3;
 		champ = "euro";
-		//woff_general_request.url = woff_api3;
 		
 		down_arrows = new Array();
 		
@@ -5656,9 +5654,9 @@ private var zebra3_bitmap:Class;
 			
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
-			current_tournament = 5;
+			//current_tournament = 5;
 			
-			setMethod("checkTeam");
+			setMethod("checkTeam", 5);
 			var woff_checkteam_loader:URLLoader = new URLLoader();
 			woff_checkteam_loader.addEventListener(Event.COMPLETE, woffCheckTeamComplete);
 			woff_checkteam_loader.load(woff_general_request);
@@ -5668,9 +5666,9 @@ private var zebra3_bitmap:Class;
 					
 			}  else {
 				
-				current_tournament = 5;
+				//current_tournament = 5;
 				
-				setMethod("registerNewPlayer");
+				setMethod("registerNewPlayer", 5);
 				
 				var woff_RegNew_loader:URLLoader = new URLLoader();
 				woff_RegNew_loader.load(woff_general_request);
@@ -5715,10 +5713,10 @@ private var zebra3_bitmap:Class;
 			transfers_left2 = int(woff_answer.profile.transfers_left.text());
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
-			woff_general_request.url = woff_api1;
-			current_tournament = 6;
+			//woff_general_request.url = woff_api1;
+			//current_tournament = 6;
 			
-			setMethod("checkTeam");
+			setMethod("checkTeam", 6);
 			var woff_checkteam_loader:URLLoader = new URLLoader();
 			woff_checkteam_loader.addEventListener(Event.COMPLETE, woffCheckTeam2Complete);
 			woff_checkteam_loader.load(woff_general_request);
@@ -5726,8 +5724,8 @@ private var zebra3_bitmap:Class;
 			
 		
 			}  else {
-				current_tournament = 6;
-				setMethod("registerNewPlayer");
+				//current_tournament = 6;
+				setMethod("registerNewPlayer", 6);
 				
 				var woff_RegNew_loader:URLLoader = new URLLoader();
 				woff_RegNew_loader.load(woff_general_request);
@@ -5768,9 +5766,9 @@ private var zebra3_bitmap:Class;
 			transfers_left4 = int(woff_answer.profile.transfers_left.text());
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
-			current_tournament = 7;
+			//current_tournament = 7;
 			
-			setMethod("checkTeam");
+			setMethod("checkTeam", 7);
 			var woff_checkteam_loader:URLLoader = new URLLoader();
 			woff_checkteam_loader.addEventListener(Event.COMPLETE, woffCheckTeam4Complete);
 			woff_checkteam_loader.load(woff_general_request);
@@ -5778,9 +5776,9 @@ private var zebra3_bitmap:Class;
 			
 			}  else {
 			
-				current_tournament = 7;
+				//current_tournament = 7;
 			
-				setMethod("registerNewPlayer");
+				setMethod("registerNewPlayer", 7);
 				
 				var woff_RegNew_loader:URLLoader = new URLLoader();
 				woff_RegNew_loader.load(woff_general_request);
@@ -5827,7 +5825,7 @@ private var zebra3_bitmap:Class;
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
 			//woff_general_request.url = woff_api3;
-			current_tournament = 2;
+			//current_tournament = 2;
 			
 			setMethod("checkTeam");
 			var woff_checkteam_loader:URLLoader = new URLLoader();
@@ -5837,7 +5835,7 @@ private var zebra3_bitmap:Class;
 			
 		
 			}  else {
-				current_tournament = 2;
+				//current_tournament = 2;
 				//woff_general_request.url = woff_api3;
 				setMethod("registerNewPlayer");
 				
@@ -5883,7 +5881,7 @@ private var zebra3_bitmap:Class;
 			transfers_left2 = int(woff_answer.profile.transfers_left.text());
 			main2_txt17.setText("Остаток:		                        	     " + transfers_left);
 			
-			current_tournament = 1;
+			//current_tournament = 1;
 			
 			setMethod("checkTeam");
 			var woff_checkteam_loader:URLLoader = new URLLoader();
@@ -5893,9 +5891,9 @@ private var zebra3_bitmap:Class;
 			
 		
 			}  else {
-				current_tournament = 1;
+				//current_tournament = 3;
 				
-				setMethod("registerNewPlayer");
+				setMethod("registerNewPlayer", 3);
 				
 				var woff_RegNew_loader:URLLoader = new URLLoader();
 				woff_RegNew_loader.load(woff_general_request);
@@ -9367,7 +9365,7 @@ private var zebra3_bitmap:Class;
 			main.addChild(select1sprite);
 			main.addChild(select1);
 			
-			select1smart.show();
+			//select1smart.show();
 		}
 		private function select1out(e:MouseEvent):void {
 			blocknation1.filters = [myShadow_o];
@@ -9382,7 +9380,7 @@ private var zebra3_bitmap:Class;
 			main.addChild(select4sprite);
 			main.addChild(select4);
 			
-			select4smart.show();
+			//select4smart.show();
 		}
 		private function select4out(e:MouseEvent):void {
 			blocknation4.filters = [myShadow_o];
@@ -9398,7 +9396,7 @@ private var zebra3_bitmap:Class;
 			main.addChild(select2sprite);
 			main.addChild(select2_);
 			
-			select2smart.show();
+			//select2smart.show();
 		}
 		private function select2out(e:MouseEvent):void {
 			blocknation2.filters = [myShadow_o];

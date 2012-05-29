@@ -82,7 +82,7 @@ package data
 				rating_down.graphics.lineTo(5, 2);
 				rating_down.graphics.lineTo(0, 0);
 				rating_down.filters = [myBevel, myGlow];
-				 addChild(rating_down);
+				 //addChild(rating_down);
 			 
 			 } 
 			
