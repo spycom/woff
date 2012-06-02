@@ -50,7 +50,7 @@ public var autoTeamHelper:autoTeam;
 			WelcomeMsgSprite.x = 40;
 			WelcomeMsgSprite.y = 170;
 			//WelcomeMsgSprite.filters = [myBevel];
-			WelcomeMsgSprite.alpha = 0;
+			WelcomeMsgSprite.alpha = 1;
 			
 			var WelcomeMsgBackground:Loader = new Loader();
 			WelcomeMsgBackground.load(new URLRequest("http://62.76.177.54/woff_images/tits.jpg"));
@@ -186,7 +186,7 @@ public var autoTeamHelper:autoTeam;
 	}
 	
 	public function showMan():void {
-		myTimer.start();
+		//myTimer.start();
 	}
 	public function closeMan():void {
 		removeChild(autoTeamHelper);

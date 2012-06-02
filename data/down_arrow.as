@@ -7,6 +7,7 @@ package data
 	import flash.filters.GlowFilter;
 	import flash.net.URLRequest;
 	import flash.utils.Timer;
+	import flash.display.*;
 	
 	//import org.osmf.events.TimeEvent;
 	
@@ -14,18 +15,19 @@ package data
 	{
 		public var timer:Timer;
 		public var w:Number;
-		public var loader:Loader;
+		public var loader:Bitmap;
 		
-		//[Embed(source='/Users/spycom/dev/FF/images/down_arrow.png')]
+		[Embed(source='/Users/spycom/dev/FF/images/down_arrow.png')]
+		public var loader_:Class;
 		
 		public function down_arrow()
 		{
 			var myBevel:BevelFilter = new BevelFilter();
 			var myGlow:GlowFilter = new GlowFilter();
 			
-			loader = new Loader();
-			loader.load(new URLRequest("http://62.76.177.54/woff_images/img/down_arrow.png"));
-			//.addEventListener(
+			loader = new loader_();
+			//loader.load(new URLRequest("http://62.76.177.54/woff_images/img/down_arrow.png"));
+			
 			addChild(loader);
 			loader.alpha = 0.8;
 			loader.scaleX = 0.25;

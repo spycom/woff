@@ -3951,7 +3951,7 @@ private var zebra3_bitmap:Class;
 		removeChild(main);
 		
 		dropdown_menu_sprite.addChild(scroll_clubs);
-		window = "main2";
+		//window = "main2";
 		current_tax = 250;
 		current_tournament = 3;
 		
