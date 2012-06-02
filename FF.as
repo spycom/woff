@@ -806,7 +806,7 @@ private var zebra3_bitmap:Class;
 		blocknation5.x = 325;
 		blocknation5.y =225;
 		
-		blocknation6 = new blocknation("	ОФФЕРЫ", 1);
+		blocknation6 = new blocknation("       ОФФЕРЫ", 1);
 		//blocknation6.filters = [myShadow_o];
 		blocknation6.x = 325;
 		blocknation6.y = 345;
@@ -1964,7 +1964,7 @@ private var zebra3_bitmap:Class;
 		select4smart = new smartButton(woff_uid, 7);
 		select4smart.x = 315;
 		
-		select5smart = new smartButton(woff_uid, 0);
+		select5smart = new smartButton(woff_uid, 3);
 		select5smart.x = 315;
 		select5smart.y = 120;
 		
@@ -5997,12 +5997,14 @@ private var zebra3_bitmap:Class;
 			
 			points_[i].setText(int(woff_answer.footballer[i].score.text())/10);
 			
+			/*
 			if (champ=="euro") {
 				sostav[i].x = -20;
 				} else {	
 				sostav[i].x = 42;
 				sostav[i].setId(woff_answer.footballer[i].id_vk.text());
 				}
+			*/
 			
 			}
 			
@@ -9634,7 +9636,7 @@ private var zebra3_bitmap:Class;
 			//select6sprite.addChild(main_txt621);
 			//select6sprite.addChild(main_txt622);
 			select6sprite.addChild(main_txt623);
-			//select6sprite.addChild(main_txt624);
+			select6sprite.addChild(main_txt624);
 			//select6sprite.addChild(main_txt625);
 			//select6sprite.addChild(main_txt6255);
 			//select6sprite.addChild(main_txt626);

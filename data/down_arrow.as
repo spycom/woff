@@ -16,6 +16,8 @@ package data
 		public var w:Number;
 		public var loader:Loader;
 		
+		//[Embed(source='/Users/spycom/dev/FF/images/down_arrow.png')]
+		
 		public function down_arrow()
 		{
 			var myBevel:BevelFilter = new BevelFilter();
