@@ -3133,7 +3133,7 @@ private var zebra3_bitmap:Class;
 		dropdown_menu_sprite.addChild(scroll_clubs);
 		champ = "euro";
 		current_tax = 250;
-		current_transfers_mass = 20;
+		current_transfers_mass = 15;
 		current_tournament = 3;
 		
 		background = background3;
@@ -3946,7 +3946,9 @@ private var zebra3_bitmap:Class;
 		
     			 addChild(firstManual);
 					firstManual.showMan();
-    			 
+					firstManual.setChamp(current_tournament);
+					getFavClubs();
+					
     			 main2_txt18.setText("Приобрести "+current_transfers_mass+" трансферов за "+ current_tax +" MP");
 	}
 	
@@ -3956,7 +3958,7 @@ private var zebra3_bitmap:Class;
 		
 		dropdown_menu_sprite.addChild(scroll_clubs);
 		//window = "main2";
-		current_tax = 150;
+		current_tax = 250;
 		current_tournament = 3;
 		
 		background = background3;
@@ -4030,7 +4032,9 @@ private var zebra3_bitmap:Class;
 		
     			 addChild(firstManual);
 					firstManual.showMan();
-    			 
+					firstManual.setChamp(current_tournament);
+					getFavClubs();
+					
     			 main2_txt18.setText("Приобрести "+current_transfers_mass+" трансферов за "+ current_tax +" MP");
 	}
 	
