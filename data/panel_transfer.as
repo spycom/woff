@@ -96,6 +96,7 @@ package data
 			panel_sprite.x = 725 - 230*Math.sin(angle*3.14/180);
 			angle += 3;
 		}
+		
 		private function rollingTimerCompleteEvent(e:TimerEvent):void {
 			rollingTimer.reset(); 
 			trigger == 0;
@@ -108,18 +109,21 @@ package data
 				}	
 			}
 		}
+		
 		public function panelShow():void {
 			if (trigger == 1 ) {
 			//vector = -1;
 			rollingTimer.start();
 			}
 		}
+		
 		public function panelHide():void {
 			rollingTimer.stop();
 			rollingTimer.reset(); 
 			//vector = 1;
 			rollingTimer.start();
 		}
+		
 		private function setNewText():void {
 			if ( panelTextNext.text2 == "Дальше 2/3") {
 			//switch (panelText.text2) {

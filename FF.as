@@ -806,7 +806,7 @@ private var zebra3_bitmap:Class;
 		blocknation5.x = 325;
 		blocknation5.y =225;
 		
-		blocknation6 = new blocknation("       ОФФЕРЫ", 1);
+		blocknation6 = new blocknation("   Специальные предложения", 1);
 		//blocknation6.filters = [myShadow_o];
 		blocknation6.x = 325;
 		blocknation6.y = 345;
@@ -1621,8 +1621,8 @@ private var zebra3_bitmap:Class;
 		//main_txt621 = new text(415, 360, "РАСПИСАНИЕ МАТЧЕЙ", "1");
 		//main_txt622 = new text(410, 375, "", "2");
 		main_txt623 = new text(415, 385, "", "2");
-		main_txt624 = new text(410, 395, "Бесплатные голоса от наших партнеров", "2");
-		main_txt625 = new text(410, 405, "", "2");
+		main_txt624 = new text(440, 395, "ПОЛУЧИТЬ ГОЛОСА", "2");
+		main_txt625 = new text(540, 405, "", "2");
 		main_txt6255 = new text(410, 415, "", "2");
 		main_txt626 = new text(363, 430, "", "2");
 		
@@ -4932,10 +4932,10 @@ private var zebra3_bitmap:Class;
 				
 			transfer.addChild(panel_transfer_right);
 				
-		stage.addChild(loading_balls);
-		
-		var myBlur:BlurFilter = new BlurFilter();
-		transfer.filters = [myBlur];
+			stage.addChild(loading_balls);
+			
+			var myBlur:BlurFilter = new BlurFilter();
+			transfer.filters = [myBlur];
 		
 		}
 		
@@ -5080,7 +5080,7 @@ private var zebra3_bitmap:Class;
 			player_liga.addChild(link3);
 			player_liga.addChild(link4);
 			
-			if (champ != "euro") {
+			//if (champ != "euro") {
 				player_liga.addChild(link1);
 				player_liga.addChild(link2);
 				player_liga.addChild(button1txt);
@@ -5097,14 +5097,14 @@ private var zebra3_bitmap:Class;
 				player_liga.addChild(select_leaders);
 				player_liga.addChild(select_leaders_tour_txt);
 				
-			} else {
-				player_liga.addChild(button3txt);
+			//} else {
+				/*player_liga.addChild(button3txt);
 				player_liga.addChild(button4txt);
 				
 				player_liga.addChild(button3_euro);
-				player_liga.addChild(button4_euro);
+				player_liga.addChild(button4_euro);*/
 				
-			}
+			//}
 			
 			
 				button3txt.setColor("0xffffff");
@@ -6056,12 +6056,14 @@ private var zebra3_bitmap:Class;
 			
 			points_[i].setText(int(woff_answer.league_member[i].score.text())/10);
 			
+			/*
 			if (champ=="euro") {
 				sostav[i].x = -20;
-			} else {	
+			} else {
+			*/
 				sostav[i].x = 42;
 				sostav[i].setId(woff_answer.league_member[i].id_vk.text());
-			}
+			//}
 			
 			if (woff_answer.league_member[i].id_vk.text() == String(woff_uid)) {
 				main3_txt2.setText("Место: "+ String(i+1));
@@ -7391,13 +7393,13 @@ private var zebra3_bitmap:Class;
 				}
 				
 			for (var nnnn:int = woff_answer.footballer.length()+1; nnnn<350; nnnn++) {
-				transfer_array[nnnn].setText("--");
+				transfer_array[nnnn].setText("");
 				transfer_array[nnnn].setId(0);
-				transfer_club_array[nnnn].setText("----");
-				cost[nnnn].setText("-,-");
-				transfer_points_array[nnnn].setText("--");
-				transfer_efficiency[nnnn].setText("-");
-				transfer_get_array[nnnn].setId2("--");
+				transfer_club_array[nnnn].setText("");
+				cost[nnnn].setText("");
+				transfer_points_array[nnnn].setText("");
+				transfer_efficiency[nnnn].setText("");
+				transfer_get_array[nnnn].setId2("");
 				}
 				
 			panel_transfer_right.panelShow();
@@ -9093,7 +9095,6 @@ private var zebra3_bitmap:Class;
 				}
 				
 				parseTransfersSort(fff);	
-				
 			}
 			
 			private function transferSortName(e:MouseEvent):void {
@@ -9108,7 +9109,6 @@ private var zebra3_bitmap:Class;
 				}
 				
 				parseTransfersSort(fff);
-				
 			}
 			
 			private function transferSortRating(e:MouseEvent):void {
@@ -9272,13 +9272,13 @@ private var zebra3_bitmap:Class;
 			}
 			
 			points_[i].setText(answer.player[i].tournament_score.text()/10);
-			
+			/*
 			if (champ=="euro") {
 				sostav[i].x = -20;
-			} else {	
+			} else {	*/
 				sostav[i].x = 42;
 				sostav[i].setId(answer.player[i].id_vk.text());
-			}
+			//}
 			
 			if (answer.player[i].id_vk.text() == String(woff_uid)) {
 				main3_txt2.setText("Место: "+ String(i+1));
@@ -9656,7 +9656,7 @@ private var zebra3_bitmap:Class;
 			//select6sprite.addChild(main_txt622);
 			select6sprite.addChild(main_txt623);
 			select6sprite.addChild(main_txt624);
-			//select6sprite.addChild(main_txt625);
+			select6sprite.addChild(main_txt625);
 			//select6sprite.addChild(main_txt6255);
 			//select6sprite.addChild(main_txt626);
 			
