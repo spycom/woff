@@ -1985,7 +1985,7 @@ private var zebra3_bitmap:Class;
 		footman_txt11 = new text(210, 141, "--", "2");
 		footman_txt12 = new text(440, 141, "хз", "2");
 		footman_txt13 = new text(20, 188, "хз", "2");
-		footman_txt14 = new text(210, 188, "00 EU", "2");
+		footman_txt14 = new text(210, 188, "0 EU", "2");
 		footman_txt15 = new text(440, 188, "100 %", "2");
 		
 		// детали окна статистики команды
@@ -2016,6 +2016,9 @@ private var zebra3_bitmap:Class;
 		
 		team_stat_txt2.addEventListener(MouseEvent.CLICK, button2event);
 		team_stat_txt8.addEventListener(MouseEvent.CLICK, dropdowm_menu2);
+		
+		team_stat_txt5.setFull("Амплуа");
+		team_stat_txt7.setFull("Цена");
 		
 		team_stat_txt01.setFull("Полный Матч");
 		team_stat_txt02.setFull("Не Полный Матч");
@@ -2063,8 +2066,8 @@ private var zebra3_bitmap:Class;
 		
 		transfer_txt = new text(20, 105, "ТРАНСФЕРЫ", "1");
 		transfer_txt1 = new text(515, 130, "ПОИСК", "1");
-		transfer_txt2 = new text(48, 125, "EU /\u005C", "2");
-		transfer_txt3 = new text(125, 125, "ФАМИЛИЯ ИМЯ     /\u005C    КЛУБ", "2");
+		transfer_txt2 = new text(45, 125, "Цена", "2");
+		transfer_txt3 = new text(125, 125, "ФАМИЛИЯ ИМЯ         КЛУБ", "2");
 		transfer_txt4 = new text(268, 125, "ОЧКИ", "2");
 		transfer_txt5 = new text(309, 125, "ПОПУЛ.", "2");
 		transfer_txt6 = new text(355, 125, "ЭФФЕКТ.", "2");
@@ -9069,25 +9072,38 @@ private var zebra3_bitmap:Class;
 				wrapper.external.showInviteBox();
 			}
 			
+			private function resetTransferSort():void {
+				transfer_txt2.setText("Цена");
+				transfer_txt3.setText("ФАМИЛИЯ ИМЯ         КЛУБ ");
+				transfer_txt5.setText("ПОПУЛ.");
+				transfer_txt4.setText("ОЧКИ");
+				transfer_txt6.setText("ЭФФЕКТ.");
+			}
+			
 			private function transferSortCost(e:MouseEvent):void {
-				if(transfer_txt2.txt() == "EU \u005C/") {
-					transfer_txt2.setText("EU /\u005C");
-					//fff.sortOn("cost", Array.NUMERIC);
+				
+				if(transfer_txt2.txt() == "Цена /\u005C") {
+					transfer_txt2.setText("Цена \u005C/");
 					fff.reverse();
+					
 				} else { 
-					transfer_txt2.setText("EU \u005C/");
+					resetTransferSort();
+					transfer_txt2.setText("Цена /\u005C");
 					fff.sortOn("cost", Array.NUMERIC);
 				}
 				
-				parseTransfersSort(fff);				
+				parseTransfersSort(fff);	
+				
 			}
 			
 			private function transferSortName(e:MouseEvent):void {
-				if(transfer_txt3.txt() == "ФАМИЛИЯ ИМЯ    \u005C/     КЛУБ ") {
-					transfer_txt3.setText("ФАМИЛИЯ ИМЯ     /\u005C    КЛУБ ");
+				
+				if(transfer_txt3.txt() == "ФАМИЛИЯ ИМЯ    /\u005C     КЛУБ ") {
+					transfer_txt3.setText("ФАМИЛИЯ ИМЯ     \u005C/    КЛУБ ");
 					fff.sortOn("name");
 				} else { 
-					transfer_txt3.setText("ФАМИЛИЯ ИМЯ    \u005C/     КЛУБ ");
+					resetTransferSort();
+					transfer_txt3.setText("ФАМИЛИЯ ИМЯ    /\u005C     КЛУБ ");
 					fff.sortOn("name", Array.DESCENDING);
 				}
 				
@@ -9096,12 +9112,13 @@ private var zebra3_bitmap:Class;
 			}
 			
 			private function transferSortRating(e:MouseEvent):void {
-				if(transfer_txt5.txt() == "ПОПУЛ. \u005C/") {
-					transfer_txt5.setText("ПОПУЛ. /\u005C");
-					//fff.sortOn("cost", Array.NUMERIC);
+				
+				if(transfer_txt5.txt() == "ПОПУЛ. /\u005C") {
+					transfer_txt5.setText("ПОПУЛ. \u005C/");
 					fff.reverse();
 				} else { 
-					transfer_txt5.setText("ПОПУЛ. \u005C/");
+					resetTransferSort();
+					transfer_txt5.setText("ПОПУЛ. /\u005C");
 					fff.sortOn("rating", Array.NUMERIC);
 				}
 				
@@ -9109,12 +9126,13 @@ private var zebra3_bitmap:Class;
 			}
 			
 			private function transferSortPoints(e:MouseEvent):void {
-				if(transfer_txt4.txt() == "ОЧКИ \u005C/") {
-					transfer_txt4.setText("ОЧКИ /\u005C");
-					//fff.sortOn("cost", Array.NUMERIC);
+				
+				if(transfer_txt4.txt() == "ОЧКИ /\u005C") {
+					transfer_txt4.setText("ОЧКИ \u005C/");
 					fff.reverse();
 				} else { 
-					transfer_txt4.setText("ОЧКИ \u005C/");
+					resetTransferSort();
+					transfer_txt4.setText("ОЧКИ /\u005C");
 					fff.sortOn("tm_scores", Array.NUMERIC);
 				}
 				
@@ -9122,12 +9140,13 @@ private var zebra3_bitmap:Class;
 			}
 			
 			private function transferSortEff(e:MouseEvent):void {
-				if(transfer_txt6.txt() == "ЭФФЕКТ. \u005C/") {
-					transfer_txt6.setText("ЭФФЕКТ. /\u005C");
-					//fff.sortOn("cost", Array.NUMERIC);
+				
+				if(transfer_txt6.txt() == "ЭФФЕКТ. /\u005C") {
+					transfer_txt6.setText("ЭФФЕКТ. \u005C/");
 					fff.reverse();
 				} else { 
-					transfer_txt6.setText("ЭФФЕКТ. \u005C/");
+					resetTransferSort();
+					transfer_txt6.setText("ЭФФЕКТ. /\u005C");
 					fff.sortOn("efficiency", Array.NUMERIC);
 				}
 				
