@@ -13,11 +13,15 @@ private var text_array:Array;
 public var uids:String;
 private var uids_array:Array;
 private var viewer_id:int;
+private var sid:String;
+private var woff_secret:String;
 
-
-		public function winners_list_sprite(viewer_id_:int) {
+		public function winners_list_sprite(viewer_id_:int, sid_:String, woff_secret_:String) {
 		
 			viewer_id = viewer_id_;
+			sid = sid_;
+			woff_secret = woff_secret_;
+			
 		block = new Loader();
 		block.load(new URLRequest("http://62.76.177.54/woff_images/img2/block.png"));
 		block.x = 5;
@@ -56,7 +60,8 @@ private var viewer_id:int;
 		//var uid = "64416";
 			//var api_id:String = stage.loaderInfo.parameters.api_id;
 		var api_id:String = "1848099";
-		//var userID:String = stage.loaderInfo.parameters.user_id;
+			//var api_id:String = "1876444";
+			//var userID:String = stage.loaderInfo.parameters.user_id;
 		//var viewer_id:String = stage.loaderInfo.parameters.viewer_id;
 				
 		//var uids:Array = uid;
@@ -70,7 +75,7 @@ private var viewer_id:int;
 	
 		var methodFromAPI = "getProfiles";
 		
-		var _sig:String = viewer_id + 'api_id='+api_id+'fields=photomethod='+methodFromAPI+'test_mode='+test_mode+'uids='+ uids +'v=2.0'+ api_secret;
+		var _sig:String = viewer_id + 'api_id='+api_id+'fields=photomethod='+methodFromAPI+'test_mode='+test_mode+'uids='+ uids +'v=3.0'+ woff_secret;
 		var sig:String = MD5.encrypt(_sig); // используем метод hash класса md5 и получаем сигнатуру
 		
 		var request = new URLRequest("http://api.vkontakte.ru/api.php");
@@ -78,13 +83,14 @@ private var viewer_id:int;
   		
   		var v:URLVariables = new URLVariables();
   		v.api_id = api_id;
-		v.v = "2.0"; // Версия АПИ
+		v.v = "3.0"; // Версия АПИ
 		v.method = methodFromAPI;
 		v.uids = uids;
 		v.test_mode = test_mode;
 		v.sig = sig;
 		v.fields = "photo";
-	
+		v.sid = sid;
+		
    		request.data = v;
           
 		var loader222:URLLoader = new URLLoader();
@@ -103,7 +109,7 @@ private var viewer_id:int;
 	
 			var answer= new XML(e.target.data);
 			
-			logo.setText(answer);
+			//logo.setText(answer);
 			
 			for (var i:int=0; i<answer.user.length(); i++) {
 				

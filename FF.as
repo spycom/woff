@@ -486,6 +486,7 @@ public var woff_sig:String;
 private var woff_uid:int;
 private var woff_api_id:int;
 private var woff_secret:String;
+private var woff_sid:String;
 private var footman_array:Array;
 private var team_stat_array:Array;
 private var team_eu_cost:Array;
@@ -655,8 +656,8 @@ private var zebra3_bitmap:Class;
 		woff_general_request = new URLRequest(woff_api1);
 		woff_general_request.method = URLRequestMethod.GET;
 		
-		//woff_secret = stage.loaderInfo.parameters.api_secret;
-		woff_secret = "DuIP8H5HnE";
+		woff_secret = stage.loaderInfo.parameters.secret;
+		//woff_secret = "DuIP8H5HnE";
 		
 		woff_uid = stage.loaderInfo.parameters.viewer_id;
 		//woff_uid = 64416;
@@ -668,7 +669,8 @@ private var zebra3_bitmap:Class;
 		referrer = stage.loaderInfo.parameters.referrer;
 		poster_id = stage.loaderInfo.parameters.poster_id;
 		post_id = stage.loaderInfo.parameters.post_id;
-
+		
+		woff_sid = stage.loaderInfo.parameters.sid;
 		/*
 		current_tournament = 5;
 		setMethod("getTournament");
@@ -2664,7 +2666,7 @@ private var zebra3_bitmap:Class;
 		firstManual.autoTeamHelper.fon_team.addChild(buy_auto_team);
 		
 		
-		winners_list = new winners_list_sprite(woff_uid);
+		winners_list = new winners_list_sprite(woff_uid, woff_sid, woff_secret);
 		winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
 		
 		friends_league_avatar = new UserAvatar(woff_uid);

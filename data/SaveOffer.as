@@ -358,6 +358,8 @@ public var wrapper: Object;
 				wall_message = "Чемпионате Италии";
 			if (champ == "chlig")
 				wall_message = "Лиге Чемпионов";
+			if (champ == "euro")
+				wall_message = "Чемпионате Европы";
 					
 			var message:String = new String("собрал команду в World of Fantasy Fooball в " + wall_message + " http://vkontakte.ru/fantasyfootball");
 			
@@ -412,6 +414,8 @@ public var wrapper: Object;
 				wall_message = "Чемпионате Италии";
 			if (champ == "chlig")
 				wall_message = "Лиге Чемпионов";
+			if (champ == "euro")
+				wall_message = "Чемпионате Европы";
 			
 			var message:String = new String("собрал команду в World of Fantasy Fooball в " + wall_message + " http://vkontakte.ru/app1848099");
 			var attachment:String = new String(answer.photo.id.text());
@@ -460,6 +464,8 @@ public var wrapper: Object;
 				wall_message = "Чемпионате Италии";
 			if (champ == "chlig")
 				wall_message = "Лиге Чемпионов";
+			if (champ == "euro")
+				wall_message = "Чемпионате Европы";
 			
 			var message:String = new String("собрал команду в World of Fantasy Fooball в " + wall_message + " http://vkontakte.ru/fantasyfootball");
 			var attachment:String = new String(answer.photo.id.text());
