@@ -2615,7 +2615,7 @@ private var zebra3_bitmap:Class;
 			
 			var blablabla:Array = new Array();
 			blablabla.push(0);
-			user_photo = new vk_photo(woff_uid, blablabla, woff_api_id);
+			user_photo = new vk_photo(woff_uid, blablabla, woff_api_id, woff_secret, woff_sid);
 			liders_list.addChild(user_photo);
 			
 			
@@ -6017,7 +6017,7 @@ private var zebra3_bitmap:Class;
 			
 			}
 			
-			user_photo = new vk_photo(woff_uid, uids_array, woff_api_id);
+			user_photo = new vk_photo(woff_uid, uids_array, woff_api_id, woff_secret, woff_sid);
 			user_photo.x = 0;
 			user_photo.y = 5;
 			liders_list.addChild(user_photo);
@@ -6078,7 +6078,7 @@ private var zebra3_bitmap:Class;
 		
 			}
 			//user_photo.clear();
-			user_photo = new vk_photo(woff_uid, uids_array, woff_api_id);
+			user_photo = new vk_photo(woff_uid, uids_array, woff_api_id, woff_secret, woff_sid);
 			user_photo.x = 0;
 			user_photo.y = 5;
 			liders_list.addChild(user_photo);
@@ -9303,7 +9303,7 @@ private var zebra3_bitmap:Class;
 			
 			
 			
-			user_photo = new vk_photo(woff_uid, uids_array, woff_api_id);
+			user_photo = new vk_photo(woff_uid, uids_array, woff_api_id, woff_secret, woff_sid);
 			user_photo.x = 0;
 			user_photo.y = 5;
 			liders_list.addChild(user_photo);

@@ -1,23 +1,28 @@
 package data {
+	import data.info_b;
+	import data.text;
+	
 	import flash.display.*;
 	import flash.events.*;
 	import flash.net.*;
-	import data.text;
-	import data.info_b;
 	
 
 	public class vk_photo extends Sprite {
 		
 public var photo:Loader;		
 public var uid_:Array;
+private var sid:String;
 public var footId_:int;
 public var uids:String;
 private var answer:XML;
 private var user_photo:Loader;
 public var user_name:Array;
+private var woff_secret:String;
 
-		public function vk_photo(viewer_id:int, uid:Array, woff_api_id:int) {
+		public function vk_photo(viewer_id:int, uid:Array, woff_api_id:int, woff_secret_:String, sid_:String) {
 			uid_ = uid;
+			woff_secret = woff_secret_;
+			sid = sid_;
 			//var api_id:String = stage.loaderInfo.parameters.api_id;
 		var api_id:int = woff_api_id;
 		//var userID:String = stage.loaderInfo.parameters.user_id;
@@ -28,12 +33,12 @@ public var user_name:Array;
 		for (var ii:int = 1; ii < uid.length; ii++)
 						uids = uids + ","+ uid[ii] ;
 						
-		var api_secret:String = 'DuIP8H5HnE';
+		//var api_secret:String = 'DuIP8H5HnE';
 		var test_mode:Number = 0;
 	
 		var methodFromAPI = "getProfiles";
 		
-		var _sig:String = viewer_id + 'api_id='+api_id+'fields=photomethod='+methodFromAPI+'test_mode='+test_mode+'uids='+ uids +'v=2.0'+ api_secret;
+		var _sig:String = viewer_id + 'api_id='+api_id+'fields=photomethod='+methodFromAPI+'test_mode='+test_mode+'uids='+ uids +'v=3.0'+ woff_secret;
 		var sig:String = MD5.encrypt(_sig); // используем метод hash класса md5 и получаем сигнатуру
 		
 		var request = new URLRequest("http://api.vkontakte.ru/api.php");
@@ -41,12 +46,13 @@ public var user_name:Array;
   		
   		var v:URLVariables = new URLVariables();
   		v.api_id = api_id;
-		v.v = "2.0"; // Версия АПИ
+		v.v = "3.0"; // Версия АПИ
 		v.method = methodFromAPI;
 		v.uids = uids;
 		v.test_mode = test_mode;
 		v.sig = sig;
 		v.fields = "photo";
+		v.sid = sid;
 	
    		request.data = v;
           
