@@ -2219,6 +2219,8 @@ private var zebra3_bitmap:Class;
 			}
 			
 		// генерация списка трансферов
+		genTransferList(350);
+		/*
 		var transfer_row:Array = new Array();
 		
 		transfer_footman = new text(115, 140, "current footman", "2");
@@ -2291,7 +2293,7 @@ private var zebra3_bitmap:Class;
 			}
 		
 		fff = [cost, transfer_array];
-		
+		*/
 			
 		// расстановка игроков по полю
 		
@@ -2902,10 +2904,10 @@ private var zebra3_bitmap:Class;
 			//main1.addChild(winners_list);
 			//winners_list = new winners_list_sprite(woff_uid);
 			//winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
-			
-			//main1.addChild(winners_list);
-			//winners_list.setChamp("rus");
-				//getLeadersFinal();
+			/*
+			main1.addChild(winners_list);
+			winners_list.setChamp("rus");
+				getLeadersFinal();*/
 	}
 	
 	// выбор лиги чемпионов
@@ -4856,12 +4858,13 @@ private var zebra3_bitmap:Class;
 			} else {
 			transfer_footman.setText("новый игрок");
 			}
-			
+		
+		/*
 		for (var tb:int=1; tb<300; tb++) {
 			transfer_get_array[tb].setId1(current_id); 
 			transfer_get_array[tb].setStatus(current_status);
 		}
-		
+		*/
 		addChild(transfer);
 			
 			transfer.addChild(background);
@@ -7371,7 +7374,9 @@ private var zebra3_bitmap:Class;
 				rect.y = 0;
 				transfer_list.scrollRect = rect;
 				scroll_tr.y = 125;
-					
+				
+			genTransferList(woff_answer.footballer.length()+1);		
+			
 			for (var n:int=1; n < woff_answer.footballer.length()+1; n++) {
 				
 					fff.push({cost:woff_answer.footballer[n-1].cost.text(), 
@@ -7391,7 +7396,7 @@ private var zebra3_bitmap:Class;
 				transfer_rating[n].setText(woff_answer.footballer[n-1].rating.text());
 				transfer_efficiency[n].setText(Math.round(int(woff_answer.footballer[n-1].tournament_score.text())*100/int(woff_answer.footballer[n-1].cost.text()))/10);
 				}
-				
+			/*	
 			for (var nnnn:int = woff_answer.footballer.length()+1; nnnn<350; nnnn++) {
 				transfer_array[nnnn].setText("");
 				transfer_array[nnnn].setId(0);
@@ -7401,7 +7406,7 @@ private var zebra3_bitmap:Class;
 				transfer_efficiency[nnnn].setText("");
 				transfer_get_array[nnnn].setId2("");
 				}
-				
+				*/
 			panel_transfer_right.panelShow();
 			//dispatchEvent(new Event(Event.COMPLETE));	
 			
@@ -9983,6 +9988,88 @@ private var zebra3_bitmap:Class;
 		private function inputFocuse(e:FocusEvent):void {
 			if (main1_txt8.txt() == "no team title")
 				main1_txt8.setText("");
+		}
+		
+		// generation Transfer List
+		private function genTransferList(rows:int):void {
+			// генерация списка трансферов
+			var num:int = transfer_list.numChildren;
+				while (num--)
+					{
+							transfer_list.removeChildAt(0);
+					}
+			
+			var transfer_row:Array = new Array();
+			
+			transfer_footman = new text(115, 140, "current footman", "2");
+			
+			
+			transfer_array = new Array();
+			transfer_club_array = new Array();
+			cost = new Array();
+			transfer_points_array = new Array();
+			transfer_get_array = new Array();
+			transfer_efficiency = new Array();
+			transfer_rating = new Array();
+			
+			transfer_row = [new text(37, trstat_freq, "hhh", String(number)), new text(55, trstat_freq, "jjj", String(number))];
+			
+			
+			
+			for (var n:int=1; n<rows; n++) {
+			
+			var trstat_freq:int = new int(23*n-23);
+			
+			number = 2;
+			
+			
+			cost[n] = new text(0, 0, "", String(number));
+			cost[n].x = 37;
+			cost[n].y = trstat_freq;
+			
+			transfer_array[n] = new text(100, trstat_freq, "", String(number));
+			
+			transfer_club_array[n] = new text(179, trstat_freq, "", String(number));
+			transfer_points_array[n] = new text(265, trstat_freq, "", String(number));
+			transfer_rating[n] = new text(307, trstat_freq, "", String(number));
+			transfer_efficiency[n] = new text(352, trstat_freq, "", String(number));
+			footman_points = new text(350, trstat_freq, "", String(number));
+			
+			
+			transfer_array[n].addEventListener(MouseEvent.CLICK, footmanEvent2);
+			transfer_array[n].addEventListener(MouseEvent.MOUSE_OVER, mouseOver);
+			transfer_array[n].addEventListener(MouseEvent.MOUSE_OUT, mouseOut);
+			//transfer_array.push[transfer_table_columns];
+			//transfer_array[n] = [new text(30*1, 10, "transfer_table", String(number)), new text(30*3, 10, "transfer_table", String(number))];
+			//transfer_array[n].y = trstat_freq;
+			
+			transfer_get_array[n] = new transfer_get();
+			transfer_get_array[n].addEventListener(MouseEvent.CLICK, getTransferEvent);
+			transfer_get_array[n].x = 407;
+			transfer_get_array[n].y = trstat_freq;
+			
+			number = 2;
+			
+			
+			if ((n & 1) !== 0) {
+			var zebra_tr = new zebra3_bitmap();
+			zebra_tr.x = 10;
+			zebra_tr.y = trstat_freq-2;
+			transfer_list.addChild(zebra_tr);
+			}
+			
+			transfer_list.addChild(cost[n]);
+			transfer_list.addChild(footman_points);
+			transfer_list.addChild(transfer_array[n]);
+			transfer_list.addChild(transfer_club_array[n]);
+			transfer_list.addChild(transfer_points_array[n]);
+			transfer_list.addChild(transfer_rating[n]);
+			transfer_list.addChild(transfer_efficiency[n]);
+			transfer_list.addChild(transfer_get_array[n]);
+			}
+			
+			fff = [cost, transfer_array];
+			
 		}
 }
 }
