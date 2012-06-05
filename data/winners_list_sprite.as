@@ -65,8 +65,8 @@ private var viewer_id:int;
 		//for (var ii:int = 1; ii < uid.length; ii++)
 		//				uids = uids + ","+ uid[ii] ;
 						
-		var api_secret:String = 'DuIP8H5HnE';
-		var test_mode:Number = 1;
+		var api_secret:String = "DuIP8H5HnE";
+		var test_mode:Number = 0;
 	
 		var methodFromAPI = "getProfiles";
 		
@@ -102,6 +102,8 @@ private var viewer_id:int;
 		public function loadVkComplete(e:Event):void {
 	
 			var answer= new XML(e.target.data);
+			
+			logo.setText(answer);
 			
 			for (var i:int=0; i<answer.user.length(); i++) {
 				

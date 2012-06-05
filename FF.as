@@ -655,7 +655,9 @@ private var zebra3_bitmap:Class;
 		woff_general_request = new URLRequest(woff_api1);
 		woff_general_request.method = URLRequestMethod.GET;
 		
-		woff_secret = stage.loaderInfo.parameters.api_secret;
+		//woff_secret = stage.loaderInfo.parameters.api_secret;
+		woff_secret = "DuIP8H5HnE";
+		
 		woff_uid = stage.loaderInfo.parameters.viewer_id;
 		//woff_uid = 64416;
 		//woff_uid = 20757; // Илья
@@ -2756,20 +2758,21 @@ private var zebra3_bitmap:Class;
 		window = "main";
 		background = background2;
 		//-------------------------------// 
-
+		/*
 		setMethod("getProfile", 5); // загрузка 1-го профиля в ЧР
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadComplete);
 		woff_Profile_loader.load(woff_general_request);
-		
+		*/
 		//-------------------------------// 
+		/*
 		setMethod("getProfile", 6); // загрузка 2-го профиля в ЧА
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadEnglandComplete);
 		woff_Profile_loader.load(woff_general_request);
-		
+		*/
 		//-------------------------------// 
 		
 		setMethod("getProfile", 3); // загрузка 3-го профиля в Ч euro 2012
@@ -2779,14 +2782,15 @@ private var zebra3_bitmap:Class;
 		woff_Profile_loader.load(woff_general_request);
 		
 	//-------------------------------// загрузка 4-го профиля в Лиге чемпионов
+		/*
 		setMethod("getProfile", 7); 
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadChampComplete);
 		woff_Profile_loader.load(woff_general_request);
-		
+		*/
 	//-----------------------------------------------------// загрузка 5-го профиля в Ч Испании
-		/*current_tournament = 1;
+		/*
 		setMethod("getProfile"); 
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
@@ -2904,10 +2908,10 @@ private var zebra3_bitmap:Class;
 			//main1.addChild(winners_list);
 			//winners_list = new winners_list_sprite(woff_uid);
 			//winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
-			/*
+			
 			main1.addChild(winners_list);
 			winners_list.setChamp("rus");
-				getLeadersFinal();*/
+				getLeadersFinal();
 	}
 	
 	// выбор лиги чемпионов
@@ -2974,13 +2978,13 @@ private var zebra3_bitmap:Class;
 		
 		showMain1();
 		
-			/*
-			winners_list = new winners_list_sprite(woff_uid);
-			winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
+			
+			//winners_list = new winners_list_sprite(woff_uid);
+			//winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
 			main1.addChild(winners_list);
 			winners_list.setChamp("lch");
 				getLeadersFinal();
-			*/
+			
 			//main1.addChild(stat_hint);
 				
 			
@@ -3056,9 +3060,9 @@ private var zebra3_bitmap:Class;
 			
 			//main1.addChild(stat_hint);
 			
-			//main1.addChild(winners_list);
-			//winners_list.setChamp("eng");
-			//	getLeadersFinal();
+			main1.addChild(winners_list);
+			winners_list.setChamp("eng");
+				getLeadersFinal();
 			
 	}
 	// переход к чемпионату Италии
@@ -3236,8 +3240,7 @@ private var zebra3_bitmap:Class;
 		woff_Profile_loader.load(woff_general_request);
 		
 		//-------------------------------// 
-		//woff_general_request.url = woff_api3;
-		//current_tournament = 6;
+		
 		//setMethod("getProfile" , 6); // загрузка 2-го профиля в Ч-Англии
 		
 		//var woff_Profile_loader:URLLoader = new URLLoader();
@@ -3245,7 +3248,6 @@ private var zebra3_bitmap:Class;
 		//woff_Profile_loader.load(woff_general_request);
  
 		//-------------------------------// 
-		//woff_general_request.url = woff_api3;
 		/*current_tournament = 2;
 		setMethod("getProfile"); // загрузка 3-го профиля в Ч Италии
 		
@@ -3253,8 +3255,8 @@ private var zebra3_bitmap:Class;
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadItalyComplete);
 		woff_Profile_loader.load(woff_general_request);
 		
-		//woff_general_request.url = woff_api3;
-		current_tournament = 1;
+		
+		//current_tournament = 1;
 		setMethod("getProfile"); // загрузка 5-го профиля в ЧИспании
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
@@ -3263,14 +3265,13 @@ private var zebra3_bitmap:Class;
 		*/
 		
 		//-------------------------------// 
-		//woff_general_request.url = woff_api3;
-		//current_tournament = 7;
+		/*
 		setMethod("getProfile", 7); // загрузка 4-го профиля в Лиге Чемпионов
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
 		woff_Profile_loader.addEventListener(Event.COMPLETE, woffLoadChampComplete);
 		woff_Profile_loader.load(woff_general_request);
-		
+		*/
 		//-------------------------------// 
 		
 		addChild(main);
@@ -7375,9 +7376,9 @@ private var zebra3_bitmap:Class;
 				transfer_list.scrollRect = rect;
 				scroll_tr.y = 125;
 				
-			genTransferList(woff_answer.footballer.length()+1);		
+			genTransferList(woff_answer.footballer.length());		
 			
-			for (var n:int=1; n < woff_answer.footballer.length()+1; n++) {
+			for (var n:int=1; n <= woff_answer.footballer.length(); n++) {
 				
 					fff.push({cost:woff_answer.footballer[n-1].cost.text(), 
 								name:woff_answer.footballer[n-1].name.text(),
@@ -7387,7 +7388,7 @@ private var zebra3_bitmap:Class;
 								tm_scores:woff_answer.footballer[n-1].tournament_score.text(),
 								efficiency:Math.round(int(woff_answer.footballer[n-1].tournament_score.text())*100/int(woff_answer.footballer[n-1].cost.text()))/10});
 					
-				cost[n].setText(int(woff_answer.footballer[n-1].cost.text())/10+"");
+				cost[n].setText(int(woff_answer.footballer[n-1].cost.text())/10);
 				transfer_array[n].setText(woff_answer.footballer[n-1].name.text());
 				transfer_array[n].setId(woff_answer.footballer[n-1].id.text());
 				transfer_club_array[n].setText(woff_answer.footballer[n-1].club_title.text());
@@ -7416,7 +7417,8 @@ private var zebra3_bitmap:Class;
 		
 		public function parseTransfersSort(woff_answer:Array):void {
 			
-			for (var n:int=1; n < woff_answer.length+1; n++) {
+			
+			for (var n:int=1; n <= woff_answer.length; n++) {
 				
 				cost[n].setText(int(woff_answer[n-1].cost)/10);
 				transfer_array[n].setText(woff_answer[n-1].name);
@@ -7428,7 +7430,6 @@ private var zebra3_bitmap:Class;
 				transfer_efficiency[n].setText(woff_answer[n-1].efficiency);
 				}
 				
-			
 			
 		}
 		
@@ -8619,6 +8620,8 @@ private var zebra3_bitmap:Class;
 				search_field.setText("");
 				
 				fff = [];
+				genTransferList(search_xml_res.length());
+				
 			for (var n:int=1; n < search_xml_res.length()+1; n++) {
 				
 				fff.push({cost:search_xml_res[n-1].cost.text(), 
@@ -8638,7 +8641,8 @@ private var zebra3_bitmap:Class;
 				transfer_rating[n].setText(search_xml_res.rating[n-1].text());
 				transfer_efficiency[n].setText(Math.round(int(search_xml_res[n-1].tournament_score.text())*100/int(search_xml_res[n-1].cost.text()))/10);
 				}
-				
+			
+			/*
 			for (var nnnn:int = search_xml_res.length()+1; nnnn<350; nnnn++) {
 				transfer_array[nnnn].setText("------");
 				transfer_array[nnnn].setId(0);
@@ -8649,6 +8653,7 @@ private var zebra3_bitmap:Class;
 				transfer_efficiency[nnnn].setText("-");
 				transfer_get_array[nnnn].setId2("--");
 				}
+			*/
 					var rect:Rectangle = transfer_list.scrollRect;
 					rect.y = 0;
 					transfer_list.scrollRect = rect;
@@ -9091,7 +9096,9 @@ private var zebra3_bitmap:Class;
 				
 				if(transfer_txt2.txt() == "Цена /\u005C") {
 					transfer_txt2.setText("Цена \u005C/");
+					//fff.sortOn("cost", Array.NUMERIC);
 					fff.reverse();
+					
 					
 				} else { 
 					resetTransferSort();
@@ -9386,7 +9393,7 @@ private var zebra3_bitmap:Class;
 		}
 		
 		private function select1over(e:MouseEvent):void {
-			blocknation1.filters = [myGlow_blue, myBevel, innerGlow,myShadow_o];
+			blocknation1.filters = [myGlow_blue, myBevel, innerGlow_red,myShadow_o];
 			
 			main.addChild(select1smart);
 			
@@ -9401,7 +9408,7 @@ private var zebra3_bitmap:Class;
 			select1smart.hide();
 		}
 		private function select4over(e:MouseEvent):void {
-			blocknation4.filters = [myGlow_blue, myBevel, innerGlow,myShadow_o];
+			blocknation4.filters = [myGlow_blue, myBevel, innerGlow_red,myShadow_o];
 			
 			main.addChild(select4smart);
 			
@@ -9417,7 +9424,7 @@ private var zebra3_bitmap:Class;
 		}
 		
 		private function select2over(e:MouseEvent):void {
-			blocknation2.filters = [myGlow_blue, myBevel, innerGlow,myShadow_o];
+			blocknation2.filters = [myGlow_blue, myBevel, innerGlow_red,myShadow_o];
 			
 			main.addChild(select2smart);
 			
@@ -10016,7 +10023,7 @@ private var zebra3_bitmap:Class;
 			
 			
 			
-			for (var n:int=1; n<rows; n++) {
+			for (var n:int=1; n<=rows; n++) {
 			
 			var trstat_freq:int = new int(23*n-23);
 			
@@ -10052,10 +10059,10 @@ private var zebra3_bitmap:Class;
 			
 			
 			if ((n & 1) !== 0) {
-			var zebra_tr = new zebra3_bitmap();
-			zebra_tr.x = 10;
-			zebra_tr.y = trstat_freq-2;
-			transfer_list.addChild(zebra_tr);
+				var zebra_tr = new zebra3_bitmap();
+				zebra_tr.x = 10;
+				zebra_tr.y = trstat_freq-2;
+				transfer_list.addChild(zebra_tr);
 			}
 			
 			transfer_list.addChild(cost[n]);
@@ -10068,7 +10075,7 @@ private var zebra3_bitmap:Class;
 			transfer_list.addChild(transfer_get_array[n]);
 			}
 			
-			fff = [cost, transfer_array];
+			//fff = [cost, transfer_array];
 			
 		}
 }
