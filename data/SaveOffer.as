@@ -35,14 +35,15 @@ private var request2:URLRequest;
 private var loader2:URLLoader;
 //private var aid:String;
 public var wrapper: Object;
+private var sid:String;
 
-
-		public function SaveOffer(brr_income:ByteArray, viewer_id_:int, api_id_:int, api_secret_:String, wrapper_:Object, champ_:String) {
+		public function SaveOffer(brr_income:ByteArray, viewer_id_:int, api_id_:int, api_secret_:String, wrapper_:Object, champ_:String, sid_:String) {
 			wrapper = wrapper_;
 			//api_id = 1848099;
 			//aid = "16470824_120962438";
 			//aid = "64416_8236384";
 			champ = champ_;
+			sid = sid_;
 			
 			brr = brr_income;
 			viewer_id = viewer_id_;
@@ -182,7 +183,7 @@ public var wrapper: Object;
 	
 			var methodFromAPI = "photos.getWallUploadServer";
 		
-			var _sig:String =viewer_id + 'api_id='+api_id+'method='+methodFromAPI+'test_mode='+test_mode+'v=2.0'+ api_secret;
+			var _sig:String =viewer_id + 'api_id='+api_id+'method='+methodFromAPI+'test_mode='+test_mode+'v=3.0'+ api_secret;
 			var sig:String = MD5.encrypt(_sig); // используем метод hash класса md5 и получаем сигнатуру
 		
 			var request = new URLRequest("http://api.vkontakte.ru/api.php");
@@ -190,12 +191,12 @@ public var wrapper: Object;
   		
   			var v:URLVariables = new URLVariables();
   			v.api_id = api_id;
-			v.v = "2.0"; // Версия АПИ
+			v.v = "3.0"; // Версия АПИ
 			v.method = methodFromAPI;
 			//v.uids = viewer_id;
 			v.test_mode = test_mode;
 			v.sig = sig;
-			//v.fields = "photo_big";
+			v.sid = sid;
 	
    			request.data = v;
           
@@ -363,7 +364,7 @@ public var wrapper: Object;
 					
 			var message:String = new String("собрал команду в World of Fantasy Fooball в " + wall_message + " http://vkontakte.ru/fantasyfootball");
 			
-			var _sig:String = viewer_id + 'api_id='+api_id+'hash='+json_data.hash+'message='+message+'method='+methodFromAPI+'photo='+json_data.photo+'server='+json_data.server+'test_mode='+test_mode+'v=2.0'+'wall_id='+viewer_id + api_secret;
+			var _sig:String = viewer_id + 'api_id='+api_id+'hash='+json_data.hash+'message='+message+'method='+methodFromAPI+'photo='+json_data.photo+'server='+json_data.server+'test_mode='+test_mode+'v=3.0'+'wall_id='+viewer_id + api_secret;
 			var sig:String = MD5.encrypt(_sig); // используем метод hash класса md5 и получаем сигнатуру
 		
 			var request = new URLRequest("http://api.vkontakte.ru/api.php");
@@ -371,7 +372,7 @@ public var wrapper: Object;
   		
   			var v:URLVariables = new URLVariables();
   			v.api_id = api_id;
-			v.v = "2.0"; // Версия АПИ
+			v.v = "3.0"; // Версия АПИ
 			v.method = methodFromAPI;
 			//v.uids = viewer_id;
 			v.test_mode = test_mode;
@@ -381,6 +382,7 @@ public var wrapper: Object;
 			v.hash = json_data.hash;
 			v.wall_id = viewer_id;
 			v.message = message;
+			v.sid = sid;
 			
    			request.data = v;
           
@@ -391,7 +393,7 @@ public var wrapper: Object;
 			//SaveCloseText.setText('wtf');
 			
 		}
-		
+		/*
 		private function loadWallPhotoComplete(e:Event):void {
 			//var json_data:Object=JSON.decode(e.target.data);
 			
@@ -448,6 +450,7 @@ public var wrapper: Object;
 			//SaveCloseText.setText(attachment);
 			
 		}
+		*/
 		private function  loadHashComplete(e:Event):void {
 			//SaveCloseText.setText(e.target.data);
 			

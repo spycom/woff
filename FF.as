@@ -525,6 +525,7 @@ private var current_foot_id2:int;
 private var current_foot_id1_:int;
 private var current_foot_id2_:int;
 private var current_status1:int;
+private var current_status:int;
 
 private var rules:rules_s;
 private var current_captain_id:int;
@@ -4844,7 +4845,7 @@ private var zebra3_bitmap:Class;
 		current_id = (e.currentTarget.foot_id);
 		current_role = (e.currentTarget.amplua);
 		var current_position:int = (e.currentTarget.position);
-		var current_status:int = (e.currentTarget.status);
+		current_status = (e.currentTarget.status);
 		current_club =  (footman_form_array[current_position].clubId);
 		
 		transfer_txt8.setText(String(team_fb_cost[current_position]/10));
@@ -7395,7 +7396,9 @@ private var zebra3_bitmap:Class;
 				transfer_array[n].setId(woff_answer.footballer[n-1].id.text());
 				transfer_club_array[n].setText(woff_answer.footballer[n-1].club_title.text());
 				transfer_points_array[n].setText(woff_answer.footballer[n-1].tournament_score.text());
+				transfer_get_array[n].setId1(current_id); 
 				transfer_get_array[n].setId2(woff_answer.footballer[n-1].id.text());
+				transfer_get_array[n].setStatus(current_status);
 				transfer_rating[n].setText(woff_answer.footballer[n-1].rating.text());
 				transfer_efficiency[n].setText(Math.round(int(woff_answer.footballer[n-1].tournament_score.text())*100/int(woff_answer.footballer[n-1].cost.text()))/10);
 				}
@@ -9512,7 +9515,7 @@ private var zebra3_bitmap:Class;
       		 
 			main2.removeChild(camera);
 			
-			var SaveOfferWindow = new SaveOffer(brr, woff_uid, 1848099, "DuIP8H5HnE", wrapper, champ);
+			var SaveOfferWindow = new SaveOffer(brr, woff_uid, woff_api_id, woff_secret, wrapper, champ, woff_sid);
 				addChild(SaveOfferWindow);
 			
 		}
@@ -9528,7 +9531,7 @@ private var zebra3_bitmap:Class;
 			
 			main2.removeChild(camera);
 			
-			var SaveOfferWindow = new SaveOffer(brr, woff_uid, 1848099, "DuIP8H5HnE", wrapper, champ);
+			var SaveOfferWindow = new SaveOffer(brr, woff_uid, woff_api_id, woff_secret, wrapper, champ, woff_sid);
 			addChild(SaveOfferWindow);
 			
 		}
