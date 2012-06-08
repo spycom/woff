@@ -9194,13 +9194,11 @@ private var zebra3_bitmap:Class;
 			private function getFriends():void {
 				
 				var api_id:int = woff_api_id;
-				
-				var api_secret:String = 'DuIP8H5HnE';
 				var test_mode:Number = 0;
 	
 				var methodFromAPI = "getAppFriends";
 		
-				var _sig:String = woff_uid + 'api_id='+api_id+'method='+methodFromAPI+'test_mode='+test_mode+'v=2.0'+ api_secret;
+				var _sig:String = woff_uid + 'api_id='+api_id+'method='+methodFromAPI+'test_mode='+test_mode+'v=3.0'+ woff_secret;
 				var sig:String = MD5.encrypt(_sig); // используем метод hash класса md5 и получаем сигнатуру
 		
 				var request = new URLRequest("http://api.vkontakte.ru/api.php");
@@ -9208,9 +9206,9 @@ private var zebra3_bitmap:Class;
   		
   				var v:URLVariables = new URLVariables();
   				v.api_id = api_id;
-				v.v = "2.0"; // Версия АПИ
+				v.v = "3.0"; // Версия АПИ
 				v.method = methodFromAPI;
-				//v.uids = uids;
+				v.sid = woff_sid;
 				v.test_mode = test_mode;
 				v.sig = sig;
 			
