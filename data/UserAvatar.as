@@ -1,46 +1,49 @@
 package data
 {
+	import data.text;
+	
 	import flash.display.*;
 	import flash.events.*;
 	import flash.net.*;
-	import data.text;
 	import flash.system.LoaderContext;
 	
 	public class UserAvatar extends Sprite
 	{
 		private var answer:XML;
 		
-		public function UserAvatar(viewer_id:int)
+		public function UserAvatar(params:Object)
 		{
-			var api_id:String = "1848099";
+			var api_id:String = params.api_id;
 			//var userID:String = stage.loaderInfo.parameters.user_id;
-			//var viewer_id:String = stage.loaderInfo.parameters.viewer_id;
-			
+			var viewer_id:String = params.viewer_id;
+			var version:String = params.version;
+			var sid = params.sid;
 			//var uids:Array = uid;
 			//uids = viewer_id ;
 			
 			//for (var ii:int = 1; ii < uid.length; ii++)
 				//uids = uids + ","+ uid[ii] ;
 			
-			var api_secret:String = 'DuIP8H5HnE';
-			var test_mode:Number = 1;
+			var api_secret:String = params.api_secret;
+			var test_mode:Number = params.test_mode;
 			
 			var methodFromAPI = "getProfiles";
 			
-			var _sig:String = viewer_id + 'api_id='+api_id+'fields=photo_medium_recmethod='+methodFromAPI+'test_mode='+test_mode+'uids='+ viewer_id +'v=2.0'+ api_secret;
+			var _sig:String = viewer_id + 'api_id='+api_id+'fields=photo_medium_recmethod='+methodFromAPI+'test_mode='+test_mode+'uids='+ viewer_id +'v='+version + api_secret;
 			var sig:String = MD5.encrypt(_sig); // используем метод hash класса md5 и получаем сигнатуру
 			
 			var request = new URLRequest("http://api.vkontakte.ru/api.php");
-			request.method = URLRequestMethod.POST;
+			request.method = URLRequestMethod.GET;
 			
 			var v:URLVariables = new URLVariables();
 			v.api_id = api_id;
-			v.v = "2.0"; // Версия АПИ
+			v.v = version; // Версия АПИ
 			v.method = methodFromAPI;
 			v.uids = viewer_id;
 			v.test_mode = test_mode;
 			v.sig = sig;
 			v.fields = "photo_medium_rec";
+			v.sid = sid;
 			
 			request.data = v;
 			

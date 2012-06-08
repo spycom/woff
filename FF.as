@@ -2666,11 +2666,14 @@ private var zebra3_bitmap:Class;
 		
 		firstManual.autoTeamHelper.fon_team.addChild(buy_auto_team);
 		
-		
+		var vk_key:Object = {viewer_id:woff_uid, api_id:woff_api_id, api_secret:woff_secret, version:"3.0", test_mode:"0", sid: woff_sid};
+			
+			
+			
 		winners_list = new winners_list_sprite(woff_uid, woff_sid, woff_secret);
 		winners_list.addEventListener(MouseEvent.CLICK, removeWinnerList);
 		
-		friends_league_avatar = new UserAvatar(woff_uid);
+		friends_league_avatar = new UserAvatar(vk_key);
 		
 		main4_avatar = new Loader();
 		main4_avatar.load(new URLRequest("http://cs4571.vkontakte.ru/u64416/d_dcd73d6f.jpg"));
