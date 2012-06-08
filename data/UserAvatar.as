@@ -14,16 +14,9 @@ package data
 		public function UserAvatar(params:Object)
 		{
 			var api_id:String = params.api_id;
-			//var userID:String = stage.loaderInfo.parameters.user_id;
 			var viewer_id:String = params.viewer_id;
 			var version:String = params.version;
 			var sid = params.sid;
-			//var uids:Array = uid;
-			//uids = viewer_id ;
-			
-			//for (var ii:int = 1; ii < uid.length; ii++)
-				//uids = uids + ","+ uid[ii] ;
-			
 			var api_secret:String = params.api_secret;
 			var test_mode:Number = params.test_mode;
 			

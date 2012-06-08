@@ -2588,8 +2588,6 @@ private var zebra3_bitmap:Class;
 			number = (i+1);
 			number_txt = new text(2,freq+5, String(number)+".","2");
 			
-			//uids_array.push(woff_answer.footballer[i].id_vk.text());
-			
 			nazvanie[i] = new text(21, freq+3, "...", "9");
 			points_[i] = new text(90, 34+freq, ".", "2");
 						
@@ -3616,7 +3614,8 @@ private var zebra3_bitmap:Class;
 		panel_transfer_right.trigger = 1;
 		
 		//обнуление команды
-		
+		teamReset_new();
+		/*
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
 					footman_array[zope___].setId(0);
@@ -3653,7 +3652,7 @@ private var zebra3_bitmap:Class;
 					
 					
 				}
-				
+			*/	
 		setMethod("getProfile");
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
@@ -3711,6 +3710,8 @@ private var zebra3_bitmap:Class;
 		panel_transfer_right.trigger = 1;
 		
 		//обнуление команды
+		teamReset_new();
+		/*
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
 					footman_array[zope___].setId(0);
@@ -3744,7 +3745,7 @@ private var zebra3_bitmap:Class;
 						footman_replace[zope___].setRole(zope___-12);
 					}
 				}
-				
+			*/	
 		setMethod("getProfile");
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
@@ -3793,12 +3794,14 @@ private var zebra3_bitmap:Class;
 		
 		background = background3;
 		champ = "chlig";
-		woff_general_request.url = woff_api3;
+		//woff_general_request.url = woff_api3;
 		
 		down_arrows = new Array();
 		panel_transfer_right.trigger = 1;
 		
 		//обнуление команды
+		teamReset_new();
+		/*
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
 					footman_array[zope___].setId(0);
@@ -3833,7 +3836,7 @@ private var zebra3_bitmap:Class;
 					}
 					
 				}
-				
+				*/
 		setMethod("getProfile");
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
@@ -3887,6 +3890,8 @@ private var zebra3_bitmap:Class;
 		down_arrows = new Array();
 		
 		//обнуление команды
+		teamReset_new();
+		/*
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
 					footman_array[zope___].setId(0);
@@ -3920,7 +3925,7 @@ private var zebra3_bitmap:Class;
 						footman_replace[zope___].setRole(zope___-12);
 					}
 				}
-				
+				*/
 		setMethod("getProfile");
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
@@ -3974,6 +3979,8 @@ private var zebra3_bitmap:Class;
 		panel_transfer_right.trigger = 1;
 		
 		//обнуление команды
+		teamReset_new();
+		/*
 		for (var zope___:int=1; zope___< 16; zope___++) {
 					footman_array[zope___].setText("null");
 					footman_array[zope___].setId(0);
@@ -4007,7 +4014,7 @@ private var zebra3_bitmap:Class;
 						footman_replace[zope___].setRole(zope___-12);
 					}
 				}
-				
+				*/
 		setMethod("getProfile");
 		
 		var woff_Profile_loader:URLLoader = new URLLoader();
@@ -9793,6 +9800,45 @@ private var zebra3_bitmap:Class;
 				}
 		}
 		
+		private function teamReset_new():void {
+			
+			for (var zope___:int=1; zope___< 16; zope___++) {
+				footman_array[zope___].setText("null");
+				footman_array[zope___].setId(0);
+				footman_club[zope___].setText("club null");
+				footman_name_txt[zope___].setText("ooo");
+				footman_name_txt[zope___].setId(0);
+				footman_pic[zope___].setRole("4");
+				if (footman_form_array[zope___].clubId != 0)
+					footman_form_array[zope___].setClub(0);
+				footman_form_array[zope___].champ = champ;
+				footman_replace[zope___].setId(0);
+				footman_replace[zope___].filters = [myGlow];
+				footman_scores[zope___].setText("0");
+				team_role[zope___].setText("--");
+				team_stat_array[zope___].setText("---");
+				team_eu_cost[zope___].setText("-");
+				
+				down_arrows[zope___] = new down_arrow();
+				down_arrows[zope___].x = footman_replace[zope___].x + 9;
+				down_arrows[zope___].y = footman_replace[zope___].y+90;
+				
+				if (zope___ > 1 && zope___ <= 5){
+					footman_replace[zope___].setRole(1);
+				}
+				if (zope___ > 5 && zope___ <= 9){
+					footman_replace[zope___].setRole(2);
+				}
+				if (zope___ > 9 && zope___ <= 11){
+					footman_replace[zope___].setRole(3);
+				}
+				if (zope___ > 12){
+					footman_replace[zope___].setRole(zope___-12);
+				}
+				
+				
+			}
+		}
 		// функция сборки 1-го окна
 		private function showMain1():void {
 			window = "main1";
