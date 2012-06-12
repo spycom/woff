@@ -4640,7 +4640,7 @@ private var zebra3_bitmap:Class;
 			
 			current_team_id = teamId;
 			current_tournament = 5;
-			woff_general_request.url = woff_api3;
+			//woff_general_request.url = woff_api3;
 			current_new_tour = 1;
 			main2_txt24.setText("Текущий тур: №" + current_new_tour);
 			
@@ -6016,7 +6016,7 @@ private var zebra3_bitmap:Class;
 			}
 			
 			points_[i].setText(int(woff_answer.footballer[i].score.text())/10);
-			
+			sostav[i].setId(woff_answer.footballer[i].id_vk.text());
 			/*
 			if (champ=="euro") {
 				sostav[i].x = -20;
@@ -9323,7 +9323,7 @@ private var zebra3_bitmap:Class;
 			nazvanie[i].setText("");
 			points_[i].setText("0");
 			sostav[i].setId(0);
-			sostav[i].x = -20;
+			//sostav[i].x = -20;
 				}
 				
 				
